@@ -1,0 +1,2943 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>git - Why do I need to do `--set-upstream` all the time? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Why do I need to do `--set-upstream` all the time?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I create a new branch in Git:
+
+git branch my_branch
+Push it:
+
+git push origin my_branch
+Now say someone made some changes on the server and I want to pull from origin/my_branch. I do:
+
+git pull
+...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time">
+    <link rel="canonical" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time">
+
+    
+    
+    <script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/quant.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/beacon.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/analytics.js.download"></script><script type="text/javascript" async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/ados.js.download"></script><script src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/jquery.min.js.download"></script>
+    <script src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/stub.en.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Why do I need to do `--set-upstream` all the time?&#39;" href="http://stackoverflow.com/feeds/question/6089294">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:3,shownCommentCount:3,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:6089294});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '6089294');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1478294929,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"2325415f3b9924ad3b6103f81be2832a","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"be_nice_anons_edit":{"v":"a","g":1},"likelytoupmod":{"v":"DontShowNewsletterToAnonVoters:a","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"89e99e77a88e","js/moderator.en.js":"224639e4d81f","js/full-anon.en.js":"87db0f1bf6da","js/full.en.js":"7b2d1d9692a9","js/wmd.en.js":"1d6d03c83ba5","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"29ca548cffd4","js/help.en.js":"54b998574be9","js/tageditor.en.js":"d2f2cff649ab","js/tageditornew.en.js":"17655d9e08cd","js/inline-tag-editing.en.js":"2ddfa79492e7","js/revisions.en.js":"cf90cfea0ccf","js/review.en.js":"00779798fe0e","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"e1e6ee10b47f","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"817f6a65dc63","js/keyboard-shortcuts.en.js":"a48c076b78cd","js/external-editor.en.js":"5441bf1fb1b5","js/external-editor.en.js":"5441bf1fb1b5","js/snippet-javascript.en.js":"bb9cbf50086e","js/snippet-javascript-codemirror.en.js":"324d7d8bdeea"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/full-anon.en.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/external-editor.en.js.download"></script></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        <iframe id="adzerk-user-match" width="0" height="0" frameborder="0" scrolling="no" onload="window.AUMIframeDone=true" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/usermatch.html" style="display: none;" marginheight="0" marginwidth="0"></iframe>
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6089294%2fwhy-do-i-need-to-do-set-upstream-all-the-time" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="http://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+        </div>
+
+        <div class="network-items">
+                <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 162 Stack Exchange sites">
+                    <span class="hidden-text">Stack Exchange</span>
+                </a>
+
+    <a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" class="topbar-icon icon-achievements yes-hover js-achievements-button " data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6089294%2fwhy-do-i-need-to-do-set-upstream-all-the-time" class="login-link">log in</a>
+
+                            <a href="http://stackoverflow.com/tour">tour</a>
+        <a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" class="icon-help js-help-button" title="Help Center and other resources">
+            help
+            <span class="triangle"></span>
+        </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://business.stackoverflow.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                                            </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="Search Q&amp;A" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                            <li class="youarehere">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="js-gps-track" data-gps-track="top_nav.click({is_current:true, location:3, destination:1})">
+        Questions
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:6})">
+        Jobs
+        </a>
+    </li>
+                            <li>
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:7})">
+        Documentation
+        </a>
+    </li>
+                            <li>
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:2})">
+        Tags
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-users" href="http://stackoverflow.com/users" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:3})">
+        Users
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-badges" href="http://stackoverflow.com/help/badges" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:4})">
+        Badges
+        </a>
+    </li>
+
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+    <div id="herobox" class="alternate">
+        <div class="test"></div>
+            <div id="close">
+                <a title="click to minimize"><span>x</span> Dismiss</a>
+            </div>
+        <div class="content">
+            <b>Join the Stack Overflow Community</b>
+            <div class="separator"></div>
+            <div class="blurb">
+                Stack Overflow is a community of 6.3 million programmers, just like you, helping each other.
+                    <br>
+Join them; it only takes a minute:                    <br>
+            </div>
+            <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6089294%2fwhy-do-i-need-to-do-set-upstream-all-the-time" id="tell-me-more" class="button">Sign up</a>
+        </div>
+    </div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time" class="question-hyperlink">Why do I need to do `--set-upstream` all the time?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="6089294" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1955295867",4).setZone(43); });
+            </script>
+                <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="6089294">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">619</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#">favorite</a>
+        <div class="favoritecount"><b>250</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I create a new branch in Git:</p>
+
+<pre><code>git branch my_branch
+</code></pre>
+
+<p>Push it:</p>
+
+<pre><code>git push origin my_branch
+</code></pre>
+
+<p>Now say someone made some changes on the server and I want to pull from <code>origin/my_branch</code>. I do:</p>
+
+<pre><code>git pull
+</code></pre>
+
+<p>But I get:</p>
+
+<pre><code>You asked me to pull without telling me which branch you
+want to merge with, and 'branch.my_branch.merge' in
+your configuration file does not tell me, either. Please
+specify which branch you want to use on the command line and
+try again (e.g. 'git pull &lt;repository&gt; &lt;refspec&gt;').
+See git-pull(1) for details.
+
+If you often merge with the same branch, you may want to
+use something like the following in your configuration file:
+
+    [branch "my_branch"]
+    remote = &lt;nickname&gt;
+    merge = &lt;remote-ref&gt;
+
+    [remote "&lt;nickname&gt;"]
+    url = &lt;url&gt;
+    fetch = &lt;refspec&gt;
+
+See git-config(1) for details.
+</code></pre>
+
+<p>I learned that I can make it work with:</p>
+
+<pre><code>git branch --set-upstream my_branch origin/my_branch
+</code></pre>
+
+<p>But why do I need to do this for every branch I create? Isn't it obvious that if I push <code>my_branch</code> into <code>origin/my_branch</code>, then I would want to pull <code>origin/my_branch</code> into <code>my_branch</code>? How can I make this the default behavior?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag js-gps-track" title="show questions tagged &#39;git&#39;" rel="tag">git</a> <a href="http://stackoverflow.com/questions/tagged/git-branch" class="post-tag js-gps-track" title="show questions tagged &#39;git-branch&#39;" rel="tag">git-branch</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/6089294" title="short permalink to this question" class="short-link" id="link-post-6089294">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/6089294/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/6089294/revisions" title="show all edits to this post">edited <span title="2013-06-14 19:28:07Z" class="relativetime">Jun 14 '13 at 19:28</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <span class="anonymous-gravatar"></span>
+    </div>
+    <div class="user-details">
+        user212218
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-05-22 16:39:49Z" class="relativetime">May 22 '11 at 16:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/76701/ram-rachum"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/d24c45635a5171615a7cdb936f36daad" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/76701/ram-rachum">Ram Rachum</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 16,994" dir="ltr">17k</span><span title="41 gold badges"><span class="badge1"></span><span class="badgecount">41</span></span><span title="135 silver badges"><span class="badge2"></span><span class="badgecount">135</span></span><span title="252 bronze badges"><span class="badge3"></span><span class="badgecount">252</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6089294" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-7061497" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">7</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The default for <code>branch.autosetupmerge</code> means that the upstream configuration for a new branch is only automatically set when creating a branch from a remote-tracking branch (e.g. <code>&lt;remote-name&gt;/&lt;branch-name&gt;</code>) (see <i><a href="http://www.kernel.org/pub/software/scm/git/docs/git-config.html" rel="nofollow noreferrer">git-config(1)</a></i>). You are probably creating your branches from existing local branches. If you are effectively branching directly from the tip of a remote branch (despite being on a local branch), then you can use <code>git branch my_branch &lt;remote-name&gt;/&lt;branch-name&gt;</code> to automatically setup the upstream configuration.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/193688/chris-johnsen" title="100,868 reputation" class="comment-user">Chris Johnsen</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment7061497_6089294"><span title="2011-05-23 04:16:47Z" class="relativetime-clean">May 23 '11 at 4:16</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 3 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-39371495" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">9</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">FYI, the <code>--set-upstream</code> option is deprecated. You should use <code>--track</code> or <code>--set-upstream-to</code> instead.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/814160/sean-the-bean" title="1,822 reputation" class="comment-user">Sean the Bean</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment39371495_6089294"><span title="2014-08-12 15:00:34Z" class="relativetime-clean">Aug 12 '14 at 15:00</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-66320281" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">6</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">if <code>--set-upstream</code> is deprecated, then perhaps the git devs should remove it from the help message that gets displayed when you run <code>git push</code> with no options and no upstream is set?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1246239/christopher-hunter" title="63 reputation" class="comment-user">Christopher Hunter</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment66320281_6089294"><span title="2016-09-15 00:15:43Z" class="relativetime-clean">Sep 15 at 0:15</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6089294" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								12 Answers
+                                <span style="display:none;" itemprop="answerCount">12</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="6089415"></a>
+<div id="answer-6089415" class="answer accepted-answer" data-answerid="6089415" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="6089415">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">762</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>A shortcut, which doesn't depend on remembering the syntax for <code>git branch --set-upstream</code> <sup>1</sup> is to do:</p>
+
+<pre><code>git push -u origin my_branch
+</code></pre>
+
+<p>... the first time that you push that branch.  You only need to do it once, and that sets up the association between your branch and the one at <code>origin</code> in the same way as <code>git branch --set-upstream</code> does.</p>
+
+<p>Personally, I think it's a good thing to have to set up that association between your branch and one on the remote explicitly.  It's just a shame that the rules are <a href="http://longair.net/blog/2011/02/27/an-asymmetry-between-git-pull-and-git-push/">different for <code>git push</code> and <code>git pull</code></a>.</p>
+
+<hr>
+
+<p><sup>1</sup> It may sound silly, but I very frequently forget to specify the current branch, assuming that's the default - it's not, and the results are most confusing :)</p>
+
+<p><em>Update 2012-10-11</em>: Apparently I'm not the only person who found it easy to get wrong! Thanks to <a href="http://stackoverflow.com/users/6309/vonc">VonC</a> for pointing out that git 1.8.0 introduces the more obvious <code>git branch --set-upstream-to</code>, which can be used as follows, if you're on the branch <code>my_branch</code>:</p>
+
+<pre><code>git branch --set-upstream-to origin/my_branch
+</code></pre>
+
+<p>... or with the short option:</p>
+
+<pre><code>git branch -u origin/my_branch
+</code></pre>
+
+<p>This change, and its reasoning, is described in <a href="http://git.661346.n2.nabble.com/ANNOUNCE-Git-v1-8-0-rc1-tc7568792.html">the release notes for git 1.8.0, release candidate 1</a>:</p>
+
+<blockquote>
+  <p>It was tempting to say <code>git branch --set-upstream origin/master</code>, but that tells Git to arrange the local branch <code>origin/master</code> to integrate with the currently checked out branch, which is highly unlikely what the user meant.  The option is deprecated; use the new <code>--set-upstream-to</code> (with a short-and-sweet <code>-u</code>) option instead.</p>
+</blockquote>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/6089415" title="short permalink to this answer" class="short-link" id="link-post-6089415">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/6089415/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/6089415/revisions" title="show all edits to this post">edited <span title="2012-10-11 12:27:24Z" class="relativetime">Oct 11 '12 at 12:27</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-05-22 16:58:56Z" class="relativetime">May 22 '11 at 16:58</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/223092/mark-longair"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/71c4accacd83e0e6d2193e0da83dd3aa" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/223092/mark-longair">Mark Longair</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 184,858" dir="ltr">185k</span><span title="43 gold badges"><span class="badge1"></span><span class="badgecount">43</span></span><span title="297 silver badges"><span class="badge2"></span><span class="badgecount">297</span></span><span title="268 bronze badges"><span class="badge3"></span><span class="badgecount">268</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-6089415" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="8" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-19855483" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="supernova">55</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Also note that even if you forget the <code>-u</code> the first time you push, you can run the push again with that flag and it will start tracking.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/6962/henrik-n" title="8,278 reputation" class="comment-user">Henrik N</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment19855483_6089415"><span title="2013-01-12 17:33:39Z" class="relativetime-clean">Jan 12 '13 at 17:33</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-23624086" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">26</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">None of these satisfy the use-case of using git push without arguments. It remains that I still have to remember to 'git push -u origin my-branch' when moving my new branch to the remote for the first time.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/105870/karl-the-pagan" title="1,178 reputation" class="comment-user">Karl the Pagan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment23624086_6089415"><span title="2013-05-09 16:15:27Z" class="relativetime-clean">May 9 '13 at 16:15</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-24766024" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Note to self: a more complete explanation for the first <code>git push -u origin master</code>: <a href="http://stackoverflow.com/a/17096880/6309">stackoverflow.com/a/17096880/6309</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/6309/vonc" title="631,497 reputation" class="comment-user">VonC</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment24766024_6089415"><span title="2013-06-14 19:56:59Z" class="relativetime-clean">Jun 14 '13 at 19:56</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-28774239" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">7</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I hate remembering that syntax as well, so I created the following alias: <code>alias gpo="git push --set-upstream origin $(git branch | awk '/^\* / { print $2 }')"</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/955856/lillialexis" title="641 reputation" class="comment-user">lillialexis</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment28774239_6089415"><span title="2013-10-16 18:44:50Z" class="relativetime-clean">Oct 16 '13 at 18:44</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-29787606" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">20</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is all fine, but I still think the OP's complaint is valid.  You start a local branch, work on it, push it to origin to share (with no args); why shouldn't that set the upstream?  Is it actually desirable for some reason NOT to set upstream when pushing a new branch to a remote?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/258894/garyo" title="992 reputation" class="comment-user">GaryO</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment29787606_6089415"><span title="2013-11-15 16:30:13Z" class="relativetime-clean">Nov 15 '13 at 16:30</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-6089415" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick="">show <b>8</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk377749459",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk377749459"></div>
+  
+<a name="22933955"></a>
+<div id="answer-22933955" class="answer" data-answerid="22933955" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="22933955">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">387</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can make this happen with less typing. First, change the way your push works:</p>
+
+<pre><code>git config --global push.default current
+</code></pre>
+
+<p>This will infer the <code>origin my_branch</code> part, thus you can do:</p>
+
+<pre><code>git push -u
+</code></pre>
+
+<p>Which will both create the remote branch with the same name and track it.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/22933955" title="short permalink to this answer" class="short-link" id="link-post-22933955">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/22933955/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-04-08 10:14:04Z" class="relativetime">Apr 8 '14 at 10:14</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/830229/zamith"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/6b36c1147f2037ac01ec2e182a5ae70d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/830229/zamith">Zamith</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,912</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-22933955" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="4" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-42287063" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why this is not the one selected as correct?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1455176/mottalrd" title="1,168 reputation" class="comment-user">mottalrd</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment42287063_22933955"><span title="2014-11-11 11:24:18Z" class="relativetime-clean">Nov 11 '14 at 11:24</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-42587534" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">9</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Because this answer came much later than the accepted answer.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3461/ben-atkin" title="9,036 reputation" class="comment-user">Ben Atkin</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment42587534_22933955"><span title="2014-11-20 06:23:19Z" class="relativetime-clean">Nov 20 '14 at 6:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-53947270" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">How come can git infer <code>origin</code> when running <code>git push -u</code> for newly created branch in newly created repository? Is the assumption that repository had been cloned thus current branch has its remote set to <code>origin</code>?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/95735/piotr-dobrogost" title="21,529 reputation" class="comment-user">Piotr Dobrogost</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment53947270_22933955"><span title="2015-10-11 11:03:11Z" class="relativetime-clean">Oct 11 '15 at 11:03</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-58409971" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This should be the default. So many things in git could be more user-friendly if it just shipped with better defaults.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/473201/phreakhead" title="5,669 reputation" class="comment-user">phreakhead</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment58409971_22933955"><span title="2016-02-11 22:29:05Z" class="relativetime-clean">Feb 11 at 22:29</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-67630415" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This answer is the real hero</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/16507/thebigjc" title="521 reputation" class="comment-user">thebigjc</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment67630415_22933955"><span title="2016-10-21 16:36:00Z" class="relativetime-clean">Oct 21 at 16:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-22933955" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick="">show <b>4</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="9753268"></a>
+<div id="answer-9753268" class="answer" data-answerid="9753268" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9753268">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">40</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can simply</p>
+
+<pre><code>git checkout -b my-branch origin/whatever
+</code></pre>
+
+<p>in the first place. If you set <code>branch.autosetupmerge</code> or <code>branch.autosetuprebase</code> (my favorite) to <code>always</code> (default is <code>true</code>), <code>my-branch</code> will automatically track <code>origin/whatever</code>.</p>
+
+<p>See <code>git help config</code>.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/9753268" title="short permalink to this answer" class="short-link" id="link-post-9753268">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/9753268/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/9753268/revisions" title="show all edits to this post">edited <span title="2013-06-06 22:33:24Z" class="relativetime">Jun 6 '13 at 22:33</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/229753/tobu"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/f443a82ac96270394a6965323142601b" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/229753/tobu">Tobu</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 16,277" dir="ltr">16.3k</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="55 silver badges"><span class="badge2"></span><span class="badgecount">55</span></span><span title="79 bronze badges"><span class="badge3"></span><span class="badgecount">79</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-03-17 20:04:15Z" class="relativetime">Mar 17 '12 at 20:04</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/263998/cdunn2001"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/f39c51ab7728df9d23cdd3e0c72495e0" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/263998/cdunn2001">cdunn2001</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">8,220</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="35 silver badges"><span class="badge2"></span><span class="badgecount">35</span></span><span title="31 bronze badges"><span class="badge3"></span><span class="badgecount">31</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-9753268" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-23623424" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This produces "fatal: Cannot update paths and switch to branch 'my-branch' at the same time."</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/105870/karl-the-pagan" title="1,178 reputation" class="comment-user">Karl the Pagan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment23623424_9753268"><span title="2013-05-09 15:55:47Z" class="relativetime-clean">May 9 '13 at 15:55</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-23639842" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Karl, that rare error is explained <a href="http://stackoverflow.com/questions/945654/git-checkout-on-a-remote-branch-does-not-work">here</a>.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/263998/cdunn2001" title="8,220 reputation" class="comment-user">cdunn2001</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment23639842_9753268"><span title="2013-05-10 04:34:07Z" class="relativetime-clean">May 10 '13 at 4:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-23639865" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">By the way, I usually just <code>git checkout -t origin/whatever</code>, which also chooses <code>whatever</code> as the new branch-name. Very convenient!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/263998/cdunn2001" title="8,220 reputation" class="comment-user">cdunn2001</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment23639865_9753268"><span title="2013-05-10 04:35:24Z" class="relativetime-clean">May 10 '13 at 4:35</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-24516792" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@cdunn This one is ideal, but hardly consistent.  The flag should be called <code>-u</code>/<code>--set-upstream</code>.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/229753/tobu" title="16,277 reputation" class="comment-user">Tobu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment24516792_9753268"><span title="2013-06-06 22:38:22Z" class="relativetime-clean">Jun 6 '13 at 22:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-9753268" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="29100340"></a>
+<div id="answer-29100340" class="answer" data-answerid="29100340" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="29100340">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">15</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can set upstream simpler in two ways. First when you create the branch:</p>
+
+<pre><code>git branch -u origin my_branch
+</code></pre>
+
+<p>or after you have created a branch, you can use this command.</p>
+
+<pre><code>git push -u origin my_branch
+</code></pre>
+
+<p>You can also branch, check out and set upstream in a single command:</p>
+
+<pre><code>git checkout -b mybranch --track origin/mybranch
+</code></pre>
+
+<p>My personally preference is to do this in a two-step command:</p>
+
+<pre><code>git checkout -b mybranch
+git push -u origin mybranch
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/29100340" title="short permalink to this answer" class="short-link" id="link-post-29100340">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/29100340/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-03-17 13:28:19Z" class="relativetime">Mar 17 '15 at 13:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/766096/tzen"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/1feb1b39040afc9b6c8536cb49737da8" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/766096/tzen">Tzen</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">157</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29100340" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29100340" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="29928863"></a>
+<div id="answer-29928863" class="answer" data-answerid="29928863" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="29928863">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">13</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can use:</p>
+
+<blockquote>
+  <p>git config --global branch.autosetupmerge always</p>
+</blockquote>
+
+<p>which will link the upstream branch each time you create or checkout a new branch.</p>
+
+<p>See <a href="https://felipec.wordpress.com/2013/09/01/advanced-git-concepts-the-upstream-tracking-branch/">https://felipec.wordpress.com/2013/09/01/advanced-git-concepts-the-upstream-tracking-branch/</a></p>
+
+<p>This also works with autosetuprebase, if you follow a more rebase focused workflow, but don't use this unless you know what you're doing, as it will default your pull behavior to rebase, which can cause odd results. </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/29928863" title="short permalink to this answer" class="short-link" id="link-post-29928863">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/29928863/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-04-28 20:05:12Z" class="relativetime">Apr 28 '15 at 20:05</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/70013/daniel"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/f5afe8b8285b4f7c8aa93efd11f3ddcf" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/70013/daniel">Daniel</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,607</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-29928863" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-51347538" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Doesn't work, I still get the <code>--set-upstream</code> message</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/407213/dorian" title="6,713 reputation" class="comment-user">Dorian</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment51347538_29928863"><span title="2015-07-29 15:16:12Z" class="relativetime-clean">Jul 29 '15 at 15:16</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-63392012" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Dorian, You have to set this before you create the branch. See <a href="http://stackoverflow.com/a/9753268/263998">stackoverflow.com/a/9753268/263998</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/263998/cdunn2001" title="8,220 reputation" class="comment-user">cdunn2001</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment63392012_29928863"><span title="2016-06-22 15:52:45Z" class="relativetime-clean">Jun 22 at 15:52</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-65873416" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I get: fatal: The upstream branch of your current branch does not match the name of your current branch...</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1595320/riscie" title="498 reputation" class="comment-user">Riscie</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment65873416_29928863"><span title="2016-09-01 10:48:41Z" class="relativetime-clean">Sep 1 at 10:48</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-29928863" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="9788927"></a>
+<div id="answer-9788927" class="answer" data-answerid="9788927" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9788927">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">7</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>You can also explicitly tell git pull what remote branch to pull (as it mentions in the error message):</p>
+
+<p><code>git pull &lt;remote-name&gt; &lt;remote-branch&gt;</code></p>
+
+<p><em>Be careful with this, however:</em> if you are on a different branch and do an explicit pull, the refspec you pull will be merged into the branch you're on!</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/9788927" title="short permalink to this answer" class="short-link" id="link-post-9788927">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/9788927/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-03-20 14:41:17Z" class="relativetime">Mar 20 '12 at 14:41</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/263607/mtbkrdave"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/0a0493b11d05dc10294a68ea2a1fc637" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/263607/mtbkrdave">mtbkrdave</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">895</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="20 bronze badges"><span class="badge3"></span><span class="badgecount">20</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-9788927" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-9788927" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="20455554"></a>
+<div id="answer-20455554" class="answer" data-answerid="20455554" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="20455554">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>For what it is worth, if you are trying to track a branch that already exists on the remote (eg. origin/somebranch) but haven't checked it out locally yet, you can do:</p>
+
+<pre><code>$ git checkout --track origin/somebranch
+</code></pre>
+
+<p>Note: '-t' is the shortened version of '--track' option.</p>
+
+<p>This sets up the same association right off the bat.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/20455554" title="short permalink to this answer" class="short-link" id="link-post-20455554">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/20455554/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-12-08 16:11:01Z" class="relativetime">Dec 8 '13 at 16:11</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/498663/mattacular"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/fc34dc6cf17121952e967cdba43f76fe" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/498663/mattacular">mattacular</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,657</span><span title="9 silver badges"><span class="badge2"></span><span class="badgecount">9</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-20455554" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-35009236" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">You can actually just checkout to the branch. So <code>git checkout somebranch</code> is equivalent.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/830229/zamith" title="6,912 reputation" class="comment-user">Zamith</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment35009236_20455554"><span title="2014-04-08 10:15:09Z" class="relativetime-clean">Apr 8 '14 at 10:15</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-46198445" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@Zamith Doesn't that only work after having called <code>git fetch</code> immediately beforehand?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2539700/walter-roman" title="2,079 reputation" class="comment-user">Walter Roman</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment46198445_20455554"><span title="2015-03-10 20:37:33Z" class="relativetime-clean">Mar 10 '15 at 20:37</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-46266519" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Not immediately, but yes, you do need to have a reference to that branch on your local repo, which happens whenever you call <code>git fetch</code> or <code>git pull</code>. I've never found that to be an issue, though.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/830229/zamith" title="6,912 reputation" class="comment-user">Zamith</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment46266519_20455554"><span title="2015-03-12 13:14:29Z" class="relativetime-clean">Mar 12 '15 at 13:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-20455554" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="32260861"></a>
+<div id="answer-32260861" class="answer" data-answerid="32260861" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="32260861">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I use this Git alias instead of copy/pasting the suggestion from Git every time: <a href="https://gist.github.com/ekilah/88a880c84a50b73bd306" rel="nofollow">https://gist.github.com/ekilah/88a880c84a50b73bd306</a></p>
+
+<p>Source copied below (add this to your <code>~/.gitconfig</code> file):</p>
+
+<pre><code>[alias]
+  pushup = "!gitbranchname() { git symbolic-ref --short HEAD; }; gitpushupstream() { git push --set-upstream origin `gitbranchname`; }; gitpushupstream"
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/32260861" title="short permalink to this answer" class="short-link" id="link-post-32260861">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/32260861/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/32260861/revisions" title="show all edits to this post">edited <span title="2016-02-28 05:07:32Z" class="relativetime">Feb 28 at 5:07</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/63550/peter-mortensen"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/RIZKi.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/63550/peter-mortensen">Peter Mortensen</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 10,321" dir="ltr">10.3k</span><span title="13 gold badges"><span class="badge1"></span><span class="badgecount">13</span></span><span title="70 silver badges"><span class="badge2"></span><span class="badgecount">70</span></span><span title="107 bronze badges"><span class="badge3"></span><span class="badgecount">107</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-08-27 23:10:56Z" class="relativetime">Aug 27 '15 at 23:10</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2544629/manroe"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/9e9bfef3fb6b94ac26d18494749f2f17" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2544629/manroe">manroe</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">652</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="17 bronze badges"><span class="badge3"></span><span class="badgecount">17</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-32260861" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-32260861" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="39513531"></a>
+<div id="answer-39513531" class="answer" data-answerid="39513531" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="39513531">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>By the way, the shortcut to pushing the current branch to a remote with the same name:</p>
+
+<pre><code>$ git push -u origin HEAD
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/39513531" title="short permalink to this answer" class="short-link" id="link-post-39513531">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/39513531/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-09-15 14:20:30Z" class="relativetime">Sep 15 at 14:20</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/174445/djanowski"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/ffd012d72e7f61639724878825ed25a3" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/174445/djanowski">djanowski</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,534</span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-39513531" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-39513531" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="31129670"></a>
+<div id="answer-31129670" class="answer" data-answerid="31129670" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="31129670">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>git branch --set-upstream-to=origin/master&lt;branch_name&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/31129670" title="short permalink to this answer" class="short-link" id="link-post-31129670">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/31129670/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-06-30 04:39:16Z" class="relativetime">Jun 30 '15 at 4:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3693546/vats"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/0ad802fcf698ecc1b7e1a8aba39da8d2" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3693546/vats">vats</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">935</span><span title="6 silver badges"><span class="badge2"></span><span class="badgecount">6</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-31129670" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-31129670" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="39374362"></a>
+<div id="answer-39374362" class="answer" data-answerid="39374362" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="39374362">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>This hasn't been specifically said, but is close to all the above. To set my upstream to my git I use: </p>
+
+<pre><code>git push --set-upstream origin &lt;branch_name&gt;
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/39374362" title="short permalink to this answer" class="short-link" id="link-post-39374362">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/39374362/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-09-07 15:49:55Z" class="relativetime">Sep 7 at 15:49</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6678821/imapotatoe123"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/0ab1b4f79d05677741bb4df205a6cabf" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6678821/imapotatoe123">imapotatoe123</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">54</span><span title="4 bronze badges"><span class="badge3"></span><span class="badgecount">4</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-39374362" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-39374362" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="12104520"></a>
+<div id="answer-12104520" class="answer downvoted-answer" data-answerid="12104520" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="12104520">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-25</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Check the git help documentation</p>
+
+<pre><code>git push --help
+</code></pre>
+
+<p>You will find that both 
+    <code>-u</code>
+and
+    <code>--set-upstream</code>
+do the same thing.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/12104520" title="short permalink to this answer" class="short-link" id="link-post-12104520">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/12104520/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-08-24 06:55:22Z" class="relativetime">Aug 24 '12 at 6:55</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1621847/rushi-agrawal"><div class="gravatar-wrapper-32"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/6a1b1aa5fd19dec48aef47d61eca52c3" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1621847/rushi-agrawal">Rushi Agrawal</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-12104520" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-19289437" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">19</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">-u is the same as --set-upstream-to, not --set-upstream.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/479017/duke" title="4,682 reputation" class="comment-user">Duke</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment19289437_12104520"><span title="2012-12-20 19:43:46Z" class="relativetime-clean">Dec 20 '12 at 19:43</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-34707542" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">On git-push, -u and --set-upstream are indeed the same, on the other hand on git-branch, -u and --set-upstream-to are equivalent.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/121487/eliseo-ocampos" title="1,084 reputation" class="comment-user">Eliseo Ocampos</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#comment34707542_12104520"><span title="2014-03-31 16:04:44Z" class="relativetime-clean">Mar 31 '14 at 16:04</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-12104520" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/6089294/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="6089294">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="2325415f3b9924ad3b6103f81be2832a">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f6089294%2fwhy-do-i-need-to-do-set-upstream-all-the-time%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f6089294%2fwhy-do-i-need-to-do-set-upstream-all-the-time%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag" title="show questions tagged &#39;git&#39;" rel="tag">git</a> <a href="http://stackoverflow.com/questions/tagged/git-branch" class="post-tag" title="show questions tagged &#39;git-branch&#39;" rel="tag">git-branch</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-05-22 16:39:49Z"><b>5 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>353811 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time?lastactivity" class="lastactivity-link" title="2016-09-15 14:20:30Z">1 month ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1154785235",[5,17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1154785235"></div>
+            <div id="hireme"></div>
+        <script>
+;(function(n){var u=Object.assign||function(n){for(var i,r,u,f,e=[],t=1;t<arguments.length;t++)e[t-1]=arguments[t];for(i=0,r=e;i<r.length;i++){u=r[i];for(f in u)n[f]=u[f]}return n},r,t,f,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(r=["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],r[0]!=="*"&&r.indexOf(location.hostname)===-1)return;t=window;f=t.clc_opts?u({},window.clc_opts):{};t.clc_opts=u(n,f);void 0;t.clc_opts.autoload&&(t.clc_init=t.clc_init||[],t.clc_init.push(function(){return t.clc.load()}));i=document.createElement("script");i.async=!0;void 0;i.src=t.clc_opts.lib;document.body.appendChild(i)}catch(e){void 0}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"//clc.stackoverflow.com/p.js","lib":"//cdn.sstatic.net/clc/clc.min.js?v=0b93ded9c111"});        </script>
+            <script>
+window.clcfl_request = 'AQAAAABO6lwAAgAAAAIAAAABEAAAAHxnaXR8Z2l0LWJyYW5jaHwAzVhKkqBFVzuZrQ';
+                ;(function(n){var t,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(n.allowed[0]!=="*"&&n.allowed.indexOf(location.hostname)===-1)return;t=window;t.clcfl=t.clcfl||{};t.clcfl_request||void 0;t.clcfl.init=t.clcfl.init||[];t.clcfl.init.push(function(n){return n.load()});t.clcfl.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(r){}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"//clc.stackoverflow.com/fl/markup-bg.js","lib":"//cdn.sstatic.net/clc/fl/clc.min.js?v=896d1e931c04"});
+            </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/520650?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted extra-large">2414</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/520650/make-an-existing-git-branch-track-a-remote-branch?noredirect=1&amp;lq=1" class="question-hyperlink">Make an existing Git branch track a remote branch?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/945654?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">418</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/945654/git-checkout-updating-paths-is-incompatible-with-switching-branches?noredirect=1&amp;lq=1" class="question-hyperlink">Git checkout: updating paths is incompatible with switching branches</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17096311?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">75</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17096311/why-do-i-need-to-explicitly-push-a-new-branch?noredirect=1&amp;lq=1" class="question-hyperlink">Why do I need to explicitly push a new branch?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/23918062?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">46</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23918062/simple-vs-current-push-default-in-git-for-decentralized-workflow?noredirect=1&amp;lq=1" class="question-hyperlink">“simple” vs “current” push.default in git for decentralized workflow</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/11278497?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">31</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/11278497/update-a-local-branch-with-the-changes-from-a-tracked-remote-branch?noredirect=1&amp;lq=1" class="question-hyperlink">Update a local branch with the changes from a tracked remote branch</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/11693288?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">13</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/11693288/how-to-create-new-repo-at-github-using-git-bash?noredirect=1&amp;lq=1" class="question-hyperlink">how to create new repo at Github using git bash?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17122245?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">6</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17122245/what-is-a-git-upstream?noredirect=1&amp;lq=1" class="question-hyperlink">What is a git upstream</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17546246?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17546246/git-cloning-repository-into-new-repository?noredirect=1&amp;lq=1" class="question-hyperlink">Git: cloning repository into new repository</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/23304688?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/23304688/issue-pushing-to-a-github-repository-created-with-initialize-repo-with-a-readme?noredirect=1&amp;lq=1" class="question-hyperlink">Issue pushing to a GitHub repository created with “Initialize repo with a README” option</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/8995172?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">4</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8995172/how-do-i-undo-tracking-a-remote-branch-in-git?noredirect=1&amp;lq=1" class="question-hyperlink">How do I undo tracking a remote branch in git?</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/6089294?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/67699?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2869</div></a><a href="http://stackoverflow.com/questions/67699/how-to-clone-all-remote-branches-in-git?rq=1" class="question-hyperlink">How to clone all remote branches in Git?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/822811?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1418</div></a><a href="http://stackoverflow.com/questions/822811/showing-which-files-have-changed-between-two-revisions?rq=1" class="question-hyperlink">Showing which files have changed between two revisions</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/1125968?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">3261</div></a><a href="http://stackoverflow.com/questions/1125968/how-to-force-git-pull-to-overwrite-local-files?rq=1" class="question-hyperlink">How to force “git pull” to overwrite local files?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/1519006?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2021</div></a><a href="http://stackoverflow.com/questions/1519006/how-do-you-create-a-remote-git-branch?rq=1" class="question-hyperlink">How do you create a remote Git branch?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2003505?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">8799</div></a><a href="http://stackoverflow.com/questions/2003505/how-to-delete-a-git-branch-both-locally-and-remotely?rq=1" class="question-hyperlink">How to delete a Git branch both locally and remotely?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2765421?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2402</div></a><a href="http://stackoverflow.com/questions/2765421/how-to-push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too?rq=1" class="question-hyperlink">How to push a new local branch to a remote Git repository and track it too?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2850369?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">557</div></a><a href="http://stackoverflow.com/questions/2850369/why-does-git-fast-forward-merges-by-default?rq=1" class="question-hyperlink">Why does git fast-forward merges by default?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2862590?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">863</div></a><a href="http://stackoverflow.com/questions/2862590/how-to-replace-master-branch-in-git-entirely-from-another-branch?rq=1" class="question-hyperlink">How to replace master branch in git, entirely, from another branch?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/9537392?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">922</div></a><a href="http://stackoverflow.com/questions/9537392/git-fetch-remote-branch?rq=1" class="question-hyperlink">Git fetch remote branch</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/10312521?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">472</div></a><a href="http://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches?rq=1" class="question-hyperlink">How to fetch all git branches</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/141701/how-can-ransomware-know-file-types" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can ransomware know file types?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-gis" title="Geographic Information Systems Stack Exchange"></div><a href="http://gis.stackexchange.com/questions/216599/how-to-place-labels-in-the-top-left-corner-of-every-polygon" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:79 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to place labels in the top left corner of every polygon?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/845502/get-the-unique-lines-of-second-file-in-result-of-comparing-two-files" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Get the unique lines of second file in result of comparing two files
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/144484/do-students-wear-muggle-clothing-while-not-in-classes-at-hogwarts-like-they-do" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Do students wear muggle clothing while not in classes at Hogwarts (like they do in the films)?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-emacs" title="Emacs Stack Exchange"></div><a href="http://emacs.stackexchange.com/questions/28409/meaning-of-period-in-123" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:583 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Meaning of period in (. 123)
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-photo" title="Photography Stack Exchange"></div><a href="http://photo.stackexchange.com/questions/84215/does-every-interesting-photograph-have-a-story-to-tell" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does every interesting photograph have a story to tell?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-cooking" title="Seasoned Advice"></div><a href="http://cooking.stackexchange.com/questions/75253/baking-in-drinking-glasses-heat-vs-logo-paint-other-issues" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:49 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Baking in drinking glasses -- heat vs. logo paint, other issues
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/27627/am-i-interrupting-my-husbands-parenting" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Am I interrupting my husband's parenting?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/81977/can-i-travel-to-dublin-ireland-without-a-passport-from-the-uk" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can I travel to Dublin Ireland without a passport from the UK?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/60239/how-to-harness-jupiters-gravitational-energy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to harness Jupiter's gravitational energy?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-esperanto" title="Esperanto Language Stack Exchange"></div><a href="http://esperanto.stackexchange.com/questions/1964/what-are-the-names-of-the-diacritic-letters-in-the-esperanto-alphabet" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:662 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What are the "names" of the diacritic letters in the Esperanto Alphabet?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/144518/book-based-on-a-waterworld-with-a-monstrous-overlord" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Book based on a waterworld with a monstrous overlord
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-apple" title="Ask Different"></div><a href="http://apple.stackexchange.com/questions/259949/apple-ipod-16gb-can-this-be-used-without-the-internet" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:118 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Apple iPod 16gb; Can this be used without the internet?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/244199/why-is-it-that-natural-log-changes-are-percentage-changes-what-is-about-logs-th" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is it that natural log changes are percentage changes? What is about logs that makes this so?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="http://japanese.stackexchange.com/questions/40644/what-does-%e3%83%ab%e3%83%84%e3%82%af%e3%83%8f-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does ルツクハ mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/45374/surreal-dreaming-in-wild-westworld" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Surreal Dreaming in Wild Westworld
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/79050/what-should-i-do-when-the-boss-pulls-rank-to-get-their-problems-solved-over-ou" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What should I do when the boss "pulls rank" to get their problems solved over our customers' problems?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/337529/how-to-randomly-fill-an-area-with-daisies-in-tikz" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to randomly fill an area with daisies in TikZ
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/154251/is-adding-the-tbl-prefix-to-table-names-really-a-problem" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is adding the ‘tbl’ prefix to table names really a problem?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-dba" title="Database Administrators Stack Exchange"></div><a href="http://dba.stackexchange.com/questions/154227/pagination-in-sql-server" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:182 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Pagination in SQL Server
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-vi" title="Vi and Vim Stack Exchange"></div><a href="http://vi.stackexchange.com/questions/10161/how-to-replace-inner-text-with-yanked-text" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:599 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    how to replace inner text with yanked text
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-movies" title="Movies &amp; TV Stack Exchange"></div><a href="http://movies.stackexchange.com/questions/62772/who-is-this-character-in-x-men-the-last-stand-what-is-his-power" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:367 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Who is this character in X-Men: The Last Stand? What is his power?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-anime" title="Anime &amp; Manga Stack Exchange"></div><a href="http://anime.stackexchange.com/questions/37171/why-dont-english-translated-light-novels-retain-the-backwards-page-ordering" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:477 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't English translated light novels retain the "backwards" page ordering?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/98335/depalindromize-this-string" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Depalindromize this string!
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/6089294" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/6089294/ivc/6bec');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/6089294/ivc/6bec" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/clc.min.js.download"></script><script async="" src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/clc.min.js(1).download"></script>
+    <div id="footer" class="categories">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="4">
+                Technology
+            </th>
+            <th colspan="2">
+                Life / Arts
+            </th>
+            <th colspan="2">
+                Culture / Recreation
+            </th>
+            <th colspan="2">
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://talent.stackoverflow.com/">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.11.3.4166
+            </div>
+                </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+                ados_setKeywords('git,git-branch');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            
+            ga('create', 'UA-5620270-1');
+            ga('set', 'dimension2', '|git|git-branch|');             ga('send', 'pageview');
+        
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+<img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/to.gif" style="display: none;"><img src="./git - Why do I need to do `--set-upstream` all the time_ - Stack Overflow_files/to.gif" style="display: none;"></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://help.github.com/articles/configuring-a-remote-for-a-fork/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="search" type="application/opensearchdescription+xml" href="https://help.github.com/opensearch.xml" title="GitHub:Help">
+  <title>
+  
+    
+      Configuring a remote for a fork - User Documentation
+    
+  
+  </title>
+  
+<link rel="icon" type="image/x-icon" href="https://help.github.com/assets/images/site/favicon.ico">
+<link rel="stylesheet" href="./Configuring a remote for a fork - User Documentation_files/application.css">
+<script type="text/javascript" async="" src="./Configuring a remote for a fork - User Documentation_files/ga.js.download"></script><script src="./Configuring a remote for a fork - User Documentation_files/application.js.download"></script>
+
+<meta name="Description" content="To [sync changes you make in a fork](/articles/syncing-a-fork) with the original repository, you must configure a remote that points to the upstream repository in Git.
+…">
+
+<script type="text/javascript">
+  $(function() {
+    $('#quicksearch-query').lunrSearch({
+      
+      indexUrl: '/search/search.json',
+      
+      quickSearchResults:  '.autocomplete-results',
+      quickSearchEntries:  '.result-group',
+      quickSearchTemplate: '#quicksearch-results-template',
+
+      searchResults: '.search-container',
+      searchEntries: '.search-results',
+      searchTemplate: '#search-results-template'
+    });
+  });
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3769691-27']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</head>
+
+<body id="com" class="platform-switch platform-windows">
+
+<div id="not-footer">
+  
+
+
+  <div id="header">
+    <div class="clearfix">
+      <h1 class="site-logo"><a href="https://help.github.com/">GitHub Help</a></h1>
+
+      <ul class="top-nav">
+        
+<li>
+  <button class="js-dropdown-button dropdown-button">Version <div class="dropdown-caret"></div></button>
+  <div class="dropdown-menu js-dropdown-menu">
+    <a href="https://help.github.com/">GitHub.com</a>
+    
+    <a href="https://help.github.com/enterprise/2.7/">GitHub Enterprise 2.7</a>
+    
+    <a href="https://help.github.com/enterprise/2.6/">GitHub Enterprise 2.6</a>
+    
+    <a href="https://help.github.com/enterprise/2.5/">GitHub Enterprise 2.5</a>
+    
+    <a href="https://help.github.com/enterprise/2.4/">GitHub Enterprise 2.4</a>
+    
+    <a href="https://help.github.com/enterprise/2.3/">GitHub Enterprise 2.3</a>
+    
+  </div>
+</li>
+
+
+        
+        <li><a href="https://github.com/contact">Contact Support</a></li>
+        <li><a href="https://github.com/">Return to GitHub</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+  <div id="content-wrapper">
+
+    <div class="site">
+      
+
+
+
+
+
+
+
+
+      <div class="content-header small">
+        <h6 class="breadcrumbs">
+          
+          <a href="https://help.github.com/categories/collaborating-with-issues-and-pull-requests">Collaborating with issues and pull requests</a>
+          /
+          
+          Configuring a remote for a fork
+        </h6>
+        <div class="search-form small right">
+          
+  
+
+
+<script id="quicksearch-results-template" type="text/mustache">
+  <div class="header">
+    <a class="initial quicksearch-seemore" href="/search?q=">See more results</a>
+  </div>
+  [[#entries]]
+    <tr class="article">
+      <td class="info">
+        <a href="[[url]]" class="js-articles-quicksearch-link">[[title]]</a>
+      </td>
+    </tr>
+  [[/entries]]
+</script>
+
+<form accept-charset="UTF-8" action="https://help.github.com/search" id="articles-search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+  <div class="outer">
+    <div class="inner fade-label">
+      <input type="text" name="q" id="quicksearch-query" class="js-articles-quicksearch" placeholder="How can we help?">
+      <div class="search-form-btn">
+        <button><span class="octicon octicon-search"></span></button>
+      </div>
+    </div>
+  </div>
+</form>
+<div class="autocomplete-results" style="display: none;">
+  <table class="result-group" border="0" cellpadding="0" cellspacing="0">
+  </table>
+</div>
+
+        </div>
+      </div>
+
+      <div class="article js-hide-during-search">
+
+        <h2>Configuring a remote for a fork</h2>
+
+        <div id="article-platform-nav" style="display: block;">
+  <ul>
+    <li class="platform-mac">
+      <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/#platform-mac" data-platform="mac">
+        mac
+      </a>
+    </li>
+    <li class="platform-windows selected">
+      <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/#platform-windows" data-platform="windows">
+        windows
+      </a>
+    </li>
+    <li class="platform-linux">
+      <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/#platform-linux" data-platform="linux">
+        linux
+      </a>
+    </li>
+    <li class="platform-all hidden">
+      <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/#platform-all" data-platform="all">
+        all
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+        <div class="article-body content-body wikistyle markdown-format">
+          <div class="intro">
+
+          <p>To <a href="https://help.github.com/articles/syncing-a-fork">sync changes you make in a fork</a> with the original repository, you must configure a remote that points to the upstream repository in Git.</p>
+
+          </div>
+
+          <ol>
+<li><p>Open <span class="platform-mac">Terminal</span><span class="platform-linux">Terminal</span><span class="platform-windows">Git Bash</span>.</p></li>
+<li>
+<p>List the current configured remote repository for your fork.</p>
+
+<pre class="command-line"><span class="command">git remote -v</span>
+<span class="output">origin  https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)</span>
+<span class="output">origin  https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)</span>
+</pre>
+</li>
+<li>
+<p>Specify a new remote <em>upstream</em> repository that will be synced with the fork.</p>
+
+<pre class="command-line"><span class="command">git remote add upstream https://github.com/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git</span>
+</pre>
+</li>
+<li>
+<p>Verify the new upstream repository you've specified for your fork.</p>
+
+<pre class="command-line"><span class="command">git remote -v</span>
+<span class="output">origin    https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)</span>
+<span class="output">origin    https://github.com/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)</span>
+<span class="output">upstream  https://github.com/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)</span>
+<span class="output">upstream  https://github.com/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)</span>
+</pre>
+</li>
+</ol>
+        </div>
+
+        <div class="support-footer">
+          <ul class="article-footer button-nav">
+            
+              <li><a href="https://github.com/contact" class="minibutton">
+                  <span class="octicon octicon-comment-discussion"></span>
+                  Contact a human
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+      </div>
+
+      <div class="sidebar">
+  <h3>Article versions</h3>
+  <ul>
+    <li><a href="https://help.github.com/articles/configuring-a-remote-for-a-fork/#" skip-conversion="" data-proofer-ignore="">GitHub.com</a></li>
+
+    
+      <li class="">
+        <a data-proofer-ignore="" href="https://help.github.com/enterprise/2.7/user/articles/configuring-a-remote-for-a-fork/">GitHub Enterprise 2.7</a>
+      </li>
+    
+      <li class="">
+        <a data-proofer-ignore="" href="https://help.github.com/enterprise/2.6/user/articles/configuring-a-remote-for-a-fork/">GitHub Enterprise 2.6</a>
+      </li>
+    
+      <li class="">
+        <a data-proofer-ignore="" href="https://help.github.com/enterprise/2.5/user/articles/configuring-a-remote-for-a-fork/">GitHub Enterprise 2.5</a>
+      </li>
+    
+      <li class="">
+        <a data-proofer-ignore="" href="https://help.github.com/enterprise/2.4/user/articles/configuring-a-remote-for-a-fork/">GitHub Enterprise 2.4</a>
+      </li>
+    
+      <li class="">
+        <a data-proofer-ignore="" href="https://help.github.com/enterprise/2.3/user/articles/configuring-a-remote-for-a-fork/">GitHub Enterprise 2.3</a>
+      </li>
+    
+
+  </ul>
+</div>
+
+
+      <div class="clear"></div>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  <div class="inner">
+    <a href="https://github.com/" class="invertocat">
+      <img alt="The GitHub Logo" src="./Configuring a remote for a fork - User Documentation_files/invertocat.png" width="24" height="24">
+    </a>
+    <p class="left">
+      © <span id="year">2016</span> GitHub Inc. All rights reserved.
+    </p>
+      <ul class="links right">
+        <li><a href="https://help.github.com/terms-of-service">Terms of Service</a></li>
+        <li><a href="https://help.github.com/privacy-policy">Privacy</a></li>
+        <li><a href="https://help.github.com/security">Security</a></li>
+        
+          <li><a href="https://github.com/contact">Support</a></li>
+        
+      </ul>
+  </div>
+</div>
+
+
+<div class="fullscreen-overlay"></div>
+
+
+</body></html>
