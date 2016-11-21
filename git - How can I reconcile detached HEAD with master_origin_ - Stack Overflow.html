@@ -1,0 +1,3594 @@
+<!DOCTYPE html>
+<!-- saved from url=(0095)http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>git - How can I reconcile detached HEAD with master/origin? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How can I reconcile detached HEAD with master/origin?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;m new at the branching complexities of Git. I always work on a single branch and commit changes and then periodically push to my remote origin.
+
+Somewhere recently, I did a reset of some files to...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin">
+    <link rel="canonical" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin">
+
+    
+    
+    <script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/quant.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/beacon.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/analytics.js.download"></script><script type="text/javascript" async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/ados.js.download"></script><script src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/jquery.min.js.download"></script>
+    <script src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/stub.en.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How can I reconcile detached HEAD with master/origin?&#39;" href="http://stackoverflow.com/feeds/question/5772192">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:6,shownCommentCount:5,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:5772192});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '5772192');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1479569201,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"a4a63ee3287cddc7ae476f51615a2116","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"devstory_onboarding_exp":{"v":"c","g":1},"be_nice_anons_edit":{"v":"b","g":2}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"a8bdcb712222","js/moderator.en.js":"1e6659dca06d","js/full-anon.en.js":"0e6ca9dc3db0","js/full.en.js":"4b52dfc368bb","js/wmd.en.js":"8788d3738454","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"29ca548cffd4","js/help.en.js":"a56fdf9b9ff2","js/tageditor.en.js":"2178711359dd","js/tageditornew.en.js":"7cdce3b18081","js/inline-tag-editing.en.js":"77dde44800e2","js/revisions.en.js":"2faaeaae2529","js/review.en.js":"314e3cec0a4d","js/tagsuggestions.en.js":"78eee7c19ab2","js/post-validation.en.js":"6b854f4cadcd","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"bc9d502a39b3","js/keyboard-shortcuts.en.js":"0608da599c37","js/external-editor.en.js":"235e80f649d7","js/external-editor.en.js":"235e80f649d7","js/snippet-javascript.en.js":"8400810c9fc5","js/snippet-javascript-codemirror.en.js":"cd11be23372a"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/full-anon.en.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/external-editor.en.js.download"></script></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        <iframe id="adzerk-user-match" width="0" height="0" frameborder="0" scrolling="no" onload="window.AUMIframeDone=true" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/usermatch.html" style="display: none;" marginheight="0" marginwidth="0"></iframe>
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="http://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5772192%2fhow-can-i-reconcile-detached-head-with-master-origin" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="http://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+        </div>
+
+        <div class="network-items">
+                <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 162 Stack Exchange sites">
+                    <span class="hidden-text">Stack Exchange</span>
+                </a>
+
+    <a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5772192%2fhow-can-i-reconcile-detached-head-with-master-origin" class="login-link">log in</a>
+
+                            <a href="http://stackoverflow.com/tour">tour</a>
+        <a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" class="icon-help js-help-button" title="Help Center and other resources">
+            help
+            <span class="triangle"></span>
+        </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://business.stackoverflow.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+                                            </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="Search Q&amp;A" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                            <li class="youarehere">
+        <a id="nav-questions" href="http://stackoverflow.com/questions" class="js-gps-track" data-gps-track="top_nav.click({is_current:true, location:3, destination:1})">
+        Questions
+        </a>
+    </li>
+
+    <li>
+        <a id="nav-jobs" href="http://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:6})">
+        Jobs
+        </a>
+    </li>
+                            <li>
+        <a id="nav-docs" href="http://stackoverflow.com/documentation" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:7})">
+        Documentation
+        </a>
+    </li>
+                            <li>
+        <a id="nav-tags" href="http://stackoverflow.com/tags" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:2})">
+        Tags
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-users" href="http://stackoverflow.com/users" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:3})">
+        Users
+        </a>
+    </li>
+
+                            <li>
+        <a id="nav-badges" href="http://stackoverflow.com/help/badges" class="js-gps-track" data-gps-track="top_nav.click({is_current:false, location:3, destination:4})">
+        Badges
+        </a>
+    </li>
+
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+    <div id="herobox" class="alternate">
+        <div class="test"></div>
+            <div id="close">
+                <a title="click to minimize"><span>x</span> Dismiss</a>
+            </div>
+        <div class="content">
+            <b>Join the Stack Overflow Community</b>
+            <div class="separator"></div>
+            <div class="blurb">
+                Stack Overflow is a community of 6.3 million programmers, just like you, helping each other.
+                    <br>
+Join them; it only takes a minute:                    <br>
+            </div>
+            <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5772192%2fhow-can-i-reconcile-detached-head-with-master-origin" id="tell-me-more" class="button">Sign up</a>
+        </div>
+    </div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;;
+        }
+
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin" class="question-hyperlink">How can I reconcile detached HEAD with master/origin?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="5772192" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1451923498",4).setZone(43); });
+            </script>
+                <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5772192">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">871</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#">favorite</a>
+        <div class="favoritecount"><b>456</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I'm new at the branching complexities of Git. I always work on a single branch and commit changes and then periodically push to my remote origin.</p>
+
+<p>Somewhere recently, I did a reset of some files to get them out of commit staging, and later did a <code>rebase -i</code> to get rid of a couple recent local commits. Now I'm in a state I don't quite understand.</p>
+
+<p>In my working area, <code>git log</code> shows exactly what I'd expect-- I'm on the right trail with the commits I didn't want gone, and new ones there, etc.</p>
+
+<p>But I just pushed to the remote repository, and what's there is different-- a couple of the commits I'd killed in the rebase got pushed, and the new ones committed locally aren't there. </p>
+
+<p>I think "master/origin" is detached from HEAD, but I'm not 100% clear on what that means, how to visualize it with the command line tools, and how to fix it.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag js-gps-track" title="show questions tagged &#39;git&#39;" rel="tag">git</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/5772192" title="short permalink to this question" class="short-link" id="link-post-5772192">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5772192/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5772192/revisions" title="show all edits to this post">edited <span title="2015-06-19 17:49:21Z" class="relativetime">Jun 19 '15 at 17:49</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/76337/john-saunders"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/1aa48f7606f5b08595b0a0356a61e8b6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/76337/john-saunders">John Saunders</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 138,609" dir="ltr">139k</span><span title="20 gold badges"><span class="badge1"></span><span class="badgecount">20</span></span><span title="179 silver badges"><span class="badge2"></span><span class="badgecount">179</span></span><span title="324 bronze badges"><span class="badge3"></span><span class="badgecount">324</span></span>
+        </div>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2011-04-24 17:51:01Z" class="relativetime">Apr 24 '11 at 17:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/73297/ben-zotto"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/ab4250f596ff60b9a1e6ed07036597ca" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/73297/ben-zotto">Ben Zotto</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 42,619" dir="ltr">42.6k</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="110 silver badges"><span class="badge2"></span><span class="badgecount">110</span></span><span title="181 bronze badges"><span class="badge3"></span><span class="badgecount">181</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5772192" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6612832" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Have you pushed the commits before the rebase?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/526535/manojlds" title="155,993 reputation" class="comment-user">manojlds</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6612832_5772192"><span title="2011-04-24 18:02:49Z" class="relativetime-clean">Apr 24 '11 at 18:02</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6612979" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@manojlds: Not sure what you mean. I pushed some time before the rebase, but not immediately before.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/73297/ben-zotto" title="42,619 reputation" class="comment-user owner">Ben Zotto</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6612979_5772192"><span title="2011-04-24 18:18:48Z" class="relativetime-clean">Apr 24 '11 at 18:18</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6613016" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">As in did you previously push the commits that you removed in the rebase -i.. From your answer I think not.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/526535/manojlds" title="155,993 reputation" class="comment-user">manojlds</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6613016_5772192"><span title="2011-04-24 18:22:59Z" class="relativetime-clean">Apr 24 '11 at 18:22</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6613026" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@manojlds: Correct. I only killed commits that were more recent than the most recent push.  (Although as I mentioned, I have since pushed, since I thought everything was OK)</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/73297/ben-zotto" title="42,619 reputation" class="comment-user owner">Ben Zotto</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6613026_5772192"><span title="2011-04-24 18:23:44Z" class="relativetime-clean">Apr 24 '11 at 18:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-6613087" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Can you explain what you did in <code>I did a reset of some files to get them out of commit staging</code> part? sorry for the questions :)</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/526535/manojlds" title="155,993 reputation" class="comment-user">manojlds</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6613087_5772192"><span title="2011-04-24 18:31:58Z" class="relativetime-clean">Apr 24 '11 at 18:31</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5772192" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick="">show <b>1</b> more comment</a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								16 Answers
+                                <span style="display:none;" itemprop="answerCount">16</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="5772882"></a>
+<div id="answer-5772882" class="answer accepted-answer" data-answerid="5772882" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5772882">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post high-scored-post">1581</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>First, let’s clarify <a href="https://git-scm.com/book/tr/v2/Git-Internals-Git-References" rel="nofollow noreferrer">what HEAD is</a> and what it means when it is detached.  </p>
+
+<p>HEAD is the symbolic name for the currently checked out commit. When HEAD is not detached (the “normal”<sup>1</sup> situation: you have a branch checked out), HEAD actually points to a branch’s “ref” and the branch points to the commit. HEAD is thus “attached” to a branch. When you make a new commit, the branch that HEAD points to is updated to point to the new commit. HEAD follows automatically since it just points to the branch.</p>
+
+<ul>
+<li><code>git symbolic-ref HEAD</code> yields <code>refs/heads/master</code><br>
+The branch named “master” is checked out.</li>
+<li><code>git rev-parse refs/heads/master</code> yield <code>17a02998078923f2d62811326d130de991d1a95a</code><br>
+That commit is the current tip or “head” of the master branch.</li>
+<li><code>git rev-parse HEAD</code> also yields <code>17a02998078923f2d62811326d130de991d1a95a</code><br>
+This is what it means to be a “symbolic ref”. It points to an object through some other reference.<br>
+(Symbolic refs were originally implemented as symbolic links, but later changed to plain files with extra interpretation so that they could be used on platforms that do not have symlinks.)</li>
+</ul>
+
+<p>We have <code>HEAD</code> → <code>refs/heads/master</code> → <code>17a02998078923f2d62811326d130de991d1a95a</code></p>
+
+<p>When HEAD is detached, it points directly to a commit—instead of indirectly pointing to one through a branch. You can think of a detached HEAD as being on an unnamed branch. </p>
+
+<ul>
+<li><code>git symbolic-ref HEAD</code> fails with <code>fatal: ref HEAD is not a symbolic ref</code></li>
+<li><code>git rev-parse HEAD</code> yields <code>17a02998078923f2d62811326d130de991d1a95a</code><br>
+Since it is not a symbolic ref, it must point directly to the commit itself.</li>
+</ul>
+
+<p>We have <code>HEAD</code> → <code>17a02998078923f2d62811326d130de991d1a95a</code></p>
+
+<p>The important thing to remember with a detached HEAD is that if the commit it points to is otherwise unreferenced (no other ref can reach it), then it will become “dangling” when you checkout some other commit. Eventually, such dangling commits will be pruned through the garbage collection process (by default, they are kept for at least 2 weeks and may be kept longer by being referenced by HEAD’s reflog).</p>
+
+<p><sup>1</sup>
+It is perfectly fine to do “normal” work with a detached HEAD, you just have to keep track of what you are doing to avoid having to fish dropped history out of the reflog.</p>
+
+<hr>
+
+<p>The intermediate steps of an interactive rebase are done with a detached HEAD (partially to avoid polluting the active branch’s reflog). If you finish the full rebase operation, it will update your original branch with the cumulative result of the rebase operation and reattach HEAD to the original branch. My guess is that you never fully completed the rebase process; this will leave you with a detached HEAD pointing to the commit that was most recently processed by the rebase operation.</p>
+
+<p>To recover from your situation, you should create a branch that points to the commit currently pointed to by your detached HEAD:</p>
+
+<pre><code>git branch temp
+git checkout temp
+</code></pre>
+
+<p><sub>(these two commands can be abbreviated as <code>git checkout -b temp</code>)</sub></p>
+
+<p>This will reattach your HEAD to the new <code>temp</code> branch.</p>
+
+<p>Next, you should compare the current commit (and its history) with the normal branch on which you expected to be working:</p>
+
+<pre><code>git log --graph --decorate --pretty=oneline --abbrev-commit master origin/master temp
+git diff master temp
+git diff origin/master temp
+</code></pre>
+
+<p>(You will probably want to experiment with the log options: add <code>-p</code>, leave off <code>--pretty=…</code> to see the whole log message, etc.)</p>
+
+<p>If your new <code>temp</code> branch looks good, you may want to update (e.g.) <code>master</code> to point to it:</p>
+
+<pre><code>git branch -f master temp
+git checkout master
+</code></pre>
+
+<p><sub>(these two commands can be abbreviated as <code>git checkout -B master temp</code>)</sub></p>
+
+<p>You can then delete the temporary branch:</p>
+
+<pre><code>git branch -d temp
+</code></pre>
+
+<p>Finally, you will probably want to push the reestablished history:</p>
+
+<pre><code>git push origin master
+</code></pre>
+
+<p>You may need to add <code>--force</code> to the end of this command to push if the remote branch can not be “fast-forwarded” to the new commit (i.e. you dropped, or rewrote some existing commit, or otherwise rewrote some bit of history).</p>
+
+<p>If you were in the middle of a rebase operation you should probably clean it up. You can check whether a rebase was in process by looking for the directory <code>.git/rebase-merge/</code>. You can manually clean up the in-progress rebase by just deleting that directory (e.g. if you no longer remember the purpose and context of the active rebase operation). Usually you would use <code>git rebase --abort</code>, but that does some extra resetting that you probably want to avoid (it moves HEAD back to the original branch and resets it back to the original commit, which will undo some of the work we did above).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5772882" title="short permalink to this answer" class="short-link" id="link-post-5772882">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5772882/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5772882/revisions" title="show all edits to this post">edited <span title="2016-11-03 16:19:19Z" class="relativetime">Nov 3 at 16:19</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2668831/louis-maddox"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/Lq8l9.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2668831/louis-maddox">Louis Maddox</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1,642</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="31 bronze badges"><span class="badge3"></span><span class="badgecount">31</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2011-04-24 19:56:33Z" class="relativetime">Apr 24 '11 at 19:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/193688/chris-johnsen"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/c8134b3aced69c76a88722e3d36ba034" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/193688/chris-johnsen">Chris Johnsen</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 101,788" dir="ltr">102k</span><span title="19 gold badges"><span class="badge1"></span><span class="badgecount">19</span></span><span title="146 silver badges"><span class="badge2"></span><span class="badgecount">146</span></span><span title="157 bronze badges"><span class="badge3"></span><span class="badgecount">157</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5772882" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="16" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-26334694" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Interesting from <code>man git-symbolic-ref</code>: "In the past, <code>.git/HEAD</code> was a symbolic link pointing at <code>refs/heads/master</code>. When we wanted to switch to another branch, we did <code>ln -sf refs/heads/newbranch .git/HEAD</code>, and when we wanted to find out which branch we are on, we did <code>readlink .git/HEAD</code>. But symbolic links are not entirely portable, so they are now deprecated and symbolic refs (as described above) are used by default."</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/741970/dmitry-minkovsky" title="7,951 reputation" class="comment-user">Dmitry Minkovsky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment26334694_5772882"><span title="2013-08-02 02:43:56Z" class="relativetime-clean">Aug 2 '13 at 2:43</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-37360142" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="supernova">31</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Awesome. Stuff like this shows that there is room for improvement in git, though. Sometimes while in the middle of project work there is simply no room to waste time with s**t like this and it's simply annoying. But other than that, git is really awesome.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/195347/bastiben" title="11,478 reputation" class="comment-user">BastiBen</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment37360142_5772882"><span title="2014-06-13 06:36:24Z" class="relativetime-clean">Jun 13 '14 at 6:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-46854921" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="supernova">42</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">It is unbelievable how complex versioning systems became</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/774133/antonio-sesto" title="751 reputation" class="comment-user">Antonio Sesto</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment46854921_5772882"><span title="2015-03-29 18:20:25Z" class="relativetime-clean">Mar 29 '15 at 18:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-54907306" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">7</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is a good answer, but I think there is no need for the temp branch (although I usually use one my self).  <code>git branch -f master HEAD &amp;&amp; git checkout master</code> is enough -- assuming your goal is to keep your current head but to designate it as <code>master</code>.  Other goals also make sense, and call for other recipes.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/658298/adrian-ratnapala" title="2,989 reputation" class="comment-user">Adrian Ratnapala</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment54907306_5772882"><span title="2015-11-06 10:28:43Z" class="relativetime-clean">Nov 6 '15 at 10:28</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 3 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-59516440" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="warm">5</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Lol at the comment gurning about length. Whereas the rest of us simply scan through till we reach the line that says "To recover from your situation [...]", and go from there - while making a mental note that there's a useful well-explained backstory that we can read on a rainy day. The <i>option</i> to read more does not hurt you, but it <i>does</i> stand to benefit others.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2757035/underscore-d" title="1,928 reputation" class="comment-user">underscore_d</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment59516440_5772882"><span title="2016-03-10 22:53:13Z" class="relativetime-clean">Mar 10 at 22:53</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 4 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5772882" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick="">show <b>16</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk10821",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk10821"></div>
+  
+<a name="18866140"></a>
+<div id="answer-18866140" class="answer" data-answerid="18866140" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="18866140">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">265</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Just do this:</p>
+
+<pre><code>git checkout master
+</code></pre>
+
+<p>Or, if you have changes that you want to keep, do this:</p>
+
+<pre><code>git checkout -b temp
+git checkout -B master temp
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/18866140" title="short permalink to this answer" class="short-link" id="link-post-18866140">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18866140/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/18866140/revisions" title="show all edits to this post">edited <span title="2016-08-31 06:12:56Z" class="relativetime">Aug 31 at 6:12</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-09-18 07:23:00Z" class="relativetime">Sep 18 '13 at 7:23</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/34553/daniel-alexiuc"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/1d876bb038032ede88efaff87c64b97e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/34553/daniel-alexiuc">Daniel Alexiuc</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,152</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="38 silver badges"><span class="badge2"></span><span class="badgecount">38</span></span><span title="62 bronze badges"><span class="badge3"></span><span class="badgecount">62</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18866140" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="2" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-59043013" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="hot">29</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks for the brevity.  Not everyone has time for the "First, let’s clarify what HEAD is..." answer.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2595659/brian-risk" title="509 reputation" class="comment-user">Brian Risk</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment59043013_18866140"><span title="2016-02-28 12:58:51Z" class="relativetime-clean">Feb 28 at 12:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-59508028" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is a dangerous response. People arriving at this answer have different states and "just do this to fix it" responses don't answer questions. This one can easily destroy work.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1686604/archonic" title="2,988 reputation" class="comment-user">Archonic</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment59508028_18866140"><span title="2016-03-10 18:51:22Z" class="relativetime-clean">Mar 10 at 18:51</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-60168999" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">!"git checkout master" will cause all changes to be lost if the detached head is not part of master !!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1985234/tony" title="520 reputation" class="comment-user">Tony</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment60168999_18866140"><span title="2016-03-28 20:53:50Z" class="relativetime-clean">Mar 28 at 20:53</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-63008787" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I don't understand this. <code>git checkout master</code> solved it, but why? My <code>HEAD</code> was ALREADY at the latest master commit. The HEAD didnt change after this command. Why was a checkout needed then?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3779853/blauhirn" title="2,741 reputation" class="comment-user">Blauhirn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment63008787_18866140"><span title="2016-06-12 02:14:28Z" class="relativetime-clean">Jun 12 at 2:14</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-67438408" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This worked perfectly! Easier solution to the accepted answer above!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4166017/tfish" title="156 reputation" class="comment-user">Tfish</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment67438408_18866140"><span title="2016-10-17 09:33:48Z" class="relativetime-clean">Oct 17 at 9:33</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-18866140" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link " title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick="">show <b>2</b> more comments</a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="5772459"></a>
+<div id="answer-5772459" class="answer" data-answerid="5772459" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="5772459">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">64</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Look here for basic explanation of detached head:</p>
+
+<p><a href="http://git-scm.com/docs/git-checkout">http://git-scm.com/docs/git-checkout</a></p>
+
+<p>Command line to visualize it:</p>
+
+<pre><code>git branch
+</code></pre>
+
+<p>or</p>
+
+<pre><code>git branch -a
+</code></pre>
+
+<p>you will get output like below:</p>
+
+<pre><code>* (no branch)
+master
+branch1
+</code></pre>
+
+<p>The <code>* (no branch)</code> shows you are in detached head.</p>
+
+<p>You could have come to this state by doing a <code>git checkout somecommit</code> etc. and it would have warned you with the following:</p>
+
+<blockquote>
+  <p>You are in 'detached HEAD' state. You
+  can look around, make experimental
+  changes and commit them, and you can
+  discard any commits you make in this
+  state without impacting any branches
+  by performing another checkout.</p>
+  
+  <p>If you want to create a new branch to
+  retain commits you create, you may do
+  so (now or later) by using -b with the
+  checkout command again. Example:</p>
+  
+  <p>git checkout -b new_branch_name</p>
+</blockquote>
+
+<p><strong>Now, to get them onto master:</strong></p>
+
+<p>Do a <code>git reflog</code> or even just <code>git log</code> and note your commits. Now <code>git checkout master</code> and <code>git merge</code> the commits.</p>
+
+<pre><code>git merge HEAD@{1}
+</code></pre>
+
+<p>Edit:</p>
+
+<p>To add, use <code>git rebase -i</code> not only for deleting / killing commits that you don't need, but also for editing them. Just mention "edit" in the commit list and you will be able to amend your commit and then issue a <code>git rebase --continue</code> to go ahead. This would have ensured that you never came in to a detached HEAD.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/5772459" title="short permalink to this answer" class="short-link" id="link-post-5772459">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/5772459/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/5772459/revisions" title="show all edits to this post">edited <span title="2011-04-24 18:52:42Z" class="relativetime">Apr 24 '11 at 18:52</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-04-24 18:41:12Z" class="relativetime">Apr 24 '11 at 18:41</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/526535/manojlds"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/dcbad5e0bb2af6ced698ea8e3cf9c450" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/526535/manojlds">manojlds</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 155,993" dir="ltr">156k</span><span title="27 gold badges"><span class="badge1"></span><span class="badgecount">27</span></span><span title="285 silver badges"><span class="badge2"></span><span class="badgecount">285</span></span><span title="311 bronze badges"><span class="badge3"></span><span class="badgecount">311</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-5772459" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-6614689" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks for the detail and great information pointers here. Seems like an explicit merge wasn't necessary, but this visualized some concepts I'll go back to. Thanks.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/73297/ben-zotto" title="42,619 reputation" class="comment-user owner">Ben Zotto</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment6614689_5772459"><span title="2011-04-24 21:42:41Z" class="relativetime-clean">Apr 24 '11 at 21:42</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-48100574" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What does "@{1}" do?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1781631/ebi" title="1,794 reputation" class="comment-user">ebi</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment48100574_5772459"><span title="2015-05-01 16:11:27Z" class="relativetime-clean">May 1 '15 at 16:11</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-56910035" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thank you! This really helps.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3847417/hangchen-yu" title="116 reputation" class="comment-user">Hangchen Yu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment56910035_5772459"><span title="2016-01-03 22:34:36Z" class="relativetime-clean">Jan 3 at 22:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-57524512" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Short &amp; efficient. Thank you!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1821607/dmitri-malyshev" title="361 reputation" class="comment-user">Dmitri Malyshev</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment57524512_5772459"><span title="2016-01-20 07:09:35Z" class="relativetime-clean">Jan 20 at 7:09</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-5772459" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="18008139"></a>
+<div id="answer-18008139" class="answer" data-answerid="18008139" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="18008139">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">55</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I just ran into this issue and as soon as I read </p>
+
+<blockquote>
+  <p>HEAD is the symbolic name for the currently checked out commit.</p>
+</blockquote>
+
+<p>in the top-voted answer, I thought: "Ah-ha! I'll just <code>rebase</code>!" I wanted to bring the commits behind and including the detached <code>HEAD</code> that weren't yet in <code>master</code> into <code>master</code>, and <code>git rebase</code> lets you do just that:</p>
+
+<pre><code>git rebase HEAD master
+</code></pre>
+
+<p>To me this says:</p>
+
+<blockquote>
+  <p>Take the parent commits of HEAD back to the point at which the histories of HEAD and master diverged, and play those commits on top of master. Then check out master.</p>
+</blockquote>
+
+<p>Reconciling further with <code>origin/master</code> is then a matter of reconciling the newly-rebased <code>master</code> with <code>origin/master</code>. For this you can <code>ls-remote</code> or <code>fetch origin/master</code> and compare logs.</p>
+
+<p>The other answers on this thread are quite nice and definitely worth carefully reading, but my approach seems fine if you're in a simple situation.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/18008139" title="short permalink to this answer" class="short-link" id="link-post-18008139">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/18008139/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/18008139/revisions" title="show all edits to this post">edited <span title="2013-08-20 13:48:21Z" class="relativetime">Aug 20 '13 at 13:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-08-02 03:10:31Z" class="relativetime">Aug 2 '13 at 3:10</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/741970/dmitry-minkovsky"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/0f017d8f2411f7ae90ffe61149390127" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/741970/dmitry-minkovsky">Dmitry Minkovsky</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">7,951</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="44 silver badges"><span class="badge2"></span><span class="badgecount">44</span></span><span title="71 bronze badges"><span class="badge3"></span><span class="badgecount">71</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-18008139" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-52884334" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">git: "First, rewinding head to replay your work on top of it... Fast-forwarded master to HEAD." me: "nice!"</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/547715/benjamin" title="689 reputation" class="comment-user">Benjamin</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment52884334_18008139"><span title="2015-09-10 22:37:47Z" class="relativetime-clean">Sep 10 '15 at 22:37</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-62856926" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Really nice, thanks!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3962110/therobinsj" title="566 reputation" class="comment-user">therobinsj</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment62856926_18008139"><span title="2016-06-07 22:01:19Z" class="relativetime-clean">Jun 7 at 22:01</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-62857415" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@therobinsj glad it helped!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/741970/dmitry-minkovsky" title="7,951 reputation" class="comment-user">Dmitry Minkovsky</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment62857415_18008139"><span title="2016-06-07 22:23:14Z" class="relativetime-clean">Jun 7 at 22:23</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-18008139" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="16641820"></a>
+<div id="answer-16641820" class="answer" data-answerid="16641820" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="16641820">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">21</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<h2>Get your detached commit onto its own branch</h2>
+
+<p>Simply run <code>git checkout -b mynewbranch</code>.</p>
+
+<p>Then run <code>git log</code>, and you'll see that commit is now <code>HEAD</code> on this new branch.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/16641820" title="short permalink to this answer" class="short-link" id="link-post-16641820">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/16641820/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-05-20 02:44:42Z" class="relativetime">May 20 '13 at 2:44</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/365298/rose-perrone"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/09650c0dfd63d0cdfeee378b7c5945ed" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/365298/rose-perrone">Rose Perrone</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 28,887" dir="ltr">28.9k</span><span title="20 gold badges"><span class="badge1"></span><span class="badgecount">20</span></span><span title="139 silver badges"><span class="badge2"></span><span class="badgecount">139</span></span><span title="160 bronze badges"><span class="badge3"></span><span class="badgecount">160</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-16641820" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-53728282" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">If I do this, does <code>mynewbranch</code> attach to anything?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2547229/benjohn" title="4,225 reputation" class="comment-user">Benjohn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment53728282_16641820"><span title="2015-10-05 15:00:19Z" class="relativetime-clean">Oct 5 '15 at 15:00</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-53761034" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yes, it attaches to where the detached head would have been attached, which is exactly what I wanted. Thanks!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2547229/benjohn" title="4,225 reputation" class="comment-user">Benjohn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment53761034_16641820"><span title="2015-10-06 11:01:59Z" class="relativetime-clean">Oct 6 '15 at 11:01</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-16641820" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19860176"></a>
+<div id="answer-19860176" class="answer" data-answerid="19860176" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="19860176">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">15</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>if you have just master branch and wanna back to "develop" or a feature just do this :</p>
+
+<pre><code>git checkout origin/develop
+</code></pre>
+
+<p>Note: checking out <strong>origin/develop</strong>.</p>
+
+<p>You are in <strong>detached HEAD</strong> state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout...</p>
+
+<p>then</p>
+
+<pre><code>git checkout -b develop
+</code></pre>
+
+<p>It works :) </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/19860176" title="short permalink to this answer" class="short-link" id="link-post-19860176">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19860176/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/19860176/revisions" title="show all edits to this post">edited <span title="2016-05-12 08:19:55Z" class="relativetime">May 12 at 8:19</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/5835700/abhishek-joshi"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/98b97082ec36762d30aeb6cf8289d75e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/5835700/abhishek-joshi">Abhishek Joshi</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-11-08 13:24:37Z" class="relativetime">Nov 8 '13 at 13:24</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2606178/amdev"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/1ba1c8d0a11944217e941dde237fe8b6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2606178/amdev">amdev</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">517</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19860176" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-35581527" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">What has worked for me is not 'git checkout origin/develop' but 'git checkout develop'. Using 'origin/develop' has always resulted in no changes, thereby remaining in "HEAD detached at origin/develop". Skipping the 'origin' part fixed everything.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1533046/drstrangepork" title="1,059 reputation" class="comment-user">DrStrangepork</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment35581527_19860176"><span title="2014-04-23 18:58:19Z" class="relativetime-clean">Apr 23 '14 at 18:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-19860176" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="32639525"></a>
+<div id="answer-32639525" class="answer" data-answerid="32639525" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="32639525">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you want to push your current detached HEAD (check <code>git log</code> before), try:</p>
+
+<pre><code>git push origin HEAD:master
+</code></pre>
+
+<p>to send your detached HEAD into master branch at origin. If your push gets rejected, try <code>git pull origin master</code> first to get the changes from origin. If you don't care about the changes from origin and it's rejected, because you did some intentional rebase and you want to replace origin/master with your currently detached branch - then you may force it (<code>-f</code>). In case you lost some access to previous commits, you can always run <code>git reflog</code> to see the history from all branches.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/32639525" title="short permalink to this answer" class="short-link" id="link-post-32639525">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/32639525/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/32639525/revisions" title="show all edits to this post">edited <span title="2016-07-13 08:46:15Z" class="relativetime">Jul 13 at 8:46</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2015-09-17 20:35:42Z" class="relativetime">Sep 17 '15 at 20:35</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/55075/kenorb"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/8bbc94977312d285045b2412257b6cb8" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/55075/kenorb">kenorb</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 23,389" dir="ltr">23.4k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="159 silver badges"><span class="badge2"></span><span class="badgecount">159</span></span><span title="139 bronze badges"><span class="badge3"></span><span class="badgecount">139</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-32639525" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-64103530" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This indeed sends the detached commits to origin/master. To attach the head to the local branch do this: <a href="http://stackoverflow.com/a/17667057/776345">stackoverflow.com/a/17667057/776345</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/776345/paschalis" title="3,835 reputation" class="comment-user">Paschalis</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment64103530_32639525"><span title="2016-07-13 07:21:00Z" class="relativetime-clean">Jul 13 at 7:21</span></a></span>
+                        <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-32639525" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="26432453"></a>
+<div id="answer-26432453" class="answer" data-answerid="26432453" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26432453">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>All you have to do is 'git checkout [branch-name]' where [branch-name] is the name of the original branch from which you got into a detached head state.  The (detached from asdfasdf) will disappear.</p>
+
+<p>So for example, in branch 'dev' you checkout the commit asdfasd14314 -&gt;</p>
+
+<pre><code>'git checkout asdfasd14314'
+</code></pre>
+
+<p>you are now in a detached head state</p>
+
+<p>'git branch' will list something like -&gt;</p>
+
+<pre><code>* (detached from asdfasdf)
+  dev
+  prod
+  stage
+</code></pre>
+
+<p>but to get out of the detached head state and back to dev -&gt;</p>
+
+<pre><code>'git checkout dev'
+</code></pre>
+
+<p>and then 'git branch' will list -&gt;</p>
+
+<pre><code>* dev
+  prod
+  stage
+</code></pre>
+
+<p>but that is of course if you do not intend on keeping any changes from the detached head state but I find myself doing this a lot not intending to make any changes but just to look at a previous commit</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/26432453" title="short permalink to this answer" class="short-link" id="link-post-26432453">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/26432453/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-10-17 19:49:18Z" class="relativetime">Oct 17 '14 at 19:49</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/538458/adam-freeman"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/737d082cd41a6c7caac7f98c3797d50c" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/538458/adam-freeman">Adam Freeman</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">797</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26432453" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26432453" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="35719122"></a>
+<div id="answer-35719122" class="answer" data-answerid="35719122" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="35719122">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>If you are completely sure HEAD is the good state:</p>
+
+<pre><code>git branch -f master HEAD
+git checkout master
+</code></pre>
+
+<p>You probably can't push to origin, since your master has diverged from origin. If you are sure no one else is using the repo, you can force-push:</p>
+
+<pre><code>git push -f
+</code></pre>
+
+<p>Most useful if you are on a feature branch no one else is using.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/35719122" title="short permalink to this answer" class="short-link" id="link-post-35719122">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/35719122/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/35719122/revisions" title="show all edits to this post">edited <span title="2016-03-15 11:01:13Z" class="relativetime">Mar 15 at 11:01</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-03-01 09:31:36Z" class="relativetime">Mar 1 at 9:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/446536/geon"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/820ce9018b365a6aeba6e23847f17eda" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/446536/geon">geon</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,569</span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="29 bronze badges"><span class="badge3"></span><span class="badgecount">29</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-35719122" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-35719122" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="30864965"></a>
+<div id="answer-30864965" class="answer" data-answerid="30864965" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30864965">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>for me it was as easy as deleting the local branch again, since I didn't have any local commits that I wanted to push:</p>
+
+<p>so I did: git branch -d branchname</p>
+
+<p>and then checking the branch out again</p>
+
+<p>git checkout branchname</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/30864965" title="short permalink to this answer" class="short-link" id="link-post-30864965">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/30864965/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/30864965/revisions" title="show all edits to this post">edited <span title="2015-07-11 04:57:06Z" class="relativetime">Jul 11 '15 at 4:57</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/5099712/do-young-kim"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/photo.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/5099712/do-young-kim">Do Young Kim</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-06-16 10:25:06Z" class="relativetime">Jun 16 '15 at 10:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1049533/klaus"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/82cd6de740cfc89d8c1a4b68cc20952d" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1049533/klaus">Klaus</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">89</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="5 bronze badges"><span class="badge3"></span><span class="badgecount">5</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30864965" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30864965" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="26813869"></a>
+<div id="answer-26813869" class="answer" data-answerid="26813869" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26813869">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I just ran into this issue today. Pretty sure I solved it by doing:</p>
+
+<pre><code>git branch temp
+git checkout master
+git merge temp
+</code></pre>
+
+<p>I was on my work computer when I figured out how to do this, and now I'm running into the same problem on my personal comp. So will have to wait till monday when I'm back at work comp to see exactly how I did it.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/26813869" title="short permalink to this answer" class="short-link" id="link-post-26813869">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/26813869/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info user-hover">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/26813869/revisions" title="show all edits to this post">edited <span title="2015-09-17 20:39:33Z" class="relativetime">Sep 17 '15 at 20:39</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/55075/kenorb"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/8bbc94977312d285045b2412257b6cb8" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/55075/kenorb">kenorb</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 23,389" dir="ltr">23.4k</span><span title="10 gold badges"><span class="badge1"></span><span class="badgecount">10</span></span><span title="159 silver badges"><span class="badge2"></span><span class="badgecount">159</span></span><span title="139 bronze badges"><span class="badge3"></span><span class="badgecount">139</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-11-08 04:46:54Z" class="relativetime">Nov 8 '14 at 4:46</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4229382/adamwineguy"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/af831f001b7d74311ec1861bc08355ba" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4229382/adamwineguy">adamwineguy</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">41</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26813869" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-46058468" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">the second git command seems wrong..</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1230621/starshine" title="664 reputation" class="comment-user">StarShine</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment46058468_26813869"><span title="2015-03-06 13:20:27Z" class="relativetime-clean">Mar 6 '15 at 13:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-57360539" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@StarShine Kenorb fixed it. Now it saves your detached commits to a new branch, temp, switches to master, and merges temp into master.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/819417/cees-timmerman" title="4,510 reputation" class="comment-user">Cees Timmerman</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment57360539_26813869"><span title="2016-01-15 10:42:21Z" class="relativetime-clean">Jan 15 at 10:42</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-59977076" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I don't know why ppl are downvoting this, it fixed my problem stat but you may want to include the delete temp branch command.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/144020/glassghost" title="2,956 reputation" class="comment-user">GlassGhost</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#comment59977076_26813869"><span title="2016-03-23 04:58:09Z" class="relativetime-clean">Mar 23 at 4:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26813869" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19440992"></a>
+<div id="answer-19440992" class="answer" data-answerid="19440992" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="19440992">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I got into a really silly state, I doubt anyone else will find this useful.... but just in case</p>
+
+<pre><code>git ls-remote origin
+0d2ab882d0dd5a6db93d7ed77a5a0d7b258a5e1b        HEAD
+6f96ad0f97ee832ee16007d865aac9af847c1ef6        refs/heads/HEAD
+0d2ab882d0dd5a6db93d7ed77a5a0d7b258a5e1b        refs/heads/master
+</code></pre>
+
+<p>which I eventually fixed with</p>
+
+<pre><code>git push origin :HEAD
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/19440992" title="short permalink to this answer" class="short-link" id="link-post-19440992">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19440992/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-10-18 03:14:19Z" class="relativetime">Oct 18 '13 at 3:14</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/516748/kcd"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/22de692b5c4bba0665322370e0a98ae0" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/516748/kcd">KCD</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,736</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="42 bronze badges"><span class="badge3"></span><span class="badgecount">42</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19440992" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-19440992" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="30944301"></a>
+<div id="answer-30944301" class="answer" data-answerid="30944301" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30944301">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In my case, I run <code>git status</code> and I saw that I had a few untracked files on my working directory.</p>
+
+<p>To make the rebase work, I just had to clean them (since I didn't need them).</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/30944301" title="short permalink to this answer" class="short-link" id="link-post-30944301">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/30944301/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2015-06-19 17:47:26Z" class="relativetime">Jun 19 '15 at 17:47</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1064325/falsarella"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/5S2vI.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1064325/falsarella">falsarella</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">6,566</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="28 silver badges"><span class="badge2"></span><span class="badgecount">28</span></span><span title="69 bronze badges"><span class="badge3"></span><span class="badgecount">69</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30944301" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30944301" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="38538561"></a>
+<div id="answer-38538561" class="answer" data-answerid="38538561" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="38538561">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In simple words, Detached HEAD state means <strong>you are not checked out to HEAD (or tip) of any branch</strong>.</p>
+
+<h2>Understand With Example</h2>
+
+<p>A branch in most of the cases is sequence of multiple commits like:-</p>
+
+<p><strong>commit 1:</strong>
+master--&gt;branch_HEAD(123be6a76168aca712aea16076e971c23835f8ca)</p>
+
+<p><strong>commit 2:</strong>
+master--&gt;123be6a76168aca712aea16076e971c23835f8ca--&gt;branch_HEAD(100644a76168aca712aea16076e971c23835f8ca)</p>
+
+<p>As you can see above in case of sequence of commits your branch points to your latest commit. So in that case if you checkout to commit <em>123be6a76168aca712aea16076e971c23835f8ca</em> then you would be in detached head state since HEAD of your branch points to <em>100644a76168aca712aea16076e971c23835f8ca</em> and technically you are checked out at HEAD of no branch.Hence, you are in detached HEAD state</p>
+
+<h2>Theoretical Explanation</h2>
+
+<p><a href="http://alblue.bandlem.com/2011/08/git-tip-of-week-detached-heads.html" rel="nofollow">In this Blog</a> its clearly stating 
+Git repository is a tree-of-commits, with each commit pointing to its ancestor with each commit pointer is updated and these pointers to each branch are stored in the .git/refs sub-directories. Tags are stored in .git/refs/tags and branches are stored in .git/refs/heads. If you look at any of the files, you'll find each tag corresponds to a single file, with a 40-character commit hash and as explained above by @Chris Johnsen and @Yaroslav Nikitenko you can check out these references</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/38538561" title="short permalink to this answer" class="short-link" id="link-post-38538561">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/38538561/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-07-23 05:39:49Z" class="relativetime">Jul 23 at 5:39</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/5107261/keshav"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/e706cbc0422fe9f13a0b59a3ce62c021" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/5107261/keshav">Keshav</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">217</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="11 bronze badges"><span class="badge3"></span><span class="badgecount">11</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-38538561" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-38538561" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="38791287"></a>
+<div id="answer-38791287" class="answer" data-answerid="38791287" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="38791287">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Instead of doing <code>git checkout origin/master</code></p>
+
+<p>just do <code>git checkout master</code></p>
+
+<p>then <code>git branch</code> will confirm your branch.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/38791287" title="short permalink to this answer" class="short-link" id="link-post-38791287">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/38791287/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-08-05 14:08:07Z" class="relativetime">Aug 5 at 14:08</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1875503/goran-ch"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/1cd5763c8529e257d427022747ecb982" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1875503/goran-ch">Goran Ch.</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">61</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-38791287" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-38791287" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="37621524"></a>
+<div id="answer-37621524" class="answer" data-answerid="37621524" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="37621524">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">-2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<pre><code>git checkout checksum  #you could use this to peek previous checkpoints
+git status # you will see HEAD detached at checksum
+git checkout master #this moves HEAD to master branch
+</code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/37621524" title="short permalink to this answer" class="short-link" id="link-post-37621524">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/37621524/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/37621524/revisions" title="show all edits to this post">edited <span title="2016-06-03 20:38:06Z" class="relativetime">Jun 3 at 20:38</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6083675/laurel"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/D2CgS.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6083675/laurel">Laurel</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,992</span><span title="8 gold badges"><span class="badge1"></span><span class="badgecount">8</span></span><span title="16 silver badges"><span class="badge2"></span><span class="badgecount">16</span></span><span title="40 bronze badges"><span class="badge3"></span><span class="badgecount">40</span></span>
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2016-06-03 18:50:35Z" class="relativetime">Jun 3 at 18:50</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/6420914/david-yang"><div class="gravatar-wrapper-32"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/dacf990aa543e8f7d70ba2d89edb2aa6" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/6420914/david-yang">David Yang</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">1</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-37621524" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-37621524" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/5772192/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="5772192">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.uk/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="a4a63ee3287cddc7ae476f51615a2116">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f5772192%2fhow-can-i-reconcile-detached-head-with-master-origin%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f5772192%2fhow-can-i-reconcile-detached-head-with-master-origin%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/git" class="post-tag" title="show questions tagged &#39;git&#39;" rel="tag">git</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2011-04-24 17:51:01Z"><b>5 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>459922 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/5772192/how-can-i-reconcile-detached-head-with-master-origin?lastactivity" class="lastactivity-link" title="2016-11-03 16:19:19Z">15 days ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Upcoming Events
+                </div>
+                <hr>
+    <div class="spacer bulletin-item-important">
+        
+    <div class="bulletin-item-type"><a href="http://stackoverflow.com/election?cb=1" class="question-hyperlink"><div class="favicon favicon-stackoverflow" title="Stack Overflow"></div></a></div>
+    <div class="bulletin-item-content">
+        <a href="http://stackoverflow.com/election?cb=1" class="question-hyperlink">2016 Community Moderator Election</a>
+        <div>ends <span title="2016-11-22 20:00:00Z" class="relativetime">in 3 days</span></div>
+    </div>
+    <br class="cbt">
+</div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk2013459649",[5,17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk2013459649"></div>
+            <div id="hireme"></div>
+        <script>
+;(function(n){var u=Object.assign||function(n){for(var i,r,u,f,e=[],t=1;t<arguments.length;t++)e[t-1]=arguments[t];for(i=0,r=e;i<r.length;i++){u=r[i];for(f in u)n[f]=u[f]}return n},r,t,f,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(r=["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],r[0]!=="*"&&r.indexOf(location.hostname)===-1)return;t=window;f=t.clc_opts?u({},window.clc_opts):{};t.clc_opts=u(n,f);void 0;t.clc_opts.autoload&&(t.clc_init=t.clc_init||[],t.clc_init.push(function(){return t.clc.load()}));i=document.createElement("script");i.async=!0;void 0;i.src=t.clc_opts.lib;document.body.appendChild(i)}catch(e){void 0}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"//clc.stackoverflow.com/p.js","lib":"//cdn.sstatic.net/clc/clc.min.js?v=0b93ded9c111"});        </script>
+            <script>
+window.clcfl_request = 'AQAAAACgE1gAAgAAAAIAAAABBQAAAHxnaXR8AC8HXG_Jk1MRgWw';
+                ;(function(n){var t,i;try{if(typeof[].indexOf!="function")return;if(window.attachEvent&&!window.addEventListener)return;if(n.allowed[0]!=="*"&&n.allowed.indexOf(location.hostname)===-1)return;t=window;t.clcfl=t.clcfl||{};t.clcfl_request||void 0;t.clcfl.init=t.clcfl.init||[];t.clcfl.init.push(function(n){return n.load()});t.clcfl.options=n;i=document.createElement("script");i.async=!0;i.src=n.lib;document.body.appendChild(i)}catch(r){}}).call(null, {"azw":true,"kt":2000,"tto":true,"autoload":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"allowed":["stackoverflow.com","serverfault.com","careers.stackoverflow.com","blog.codinghorror.com","joelonsoftware.com","www.joelonsoftware.com","talent.stackoverflow.com"],"h":"clc.stackoverflow.com","u":"//clc.stackoverflow.com/fl/markup-bg.js","lib":"//cdn.sstatic.net/clc/fl/clc.min.js?v=896d1e931c04"});
+            </script>
+			
+
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/4845505?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">158</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/4845505/gitx-how-do-i-get-my-detached-head-commits-back-into-master?noredirect=1&amp;lq=1" class="question-hyperlink">gitx How do I get my 'Detached HEAD' commits back into master</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/8887360?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8887360/git-branching-django?noredirect=1&amp;lq=1" class="question-hyperlink">Git branching django</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/5473?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">717</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1?noredirect=1&amp;lq=1" class="question-hyperlink">How can I undo git reset --hard HEAD~1?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/1463340?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted large">374</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/1463340/revert-multiple-git-commits?noredirect=1&amp;lq=1" class="question-hyperlink">Revert multiple git commits</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/3555107?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">96</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3555107/git-clone-particular-version-of-remote-repository?noredirect=1&amp;lq=1" class="question-hyperlink">Git clone particular version of remote repository</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17667023?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">96</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17667023/git-how-to-reset-origin-master-to-a-commit?noredirect=1&amp;lq=1" class="question-hyperlink">Git, How to reset origin/master to a commit?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/17581026?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">46</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/17581026/where-does-a-git-branch-start-and-what-is-its-length?noredirect=1&amp;lq=1" class="question-hyperlink">Where does a Git branch start and what is its length?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/2121230?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">56</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/2121230/git-how-to-move-back-and-forth-between-commits?noredirect=1&amp;lq=1" class="question-hyperlink">Git: How to move back and forth between commits</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/8642668?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">21</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8642668/how-to-make-submodule-with-detached-head-to-be-attached-to-actual-head?noredirect=1&amp;lq=1" class="question-hyperlink">How to make submodule with detached HEAD to be attached to actual HEAD?</a>
+</div>
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/11084515?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">16</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/11084515/cannot-push-to-github-everything-up-to-date?noredirect=1&amp;lq=1" class="question-hyperlink">cannot push to github: everything up-to-date</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/5772192?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/115983?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2608</div></a><a href="http://stackoverflow.com/questions/115983/how-can-i-add-an-empty-directory-to-a-git-repository?rq=1" class="question-hyperlink">How can I add an empty directory to a Git repository?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/457927?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">799</div></a><a href="http://stackoverflow.com/questions/457927/git-workflow-and-rebase-vs-merge-questions?rq=1" class="question-hyperlink">Git workflow and rebase vs merge questions</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/1519006?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2037</div></a><a href="http://stackoverflow.com/questions/1519006/how-do-you-create-a-remote-git-branch?rq=1" class="question-hyperlink">How do you create a remote Git branch?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/1628563?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2532</div></a><a href="http://stackoverflow.com/questions/1628563/move-the-most-recent-commits-to-a-new-branch-with-git?rq=1" class="question-hyperlink">Move the most recent commit(s) to a new branch with Git</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2389361?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2187</div></a><a href="http://stackoverflow.com/questions/2389361/undo-a-git-merge-that-hasnt-been-pushed-yet?rq=1" class="question-hyperlink">Undo a Git merge that hasn't been pushed yet</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/2432764?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">2049</div></a><a href="http://stackoverflow.com/questions/2432764/change-the-uri-url-for-a-remote-git-repository?rq=1" class="question-hyperlink">Change the URI (URL) for a remote Git repository</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/3965676?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">222</div></a><a href="http://stackoverflow.com/questions/3965676/why-did-my-git-repo-enter-a-detached-head-state?rq=1" class="question-hyperlink">Why did my Git repo enter a detached HEAD state?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/4089430?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">1617</div></a><a href="http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr?rq=1" class="question-hyperlink">How can I determine the URL that a local Git repository was originally cloned from?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/6591213?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted extra-large">4420</div></a><a href="http://stackoverflow.com/questions/6591213/how-to-rename-a-local-git-branch?rq=1" class="question-hyperlink">How to rename a local Git branch?</a></div><div class="spacer js-gps-track"><a href="http://stackoverflow.com/q/10228760?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted large">584</div></a><a href="http://stackoverflow.com/questions/10228760/fix-a-git-detached-head?rq=1" class="question-hyperlink">Fix a Git detached head?</a></div>
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/100357/ppcg-jeopardy-cops" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    PPCG Jeopardy: Cops
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/100358/ppcg-jeopardy-robbers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    PPCG Jeopardy: Robbers
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/2021300/identifying-a-quotient-module-with-a-submodule" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Identifying a quotient module with a submodule
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mechanics" title="Motor Vehicle Maintenance &amp; Repair Stack Exchange"></div><a href="http://mechanics.stackexchange.com/questions/38809/why-is-engine-displacement-frequently-a-few-ccs-below-an-exact-number" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:224 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is engine displacement frequently a few CCs below an exact number?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/79881/how-to-respond-to-your-bosss-email-about-a-coworkers-accusation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to respond to your boss's email about a coworker's accusation?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/850384/is-there-a-command-for-running-a-script-according-to-its-shebang-line" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a command for running a script according to its shebang line?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/2016937/why-are-rotational-matrices-not-commutative" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are rotational matrices not commutative?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/101595/mobile-website-menu-should-hamburger-menu-be-on-left-or-the-right" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Mobile website menu. Should hamburger menu be on left or the right?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-hinduism" title="Hinduism Stack Exchange"></div><a href="http://hinduism.stackexchange.com/questions/15975/which-puranic-scriptures-describes-procedure-of-ashtanga-yoga" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:567 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Which Puranic Scriptures describes procedure of "Ashtanga Yoga"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/61697/how-to-explain-lack-of-flatland" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to explain lack of flatland?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="http://japanese.stackexchange.com/questions/41011/is-it-appropriate-to-say-konbanwa-when-ending-a-conversation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it appropriate to say "Konbanwa" when ending a conversation?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/293359/is-there-oscillating-charge-in-a-hydrogen-atom" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there oscillating charge in a hydrogen atom?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/79992/fired-because-your-skills-are-too-far-above-your-coworkers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Fired because your skills are too far above your coworkers
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/358550/word-to-describe-object-that-can-be-physically-passed-through" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Word to describe object that can be physically passed through
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/45834/a-local-puzzler-lawyering-around-with-a-finish-door" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    A local puzzler lawyering around with a finish door
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-serverfault" title="Server Fault"></div><a href="http://serverfault.com/questions/815841/multiple-txt-fields-for-same-subdomain" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:2 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Multiple TXT fields for same subdomain
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/61571/can-guns-be-rendered-unusable-by-changing-the-atmosphere" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can guns be rendered unusable by changing the atmosphere?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/101461/why-do-internet-forums-tend-to-prohibit-responding-to-inactive-threads" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do Internet forums tend to prohibit responding to inactive threads?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/79723/higher-up-doesnt-carry-around-their-security-badge-and-asks-others-to-let-them" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Higher up doesn't carry around their security badge and asks others to let them in. What should I do about this security issue?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="http://outdoors.stackexchange.com/questions/14350/how-far-above-a-waterfall-should-you-be-to-safely-cross" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How far above a waterfall should you be to safely cross?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="http://outdoors.stackexchange.com/questions/14312/mountainering-with-6-y-o-kid-in-winter" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Mountainering with 6 y.o. kid in winter
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/145461/what-happens-if-bb-8-rolls-the-wrong-way" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What happens if BB-8 rolls the wrong way?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/61620/living-on-an-isolated-peninsula-making-it-impossible-to-leave" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Living on an Isolated Peninsula - Making it Impossible to Leave
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/72742/if-the-co-signer-on-my-car-loan-dies-can-the-family-take-the-car-from-me-like-t" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If the co-signer on my car loan dies, can the family take the car from me like they're threatening to?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/5772192" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/5772192/ivc/d378');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/5772192/ivc/d378" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/clc.min.js.download"></script><script async="" src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/clc.min.js(1).download"></script>
+    <div id="footer" class="categories">
+        <div class="footerwrap">            
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                    <a href="http://stackoverflow.com/company/about">about us</a>
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://stackoverflow.blog/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackoverflow.com/company/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="4">
+                Technology
+            </th>
+            <th colspan="2">
+                Life / Arts
+            </th>
+            <th colspan="2">
+                Culture / Recreation
+            </th>
+            <th colspan="2">
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://softwareengineering.stackexchange.com/" title="professionals, academics, and students working within the systems development life cycle who care about creating, delivering, and maintaining software responsibly">Software Engineering</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                        <li><a href="http://crypto.stackexchange.com/" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://codereview.stackexchange.com/" title="peer programmer code reviews">Code Review</a></li>
+                        <li><a href="http://magento.stackexchange.com/" title="users of the Magento e-Commerce platform">Magento</a></li>
+                        <li><a href="http://dsp.stackexchange.com/" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                        <li><a href="http://raspberrypi.stackexchange.com/" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                        <li><a href="http://codegolf.stackexchange.com/" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://music.stackexchange.com/" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (8)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://ell.stackexchange.com/" title="speakers of other languages learning English">English Language Learners</a></li>
+                        <li><a href="http://japanese.stackexchange.com/" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                        <li><a href="http://anime.stackexchange.com/" title="anime and manga fans">Anime &amp; Manga</a></li>
+                        <li><a href="http://mechanics.stackexchange.com/" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (17)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                        <li><a href="http://cs.stackexchange.com/" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://philosophy.stackexchange.com/" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (3)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://talent.stackoverflow.com/">Stack Overflow Talent</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+            <div id="copyright">
+                site design / logo © 2016 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2016.11.18.4219
+            </div>
+                </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    
+    
+        
+        ados.run.push(function () {
+                setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+                ados_setKeywords('git');; ados_load();
+        });   
+        
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+            
+            ga('create', 'UA-5620270-1');
+            ga('set', 'dimension2', '|git|');             ga('send', 'pageview');
+        
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+<img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/to.gif" style="display: none;"><img src="./git - How can I reconcile detached HEAD with master_origin_ - Stack Overflow_files/to.gif" style="display: none;"></body></html>
