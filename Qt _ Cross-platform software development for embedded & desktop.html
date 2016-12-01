@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="UTF-8" />
+    <title>Qt | Cross-platform software development for embedded &amp; desktop</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="91RJ0AVTozuP5one5itC5zhjLe3Vsk289Yqx7rGOq6w" />
+    <meta name="google-site-verification" content="smOLflz9TwJAqAUKON9vV0COQVqEey7ZMEou6lmIldw" />
+    <meta name="google-site-verification" content="HlsxqGYE8BlqXPLRoNA2ZWO9gZkNYLDNUlBRNeC5WZ0" />
+    <link rel="shortcut icon" href="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/assets/images/favicon.ico" />
+    <link rel="icon" type="image/png" href="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/assets/images/favicon-16x16.png" />
+    <link rel="alternate" hreflang="en" href="https://www.qt.io/" /><link rel="alternate" hreflang="zh" href="https://www.qt.io/cn/" /><link rel="alternate" hreflang="es" href="https://www.qt.io/es/" /><link rel="alternate" hreflang="fi" href="https://www.qt.io/fi/" /><link rel="alternate" hreflang="ja" href="https://www.qt.io/jp/" /><link rel="alternate" hreflang="ru" href="https://www.qt.io/ru/" />    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>-->
+    <link rel="stylesheet" href="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/assets/css/style.css?ver=2016100701" />
+
+    <script type="text/javascript"> wpThemeFolder = 'https://www.qt.io/wp-content/themes/oneqt'; </script>
+    
+<!-- This site is optimized with the Yoast SEO Premium plugin v3.7.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Qt is the faster, smarter way to create innovative devices, modern UIs &amp; applications for multiple screens. Cross-platform software development at its best."/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://www.qt.io/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The future is written with Qt: Cross-platform software development for embedded &amp; desktop" />
+<meta property="og:description" content="A modern user interface that is beautiful on every screen and performs perfectly on every platform is not an option, it’s a necessity. Qt is the faster, smarter way to create innovative devices, modern UIs &amp; applications for multiple screens. Cross-platform software development at its best that&#039;s why 8 of Top 10 Fortune 500 companies use Qt." />
+<meta property="og:url" content="https://www.qt.io/" />
+<meta property="og:site_name" content="Qt" />
+<meta property="og:image" content="https://qt-web-uploads.s3.amazonaws.com/wp-content/uploads/2015/06/hero.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Qt is the faster, smarter way to create innovative devices, modern UIs &amp; applications for multiple screens. Cross-platform software development at its best." />
+<meta name="twitter:title" content="Qt | Cross-platform software development for embedded &amp; desktop" />
+<meta name="twitter:site" content="@qtproject" />
+<meta name="twitter:image" content="https://qt-web-uploads.s3.amazonaws.com/wp-content/uploads/2015/06/hero.jpg" />
+<meta name="twitter:creator" content="@qtproject" />
+<meta property="DC.date.issued" content="2015-06-24T11:12:21+00:00" />
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"WebSite","@id":"#website","url":"https:\/\/www.qt.io\/","name":"Qt","potentialAction":{"@type":"SearchAction","target":"https:\/\/www.qt.io\/?s={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type='application/ld+json'>{"@context":"http:\/\/schema.org","@type":"Organization","url":"https:\/\/www.qt.io\/","sameAs":["http:\/\/www.facebook.com\/Qt","http:\/\/www.linkedin.com\/company\/the-qt-company","http:\/\/www.youtube.com\/user\/QtStudios","https:\/\/twitter.com\/qtproject"],"@id":"#organization","name":"The Qt Company","logo":"https:\/\/qt-web-uploads.s3.amazonaws.com\/wp-content\/uploads\/2016\/05\/TheQtCompany_logo_1200x630.png"}</script>
+<meta name="google-site-verification" content="smOLflz9TwJAqAUKON9vV0COQVqEey7ZMEou6lmIldw" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//js.hsforms.net' />
+<link rel='dns-prefetch' href='//wurfl.io' />
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.qt.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='wp-pagenavi-css'  href='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/plugins/wp-pagenavi/pagenavi-css.css?ver=2.70' type='text/css' media='all' />
+<link rel='stylesheet' id='apb-styles-css'  href='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/pagebuilder/css/apb_styles.css?ver=2016112400' type='text/css' media='all' />
+<link rel='stylesheet' id='tribe_events-widget-this-week-pro-style-css'  href='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/plugins/events-calendar-pro/src/resources/css/widget-this-week-skeleton.min.css?ver=4.2.6' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tribe_events_linked_posts = {"post_types":{"tribe_venue":"venue","tribe_organizer":"organizer"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/js/combo.js?ver=2016100701'></script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/js/main.js?ver=2016100701'></script>
+<script type='text/javascript' src='//js.hsforms.net/forms/v2.js?ver=4.6.1'></script>
+<script type='text/javascript' src='//wurfl.io/wurfl.js?ver=4.6.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var tribe_this_week = {"ajaxurl":"https:\/\/www.qt.io\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/plugins/events-calendar-pro/src/resources/js/widget-this-week.min.js?ver=4.2.6'></script>
+<link rel='https://api.w.org/' href='https://www.qt.io/wp-json/' />
+<link rel='shortlink' href='https://www.qt.io/' />
+<link rel="alternate" type="application/json+oembed" href="https://www.qt.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.qt.io%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.qt.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.qt.io%2F&#038;format=xml" />
+</head>
+<body class="home page page-id-15055 page-template page-template-pagebuilder page-template-pagebuilder-php tribe-theme-oneqt">
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T2GWQM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2GWQM');</script>
+<!-- End Google Tag Manager -->
+    <header id="navbar">
+        <div class="cookies_yum">
+            <div>
+                <img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/assets/images/cookie_small.png">
+                <p class="close_button">
+                    We bake cookies in your browser for a better experience.  Using this site means that you consent. <a href="/terms-conditions/">Read More</a>
+                </p>
+                <a class="close"></a>
+            </div>
+        </div>
+                <div class="container">
+            <div class="navbar-header cf">
+                <a href="#" class="navbar-toggle">
+                    <figure><span class="line"></span></figure>
+                    <span>Menu</span>
+                </a>
+                <ul id="menuextras" class="menu"><li id="menu-item-10162" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="http://blog.qt.io/" data-icon=""><span>Blog</span></a></li>
+<li id="menu-item-18687" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.qt.io/partners/" data-icon=""><span>Partners</span></a></li>
+<li id="menu-item-20894" class="menu-item menu-item-type-post_type menu-item-object-page "><a href="https://www.qt.io/company/" data-icon=""><span>Company</span></a></li>
+<li id="menu-item-21792" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="https://investors.qt.io" data-icon=""><span>Investors</span></a></li>
+<li id="menu-item-10163" class="menu-item menu-item-type-custom menu-item-object-custom "><a href="https://account.qt.io/login" class="signin"><span>Sign in</span></a></li>
+<li id="menu-item-10164" class="menu-item menu-item-type-custom menu-item-object-custom search"><a href="/?s=&amp;lang=en&amp;lang=en" data-icon=""><span>Search</span></a></li>
+</ul>                <a href="https://www.qt.io/" class="navbar-oneQt retina" data-icon="&#xe600;"></a>
+                <nav class="navbar-menu cf">
+                    <ul id="mainmenu" class="menu"><li id="menu-item-22468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22468"><a href="https://www.qt.io/download/">Download</a></li>
+<li id="menu-item-21122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21122"><a href="https://www.qt.io/application-development/">Create Applications</a></li>
+<li id="menu-item-21123" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21123"><a href="https://www.qt.io/device-creation/">Build Devices</a></li>
+<li id="menu-item-19138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19138"><a href="https://www.qt.io/developers/">Developers</a></li>
+</ul>                    <ul class="menuextraslanguages">
+                        <li class="active light"><a class="light" href="https://www.qt.io/">EN</a><span class="tooltip">English</span></li><li class="light"><a class="light" href="https://www.qt.io/cn/">CN</a><span class="tooltip">中文</span></li><li class="light"><a class="light" href="https://www.qt.io/es/">ES</a><span class="tooltip">Español</span></li><li class="light"><a class="light" href="https://www.qt.io/fi/">FI</a><span class="tooltip">Suomi</span></li><li class="light"><a class="light" href="https://www.qt.io/jp/">JP</a><span class="tooltip">日本語</span></li><li class="light"><a class="light" href="https://www.qt.io/ru/">RU</a><span class="tooltip">Русский</span></li>                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="big_bar account">
+            <div class="container">
+                <h1><a href="https://account.qt.io/login" class="signin">Sign in</a>
+                    <div class="col-1 right big_bar_button account" style="margin-top:5px !important;"></div>
+                </h1>
+            </div>
+        </div>
+        <div class="big_bar search">
+            <div class="container">
+                <form method="get" id="searchform" action="/" class="clearfix">
+                    <input class="big_bar_search text" type="text" placeholder="Search" value="" name="s" id="s">
+                    <input class="col-1 right big_bar_button search search-submit" placeholder="Search" type="submit" id="searchsubmit" value="&#xe604;">
+                    <input type="hidden" name="lang" value="en">
+                </form>
+            </div>
+        </div>
+    </header>
+<section id="content-page"><div style="background-image: url(https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/hero_woman_touch_screen.jpg)" class="apb-section-wrapper color-theme-dark paddings-extra-large center-bottom-no-repeat-full-width"><div class="apb-section-mask low"></div><div class="corner-top"></div><div class="apb-content-wrapper">
+<div class="apb-heading ">
+
+	<h1 class="title-wrapper">The future is written with Qt
+</h1><h2 class="subheading title-wrapper">Cross-platform development with Qt is the faster, smarter <br />
+way to create innovative UIs, applications & embedded devices.</h2><a id="SE-1-MO-1-TY-HeadingButton-LA-Download_Qt" href="https://www.qt.io/download/" class="apb-btn large" target="_self">Download Qt</a>
+</div></div><div class="corner-bottom"></div></div><div class="apb-section-wrapper color-theme-light paddings-medium"><div class="apb-content-wrapper"><div class="rg-section rg-group"><div class="rg-col rg-span_6_of_12"><div class="heading-content-block"><h2 class="title-wrapper">8 of Top 10 Fortune 500 use Qt</h2><p>Qt is the software development framework of choice by engineers in over 70 industries worldwide for creating, building and deploying millions of connected embedded devices and applications. They chose Qt because it&#8217;s intuitive, cross-platform and saves time. When you develop with Qt, you create more, code less and deploy everywhere &#8212; and ahead of the rest.</p>
+<p>From your smart home, to the car you drive, and the devices you use at work, Qt is there.</p>
+</div><div class="apb-divider" style="height:30px;"></div><div> <a id="SE-2-MO-1-CO-1-TY-Button-LA-Built_with_Qt_success_stories" href="https://www.qt.io/qt-in-use/" class="apb-btn " target="_self">Built with Qt success stories</a></div></div><div class="rg-col rg-span_6_of_12"><div class="apb-embed-container with-bevel" data-iframe="&lt;iframe width=&quot;200&quot; height=&quot;113&quot; src=&quot;https://www.youtube.com/embed/CjyjEUFn_FI?feature=oembed&amp;controls=1&amp;hd=1&amp;autohide=1&amp;rel=0&quot; frameborder=&quot;0&quot; allowfullscreen id=&quot;apb_iframe_584056cebf82b&quot;&gt;&lt;/iframe&gt;"><div class="thumbnail" style="background-image: url(https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2015/06/vid-cover-qt-in-day-fwq.jpg)"><button class="play active"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="play-bg" d="m .66,37.62 c 0,0 .66,4.70 2.70,6.77 2.58,2.71 5.98,2.63 7.49,2.91 5.43,.52 23.10,.68 23.12,.68 .00,-1.3e-5 14.29,-0.02 23.81,-0.71 1.32,-0.15 4.22,-0.17 6.81,-2.89 2.03,-2.07 2.70,-6.77 2.70,-6.77 0,0 .67,-5.52 .67,-11.04 l 0,-5.17 c 0,-5.52 -0.67,-11.04 -0.67,-11.04 0,0 -0.66,-4.70 -2.70,-6.77 C 62.03,.86 59.13,.84 57.80,.69 48.28,0 34.00,0 34.00,0 33.97,0 19.69,0 10.18,.69 8.85,.84 5.95,.86 3.36,3.58 1.32,5.65 .66,10.35 .66,10.35 c 0,0 -0.55,4.50 -0.66,9.45 l 0,8.36 c .10,4.94 .66,9.45 .66,9.45 z" fill="#1f1f1e" fill-opacity="0.81"></path><path d="m 26.96,13.67 18.37,9.62 -18.37,9.55 -0.00,-19.17 z" fill="#fff"></path><path d="M 45.02,23.46 45.32,23.28 26.96,13.67 43.32,24.34 45.02,23.46 z" fill="#ccc"></path></svg></button></div></div></div></div></div></div><div class="apb-section-wrapper color-theme-light paddings-none"><div class="apb-content-wrapper">
+<div class="apb-heading  boxed apb-bevel-me">
+
+	<h2 class="title-wrapper">A modern user interface that is beautiful on every screen and performs perfectly on every platform is not an option, it’s a necessity.
+</h2>
+</div></div></div><div class="apb-section-wrapper color-theme-light paddings-small"><div class="apb-content-wrapper"><div class="rg-section rg-group"><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-1-CO-1-TY-ImageLink" href="https://www.qt.io/qt-news/qt-used-lg-electronics-webos-3-0-smart-tvs/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_LG_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-1-CO-2-TY-ImageLink" href="https://www.qt.io/case-panasonic/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_panasonic_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-1-CO-3-TY-ImageLink" href="https://www.qt.io/qt-news/sky-selects-qt-sky-q-home-entertainment-system-user-interface/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_Sky_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_sennheiser_logo_560x320.jpg" alt="" /></div></div></div></div><div class="apb-divider" style="height:46px;"></div><div class="rg-section rg-group"><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-3-CO-1-TY-ImageLink" href="https://www.qt.io/case-built-with-qt-ubuntu-open-source-software-platform/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_Ubuntu_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-3-CO-2-TY-ImageLink" href="https://www.qt.io/case-rimac/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_Rimac_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-3-CO-3-TY-ImageLink" href="https://www.qt.io/case-bluescape/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_bluescape_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_abb_logo_560x320.jpg" alt="" /></div></div></div></div><div class="apb-divider" style="height:46px;"></div><div class="rg-section rg-group"><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-5-CO-1-TY-ImageLink" href="https://www.qt.io/case-formlabs/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_formlabs_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_magneti_marelli_logo_560x320.jpg" alt="" /></div></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><a id="SE-4-MO-5-CO-3-TY-ImageLink" href="https://www.qt.io/case-navico/" class="apb-image-link" target="_self"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_navico_logo_560x320.jpg" alt="" /></div></a></div></div><div class="rg-col rg-span_3_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/partner_bitney_bowes_logo_560x320.jpg" alt="" /></div></div></div></div></div></div><div class="apb-section-wrapper color-theme-light paddings-small"><div class="apb-content-wrapper">
+<div class="apb-heading ">
+
+	<h2 class="title-wrapper">Learn more about Qt
+</h2>
+</div>
+<div class="apb-biglinks apb-clearfix three-col">
+        
+	
+        <div class="item-wrapper">
+            <a id="SE-5-MO-2-TY-BigLink-EL-Qt_5.7" href="https://www.qt.io/qt5-7/" class="link-area" target="_self"></a>
+            <div class="icon-wrapper"><span class="icon" data-icon="&#x4c;"></span></div>
+            <div class="content-wrapper">
+                <h3 class="content-title">Qt 5.7</h3>
+            </div>
+            <div class="bggradient"></div>
+            <div class="bgimage" style="background-image: url(https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/product_Qt_5-7_home.jpg)"></div>
+            <div class="bgcolor"></div>
+        </div>
+		
+	
+        <div class="item-wrapper">
+            <a id="SE-5-MO-2-TY-BigLink-EL-Qt_licensing_explained" href="https://www.qt.io/licensing/" class="link-area" target="_self"></a>
+            <div class="icon-wrapper"><span class="icon" data-icon="&#x4c;"></span></div>
+            <div class="content-wrapper">
+                <h3 class="content-title">Qt licensing explained</h3>
+            </div>
+            <div class="bggradient"></div>
+            <div class="bgimage" style="background-image: url(https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/06/general_licensing_home.jpg)"></div>
+            <div class="bgcolor"></div>
+        </div>
+		
+	
+        <div class="item-wrapper">
+            <a id="SE-5-MO-2-TY-BigLink-EL-IoT_whitepaper" href="https://www.qt.io/whitepapers/" class="link-area" target="_self"></a>
+            <div class="icon-wrapper"><span class="icon" data-icon="&#x4c;"></span></div>
+            <div class="content-wrapper">
+                <h3 class="content-title">IoT whitepaper</h3>
+            </div>
+            <div class="bggradient"></div>
+            <div class="bgimage" style="background-image: url(https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/03/biglinks-RC.jpg)"></div>
+            <div class="bgcolor"></div>
+        </div>
+		
+	
+</div></div></div><div class="apb-section-wrapper color-theme-lightgray paddings-small"><div class="apb-content-wrapper"><div class="rg-section rg-group"><div class="rg-col rg-span_6_of_12"><div class="heading-content-block"><h2 class="title-wrapper">Recent News</h2></div>                                        <p>
+                                            <i>October 19, 2016</i><br>
+                                            <a href="https://www.qt.io/qt-news/qt-world-summit-2016-kicks-off/">Qt World Summit 2016 Kicks Off</a>
+                                        </p>
+                                                                            <p>
+                                            <i>October 4, 2016</i><br>
+                                            <a href="https://www.qt.io/qt-news/qt-company-introduces-major-expansion-development-framework-support-global-demand-connected-devices/">The Qt Company Introduces Major Expansion to Its Development Framework to Support Global Demand for Connected Devices</a>
+                                        </p>
+                                                                            <p>
+                                            <i>August 9, 2016</i><br>
+                                            <a href="https://www.qt.io/qt-news/link-motion-develops-connected-car-computer-qt/">Link Motion develops connected car computer with Qt</a>
+                                        </p>
+                                    <div> <a id="SE-6-MO-1-CO-1-TY-Button-LA-View_more" href="http://www.qt.io/qt-news/" class="apb-btn small" target="_self">View more</a></div></div><div class="rg-col rg-span_6_of_12"><div class="heading-content-block"><h2 class="title-wrapper">Upcoming Events</h2></div>                                            <p>
+                                                <i>December 1</i>
+                                                <br />
+                                                <a href="https://www.qt.io/event/meet-qt-in-lyon/" title="Meet Qt in Lyon">Meet Qt in Lyon</a>
+                                                                                                    - Lyon, France                                                                                            </p>
+                                                                                    <p>
+                                                <i>December 6 -  8</i>
+                                                <br />
+                                                <a href="https://www.qt.io/event/embedded-systems-conference-esc-silicon-valley/" title="Embedded Systems Conference (ESC) Silicon Valley">Embedded Systems Conference (ESC) Silicon Valley</a>
+                                                                                                    - San Jose, CA, United States                                                                                            </p>
+                                                                                    <p>
+                                                <i>December 6 at 5:00 p.m (Europe/Berlin)</i>
+                                                <br />
+                                                <a href="https://www.qt.io/event/introducing-qt-visual-studio-tools/" title="Introducing Qt Visual Studio Tools">Introducing Qt Visual Studio Tools</a>
+                                                                                                    - Webinar                                                                                            </p>
+                                        <div> <a id="SE-6-MO-1-CO-2-TY-Button-LA-View_more" href="https://www.qt.io/events/" class="apb-btn small" target="_self">View more</a></div></div></div></div></div><div class="apb-section-wrapper color-theme-light paddings-medium"><div class="apb-content-wrapper">
+<div class="apb-heading ">
+
+	<h2 class="title-wrapper">One ecosystem — Stronger together — One Qt
+</h2><h3 class="subheading title-wrapper">Learn why over 1 million engineers choose Qt as their #1 cross-platform development framework.</h3>
+</div><div class="apb-divider" style="height:60px;"></div><div class="rg-section rg-group"><div class="rg-col rg-span_4_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/01/application_development_option2_v3.jpg" alt="" /></div></div><div class="apb-divider" style="height:30px;"></div><div class="heading-content-block"><h2 class="title-wrapper">Application Development</h2><p>Build powerful, connected and beautiful applications that run on any screen and across any platform.</p>
+<p><a href="http://www.qt.io/application-development/">Develop applications with Qt</a></p>
+</div></div><div class="rg-col rg-span_4_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/04/hero_holoplot.jpg" alt="Built with Qt - Holoplot - 3D Audio Wall" /></div></div><div class="apb-divider" style="height:30px;"></div><div class="heading-content-block"><h2 class="title-wrapper">Device Creation</h2><p>Breathe new life into your devices by using innovative software to stand out from the crowd.</p>
+<p><a title="Product | Qt for Device Creation" href="https://www.qt.io/qt-for-device-creation/">Create devices with Qt</a></p>
+</div></div><div class="rg-col rg-span_4_of_12"><div class="apb-image with-bevel"><div class="image-wrapper"><img src="https://d33sqmjvzgs8hq.cloudfront.net/wp-content/uploads/2016/03/hero_automotive.jpg" alt="" /></div></div><div class="apb-divider" style="height:30px;"></div><div class="heading-content-block"><h2 class="title-wrapper">Get started with Qt</h2><p>Qt is a completely flexible and customisable platform. Find out which option is right for you and get started straight away.</p>
+<p><a href="http://www.qt.io/download/">Download Qt today</a></p>
+</div></div></div></div></div><div class="apb-section-wrapper color-theme-brand paddings-small"><div class="apb-content-wrapper">
+<div class="apb-cta apb-clearfix ">
+	<div class="headings-wrapper">
+        <h2 class="title-wrapper">Get started with Qt</h2>
+        <h4 class="title-wrapper">Find out which option is right for you and get started straight away.</h4>    </div>
+    <div class="btn-wrapper">
+    	<a id="SE-8-MO-1-TY-CtaButton-LA-Download_Qt" href="https://www.qt.io/download/" class="apb-btn large" target="_self">Download Qt</a>
+    </div>
+</div></div></div></section>    <footer id="footerbar">
+                        <div class="footer-main">
+            <div class="container cf">
+                <nav class="footer-nav cf">
+                    <div class="menu-english-footer-menu-container"><ul id="menu-english-footer-menu" class="menu"><li id="menu-item-22469" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-22469"><a href="https://www.qt.io/download/">Download</a>
+<ul class="sub-menu">
+	<li id="menu-item-15841" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15841"><a href="https://www.qt.io/request-eval-for-devices-step-2/">Qt for Device Creation</a></li>
+	<li id="menu-item-15840" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15840"><a href="https://www.qt.io/download-eval-for-applications-step-2/">Qt for Application Development</a></li>
+	<li id="menu-item-21292" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-21292"><a href="http://www.qt.io/download/#section-3">Buy Qt</a></li>
+	<li id="menu-item-1415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1415"><a href="https://www.qt.io/terms-conditions/">Terms &#038; Conditions</a></li>
+	<li id="menu-item-21180" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21180"><a href="https://www.qt.io/licensing/">Licensing</a></li>
+</ul>
+</li>
+<li id="menu-item-21284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-21284"><a>Build with Qt</a>
+<ul class="sub-menu">
+	<li id="menu-item-21067" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21067"><a href="https://www.qt.io/device-creation/">Device Creation</a></li>
+	<li id="menu-item-21064" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21064"><a href="https://www.qt.io/application-development/">Application Development</a></li>
+	<li id="menu-item-23525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23525"><a href="https://www.qt.io/qt-in-automotive/">Automotive IVIs</a></li>
+	<li id="menu-item-20699" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20699"><a href="https://www.qt.io/resource-center/">Resource Center</a></li>
+	<li id="menu-item-12576" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-12576"><a href="https://www.qt.io/qt-in-use/">Built with Qt</a></li>
+</ul>
+</li>
+<li id="menu-item-1347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1347"><a href="https://www.qt.io/services/">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-15863" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15863"><a href="https://www.qt.io/qt-training/">Qt Training</a></li>
+	<li id="menu-item-20345" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-20345"><a href="https://www.qt.io/partners/">Partner Directory</a></li>
+	<li id="menu-item-21283" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21283"><a href="https://www.qt.io/services/">Consultancy Services</a></li>
+	<li id="menu-item-21757" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21757"><a href="https://www.qt.io/edu/">Qt for Educational Use</a></li>
+</ul>
+</li>
+<li id="menu-item-19433" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-19433"><a href="https://www.qt.io/developers/">Developers</a>
+<ul class="sub-menu">
+	<li id="menu-item-1365" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1365"><a href="http://doc.qt.io/">Documentation</a></li>
+	<li id="menu-item-1363" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1363"><a href="http://doc.qt.io/qt-5/topics-app-development.html">Development Tools</a></li>
+	<li id="menu-item-1361" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1361"><a href="http://wiki.qt.io">Wiki</a></li>
+	<li id="menu-item-1360" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1360"><a href="http://forum.qt.io">Forums</a></li>
+	<li id="menu-item-21395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21395"><a href="https://www.qt.io/contribute/">Contribute to Qt</a></li>
+</ul>
+</li>
+<li id="menu-item-21005" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-21005"><a href="https://www.qt.io/company/">Company</a>
+<ul class="sub-menu">
+	<li id="menu-item-1350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1350"><a href="https://www.qt.io/about-us/">About Us</a></li>
+	<li id="menu-item-1353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://www.qt.io/events/">Events</a></li>
+	<li id="menu-item-12285" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12285"><a href="/qt-news">News</a></li>
+	<li id="menu-item-1349" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1349"><a href="https://www.qt.io/careers/">Careers</a></li>
+	<li id="menu-item-15911" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15911"><a href="https://www.qt.io/contact-us/">Contact Us</a></li>
+</ul>
+</li>
+</ul></div>                </nav>
+            </div>
+        </div>
+        <div class="disclaimer">
+            <div class="container cf no_discs">
+                <ul id="menu-english-footer-submenu" class="cf"><li id="menu-item-17853" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-17853"><a href="http://shop.spreadshirt.net/TheQtCompany/">Qt Merchandise</a></li>
+<li id="menu-item-1795" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1795"><a title="Sign into your account." href="https://account.qt.io/login">Sign In</a></li>
+<li id="menu-item-10375" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10375"><a href="mailto:feedback@qt.io?Subject=Feedback%20about%20www.qt.io%20site">Feedback</a></li>
+<li id="menu-item-4472" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4472"><a href="https://www.qt.io/about-us">© 2016 The Qt Company</a></li>
+</ul>                <div class="footer-social cf">
+                                            <div class="facebook">
+                            <div class="fb-like" data-href="https://www.facebook.com/qt" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+                        </div>
+                        <div class="twitter">
+                            <a href="https://twitter.com/qtproject" class="twitter-follow-button" data-show-count="true" data-show-screen-name="false">Follow @qtproject</a>
+                        </div>
+                                    </div>
+                            </div>
+        </div>
+    </footer>
+    <script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-content/themes/oneqt/pagebuilder/js/pagebuilder-js-combo.js?ver=2016112400'></script>
+<script type='text/javascript' src='https://d33sqmjvzgs8hq.cloudfront.net/wp-includes/js/wp-embed.min.js?ver=4.6.1'></script>
+    <div id="fb-root"></div>
+</body>
+</html>
+
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk
+Content Delivery Network via Amazon Web Services: CloudFront: d33sqmjvzgs8hq.cloudfront.net
+
+ Served from: www.qt.io @ 2016-12-01 16:58:55 by W3 Total Cache -->
