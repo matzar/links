@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://www.khronos.org/opengl/wiki/Common_Mistakes#Creating_a_Texture -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Common Mistakes - OpenGL Wiki</title>
+<script async="" src="./Common Mistakes - OpenGL Wiki_files/analytics.js.download"></script><script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Common_Mistakes","wgTitle":"Common Mistakes","wgCurRevisionId":12471,"wgRevisionId":12471,"wgArticleId":1402,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Common_Mistakes","wgRelevantArticleId":1402,"wgRequestId":"WLmfPGjsGP4AAGtRcRIAAAAC","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":true,"publish":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="./Common Mistakes - OpenGL Wiki_files/load.php">
+<style>
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}  .mw-content-ltr .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr .mw-collapsible-toggle{float:right} .mw-content-rtl .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl .mw-collapsible-toggle{float:left}.mw-customtoggle,.mw-collapsible-toggle{cursor:pointer} caption .mw-collapsible-toggle,.mw-content-ltr caption .mw-collapsible-toggle,.mw-content-rtl caption .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr caption .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle,.mw-content-ltr li .mw-collapsible-toggle,.mw-content-rtl li .mw-collapsible-toggle,.mw-content-rtl .mw-content-ltr li .mw-collapsible-toggle,.mw-content-ltr .mw-content-rtl li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	#toc.tochidden,.toctoggle{display:none}}
+@media screen{pre{overflow:auto;max-height:36em}}.mw-geshi{padding:0.25em;margin:0}pre{padding:0.25em}pre.de1,pre.de2{margin:0;padding:0}@media screen{pre.de1,pre.de2{overflow:visible}.mw-geshi{padding:0.25em;margin:0;overflow:auto;max-height:36em}} body.page-Main_Page h1.firstHeading{display:none}.tpl-code{font-family:"Consolas",monospace;background-color:#f8f8f8}.tpl-enum{font-family:"Consolas",monospace;background-color:#f8f8f8;color:#A000A0}.tpl-param{font-family:"Consolas",monospace;font-style:italic} .tpl-vte{font-size:8pt}.portal-panel{padding:8px;border-style:solid;border-width:1px}.portal-box{border-style:solid;border-width:1px;margin-bottom:8px}.portal-box-header{padding:4px;border-style:solid;border-width:1px;font-size:150%;text-align:center;line-height:normal}.portal-box-header-edit{font-size:8pt}.portal-box-interior{padding:12px}.navbox,.navbox-subgroup{background:#fdfdfd; }.navbox-list{border-color:#fdfdfd; }.navbox th,.navbox-title{background:#ccccff; }.navbox-abovebelow,th.navbox-group,.navbox-subgroup .navbox-title{background:#ddddff; }.navbox-subgroup .navbox-group,.navbox-subgroup .navbox-abovebelow{background:#e6e6ff; }.navbox-even{background:#f7f7f7; }.navbox-odd{background:transparent; }table.navbox + table.navbox{ margin-top:-1px; }.navbox .hlist td dl,.navbox .hlist td ol,.navbox .hlist td ul,.navbox td.hlist dl,.navbox td.hlist ol,.navbox td.hlist ul{padding:0.125em 0; }ol + table.navbox,ul + table.navbox{margin-top:0.5em; }table.compact > tr > th,table.compact > tr > td,table.compact > * > tr > th,table.compact > * > tr > td{padding:0em}.funcdef{font-family:"Consolas",monospace;background-color:#F8F8F8;padding-left:1em;border:1px dashed #2F6FAB;white-space:nowrap;overflow:auto;max-height:36em}.funcdef p{margin-top:0;margin-bottom:0}.side-list{float:right;line-spacing 1.5em;margin:10px}.side-list-contents{font-size:88%;border:1px solid black;background-color:#F8F8F8;padding:0.5em} .navbar{display:inline;font-size:88%;font-weight:normal}.navbar ul{display:inline;white-space:nowrap}.navbar li{word-spacing:-0.125em}.navbar.mini li span{font-variant:small-caps} .infobox .navbar{font-size:100%}.navbox .navbar{display:block;font-size:100%}.navbox-title .navbar{ float:left; text-align:left; margin-right:0.5em;width:6em} .collapseButton{ float:right;font-weight:normal; margin-left:0.5em; text-align:right;width:auto} .navbox .collapseButton{width:6em} .mw-collapsible-toggle{font-weight:normal; text-align:right}.navbox .mw-collapsible-toggle{width:6em}
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4AZWRA3AYURQArxrVHtW2bdu2bdu2zdi2bdu2bWxs7zeehZaw4f70kbs+zI3e/nWK+RWx3aOFlrL56Sy5SxrruG69hlv6OyK+mz+8KDSXdXembj0ispT7tjs4ZTIbpYBvxGSGKzZTeFrb7W/meN002swFs0U8ttpHTkF2BvCqWQrW35929bTsKm5Zb+SEwWwcY8wAngB9m7Z+d+rIPZ/npdy12M5p47n8dXsCYAf0qPy06eGMdktuDu9Qf+JmKl3SWM91qzVcN9tAbEYkwMaq0tyb1m/To5kP170el/BK8/qa6sJr70ydf+T/Uu5ab+Oo/lS0AkUBpIFWlZ9WPhxpse/PHO7YbOOczjL0vZV2lNxPPtG73dYXM+xvm2znrOl83tidoqCwMBgYXsPFB0on5S6pr+eK5TKuW67lgvaKvF8mL1dtfTL32FHxRdyx3cQpg7m4x9sCXKkTIzA4LDH44zWdzaUf71hv5rTG4uyzcusybxSX7aThbMQ8XgCYAp3rzTTQOiIh9PNlzY3FSuZxrzjme1Y7uGS6kjsWO4jPjM4FVjRZsvD4kO9XtTZzQn82NyzWc0B7AmZh6gA/hOYSGhfw9YbOVnarj+S7800AL2BIsxUAbWNToj7bhBuQmZcOsFdoKUC74rGheCwXmqAIQTc9jQcrADIAAAAASUVORK5CYII=);background-image:url(/opengl/wiki_opengl/resources/src/mediawiki.action/images/green-checkmark.png?d94f1)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./Common Mistakes - OpenGL Wiki_files/load(1).php">
+<script async="" src="./Common Mistakes - OpenGL Wiki_files/load(2).php"></script>
+<meta name="generator" content="MediaWiki 1.27.1">
+<link rel="shortcut icon" href="https://www.khronos.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.khronos.org/opengl/wiki_opengl/opensearch_desc.php" title="OpenGL Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://www.khronos.org/opengl/wiki_opengl/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="OpenGL Wiki Atom feed" href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script type="text/javascript" src="./Common Mistakes - OpenGL Wiki_files/spcjs.php"></script><script type="text/javascript" src="./Common Mistakes - OpenGL Wiki_files/spc.php"></script><script type="text/javascript" src="./Common Mistakes - OpenGL Wiki_files/fl.js.download"></script>
+
+<script src="./Common Mistakes - OpenGL Wiki_files/load(3).php"></script></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Common_Mistakes rootpage-Common_Mistakes skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Common Mistakes</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From OpenGL Wiki</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#mw-head">navigation</a>, 					<a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+<div style="width:728px;margin-left: auto;margin-right:auto;">
+<script type="text/javascript"><!--// <![CDATA[
+   OA_show(1);
+// ]]> --></script><a href="https://beta.opengl.org/ads/www/delivery/ck.php?oaparams=2__bannerid=94__zoneid=1__cb=c65d726d05__oadest=http%3A%2F%2Fwww.amazon.com%2FOpenGL-3-0-Programming-Guide-Edition%2Fdp%2F0321933885%2Fkhongrou-20" target="_blank"><img src="./Common Mistakes - OpenGL Wiki_files/118d34c5d23f0868053c8b5f5ffd271f.jpg" width="728" height="90" alt="" title="" border="0"></a><div id="beacon_c65d726d05" style="position: absolute; left: 0px; top: 0px; visibility: hidden;"><img src="./Common Mistakes - OpenGL Wiki_files/lg.php" width="0" height="0" alt="" style="width: 0px; height: 0px;"></div>
+
+</div>
+<p>Quite a few websites show the same mistakes and the mistakes presented in their tutorials are copied and pasted by those who want to learn OpenGL. This page has been created so that newcomers understand GL programming a little better instead of working by trial and error.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+<span class="toctoggle">&nbsp;[<a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Extensions_and_OpenGL_Versions"><span class="tocnumber">1</span> <span class="toctext">Extensions and OpenGL Versions</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#The_Object_Oriented_Language_Problem"><span class="tocnumber">2</span> <span class="toctext">The Object Oriented Language Problem</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#OOP_and_hidden_binding"><span class="tocnumber">2.1</span> <span class="toctext">OOP and hidden binding</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Texture_upload_and_pixel_reads"><span class="tocnumber">3</span> <span class="toctext">Texture upload and pixel reads</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Image_precision"><span class="tocnumber">4</span> <span class="toctext">Image precision</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Depth_Buffer_Precision"><span class="tocnumber">5</span> <span class="toctext">Depth Buffer Precision</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Creating_a_complete_texture"><span class="tocnumber">6</span> <span class="toctext">Creating a complete texture</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Automatic_mipmap_generation"><span class="tocnumber">7</span> <span class="toctext">Automatic mipmap generation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Legacy_Generation"><span class="tocnumber">7.1</span> <span class="toctext">Legacy Generation</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#gluBuild2DMipmaps"><span class="tocnumber">7.2</span> <span class="toctext">gluBuild2DMipmaps</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glGetError"><span class="tocnumber">8</span> <span class="toctext">glGetError</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Checking_For_Errors_When_You_Compile_Your_Shader"><span class="tocnumber">9</span> <span class="toctext">Checking For Errors When You Compile Your Shader</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Creating_a_Cubemap_Texture"><span class="tocnumber">10</span> <span class="toctext">Creating a Cubemap Texture</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Texture_edge_color_problem"><span class="tocnumber">11</span> <span class="toctext">Texture edge color problem</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Updating_a_texture"><span class="tocnumber">12</span> <span class="toctext">Updating a texture</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Render_To_Texture"><span class="tocnumber">13</span> <span class="toctext">Render To Texture</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Depth_Testing_Doesn.27t_Work"><span class="tocnumber">14</span> <span class="toctext">Depth Testing Doesn't Work</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#No_Alpha_in_the_Framebuffer"><span class="tocnumber">15</span> <span class="toctext">No Alpha in the Framebuffer</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glFinish_and_glFlush"><span class="tocnumber">16</span> <span class="toctext">glFinish and glFlush</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glDrawPixels"><span class="tocnumber">17</span> <span class="toctext">glDrawPixels</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#GL_DOUBLE"><span class="tocnumber">18</span> <span class="toctext">GL_DOUBLE</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Slow_pixel_transfer_performance"><span class="tocnumber">19</span> <span class="toctext">Slow pixel transfer performance</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Swap_Buffers"><span class="tocnumber">20</span> <span class="toctext">Swap Buffers</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#The_Pixel_Ownership_Problem"><span class="tocnumber">21</span> <span class="toctext">The Pixel Ownership Problem</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Selection_and_Picking_and_Feedback_Mode"><span class="tocnumber">22</span> <span class="toctext">Selection and Picking and Feedback Mode</span></a></li>
+<li class="toclevel-1 tocsection-26"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Point_and_line_smoothing"><span class="tocnumber">23</span> <span class="toctext">Point and line smoothing</span></a></li>
+<li class="toclevel-1 tocsection-27"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glEnable.28GL_POLYGON_SMOOTH.29"><span class="tocnumber">24</span> <span class="toctext">glEnable(GL_POLYGON_SMOOTH)</span></a></li>
+<li class="toclevel-1 tocsection-28"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Color_Index.2C_The_imaging_subset"><span class="tocnumber">25</span> <span class="toctext">Color Index, The imaging subset</span></a></li>
+<li class="toclevel-1 tocsection-29"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Bitfield_enumerators"><span class="tocnumber">26</span> <span class="toctext">Bitfield enumerators</span></a></li>
+<li class="toclevel-1 tocsection-30"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Triple_Buffering"><span class="tocnumber">27</span> <span class="toctext">Triple Buffering</span></a></li>
+<li class="toclevel-1 tocsection-31"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Paletted_textures"><span class="tocnumber">28</span> <span class="toctext">Paletted textures</span></a></li>
+<li class="toclevel-1 tocsection-32"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Texture_Unit"><span class="tocnumber">29</span> <span class="toctext">Texture Unit</span></a></li>
+<li class="toclevel-1 tocsection-33"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Disable_depth_test_and_allow_depth_writes"><span class="tocnumber">30</span> <span class="toctext">Disable depth test and allow depth writes</span></a></li>
+<li class="toclevel-1 tocsection-34"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glGetFloatv_glGetBooleanv_glGetDoublev_glGetIntegerv"><span class="tocnumber">31</span> <span class="toctext">glGetFloatv glGetBooleanv glGetDoublev glGetIntegerv</span></a></li>
+<li class="toclevel-1 tocsection-35"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#y-axis"><span class="tocnumber">32</span> <span class="toctext">y-axis</span></a></li>
+<li class="toclevel-1 tocsection-36"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#glGenTextures_in_render_function"><span class="tocnumber">33</span> <span class="toctext">glGenTextures in render function</span></a></li>
+<li class="toclevel-1 tocsection-37"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Bad_znear_value"><span class="tocnumber">34</span> <span class="toctext">Bad znear value</span></a></li>
+<li class="toclevel-1 tocsection-38"><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#Bad_Array_Size"><span class="tocnumber">35</span> <span class="toctext">Bad Array Size</span></a></li>
+</ul>
+</div>
+<p></p>
+<p>There are also other articles explaining common mistakes:</p>
+<ul>
+<li><a href="https://www.khronos.org/opengl/wiki/GLSL_:_common_mistakes" title="GLSL : common mistakes">Common Mistakes in GLSL</a></li>
+<li><a href="https://www.khronos.org/opengl/wiki/Unexpected_Results" title="Unexpected Results">Unexpected Results</a> you can get when using OpenGL</li>
+<li>Mistakes related to measuring <a href="https://www.khronos.org/opengl/wiki/Performance" title="Performance">Performance</a></li>
+<li><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes:_Deprecated" title="Common Mistakes: Deprecated">Common Mistakes</a> when using deprecated functionality.</li>
+</ul>
+<h2><span class="mw-headline" id="Extensions_and_OpenGL_Versions">Extensions and OpenGL Versions</span></h2>
+<p>One of the possible mistakes related to this is to check for the presence of an <a href="https://www.khronos.org/opengl/wiki/Extension" title="Extension" class="mw-redirect">extension</a>, but instead using the corresponding core functions. The correct behavior is to check for the presence of the extension if you want to use the extension API, and check the GL version if you want to use the core API. In case of a <a href="https://www.khronos.org/opengl/wiki/OpenGL_Extensions#Core_Extensions" title="OpenGL Extensions" class="mw-redirect">core extension</a>, you should check for both the version and the presence of the extension; if either is there, you can use the functionality.</p>
+<h2><span class="mw-headline" id="The_Object_Oriented_Language_Problem">The Object Oriented Language Problem</span></h2>
+<p>In an object-oriented language like C++, it is often useful to have a class that wraps an OpenGL object. For example, one might have a texture object that has a constructor and a destructor like the following:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">MyTexture</span><span class="o">::</span><span class="n">MyTexture</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">pfilePath</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">LoadFile</span><span class="p">(</span><span class="n">pfilePath</span><span class="p">)</span><span class="o">==</span><span class="n">ERROR</span><span class="p">)</span>
+	 <span class="k">return</span><span class="p">;</span>
+  <span class="n">textureID</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+  <span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+  <span class="c1">//More GL code...</span>
+<span class="p">}</span>
+
+<span class="n">MyTexture</span><span class="o">::~</span><span class="n">MyTexture</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">textureID</span><span class="p">)</span>
+	 <span class="n">glDeleteTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>There is a large pitfall with doing this. OpenGL functions do not work unless an OpenGL context has been created and is active within that thread. Thus, glGenTextures will do nothing before context creation, and glDeleteTextures will do nothing after context destruction. The latter problem is not a significant concern since OpenGL contexts clean up after themselves, but the former is a problem.</p>
+<p>This problem usually manifests itself when someone creates a texture object at global scope. There are several potential solutions:</p>
+<ol>
+<li>Do not use constructors/destructors to initialize/destroy OpenGL objects. Instead, use member functions of these classes for these purposes. This violates RAII principles, so this is not the best course of action.</li>
+<li>Have your OpenGL object constructors throw an exception if a context has not been created yet. This requires an addition to your context creation functionality that tells your code when a context has been created and is active.</li>
+<li>Create a class that owns all other OpenGL related objects. This class should also be responsible for creating the context in its constructor.</li>
+</ol>
+<h3><span class="mw-headline" id="OOP_and_hidden_binding">OOP and hidden binding</span></h3>
+<p>There's another issue when using OpenGL with languages like c++. Consider the following function:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="kt">void</span> <span class="n">MyTexture</span><span class="o">::</span><span class="n">TexParameter</span><span class="p">(</span><span class="n">GLenum</span> <span class="n">pname</span><span class="p">,</span> <span class="n">GLint</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+    <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">pname</span><span class="p">,</span> <span class="n">param</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>The problem is that the binding of the texture is hidden from the user of the class. There may be performance implications for doing repeated binding of objects (especially since the API may not seem heavyweight to the outside user). But the major concern is correctness; the bound objects are <i>global state</i>, which a local member function now has changed.</p>
+<p>This can cause many sources of hidden breakage. The safe way to implement this is as follows:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="kt">void</span> <span class="n">MyTexture</span><span class="o">::</span><span class="n">TexParameter</span><span class="p">(</span><span class="n">GLenum</span> <span class="n">pname</span><span class="p">,</span> <span class="n">GLint</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">GLuint</span> <span class="n">boundTexture</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">glGetIntegerv</span><span class="p">(</span><span class="n">GL_TEXTURE_BINDING_2D</span><span class="p">,</span> <span class="p">(</span><span class="n">GLint</span><span class="o">*</span><span class="p">)</span> <span class="o">&amp;</span><span class="n">boundTexture</span><span class="p">);</span>
+    <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+    <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">pname</span><span class="p">,</span> <span class="n">param</span><span class="p">);</span>
+    <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">boundTexture</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<p>Note that this solution emphasizes correctness over <i>performance</i>; the <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glGetIntegerv" title="GLAPI/glGetIntegerv" class="mw-redirect">glGetIntegerv</a></span> call may not be particularly fast.</p>
+<p>A more effective solution is to use <a href="https://www.khronos.org/opengl/wiki/Direct_State_Access" title="Direct State Access">Direct State Access</a>, which requires OpenGL 4.5 <span>or</span> <a rel="nofollow" class="external text" href="http://www.opengl.org/registry/specs/ARB/direct_state_access.txt">ARB_direct_state_access</a>, or the older <a rel="nofollow" class="external text" href="http://www.opengl.org/registry/specs/EXT/direct_state_access.txt">EXT_direct_state_access</a> extension:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="kt">void</span> <span class="n">MyTexture</span><span class="o">::</span><span class="n">TexParameter</span><span class="p">(</span><span class="n">GLenum</span> <span class="n">pname</span><span class="p">,</span> <span class="n">GLint</span> <span class="n">param</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">glTextureParameteri</span><span class="p">(</span><span class="n">textureID</span><span class="p">,</span> <span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">pname</span><span class="p">,</span> <span class="n">param</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<h2><span class="mw-headline" id="Texture_upload_and_pixel_reads">Texture upload and pixel reads</span></h2>
+<p>You create <a href="https://www.khronos.org/opengl/wiki/Texture_Storage" title="Texture Storage">storage for</a> a <a href="https://www.khronos.org/opengl/wiki/Texture" title="Texture">Texture</a> and <a href="https://www.khronos.org/opengl/wiki/Pixel_Transfer" title="Pixel Transfer">upload pixels to it</a> with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D</a></span> (or <a href="https://www.khronos.org/opengl/wiki/Mutable_Texture_Storage" title="Mutable Texture Storage" class="mw-redirect">similar functions, as appropriate to the type of texture</a>). If your program crashes during the upload, or diagonal lines appear in the resulting image, this is because the <a href="https://www.khronos.org/opengl/wiki/Pixel_Transfer_Layout" title="Pixel Transfer Layout" class="mw-redirect">alignment of each horizontal line of your pixel array is not multiple of 4</a>. This typically happens to users loading an image that is of the RGB or BGR format (for example, 24 BPP images), depending on the source of your image data.</p>
+<p>Example, your image width = 401 and height = 500. The height is irrelevant; what matters is the width. If we do the math, 401 pixels x 3 bytes = 1203, which is not divisible by 4. Some image file formats may inherently align each row to 4 bytes, but some do not. For those that don't, each row will start exactly 1203 bytes from the start of the last. OpenGL's row alignment can be changed to fit the row alignment for your image data. This is done by calling <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glPixelStore" title="GLAPI/glPixelStore">glPixelStorei(GL_UNPACK_ALIGNMENT, #)</a></span>, where # is the alignment you want. The default alignment is 4.</p>
+<p>And if you are interested, most GPUs like chunks of 4 bytes. In other words, <span class="tpl-enum">GL_RGBA</span> or <span class="tpl-enum">GL_BGRA</span> is preferred when each component is a byte. <span class="tpl-enum">GL_RGB</span> and <span class="tpl-enum">GL_BGR</span> is considered bizarre since most GPUs, most CPUs and any other kind of chip don't handle 24 bits. This means, the driver converts your <span class="tpl-enum">GL_RGB</span> or <span class="tpl-enum">GL_BGR</span> to what the GPU prefers, which typically is BGRA.</p>
+<p>Similarly, if you read a buffer with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glReadPixels" title="GLAPI/glReadPixels">glReadPixels</a></span>, you might get similar problems. There is a <span class="tpl-enum">GL_PACK_ALIGNMENT</span> just like the <span class="tpl-enum">GL_UNPACK_ALIGNMENT</span>. The default alignment is again 4 which means each horizontal line must be a multiple of 4 in size. If you read the buffer with a format such as <span class="tpl-enum">GL_BGRA</span> or <span class="tpl-enum">GL_RGBA</span> you won't have any problems since the line will always be a multiple of 4. If you read it in a format such as <span class="tpl-enum">GL_BGR</span> or <span class="tpl-enum">GL_RGB</span> then you risk running into this problem.</p>
+<p>The <span class="tpl-enum">GL_PACK/UNPACK_ALIGNMENT</span>s can only be 1, 2, 4, or 8. So an alignment of 3 is not allowed.</p>
+<h2><span class="mw-headline" id="Image_precision">Image precision</span></h2>
+<p>You <i>can</i> (but it is not advisable to do so) call <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D(GL_TEXTURE_2D, 0, X, width, height, 0, format, type, pixels)</a></span> and you set X to 1, 2, 3, or 4. The X refers to the number of components (<span class="tpl-enum">GL_RED</span> would be 1, <span class="tpl-enum">GL_RG</span> would be 2, <span class="tpl-enum">GL_RGB</span> would be 3, <span class="tpl-enum">GL_RGBA</span> would be 4).</p>
+<p>It is preferred to actually give a real <a href="https://www.khronos.org/opengl/wiki/Image_Formats" title="Image Formats" class="mw-redirect">image format</a>, one with a specific internal precision. If the OpenGL implementation does not support the particular format and precision you choose, the driver will internally convert it into something it does support.</p>
+<p>OpenGL versions 3.x and above have a set of <a href="https://www.khronos.org/opengl/wiki/Image_Formats#Required_formats" title="Image Formats" class="mw-redirect">required image formats</a> that all conforming implementations must implement.</p>
+<div style="margin-left: 3em;"><b>Note:</b> The creation of <a href="https://www.khronos.org/opengl/wiki/Immutable_Storage_Texture" title="Immutable Storage Texture" class="mw-redirect">Immutable Storage Textures</a> actively forbids the use of unsized image formats. Or integers as above.</div>
+<p>We should also state that it is common to see the following on tutorial websites:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGB</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGB</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>Although GL will accept <span class="tpl-enum">GL_RGB</span>, it is up to the driver to decide an appropriate precision. We recommend that you be specific and write <span class="tpl-enum">GL_RGB8</span>:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGB8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGB</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>This means you want the driver to actually store it in the R8G8B8 format. We should also state that most GPUs will internally convert <span class="tpl-enum">GL_RGB8</span> into <span class="tpl-enum">GL_RGBA8</span>. So it's probably best to steer clear of <span class="tpl-enum">GL_RGB8</span>. We should also state that on some platforms, such as Windows, <span class="tpl-enum">GL_BGRA</span> for the <a href="https://www.khronos.org/opengl/wiki/Pixel_Transfer_Format" title="Pixel Transfer Format" class="mw-redirect">pixel upload format</a> is preferred.</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>This uses <span class="tpl-enum">GL_RGBA8</span> for the internal format. <span class="tpl-enum">GL_BGRA</span> and <span class="tpl-enum">GL_UNSIGNED_BYTE</span> (or <span class="tpl-enum">GL_UNSIGNED_INT_8_8_8_8</span> is for the data in pixels array. The driver will likely not have to perform any CPU-based conversion and DMA this data directly to the video card. Benchmarking shows that on Windows and with nVidia and ATI/AMD, that this is the optimal format.</p>
+<p>Preferred pixel transfer formats and types can be <a href="https://www.khronos.org/opengl/wiki/Query_Image_Format" title="Query Image Format" class="mw-redirect">queried from the implementation</a>.</p>
+<h2><span class="mw-headline" id="Depth_Buffer_Precision">Depth Buffer Precision</span></h2>
+<p>When you select a pixelformat for your window, and you ask for a <a href="https://www.khronos.org/opengl/wiki/Depth_Buffer" title="Depth Buffer" class="mw-redirect">Depth Buffer</a>, the depth buffer is typically stored as a <a href="https://www.khronos.org/opengl/wiki/Normalized_Integer" title="Normalized Integer">Normalized Integer</a> with a bitdepth of 16, 24, or 32 bits.</p>
+<div style="margin-left: 3em;"><b>Note:</b> You can create images with <a href="https://www.khronos.org/opengl/wiki/Depth_Texture" title="Depth Texture" class="mw-redirect">true floating-point depth formats</a>. But these can only be used with <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Object" title="Framebuffer Object">Framebuffer Objects</a>, not the <a href="https://www.khronos.org/opengl/wiki/Default_Framebuffer" title="Default Framebuffer">Default Framebuffer</a>.</div>
+<p>In OpenGL, all depth values lie in the range [0, 1]. The integer normalization process simply converts this floating-point range into integer values of the appropriate precision. It is the integer value that is stored in the depth buffer.</p>
+<p>Typically, 24-bit depth buffers will pad each depth value out to 32-bits, so 8-bits per pixel will go unused. However, if you ask for an 8-bit <a href="https://www.khronos.org/opengl/wiki/Stencil_Buffer" title="Stencil Buffer" class="mw-redirect">Stencil Buffer</a> along with the depth buffer, the two separate images will generally be combined into a single <a href="https://www.khronos.org/opengl/wiki/Depth_Stencil_Format" title="Depth Stencil Format" class="mw-redirect">depth/stencil image</a>. 24-bits will be used for depth, and the remaining 8-bits for stencil.</p>
+<p>Now that the misconception about depth buffers being floating point is resolved, what is wrong with this call?</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glReadPixels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_DEPTH_COMPONENT</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>
+</pre></div>
+<p>Because the depth format is a normalized integer format, the driver will have to use the CPU to convert the normalized integer data into floating-point values. This is slow.</p>
+<p>The preferred way to handle this is with this code:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>  <span class="k">if</span><span class="p">(</span><span class="n">depth_buffer_precision</span> <span class="o">==</span> <span class="mi">16</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">GLushort</span> <span class="n">mypixels</span><span class="p">[</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">];</span>
+    <span class="n">glReadPixels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_DEPTH_COMPONENT</span><span class="p">,</span> <span class="n">GL_UNSIGNED_SHORT</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">depth_buffer_precision</span> <span class="o">==</span> <span class="mi">24</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">GLuint</span> <span class="n">mypixels</span><span class="p">[</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">];</span>    <span class="c1">//There is no 24 bit variable, so we'll have to settle for 32 bit</span>
+    <span class="n">glReadPixels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_DEPTH_COMPONENT</span><span class="p">,</span> <span class="n">GL_UNSIGNED_INT_24_8</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>  <span class="c1">//No upconversion.</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">depth_buffer_precision</span> <span class="o">==</span> <span class="mi">32</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">GLuint</span> <span class="n">mypixels</span><span class="p">[</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">];</span>
+    <span class="n">glReadPixels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_DEPTH_COMPONENT</span><span class="p">,</span> <span class="n">GL_UNSIGNED_INT</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>
+  <span class="p">}</span>
+</pre></div>
+<p>If you have a depth/stencil format, you can get the depth/stencil data this way:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>   <span class="n">GLuint</span> <span class="n">mypixels</span><span class="p">[</span><span class="n">width</span><span class="o">*</span><span class="n">height</span><span class="p">];</span>
+   <span class="n">glReadPixels</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_DEPTH_STENCIL</span><span class="p">,</span> <span class="n">GL_UNSIGNED_INT_24_8</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>
+</pre></div>
+<h2><span class="mw-headline" id="Creating_a_complete_texture">Creating a complete texture</span></h2>
+<p>What's wrong with this code?</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>The texture won't work because it is incomplete. The default <span class="tpl-enum">GL_TEXTURE_MIN_FILTER</span> state is <span class="tpl-enum">GL_NEAREST_MIPMAP_LINEAR</span>. And because OpenGL defines the default <span class="tpl-enum">GL_TEXTURE_MAX_LEVEL</span> to be 1000, OpenGL will expect there to be mipmap levels defined. Since you have only defined a single mipmap level, OpenGL will consider the texture incomplete until the <span class="tpl-enum">GL_TEXTURE_MAX_LEVEL</span> is properly set, or the <span class="tpl-enum">GL_TEXTURE_MIN_FILTER</span> parameter is set to not use mipmaps.</p>
+<p>Better code would be to use <a href="https://www.khronos.org/opengl/wiki/Immutable_Storage_Texture" title="Immutable Storage Texture" class="mw-redirect">texture storage functions</a> (if you have OpenGL 4.2 or <a rel="nofollow" class="external text" href="http://www.opengl.org/registry/specs/ARB/texture_storage.txt">ARB_texture_storage</a>) to allocate the texture's storage, then upload with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span>:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexStorage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="n">glTexSubImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="err">​</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="err">​</span><span class="p">,</span> <span class="n">height</span><span class="err">​</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>This creates a texture with a single mipmap level, and sets all of the parameters appropriately. If you wanted to have multiple mipmaps, then you should change the <span class="tpl-code">1</span> to the number of mipmaps you want. You will also need separate <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span> calls to upload each mipmap.</p>
+<p>If that is unavailable, you can get a similar effect from this code:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_BASE_LEVEL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAX_LEVEL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>Again, if you use more than one mipmaps, you should change the <span class="tpl-enum">GL_TEXTURE_MAX_LEVEL</span> to state how many you will use (minus 1. The base/max level is a closed range), then perform a <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D</a></span> (note the lack of "Sub") for each mipmap.</p>
+<h2><span class="mw-headline" id="Automatic_mipmap_generation">Automatic mipmap generation</span></h2>
+<p>Mipmaps of a texture can be automatically generated with the <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glGenerateMipmap" title="GLAPI/glGenerateMipmap">glGenerateMipmap</a></span> function. OpenGL 3.0 or greater is required for this function (or the extension GL_ARB_framebuffer_object). The function works quite simply; when you call it for a texture, mipmaps are generated for that texture:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexStorage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">num_mipmaps</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">);</span>
+<span class="n">glTexSubImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="err">​</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="err">​</span><span class="p">,</span> <span class="n">height</span><span class="err">​</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+<span class="n">glGenerateMipmap</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span>  <span class="c1">//Generate num_mipmaps number of mipmaps here.</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span>
+</pre></div>
+<p>If texture storage is not available, you can use the older API:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+<span class="n">glGenerateMipmap</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">);</span>  <span class="c1">//Generate mipmaps now!!!</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span>
+</pre></div>
+<div style="margin-left: 3em;"><b>Warning:</b> It has been reported that on some ATI drivers, glGenerateMipmap(GL_TEXTURE_2D) has no effect unless you precede it with a call to glEnable(GL_TEXTURE_2D) in this particular case. Once again, to be clear, bind the texture, glEnable, then glGenerateMipmap. This is a bug and has been in the ATI drivers for a while. Perhaps by the time you read this, it will have been corrected. (glGenerateMipmap doesn't work on ATI as of 2011)</div>
+<h3><span class="mw-headline" id="Legacy_Generation">Legacy Generation</span></h3>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>OpenGL 1.4 is required for support for automatic mipmap generation. <span class="tpl-enum">GL_GENERATE_MIPMAP</span> is part of the texture object state and it is a flag (<span class="tpl-enum">GL_TRUE</span> or <span class="tpl-enum">GL_FALSE</span>). If it is set to <span class="tpl-enum">GL_TRUE</span>, then whenever texture level 0 is updated, the mipmaps will all be regenerated.</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>   <span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+   <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+   <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+   <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+   <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR</span><span class="p">);</span>
+   <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span> 
+   <span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_GENERATE_MIPMAP</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span> 
+   <span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>In GL 3.0, <span class="tpl-enum">GL_GENERATE_MIPMAP</span> is deprecated, and in 3.1 and above, it was removed. So for those versions, you must use <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glGenerateMipmap" title="GLAPI/glGenerateMipmap">glGenerateMipmap</a></span>.</p>
+<h3><span class="mw-headline" id="gluBuild2DMipmaps">gluBuild2DMipmaps</span></h3>
+<p>Never use this. Use either <span class="tpl-enum">GL_GENERATE_MIPMAP</span> (requires GL 1.4) or the <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glGenerateMipmap" title="GLAPI/glGenerateMipmap">glGenerateMipmap</a></span> function (requires GL 3.0).</p>
+<h2><span class="mw-headline" id="glGetError">glGetError</span></h2>
+<p>Why should you check for errors? Why you should call glGetError()?</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span> <span class="n">GL_REPEAT</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR_MIPMAP_LINEAR</span><span class="p">);</span> 
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">GL_GENERATE_MIPMAP</span><span class="p">,</span> <span class="n">GL_TRUE</span><span class="p">);</span>   <span class="c1">//Requires GL 1.4. Removed from GL 3.1 and above.</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>The code doesn't call glGetError(). If you were to call <span class="tpl-enum">glGetError</span>, it would return <span class="tpl-enum">GL_INVALID_ENUM</span>. If you were to place a <span class="tpl-enum">glGetError</span> call after each function call, you will notice that the error is raised at <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexParameter" title="GLAPI/glTexParameter">glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR_MIPMAP_LINEAR)</a></span>. The magnification filter can't specify the use of mipmaps; only the minification filter can do that.</p>
+<h2><span class="mw-headline" id="Checking_For_Errors_When_You_Compile_Your_Shader">Checking For Errors When You Compile Your Shader</span></h2>
+<p>Always check for <a href="https://www.khronos.org/opengl/wiki/Shader_Compile_Error" title="Shader Compile Error" class="mw-redirect">errors when compiling/linking shader or program objects</a>.</p>
+<h2><span class="mw-headline" id="Creating_a_Cubemap_Texture">Creating a Cubemap Texture</span></h2>
+<p>It's best to set the wrap mode to <span class="tpl-enum">GL_CLAMP_TO_EDGE</span> and not the other formats. Don't forget to define all 6 faces else the texture is considered incomplete. Don't forget to setup <span class="tpl-enum">GL_TEXTURE_WRAP_R</span> because cubemaps require 3D texture coordinates.</p>
+<p>Example:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glGenTextures</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">textureID</span><span class="p">);</span>
+<span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span> <span class="n">GL_CLAMP_TO_EDGE</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span> <span class="n">GL_CLAMP_TO_EDGE</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_WRAP_R</span><span class="p">,</span> <span class="n">GL_CLAMP_TO_EDGE</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAG_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_MIN_FILTER</span><span class="p">,</span> <span class="n">GL_LINEAR</span><span class="p">);</span>
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_BASE_LEVEL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> 
+<span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP</span><span class="p">,</span> <span class="n">GL_TEXTURE_MAX_LEVEL</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span> 
+<span class="c1">//Define all 6 faces</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_POSITIVE_X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face0</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_NEGATIVE_X</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face1</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_POSITIVE_Y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face2</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_NEGATIVE_Y</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face3</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_POSITIVE_Z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face4</span><span class="p">);</span>
+<span class="n">glTexImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_CUBE_MAP_NEGATIVE_Z</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_RGBA8</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels_face5</span><span class="p">);</span>
+</pre></div>
+<p>If you want to auto-generate mipmaps, you can use any of the aforementioned mechanisms. OpenGL will not blend over multiple textures when generating mipmaps for the cubemap leaving visible seams at lower mip levels. Unless you enable <a href="https://www.khronos.org/opengl/wiki/Seamless_Cubemap" title="Seamless Cubemap" class="mw-redirect">seamless cubemap texturing</a>.</p>
+<h2><span class="mw-headline" id="Texture_edge_color_problem">Texture edge color problem</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>Never use <span class="tpl-enum">GL_CLAMP</span>; what you intended was <span class="tpl-enum">GL_CLAMP_TO_EDGE</span>. Indeed, <span class="tpl-enum">GL_CLAMP</span> was removed from core GL 3.1+, so it's not even an option anymore.</p>
+<div style="margin-left: 3em;"><b>Note:</b> If you are curious as to what <span class="tpl-enum">GL_CLAMP</span> used to mean, it referred to blending texture edge texels with border texels. This is different from <span class="tpl-enum">GL_CLAMP_TO_BORDER</span>, where the clamping happens to a solid border color. The <span class="tpl-enum">GL_CLAMP</span> behavior was tied to special border texels. Effectively, each texture had a 1-pixel border. This was useful for having more easily seamless texturing, but it was never implemented in hardware directly. So it was removed.</div>
+<h2><span class="mw-headline" id="Updating_a_texture">Updating a texture</span></h2>
+<p>To change texels in an already existing 2d texture, use <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span>:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">textureID</span><span class="p">);</span>    <span class="c1">//A texture you have already created storage for</span>
+<span class="n">glTexSubImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p><span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D</a></span> creates the storage for the texture, defining the size/format and removing all previous pixel data. <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span> only modifies pixel data within the texture. It can be used to update all the texels, or simply a portion of them.</p>
+<p>To copy texels from the framebuffer, use <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glCopyTexSubImage2D" title="GLAPI/glCopyTexSubImage2D">glCopyTexSubImage2D</a></span>.</p>
+<p>glBindTexture(GL_TEXTURE_2D, textureID); //A texture you have already created storage for glCopyTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, 0, 0, width, height); //Copy current read buffer to texture</p>
+<p>Note that there is a <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glCopyTexImage2D" title="GLAPI/glCopyTexImage2D">glCopyTexImage2D</a></span> function, which does the copy to fill the image, but also defines the image size, format and so forth, just like <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D</a></span>.</p>
+<h2><span class="mw-headline" id="Render_To_Texture">Render To Texture</span></h2>
+<p>To render directly to a texture, without doing a copy as above, use <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Objects" title="Framebuffer Objects" class="mw-redirect">Framebuffer Objects</a>.</p>
+<div style="margin-left: 3em;"><b>Warning:</b> NVIDIA's OpenGL driver has a known issue with using incomplete textures. If the texture is not texture complete, the FBO itself will be considered <span class="tpl-enum">GL_FRAMEBUFFER_UNSUPPORTED</span>, or will have <span class="tpl-enum">GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT</span>. This is a driver bug, as the OpenGL specification does not allow implementations to return either of these values simply because a texture is not yet complete. Until this is resolved in NVIDIA's drivers, it is advised to make sure that all textures have mipmap levels, and that all <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexParameter" title="GLAPI/glTexParameter">glTexParameteri</a></span> values are properly set up for the format of the texture. For example, integral textures are not complete if the mag and min filters have any LINEAR fields.</div>
+<h2><span class="mw-headline" id="Depth_Testing_Doesn.27t_Work">Depth Testing Doesn't Work</span></h2>
+<p>First, check to see if the <a href="https://www.khronos.org/opengl/wiki/Depth_Test" title="Depth Test">Depth Test</a> is active. Make sure that <span class="tpl-enum">glEnable</span> has been called and an appropriate <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glDepthFunc" title="GLAPI/glDepthFunc">glDepthFunc</a></span> is active. Also make sure that the <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glDepthRange" title="GLAPI/glDepthRange">glDepthRange</a></span> matches the depth function.</p>
+<p>Assuming all of that has been set up correctly, your framebuffer may not have a depth buffer at all. This is easy to see for a <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Object" title="Framebuffer Object">Framebuffer Object</a> you created. For the <a href="https://www.khronos.org/opengl/wiki/Default_Framebuffer" title="Default Framebuffer">Default Framebuffer</a>, this depends entirely on how you created your <a href="https://www.khronos.org/opengl/wiki/OpenGL_Context" title="OpenGL Context">OpenGL Context</a>.</p>
+<p>For example, if you are using GLUT, you need to make sure you pass <span class="tpl-enum">GLUT_DEPTH</span> to the <span class="tpl-code">glutInitDisplayMode</span> function.</p>
+<h2><span class="mw-headline" id="No_Alpha_in_the_Framebuffer">No Alpha in the Framebuffer</span></h2>
+<p>If you are doing <a href="https://www.khronos.org/opengl/wiki/Blending" title="Blending">Blending</a> and you need a destination alpha, you need to make sure that your render target has one. This is easy to ensure when rendering to a <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Object" title="Framebuffer Object">Framebuffer Object</a>. But with a <a href="https://www.khronos.org/opengl/wiki/Default_Framebuffer" title="Default Framebuffer">Default Framebuffer</a>, it depends on how you created your <a href="https://www.khronos.org/opengl/wiki/OpenGL_Context" title="OpenGL Context">OpenGL Context</a>.</p>
+<p>For example, if you are using GLUT, you need to make sure you pass <span class="tpl-enum">GLUT_ALPHA</span> to the <span class="tpl-code">glutInitDisplayMode</span> function.</p>
+<h2><span class="mw-headline" id="glFinish_and_glFlush">glFinish and glFlush</span></h2>
+<p>Use <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glFlush" title="GLAPI/glFlush">glFlush</a></span> if you are rendering to the front buffer of the <a href="https://www.khronos.org/opengl/wiki/Default_Framebuffer" title="Default Framebuffer">Default Framebuffer</a>. It is better to have a double buffered window but if you have a case where you want to render to the window directly, then go ahead.</p>
+<p>There are a lot of tutorial website that suggest you do this:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glFlush</span><span class="p">();</span>
+<span class="n">SwapBuffers</span><span class="p">();</span>
+</pre></div>
+<p>This is unnecessary. The SwapBuffer command takes care of flushing and command processing.</p>
+<p>The <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glFlush" title="GLAPI/glFlush">glFlush</a></span> and <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glFinish" title="GLAPI/glFinish">glFinish</a></span> functions deal with <a href="https://www.khronos.org/opengl/wiki/Synchronization" title="Synchronization">synchronizing CPU actions with GPU commands</a>.</p>
+<p>In many cases, explicit synchronization like this is unnecessary. The use of <a href="https://www.khronos.org/opengl/wiki/Sync_Object" title="Sync Object">Sync Objects</a> can make it necessary, as can the use of <a href="https://www.khronos.org/opengl/wiki/Image_Load_Store" title="Image Load Store">arbitrary reads/writes from/to images</a>.</p>
+<p>As such, you should only use <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glFinish" title="GLAPI/glFinish">glFinish</a></span> when you are doing something that the specification specifically states will not be synchronous.</p>
+<h2><span class="mw-headline" id="glDrawPixels">glDrawPixels</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>For good performance, use a format that is directly supported by the GPU. Use a format that causes the driver to basically to a memcpy to the GPU. Most graphics cards support <span class="tpl-enum">GL_BGRA</span>. Example:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glDrawPixels</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">pixels</span><span class="p">);</span>
+</pre></div>
+<p>However, it is recommened that you use a texture instead and just update the texture with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span>, possibly with <a href="https://www.khronos.org/opengl/wiki/Pixel_Buffer_Object" title="Pixel Buffer Object">a buffer object for async transfer</a>.</p>
+<h2><span class="mw-headline" id="GL_DOUBLE">GL_DOUBLE</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>glLoadMatrixd, glRotated and any other function that have to do with the double type. Most GPUs don't support GL_DOUBLE (double) so the driver will convert the data to GL_FLOAT (float) and send to the GPU. If you put GL_DOUBLE data in a VBO, the performance might even be much worst than immediate mode (immediate mode means glBegin, glVertex, glEnd). GL doesn't offer any better way to know what the GPU prefers.</p>
+<h2><span class="mw-headline" id="Slow_pixel_transfer_performance">Slow pixel transfer performance</span></h2>
+<p>To achieve good <a href="https://www.khronos.org/opengl/wiki/Pixel_Transfer" title="Pixel Transfer">Pixel Transfer</a> performance, you need to use a pixel transfer format that the implementation can directly work with. Consider this:</p>
+<pre><span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexImage2D" title="GLAPI/glTexImage2D">glTexImage2D</a></span>(<span class="tpl-enum">GL_TEXTURE_2D</span>, 0, <span class="tpl-enum">GL_RGBA8</span>, width, height, 0, <span class="tpl-enum">GL_RGBA</span>, <span class="tpl-enum">GL_UNSIGNED_BYTE</span>, pixels);
+</pre>
+<p>The problem is that the pixel transfer format <span class="tpl-enum">GL_RGBA</span> may not be directly supported for <span class="tpl-enum">GL_RGBA8</span> formats. On certain platforms, the GPU prefers that red and blue be swapped (<span class="tpl-enum">GL_BGRA</span>).</p>
+<p>If you supply <span class="tpl-enum">GL_RGBA</span>, then the driver may have to do the swapping for you which is slow. If you do use <span class="tpl-enum">GL_BGRA</span>, the call to pixel transfer will be much faster.</p>
+<p>Keep in mind that for the 3rd parameter, it must be kept as <span class="tpl-enum">GL_RGBA8</span>. This defines the <i>texture's</i> <a href="https://www.khronos.org/opengl/wiki/Image_Format" title="Image Format">image format</a>; the last three parameters describe how your <a href="https://www.khronos.org/opengl/wiki/Pixel_Transfer" title="Pixel Transfer">pixel data is stored</a>. The image format doesn't define the order stored by the texture, so the GPU is still allowed to store it internally as BGRA.</p>
+<p>Note that <span class="tpl-enum">GL_BGRA</span> pixel transfer format is only preferred when uploading to <span class="tpl-enum">GL_RGBA8</span> images. When dealing with other formats, like <span class="tpl-enum">GL_RGBA16</span>, <span class="tpl-enum">GL_RGBA8UI</span> or even <span class="tpl-enum">GL_RGBA8_SNORM</span>, then the regular <span class="tpl-enum">GL_RGBA</span> ordering may be preferred.</p>
+<p>On which platforms is <span class="tpl-enum">GL_BGRA</span> preferred? Making a list would be too long but one example is Microsoft Windows. Note that with GL 4.3 or <a rel="nofollow" class="external text" href="http://www.opengl.org/registry/specs/ARB/internalformat_query2.txt">ARB_internalformat_query2</a>, you can simply ask the implementation what is the preferred format with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glGetInternalFormat" title="GLAPI/glGetInternalFormat" class="mw-redirect">glGetInternalFormativ(GL_TEXTURE_2D, GL_RGBA8, GL_TEXTURE_IMAGE_FORMAT, 1, &amp;preferred_format)</a></span>.</p>
+<h2><span class="mw-headline" id="Swap_Buffers">Swap Buffers</span></h2>
+<p>A modern OpenGL program should always use double buffering. A modern 3D OpenGL program should also have a depth buffer.</p>
+<p>Render sequence should be like this:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_STENCIL_BUFFER_BIT</span><span class="p">);</span>
+<span class="n">RenderScene</span><span class="p">();</span>
+<span class="n">SwapBuffers</span><span class="p">(</span><span class="n">hdc</span><span class="p">);</span>  <span class="c1">//For Windows</span>
+</pre></div>
+<p>The buffers should <i>always</i> be cleared. On much older hardware, there was a technique to get away without clearing the scene, but on even semi-recent hardware, this will actually make things <i>slower</i>. So always do the clear.</p>
+<h2><span class="mw-headline" id="The_Pixel_Ownership_Problem">The Pixel Ownership Problem</span></h2>
+<p>If your windows is covered or if it is partially covered or if window is outside the desktop area, the GPU might not render to those portions. Reading from those areas may likewise produce garbage data.</p>
+<p>This is because those pixels fail the "<a href="https://www.khronos.org/opengl/wiki/Pixel_Ownership_Test" title="Pixel Ownership Test" class="mw-redirect">pixel ownership test</a>". Only pixels that pass this test have valid data. Those that fail have undefined contents.</p>
+<p>If this is a problem for you (note: it's only a problem if you need to read data back from the covered areas), the solution is to render to a <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Object" title="Framebuffer Object">Framebuffer Object</a> and render to that. If you need to display the image, you can blit to the <a href="https://www.khronos.org/opengl/wiki/Default_Framebuffer" title="Default Framebuffer">Default Framebuffer</a>.</p>
+<h2><span class="mw-headline" id="Selection_and_Picking_and_Feedback_Mode">Selection and Picking and Feedback Mode</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>A modern OpenGL program should not use the selection buffer or feedback mode. These are not 3D graphics rendering features yet they have been added to GL since version 1.0. Selection and feedback runs in software (CPU side). On some implementations, when used along with VBOs, it has been reported that performance is lousy.</p>
+<p>A modern OpenGL program should do color picking (render each object with some unique color and glReadPixels to find out what object your mouse was on) or do the picking with some 3rd party mathematics library.</p>
+<h2><span class="mw-headline" id="Point_and_line_smoothing">Point and line smoothing</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>Users notice that on some implementation points or lines are rendered a little different then on others. This is because the GL spec allows some flexibility. Consider this:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glPointSize</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>
+<span class="n">glHint</span><span class="p">(</span><span class="n">GL_POINT_SMOOTH_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">);</span>
+<span class="n">glBlendFunc</span><span class="p">(</span><span class="n">GL_SRC_ALPHA</span><span class="p">,</span> <span class="n">GL_ONE_MINUS_SRC_ALPHA</span><span class="p">);</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_BLEND</span><span class="p">);</span>
+<span class="n">glEnable</span><span class="p">(</span><span class="n">GL_POINT_SMOOTH</span><span class="p">);</span>
+<span class="n">RenderMyPoints</span><span class="p">();</span>
+</pre></div>
+<p>On some hardware, the points will look nice and round; on others, they will look like squares.</p>
+<p>On some implementations, when you call glEnable(GL_POINT_SMOOTH) or glEnable(GL_LINE_SMOOTH) and you use shaders at the same time, your rendering speed goes down to 0.1 FPS. This is because the driver does software rendering. This would happen on AMD/ATI GPUs/drivers.</p>
+<h2><span class="mw-headline" id="glEnable.28GL_POLYGON_SMOOTH.29">glEnable(GL_POLYGON_SMOOTH)</span></h2>
+<p>This is not a recommended method for anti-aliasing. Use <a href="https://www.khronos.org/opengl/wiki/Multisampling" title="Multisampling">Multisampling</a> instead.</p>
+<h2><span class="mw-headline" id="Color_Index.2C_The_imaging_subset">Color Index, The imaging subset</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>Section 3.6.2 of the GL specification talks about the imaging subset. glColorTable and related operations are part of this subset. They are typically not supported by common GPUs and are software emulated. It is recommended that you avoid it.</p>
+<p>If you find that your texture memory consumption is too high, use <a href="https://www.khronos.org/opengl/wiki/S3_Texture_Compression" title="S3 Texture Compression">texture compression</a>. If you really want to use paletted color indexed textures, you can implement this yourself a texture and a <a href="https://www.khronos.org/opengl/wiki/GLSL" title="GLSL" class="mw-redirect">shader</a>.</p>
+<h2><span class="mw-headline" id="Bitfield_enumerators">Bitfield enumerators</span></h2>
+<p>Some OpenGL enumerators represent bits in a particular bitfield. All of these end in _BIT (before any extension suffix). Take a look at this example:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_BLEND</span> <span class="o">|</span> <span class="n">GL_DRAW_BUFFER</span><span class="p">);</span> <span class="c1">// invalid</span>
+<span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_STENCIL_BUFFER_BIT</span><span class="p">);</span> <span class="c1">// valid</span>
+</pre></div>
+<p>The first line is wrong. Because neither of these enumerators ends in _BIT, they are not bitfields and thus should not be OR'd together.</p>
+<p>By contrast, the second line is perfectly fine. All of these end in _BIT, so this makes sense.</p>
+<h2><span class="mw-headline" id="Triple_Buffering">Triple Buffering</span></h2>
+<p>You cannot control whether a driver does triple buffering. You could try to implement it yourself using a <a href="https://www.khronos.org/opengl/wiki/Framebuffer_Objects" title="Framebuffer Objects" class="mw-redirect">FBO</a>. But if the driver is already doing triple buffering, your code will only turn it into quadruple buffering. Which is usually overkill.</p>
+<h2><span class="mw-headline" id="Paletted_textures">Paletted textures</span></h2>
+<p>Support for the <a rel="nofollow" class="external text" href="http://www.opengl.org/registry/specs/EXT/paletted_texture.txt">EXT_paletted_texture</a> extension has been dropped by the major GL vendors. If you really need paletted textures on new hardware, you may use shaders to achieve that effect.</p>
+<p>Shader example:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="c1">//Fragment shader</span>
+<span class="cp">#version 110</span>
+<span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">ColorTable</span><span class="p">;</span>     <span class="c1">//256 x 1 pixels</span>
+<span class="k">uniform</span> <span class="k">sampler2D</span> <span class="n">MyIndexTexture</span><span class="p">;</span>
+<span class="k">varying</span> <span class="k">vec2</span> <span class="n">TexCoord0</span><span class="p">;</span>
+
+<span class="k">void</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//What color do we want to index?</span>
+  <span class="k">vec4</span> <span class="n">myindex</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">MyIndexTexture</span><span class="p">,</span> <span class="n">TexCoord0</span><span class="p">);</span>
+  <span class="c1">//Do a dependency texture read</span>
+  <span class="k">vec4</span> <span class="n">texel</span> <span class="o">=</span> <span class="n">texture2D</span><span class="p">(</span><span class="n">ColorTable</span><span class="p">,</span> <span class="n">myindex</span><span class="p">.</span><span class="n">xy</span><span class="p">);</span>
+  <span class="n">gl_FragColor</span> <span class="o">=</span> <span class="n">texel</span><span class="p">;</span>   <span class="c1">//Output the color</span>
+<span class="p">}</span>
+</pre></div>
+<p><span class="tpl-code">ColorTable</span> might be in a format of your choice such as <span class="tpl-enum">GL_RGBA8</span>. ColorTable could be a texture of 256 x 1 pixels in size.</p>
+<p><span class="tpl-code">MyIndexTexture</span> can be in any format, though <span class="tpl-enum">GL_R8</span> is quite appropriate (<span class="tpl-enum">GL_R8</span> is available in GL 3.0). <span class="tpl-code">MyIndexTexture</span> could be of any dimension such as 64 x 32.</p>
+<p>We read <span class="tpl-code">MyIndexTexture</span> and we use this result as a texcoord to read <span class="tpl-code">ColorTable</span>. If you wish to perform palette animation, or simply update the colors in the color table, you can submit new values to <span class="tpl-code">ColorTable</span> with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glTexSubImage2D" title="GLAPI/glTexSubImage2D">glTexSubImage2D</a></span>. Assuming that the color table is in <span class="tpl-enum">GL_RGBA</span> format:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">myColorTableID</span><span class="p">);</span>
+<span class="n">glTexSubImage2D</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">GL_BGRA</span><span class="p">,</span> <span class="n">GL_UNSIGNED_BYTE</span><span class="p">,</span> <span class="n">mypixels</span><span class="p">);</span>
+</pre></div>
+<h2><span class="mw-headline" id="Texture_Unit">Texture Unit</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>When multitexturing was introduced, getting the number of texture units was introduced as well which you can get with:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="kt">int</span> <span class="n">MaxTextureUnits</span><span class="p">;</span>
+<span class="n">glGetIntegerv</span><span class="p">(</span><span class="n">GL_MAX_TEXTURE_UNITS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">MaxTextureUnits</span><span class="p">);</span>
+</pre></div>
+<p>You should not use the above because it will give a low number on modern GPUs.</p>
+<p>In old OpenGL, each texture unit has its own texture environment state (glTexEnv), texture matrix, texture coordinate generation (glTexGen), texcoords (glTexCoord), clamp mode, mipmap mode, texture LOD, anisotropy.</p>
+<p>Then came the programmable GPU. There aren't texture units anymore. Today, you have texture image units (TIU) which you can get with:</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="kt">int</span> <span class="n">MaxTextureImageUnits</span><span class="p">;</span>
+<span class="n">glGetIntegerv</span><span class="p">(</span><span class="n">GL_MAX_TEXTURE_IMAGE_UNITS</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">MaxTextureImageUnits</span><span class="p">);</span>
+</pre></div>
+<p>A TIU just stores the <a href="https://www.khronos.org/opengl/wiki/Texture" title="Texture">texture object's</a> state, like the clamping, mipmaps, etc. They are independent of texture coordinates. You can use whatever texture coordinate to sample whatever TIU.</p>
+<p>Note that each shader stage has its own max texture image unit count. <span class="tpl-enum">GL_MAX_TEXTURE_IMAGE_UNITS</span> returns the count for <a href="https://www.khronos.org/opengl/wiki/Fragment_Shader" title="Fragment Shader">fragment shaders</a> only. Each shader has its own maximum number of texture image units. The number of image units across <i>all</i> shader stages is queried with <span class="tpl-enum">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</span>; this is the limit of the number of textures that can be bound at any one time. And this is the limit on the image unit to be passed to functions like <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glActiveTexture" title="GLAPI/glActiveTexture">glActiveTexture</a></span> and <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glBindSampler" title="GLAPI/glBindSampler">glBindSampler</a></span>.</p>
+<p>For most modern hardware, the image unit count will be at least 8 for most stages. Vertex shaders used to be limited to 4 textures on older hardware. All 3.x-capable hardware will return at least 16 for <i>each</i> stage.</p>
+<p>In summary, shader-based GL 2.0 and above programs should use <span class="tpl-enum">GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS</span> only. The number of texture coordinates should likewise be ignored; use generic vertex attributes instead.</p>
+<h2><span class="mw-headline" id="Disable_depth_test_and_allow_depth_writes">Disable depth test and allow depth writes</span></h2>
+<p>In some cases, you might want to disable depth testing and still allow the depth buffer updated while you are rendering your objects. It turns out that if you disable depth testing (<span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glDisable" title="GLAPI/glDisable" class="mw-redirect">glDisable(GL_DEPTH_TEST)</a></span>), GL also disables writes to the depth buffer. The correct solution is to tell GL to ignore the depth test results with <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glDepthFunc" title="GLAPI/glDepthFunc">glDepthFunc(GL_ALWAYS)</a></span>. Be careful because in this state, if you render a far away object last, the depth buffer will contain the values of that far object.</p>
+<h2><span class="mw-headline" id="glGetFloatv_glGetBooleanv_glGetDoublev_glGetIntegerv">glGetFloatv glGetBooleanv glGetDoublev glGetIntegerv</span></h2>
+<p>You find that these functions are slow.</p>
+<p>That's normal. Any function of the glGet form will likely be slow. nVidia and ATI/AMD recommend that you avoid them. The GL driver (and also the GPU) prefer to receive information in the up direction. You can avoid all glGet calls if you track the information yourself.</p>
+<h2><span class="mw-headline" id="y-axis">y-axis</span></h2>
+<p>Almost everything in OpenGL uses a coordinate system, such that when X goes right, Y goes up. This includes pixel transfer functions and texture coordinates.</p>
+<p>For example, <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glReadPixels" title="GLAPI/glReadPixels">glReadPixels</a></span> takes the x and y position. The y-axis is considered from the bottom being 0 and the top being some value. This may seem counter intuitive to some who are used to their OS having the y-axis being inverted (your window's y axis is top to bottom and your mouse's coordinates are y axis top to bottom). The solution is obvious for the mouse: <span class="tpl-code">windowHeight - mouseY</span>.</p>
+<p>For textures, GL considers the y-axis to be bottom to top, the bottom being 0.0 and the top being 1.0. Some people load their bitmap to GL texture and wonder why it appears inverted on their model. The solution is simple: invert your bitmap or invert your model's texcoord by doing 1.0 - v.</p>
+<h2><span class="mw-headline" id="glGenTextures_in_render_function">glGenTextures in render function</span></h2>
+<p>It seems as if some people create a texture in their render function. Don't create resources in your render function. That goes for all the other <span class="tpl-code">glGen</span> function calls as well. Don't read model files and create VBOs with them in your render function. Try to allocate resources at the beginning of your program. Release those resources when your program terminates.</p>
+<p>Worst yet, some create textures (or any other GL object) in their render function and never call <span class="tpl-code"><a href="https://www.khronos.org/opengl/wiki/GLAPI/glDeleteTextures" title="GLAPI/glDeleteTextures">glDeleteTextures</a></span>. Every time their render function gets called, a new texture is created without releasing the old one!</p>
+<h2><span class="mw-headline" id="Bad_znear_value">Bad znear value</span></h2>
+<table class="metadata plainlinks stub" style="background: #FA8; border: 1px solid black;">
+<tbody><tr>
+<td><b>Warning:</b> This section describes <a href="https://www.khronos.org/opengl/wiki/Legacy_OpenGL" title="Legacy OpenGL">legacy OpenGL APIs</a> that have been removed from <a href="https://www.khronos.org/opengl/wiki/Core_And_Compatibility_in_Contexts" title="Core And Compatibility in Contexts">core OpenGL 3.1 and above</a> (they are only <a href="https://www.khronos.org/opengl/wiki/Deprecation" title="Deprecation">deprecated</a> in OpenGL 3.0). It is recommended that you not use this functionality in your programs.</td>
+</tr>
+</tbody></table>
+<p>Some users use <span class="tpl-code">gluPerspective</span> or <span class="tpl-code">glFrustum</span> and pass it a znear value of 0.0. They quickly find that z-buffering doesn't work.</p>
+<p>You can't have a znear value of 0.0 or less. If you were to use 0.0, the 3rd row, 4th column of the projection matrix will end up being 0.0. If you use a negative value, you would end up with wrong rendering results on screen.</p>
+<p>Both znear and zfar need to be above 0.0. <span class="tpl-code">gluPerspective</span> will not raise a GL error. <span class="tpl-code">glFrustum</span> will generate a <span class="tpl-enum">GL_INVALID_VALUE</span>.</p>
+<p>As for <span class="tpl-code">glOrtho</span>, yes you can use negative values for znear and zfar.</p>
+<p>The <a href="https://www.khronos.org/opengl/wiki/Vertex_Transformation" title="Vertex Transformation">vertex transformation pipeline</a> explains how vertices are transformed.</p>
+<h2><span class="mw-headline" id="Bad_Array_Size">Bad Array Size</span></h2>
+<p>We are going to give this example with GL 1.1 but the same principle applies if you are using <a href="https://www.khronos.org/opengl/wiki/Vertex_Buffer_Object" title="Vertex Buffer Object" class="mw-redirect">VBOs</a> or any other feature from a future version of OpenGL.</p>
+<p>What's wrong with this code?</p>
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre><span class="n">GLfloat</span> <span class="n">vertex</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">};</span>
+<span class="n">GLfloat</span> <span class="n">normal</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+<span class="n">GLfloat</span> <span class="n">color</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">};</span>
+<span class="n">GLushort</span> <span class="n">index</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+<span class="n">glVertexPointer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">GLfloat</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">vertex</span><span class="p">);</span>
+<span class="n">glNormalPointer</span><span class="p">(</span><span class="n">GL_FLOAT</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">GLfloat</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">normal</span><span class="p">);</span>
+<span class="n">glColorPointer</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">GL_FLOAT</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">GLfloat</span><span class="p">)</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="p">);</span>
+<span class="n">glDrawElements</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">GL_UNSIGNED_SHORT</span><span class="p">,</span> <span class="n">index</span><span class="p">);</span>
+</pre></div>
+<p>The intent is to render a single quad, but your array sizes don't match up. You have only 1 normal for your quad while GL wants 1 normal per vertex. You have one RGBA color for your quad while GL wants one color per vertex. You risk crashing your system because the GL driver will be reading from beyond the size of your supplied normal and color array.</p>
+<p>This issue is also explained in the <a href="https://www.khronos.org/opengl/wiki/FAQ#Multi_indexed_rendering" title="FAQ">FAQ</a>.</p>
+
+<!-- 
+NewPP limit report
+Cached time: 20170303165213
+Cache expiry: 1209600
+Dynamic content: false
+CPU time usage: 0.464 seconds
+Real time usage: 0.477 seconds
+Preprocessor visited node count: 2149/1000000
+Preprocessor generated node count: 4293/1000000
+Post‐expand include size: 22231/2097152 bytes
+Template argument size: 10963/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  264.462      1 - -total
+ 23.61%   62.447     81 - Template:Enum
+ 23.38%   61.829     35 - Template:Apifunc
+ 19.44%   51.416     51 - Template:Code
+  9.01%   23.832      9 - Template:Deprecated
+  7.36%   19.477    137 - Template:=
+  5.77%   15.262      5 - Template:Note_style
+  5.58%   14.751      3 - Template:Note
+  5.46%   14.435      9 - Template:Alertbox
+  4.44%   11.750      1 - Template:Require
+-->
+
+<!-- Saved in parser cache with key khronos_opengl_wiki-mw_:pcache:idhash:1402-0!*!0!!en!*!* and timestamp 20170303165212 and revision id 12471
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;oldid=12471">http://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;oldid=12471</a>"					</div>
+				<div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Special:CreateAccount&amp;returnto=Common+Mistakes" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Special:UserLogin&amp;returnto=Common+Mistakes" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li id="ca-nstab-main" class="selected"><span><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes" title="View the content page [alt-shift-c]" accesskey="c">Page</a></span></li>
+															<li id="ca-talk"><span><a href="https://www.khronos.org/opengl/wiki/Talk:Common_Mistakes" title="Discussion about the content page [alt-shift-t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0">
+							<span>Variants</span><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#" tabindex="-1"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes">Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;action=history" title="Past revisions of this page [alt-shift-h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label" tabindex="0"><span>More</span><a href="https://www.khronos.org/opengl/wiki/Common_Mistakes#" tabindex="-1"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://www.khronos.org/opengl/wiki_opengl/index.php" id="searchform">
+							<div>
+							<input type="search" name="search" placeholder="Search" title="Search OpenGL Wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off"><input type="hidden" value="Special:Search" name="title"><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton">							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="https://www.khronos.org/opengl/wiki/Main_Page" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-navigation" aria-labelledby="p-navigation-label">
+			<h3 id="p-navigation-label">Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage"><a href="https://www.khronos.org/opengl/wiki/Main_Page" title="Visit the main page [alt-shift-z]" accesskey="z">Main Page</a></li><li id="n-OpenGL-News"><a href="http://opengl.org/" rel="nofollow">OpenGL News</a></li><li id="n-OpenGL-Forums"><a href="http://opengl.org/discussion_boards" rel="nofollow">OpenGL Forums</a></li><li id="n-recentchanges"><a href="https://www.khronos.org/opengl/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Help" aria-labelledby="p-Help-label">
+			<h3 id="p-Help-label">Help</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Privacy-Policy"><a href="https://www.khronos.org/legal/privacy" rel="nofollow">Privacy Policy</a></li><li id="n-About-OpenGL"><a href="https://www.opengl.org/about/" rel="nofollow">About OpenGL</a></li><li id="n-Contact-Us"><a href="https://www.khronos.org/about/contact/" rel="nofollow">Contact Us</a></li><li id="n-Help-Editing"><a href="https://www.mediawiki.org/wiki/Help:Contents">Help Editing</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="https://www.khronos.org/opengl/wiki/Special:WhatLinksHere/Common_Mistakes" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="https://www.khronos.org/opengl/wiki/Special:RecentChangesLinked/Common_Mistakes" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="https://www.khronos.org/opengl/wiki/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;oldid=12471" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Common_Mistakes&amp;action=info" title="More information about this page">Page information</a></li><li id="t-cite"><a href="https://www.khronos.org/opengl/wiki_opengl/index.php?title=Special:CiteThisPage&amp;page=Common_Mistakes&amp;id=12471" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 May 2015, at 16:37.</li>
+									</ul>
+									<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1759693-1', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":632});});</script>
+	
+<!-- Cached 20170303165213 -->
+
+<div class="suggestions" style="display: none; font-size: 13.3333px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
