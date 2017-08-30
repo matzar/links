@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx -->
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="WT.seg_1" content="en-us"><link rel="canonical" href="https://msdn.microsoft.com/en-us/library/1af12yty.aspx">
+    <title>&lt;iosfwd&gt; (Standard C++ Library)</title>
+
+
+
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/1af12yty(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="NormalizedUrl" content="https://msdn.microsoft.com/en-us/library/1af12yty(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="ms.normalizedurl" content="https://msdn.microsoft.com/en-us/library/1af12yty(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="AmbientContext" content="{&quot;layout.limit_max_width&quot;:true,&quot;AmbientContextId&quot;:&quot;8970AB56-9641-49C5-A935-11732A8AA308&quot;,&quot;display.use_large_font&quot;:false,&quot;insight.perf_timing&quot;:true,&quot;AmbientContextDownstream&quot;:{&quot;LogTrace&quot;:false},&quot;display.high_contrast&quot;:false,&quot;insight.use_wedcs_vnext&quot;:true}">
+
+<meta name="VotingContextUrl" content="https://msdn.microsoft.com/en-us/library/1af12yty(d=default,l=en-us,v=vs.80).aspx">
+
+<meta name="MN" content="FB361394-7:30:55 AM">
+
+<meta name="Search.ShortId" content="1af12yty">
+
+<meta name="ms.shortidmsdn" content="1af12yty">
+
+<meta name="ms.locale" content="en-us">
+
+<meta name="ms.prodver" content="VS.80">
+
+<meta name="ms.contentlang" content="EN">
+
+<meta name="ms.lang" content="EN">
+
+<meta name="ms.loc" content="US">
+
+<meta name="ms.sitever" content="2017.05.23.2">
+
+<meta name="ms.assetid" content="964442eb-17f1-43ef-a0e0-c5bb77f9c187">
+
+<meta name="ms.auth" content="0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+        
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/ai.0.js.download" async=""></script><script type="text/javascript" data-do-not-move="true">
+        //<![CDATA[
+        var AmbientContext = null;
+
+        (function(){
+            var root = (function(){return this;}).call(null);
+
+            var GetCookie = function(name){
+                var cookies = root.document.cookie ? root.document.cookie.split('; ') : [];
+                for (var i = 0; i < cookies.length; i++) {
+                    var pos = cookies[i].indexOf('=');
+                    if (name === root.decodeURIComponent(cookies[i].slice(0, pos)))
+                    {
+                        var cookie = cookies[i].slice(pos + 1).replace(/\+/g, ' ');
+                        cookie = root.decodeURIComponent(cookie);
+                        return cookie;
+                    }
+                }
+            };
+
+            var JsonDeserialize = function(content) {
+                return root.JSON && root.JSON.parse ? root.JSON.parse(content) : (new Function('return (' + content + ')'))();
+            };
+
+            try {
+                AmbientContext = GetCookie('AmbientContext');
+                AmbientContext = AmbientContext && JsonDeserialize(AmbientContext);
+            } catch(ex) {
+            } finally {
+                AmbientContext = AmbientContext || null;
+            }
+        })();
+        //]]>
+    </script>
+
+    <script type="text/javascript" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/jquery-1.9.1.min.js.download" data-do-not-move="true" data-provides="jQuery"></script>
+    
+<link rel="stylesheet" type="text/css" href="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/Combined.css"><script class="mtps-injected">try {
+/**/
+(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { 
+	"image": "https://i-msdn.sec.s-msft.com", 
+	"js": "https://i2-msdn.sec.s-msft.com", 
+	"css": "https://i-msdn.sec.s-msft.com", 
+	"ttf": "https://i-msdn.sec.s-msft.com"
+});
+/**/
+} finally { MTPS._injectNextScript_0 && MTPS._injectNextScript_0(); }</script><script class="mtps-injected">try {
+//
+
+        window.appInsightsId = '5eb1b2eb-c47a-497a-a7ac-a1c230b2882f';
+        //
+} finally { MTPS._injectNextScript_1 && MTPS._injectNextScript_1(); }</script><script class="mtps-injected" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/Combined.js.download"></script><link href="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/PrintView.css" rel="stylesheet" type="text/css" media="print"><meta name="ms.layout_limit_max_width" content="true"><meta name="ms.AmbientContextId" content="8970AB56-9641-49C5-A935-11732A8AA308"><meta name="ms.display_use_large_font" content="false"><meta name="ms.insight_perf_timing" content="true"><meta name="ms.AmbientContextDownstream" content="%7B%7D"><meta name="ms.display_high_contrast" content="false"><meta name="ms.insight_use_wedcs_vnext" content="true"><meta name="ms.perf.timing" content=",,425,428,805,805,2271,2273,2273,2397,2397,2654,,,"><script type="text/javascript" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/ms.js.download"></script><script type="text/javascript" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/jsll-3.2.0.js.download"></script><script class="mtps-injected" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/SearchBox.jss"></script><script class="mtps-injected" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/JumpRedirect.js.download"></script><script class="mtps-injected">try {
+MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = 'Expand'; MTPS.LocalizedStrings.CollapseButtonTooltip = 'Collapse'; MTPS.LocalizedStrings.EnhancedExpandTooltip = 'Click to expand. Double-click to expand all.'; MTPS.LocalizedStrings.EnhancedCollapseTooltip = 'Click to collapse. Double-click to collapse all.'; MTPS.LocalizedStrings.ExpandAllButtonTooltip = 'Expand All'; MTPS.LocalizedStrings.CollapseAllButtonTooltip = 'Collapse All';
+} finally { MTPS._injectNextScript_5 && MTPS._injectNextScript_5(); }</script><script class="mtps-injected" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/Combined.js(1).download"></script><script src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/broker.js.download"></script><script class="mtps-injected">try {
+$(document).ready(function() {
+        try {
+            var token = $("#globalRequestVerification input[name='__RequestVerificationToken']").clone();
+            $("#siteFeedbackForm").append(token);
+        } catch(err) {
+            
+        }
+    });
+} finally { MTPS._injectNextScript_7 && MTPS._injectNextScript_7(); }</script></head>
+<body class="library Chrome">
+    <div id="page">
+
+        
+
+        
+    
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+        
+        
+    <input type="hidden" id="isHeaderBleeding" value="true">
+    <div id="ux-header" dir="ltr" class="ltr msdn" ms.pgarea="header" data-device-type="desktop">
+        
+
+      <header ms.pgarea="header">
+        <span id="singleCol"></span>
+        <span id="doubleCol"></span>
+        <span id="isMobile"></span>
+        <div>
+          <div class="row topRow" role="banner">
+            <div class="top">
+              <div class="left">
+                <a class="msdnLogoImg" href="https://msdn.microsoft.com/en-us" title="MSDN home" ms.cmpgrp="mslogo">
+                  <div class="clip70x15">
+                    <img alt="Microsoft Logo" id="msft-logo" class="msft-logo" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/HeaderFooterSprite.png">
+                  </div>
+                </a>
+                <div class="GrayPipeDiv clip1x18">
+                  <img alt="Gray Pipe" class="GrayPipe" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/HeaderFooterSprite.png">
+                </div>
+                  <a class="DevCenterFullNameNonMegaBlade" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterFullName" href="https://msdn.microsoft.com/en-us">Developer Network</a>
+                <a class="DevCenterShortName" href="https://msdn.microsoft.com/en-us">Developer</a>
+              </div>
+              <div class="right" ms.cmpgrp="aux nav">
+                <div id="signIn" aria-label="Profile button">
+
+  <div class="profileImage"></div>
+
+
+
+<a class="scarabLink" href="https://login.live.com/login.srf?wa=wsignin1.0&amp;rpsnv=13&amp;ct=1499178655&amp;rver=6.7.6640.0&amp;wp=mcmbi&amp;wlcxt=msdn%24msdn%24msdn&amp;wreply=https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2f1af12yty%2528v%3dvs.80%2529.aspx&amp;lc=1033&amp;id=254354&amp;mkt=en-us">Sign in</a></div>
+
+
+
+
+                <div class="auxNav">
+                  <div>
+                    <div data-fragmentname="Subscriptions" id="Fragment_Subscriptions" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://my.visualstudio.com/?wt.mc_id=o~msft~msdn~nav~subscriber&amp;campaign=o~msft~msdn~nav~subscriber" id="Subscriptions_2153_1" xmlns="http://www.w3.org/1999/xhtml">
+    <p xmlns="">Subscriber portal</p>
+  </a>
+</div>
+                    <div data-fragmentname="GetTools" id="Fragment_GetTools" xmlns="http://www.w3.org/1999/xhtml">
+  <a href="https://www.visualstudio.com/free-developer-offers/" id="GetTools_2153_3" xmlns="http://www.w3.org/1999/xhtml">Get tools</a>
+</div>
+                  </div>
+                        <div>
+                            
+                        </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row middleRow">
+            <div class="expandTop" style="display: none;">
+              <div class="left"></div>
+              <div class="right"></div>
+            </div>
+          </div>
+        </div>
+        <div id="buttomRowWrapper" class="bg_default">
+          <div class="row buttomRow bg_default">
+            <div class="bottom">
+              <div class="left" role="navigation" aria-label="header toc" ms.cmpgrp="main nav">
+                <a id="grip" class="menu-icon" href="javascript:void(0)" role="button" aria-label="navigation menu"></a>
+                
+                <div id="drawer">
+                  <div class="toc">
+                    
+        <nav>
+            <ul class="navL1" ms.cmpgrp="main nav">
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">Downloads</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+
+                                                <a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" role="link" title="Visual Studio">Visual Studio</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/microsoft-sdks-msdn" role="link" title="SDKs">SDKs</a>
+                                        </li>
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="Trial software" role="button" aria-expanded="false">Trial software</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/evalcenter" title="Free downloads" role="link">Free downloads</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/officeevaluationresources" title="Office resources" role="link">Office resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sharepoint2013resources" title="SharePoint Server 2013 resources" role="link">SharePoint Server 2013 resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/sqlserver2014expressresources" title="SQL Server 2014 Express resources" role="link">SQL Server 2014 Express resources</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/windowsserver2012r2resources" title="Windows Server 2012 resources" role="link">Windows Server 2012 resources</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">Programs</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="Subscriptions" role="button" aria-expanded="false">Subscriptions</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-overview" title="Overview" role="link">Overview</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/msdn-subscriptions-administration" title="Administrators" role="link">Administrators</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="inactive toggle">
+
+                                                <a href="javascript:void(0)" title="Students" role="button" aria-expanded="false">Students</a>
+                                                <ul class="navL3" style="display: none;">
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/imagine/imagine-home" title="Microsoft Imagine" role="link">Microsoft Imagine</a>
+                                                        </li>
+                                                        <li class="inactive">
+                                                            <a href="https://msdn.microsoft.com/microsoftstudentpartners" title="Microsoft Student Partners" role="link">Microsoft Student Partners</a>
+                                                        </li>
+                                                </ul>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/applicationbuilder" role="link" title="ISV">ISV</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://www.microsoft.com/bizspark" role="link" title="Startups">Startups</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://events.microsoft.com/" role="link" title="Events">Events</a>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">Community</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/magazine/dd767791" role="link" title="Magazine">Magazine</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://social.msdn.microsoft.com/forums/" role="link" title="Forums">Forums</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://blogs.msdn.microsoft.com/" role="link" title="Blogs">Blogs</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://channel9.msdn.com/" role="link" title="Channel 9">Channel 9</a>
+                                        </li>
+                                </ul>
+                        </li>
+                        <li class="inactive current toggle">
+                                <a href="javascript:void(0)" role="button" aria-expanded="false">Documentation</a>
+                                <ul class="navL2" style="display: none;">
+                                        <li class="inactive current">
+
+                                                <a href="https://msdn.microsoft.com/library" role="link" title="APIs and reference">APIs and reference</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/developer-centers-msdn" role="link" title="Dev centers">Dev centers</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://code.msdn.microsoft.com/" role="link" title="Samples">Samples</a>
+                                        </li>
+                                        <li class="inactive">
+
+                                                <a href="https://msdn.microsoft.com/retiredcontent" role="link" title="Retired content">Retired content</a>
+                                        </li>
+                                </ul>
+                        </li>
+            </ul>
+        </nav>
+
+                  </div>
+                </div>
+              </div>
+              <div class="right" ms.title="search" role="search">
+                <div data-fragmentname="SearchBox" id="Fragment_SearchBox" xmlns="http://www.w3.org/1999/xhtml">
+  <div class="SearchBox">
+    <form id="HeaderSearchForm" name="HeaderSearchForm" method="get">
+      <button id="FakeHeaderSearchButton" value="Search" type="submit" class="header-search-button" role="button" aria-label="search finder" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="icon">
+        <div id="search-finder-div" class="clip16x20">
+          <img alt="search finder" id="search-finder" class="search-finder" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/HeaderFooterSprite.png">
+        </div>
+      </button>
+      <button id="HeaderSearchButton" style="display:none" data-searchtype="icon" data-pgarea="header" title="Search MSDN" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="icon"></button>
+      <div id="searchSplitter"></div>
+      <div id="searchCloseIconDiv" class="clip16x20" tabindex="0">
+        <img alt="search clear" id="searchCloseIcon" class="search-clear-x" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/HeaderFooterSprite.png">
+      </div>
+      <div id="searchTextContainer" style="width: 0px; display: none;"><p role="alert" style="height: 1px;width: 1px;overflow: hidden;position: absolute;"></p>
+        <input id="HeaderSearchTextBox" name="query" type="text" aria-label="Search Input Box" maxlength="200" onfocus="Epx.Controls.SearchBox.watermarkFocus(event, this.title)" onblur="Epx.Controls.SearchBox.watermarkBlur(event, this.title)" autocomplete="off" data-searchtype="searchbox" role="combobox" aria-autocomplete="both" aria-owns="MSDNSearchAutoCompleteList" aria-live="polite" placeholder="" data-pgarea="header" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="enter-key">
+      <div id="SearchFlyoutContainer" style="display: none; text-align: left; border: 1px solid buttonshadow; position: absolute; z-index: 1000; padding: 2px; background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); font-family: Arial; font-size: 16px;"><div id="SuggestionContainer"><ul data-pgarea="header" data-searchtype="search dropdown" id="MSDNSearchAutoCompleteList" role="listbox" aria-controls="HeaderSearchTextBox" ms.interactiontype="2" ms.title="search" ms.pgarea="header" ms.searchtype="suggested keyword" style="list-style: none; padding: 4px 2px 0px 1px; cursor: pointer; margin: 1px; white-space: nowrap;"></ul></div></div></div>
+    </form>
+    
+    
+  </div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+    <div id="overlayMaskHeader"></div></div>
+
+    
+    
+    
+    <div id="jumpInfo" style="display: none">We’re sorry. The content you requested has been removed. You’ll be auto redirected in 1 second.</div>
+
+
+
+
+
+<link type="text/css" rel="stylesheet">
+<link type="text/css" rel="stylesheet">
+
+
+    <div id="breadcrumbs" ms.pgarea="body" ms.cmpgrp="breadcrumbs">
+        <div id="breadcrumbDesktop" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/ty9hx077(v=vs.80).aspx" title="Reference"></a></span>
+                        <span><a href="https://msdn.microsoft.com/en-us/library/52cs05fz(v=vs.80).aspx" title="Libraries Reference"><span>Libraries Reference</span></a></span>
+                        <span><a href="https://msdn.microsoft.com/en-us/library/cscc687y(v=vs.80).aspx" title="Standard C++ Library"><span>Standard C++ Library</span></a></span>
+                        <span class="breadcrumbDropSmall">
+                            <a id="breadcrumbDropDownButton" href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#" targethref="https://msdn.microsoft.com/en-us/library/cscc687y(v=vs.80).aspx" title="Standard C++ Library Header Files" role="button" aria-expanded="false"><span>Standard C++ Library Header Files</span></a>
+                        </span>
+        </div>
+        <div id="breadcrumbDropDownMenu" style="display: none;"></div>
+
+        <div id="breadcrumbTablet" class="breadCrumb">
+                        <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/cscc687y(v=vs.80).aspx" title="Standard C++ Library"></a></span>
+                    <span><a href="https://msdn.microsoft.com/en-us/library/a7tkse1h(v=vs.80).aspx" title="Standard C++ Library Header Files"><span>Standard C++ Library Header Files</span></a></span>
+                <span class="breadcrumbDropSmall"><a id="tocDropDownButton" href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#" title="&lt;iosfwd&gt;" role="button" aria-expanded="false"><span>&lt;iosfwd&gt;</span></a></span>
+        <div id="navigationButtons" style="display: none;">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/1af12yty(d=printer,v=vs.80).aspx" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnurl=%2fen-us%2flibrary%2f1af12yty(v%3dvs.80).aspx">
+                <ins class="export"></ins>Export (<span class="count">0</span>)
+            </a>
+        </div></div>
+        <div id="tocDropDownMenu" style="display: none;"></div>
+        <div id="breadcrumbMobile" class="breadCrumb">
+                <span class="breadcrumbEllipsis"><a href="https://msdn.microsoft.com/en-us/library/a7tkse1h(v=vs.80).aspx" title="Standard C++ Library Header Files"></a></span>
+            <span class="breadcrumbDropSmall"><a id="tocPopupButton" href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#" title="&lt;iosfwd&gt;" role="button" aria-expanded="false"><span>&lt;iosfwd&gt;</span></a></span>
+        <div id="navigationButtons" style="display: none;">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/1af12yty(d=printer,v=vs.80).aspx" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isd_printABook" href="https://msdn.microsoft.com/en-us/library/export/help/?returnurl=%2fen-us%2flibrary%2f1af12yty(v%3dvs.80).aspx">
+                <ins class="export"></ins>Export (<span class="count">0</span>)
+            </a>
+        </div></div>
+    </div>
+    <div id="tocPopupMenu" style="display: none;">
+        <div id="tocPopMenuClose" class="tocCloseLarge" role="button" aria-label="Close Popup Menu" tabindex="0"></div>
+        <div id="tocTitle">&lt;iosfwd&gt;</div>        
+    </div>
+
+    
+
+
+        <div id="body" ms.pgarea="body" class="">
+            <span id="tabletView_large"></span>
+            <span id="tabletView_small"></span>
+            <span id="mobileView"></span>
+            
+
+
+
+
+
+
+
+
+
+    <div id="leftNav" ms.cmpgrp="left toc" role="navigation" aria-label="left toc" style="height: auto;">
+
+    
+
+
+<div id="tocnav" class="ArchiveV2">
+    <div class="tocunselected">
+        <div id="tocExpandArea" style="display: block;">
+            <span class="toc_empty"></span>
+            <span id="tocExpandButton"><a href="javascript:void(0)" aria-label="expand sibling toc" role="button"></a></span>
+        </div>
+        <div id="tocExpand"><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/yah1y2x8(v=vs.80).aspx" id="aa991571_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;algorithm&gt;">&lt;algorithm&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/5ysebswc(v=vs.80).aspx" id="aa991573_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;bitset&gt;">&lt;bitset&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/1t6hw78a(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cassert&gt;">&lt;cassert&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/f9xkk9fk(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cctype&gt;">&lt;cctype&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/de0c3wa8(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cerrno&gt;">&lt;cerrno&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/dsds860t(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cfloat&gt;">&lt;cfloat&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/1zyc970w(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;ciso646&gt;">&lt;ciso646&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/cwe6w788(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;climits&gt;">&lt;climits&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/f8bf336h(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;clocale&gt;">&lt;clocale&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/7wsh95e5(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cmath&gt;">&lt;cmath&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/0352zzhd(v=vs.80).aspx" id="aa991585_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;complex&gt;">&lt;complex&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/e65193ae(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;csetjmp&gt;">&lt;csetjmp&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/2071cah1(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;csignal&gt;">&lt;csignal&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/sd616e0c(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cstdarg&gt;">&lt;cstdarg&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/2b6eh9x3(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cstddef&gt;">&lt;cstddef&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/58dt9f24(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cstdio&gt;">&lt;cstdio&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/cw48dtx0(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cstdlib&gt;">&lt;cstdlib&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/tk97t156(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cstring&gt;">&lt;cstring&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/kb6xk0y1(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;ctime&gt;">&lt;ctime&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/s4h4t77d(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cwchar&gt;">&lt;cwchar&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/f8tewd4y(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;cwctype&gt;">&lt;cwctype&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/bwx1s7hx(v=vs.80).aspx" id="aa991600_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;deque&gt;">&lt;deque&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/w326ectb(v=vs.80).aspx" id="aa991610_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;exception&gt;">&lt;exception&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/k8w40w6t(v=vs.80).aspx" id="aa991614_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;fstream&gt;">&lt;fstream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/169de7b0(v=vs.80).aspx" id="aa991626_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;functional&gt;">&lt;functional&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/6x7w9f6z(v=vs.80).aspx" id="aa991631_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;hash_map&gt;">&lt;hash_map&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div></div>
+    <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/bksash1t(v=vs.80).aspx" id="aa991649_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;hash_set&gt;">&lt;hash_set&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ydd54a6t(v=vs.80).aspx" id="aa991673_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;iomanip&gt;">&lt;iomanip&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/5yc0df6d(v=vs.80).aspx" id="aa991675_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;ios&gt;">&lt;ios&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div></div>
+    <div class="tocselected"><div class="toclevel current archive" data-toclevel="1">
+<span class="toc_empty"></span><a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.80).aspx" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;iosfwd&gt;">&lt;iosfwd&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div><div class="tocPadding"></div></div>
+    <div class="tocunselected">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/zh80x809(v=vs.80).aspx" id="aa991698_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;iostream&gt;">&lt;iostream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/ayefs2c0(v=vs.80).aspx" id="aa991701_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;iso646.h&gt;">&lt;iso646.h&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/5cy6dc9z(v=vs.80).aspx" id="aa991703_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;istream&gt;">&lt;istream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/k3tf6509(v=vs.80).aspx" id="aa991714_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;iterator&gt;">&lt;iterator&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/yefe7a47(v=vs.80).aspx" id="aa991762_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;limits&gt;">&lt;limits&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/we7ec5d6(v=vs.80).aspx" id="aa991767_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;list&gt;">&lt;list&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/h8kktbf8(v=vs.80).aspx" id="aa991774_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;locale&gt;">&lt;locale&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/kf18ek11(v=vs.80).aspx" id="aa991834_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;map&gt;">&lt;map&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/k11k2x83(v=vs.80).aspx" id="aa991851_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;memory&gt;">&lt;memory&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/c9xb96k8(v=vs.80).aspx" id="aa991868_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;new&gt;">&lt;new&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/y0bdc6dc(v=vs.80).aspx" id="aa991874_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;numeric&gt;">&lt;numeric&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/h07e2k12(v=vs.80).aspx" id="aa991876_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;ostream&gt;">&lt;ostream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/z8dd0cek(v=vs.80).aspx" id="aa991884_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;queue&gt;">&lt;queue&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/5cktszy1(v=vs.80).aspx" id="aa991894_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;set&gt;">&lt;set&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/kb1es779(v=vs.80).aspx" id="aa991904_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;sstream&gt;">&lt;sstream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/186b2z27(v=vs.80).aspx" id="aa991919_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;stack&gt;">&lt;stack&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/t65b74ad(v=vs.80).aspx" id="aa991925_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;stdexcept&gt;">&lt;stdexcept&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/e872hyb9(v=vs.80).aspx" id="aa991927_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;streambuf&gt;">&lt;streambuf&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/hd5zecz6(v=vs.80).aspx" id="aa991933_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;string&gt;">&lt;string&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/4e4xe3f4(v=vs.80).aspx" id="aa991947_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;strstream&gt;">&lt;strstream&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/86s69hwc(v=vs.80).aspx" id="aa991957_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;utility&gt;">&lt;utility&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/fzkk3cy8(v=vs.80).aspx" id="aa991961_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;valarray&gt;">&lt;valarray&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+                <div class="toclevel  archive" data-toclevel="1">
+<a class="toc_collapsed" href="javascript:void(0)" role="button" aria-label="Expand the table of content" aria-expanded="false"></a><a data-tochassubtree="true" href="https://msdn.microsoft.com/en-us/library/sxcsf7y7(v=vs.80).aspx" id="aa991974_VS.80_en-US" mtpsaliasid="" mtpsassetid="" mtpsshortid="" title="&lt;vector&gt;">&lt;vector&gt;</a>                <a role="img" href="javascript:void(0)" title="This documentation is archived and is not being maintained."></a></div>
+    </div>
+    <a id="tocMenuToggler" href="javascript:void(0)" role="button">
+        <span id="tocMenuTogglerIcon" class="tocMenuCollapse" role="button" aria-expanded="true" aria-label="Table of contents menu"></span>
+        <div id="tocMenuTogglerLabel">TOC</div>
+    </a>
+</div>            <div style="display:none">
+                <div id="CollapseLocalizeString">Collapse the table of content</div>
+                <div id="ExpandLocalizeString">Expand the table of content</div>
+            </div>
+        <div>
+            <a id="isd_archiveControlResponsive" style="display:none;" href="javascript:void(0)" role="button" aria-label="Hide Archived Versions" data-include-archive="Show Archived Versions" data-exclude-archive="Hide Archived Versions">
+            </a>
+            <div id="isd_archiveInstrument" style="display:none">This documentation is archived and is not being maintained.</div>
+        </div>
+    </div>
+     <div id="content" class="content" ms.cmpgrp="content body" role="main" style="padding-top: 58px;">
+
+
+
+
+
+
+
+
+        <div id="archiveDisclaimer" style="width: 870px; top: 0px; border-top: 30px solid white; position: fixed;">
+            <div class="archiveDisclaimerLeft">
+                <div class="archiveWarning"></div>
+            </div>
+            <div class="archiveDisclaimerRight">
+                <div class="archiveDisclaimerMessage">This documentation is archived and is not being maintained.</div>
+                    <div class="archiveDisclaimerRecommendation">
+                        <a class="archiveDisclaimerRecommendationButton" href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.140).aspx">Recommended Version</a>
+                    </div>
+            </div>
+        </div>
+        
+    <div id="archiveDisclaimerText" style="display:none">This documentation is archived and is not being maintained.</div>
+
+
+
+<div class="topic" xmlns:mtps="http://msdn2.microsoft.com/mtps" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">&lt;iosfwd&gt;&nbsp;
+        </h1>
+  
+  <div class="lw_vs">
+    <div id="curversion">
+      <strong>
+                Visual Studio 2005
+            </strong>
+    </div>
+    <div id="versionclick">
+      <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+      <div>
+        <div>
+          <a id="vsLink" href="javascript:void(0)" role="button" aria-label="Other Versions" aria-expanded="false">
+                        Other Versions
+                    </a>
+        </div>
+        <div class="cl_vs_arrow clip10x10">
+          <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/ImageSprite.png">
+        </div>
+      </div>
+      <ul id="vsPanel">
+        <li class=""><span class="emptyArchiveIcon"></span>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.140).aspx">Visual Studio 2015 </a>
+        </li>
+        <li class=""><span class="emptyArchiveIcon"></span>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.120).aspx">Visual Studio 2013 </a>
+        </li>
+        <li class=""><span class="emptyArchiveIcon"></span>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.110).aspx">Visual Studio 2012</a>
+        </li>
+        <li class=""><span class="emptyArchiveIcon"></span>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.100).aspx">Visual Studio 2010</a>
+        </li>
+        <li class=""><span class="emptyArchiveIcon"></span>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.90).aspx">Visual Studio 2008</a>
+        </li>
+        <li class="archived"><a href="javascript:void(0)" role="img" title="This documentation is archived and is not being maintained."></a>
+          <a href="https://msdn.microsoft.com/en-us/library/1af12yty(v=vs.71).aspx">Visual Studio .NET 2003</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  
+  <div id="mainSection"> <div id="mainBody">  <p> </p><p>Declares forward references to several template classes used throughout iostreams. All such template classes are defined in other standard headers. You include this header explicitly only when you need one of its declarations, but not its definition.</p> <div id="syntaxSection" class="section">
+<div id="code-snippet-1" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_0b0d153c-bcb0-4049-b465-c9ea4f5cc49f&#39;);" ms.cmptyp="CodeSnippet">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_0b0d153c-bcb0-4049-b465-c9ea4f5cc49f" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>
+#include &lt;iosfwd&gt;
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+</div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Typedefs</span></a><div id="Anchor_0" class="LW_CollapsibleArea_Anchor_Div active"><a href="https://msdn.microsoft.com/en-us/library/1af12yty(vs.80).aspx#Anchor_0" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a name="sectionToggle0"></a> 
+<div id="code-snippet-2" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_ee67556d-beb1-412f-9bc6-e3cbba4c3814&#39;);" ms.cmptyp="CodeSnippet">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_ee67556d-beb1-412f-9bc6-e3cbba4c3814" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>typedef T1 streamoff;
+typedef T2 streamsize;
+typedef fpos streampos;
+
+// wchar_t TYPE DEFINITIONS
+typedef basic_ios&lt;char, char_traits&lt;char&gt; &gt; ios;
+typedef basic_streambuf&lt;char, char_traits&lt;char&gt; &gt; streambuf;
+typedef basic_istream&lt;char, char_traits&lt;char&gt; &gt; istream;
+typedef basic_ostream&lt;char, char_traits&lt;char&gt; &gt; ostream;
+typedef basic_iostream&lt;char, char_traits&lt;char&gt; &gt; iostream;
+typedef basic_stringbuf&lt;char, char_traits&lt;char&gt; &gt; stringbuf;
+typedef basic_istringstream&lt;char, char_traits&lt;char&gt; &gt; istringstream;
+typedef basic_ostringstream&lt;char, char_traits&lt;char&gt; &gt; ostringstream;
+typedef basic_stringstream&lt;char, char_traits&lt;char&gt; &gt; stringstream;
+typedef basic_filebuf&lt;char, char_traits&lt;char&gt; &gt; filebuf;
+typedef basic_ifstream&lt;char, char_traits&lt;char&gt; &gt; ifstream;
+typedef basic_ofstream&lt;char, char_traits&lt;char&gt; &gt; ofstream;
+typedef basic_fstream&lt;char, char_traits&lt;char&gt; &gt; fstream;
+
+// wchar_t TYPE DEFINITIONS
+typedef basic_ios&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wios;
+typedef basic_streambuf&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wstreambuf;
+typedef basic_istream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wistream;
+typedef basic_ostream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wostream;
+typedef basic_iostream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wiostream;
+typedef basic_stringbuf&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wstringbuf;
+typedef basic_istringstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wistringstream;
+typedef basic_ostringstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wostringstream;
+typedef basic_stringstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wstringstream;
+typedef basic_filebuf&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wfilebuf;
+typedef basic_ifstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wifstream;
+typedef basic_ofstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wofstream;
+typedef basic_fstream&lt;wchar_t, char_traits&lt;wchar_t&gt; &gt; wfstream;
+};
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ </div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">Forward Declarations/Template Classes</span></a><div id="Anchor_1" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/en-us/library/1af12yty(vs.80).aspx#Anchor_1" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a name="sectionToggle1"></a> 
+<div id="code-snippet-3" class="codeSnippetContainer" xmlns="">
+    <div class="codeSnippetContainerTabs">
+        
+    </div>
+    <div class="codeSnippetContainerCodeContainer">
+        <div class="codeSnippetToolBar">
+            <div class="codeSnippetToolBarText">
+                <a name="CodeSnippetCopyLink" style="display: none;" title="Copy to clipboard." href="javascript:if (window.epx.codeSnippet)window.epx.codeSnippet.copyCode(&#39;CodeSnippetContainerCode_a20e515a-97ae-4d01-b9bd-4be1fd5bb011&#39;);" ms.cmptyp="CodeSnippet">Copy</a>
+            </div>
+        </div>
+        <div id="CodeSnippetContainerCode_a20e515a-97ae-4d01-b9bd-4be1fd5bb011" class="codeSnippetContainerCode" dir="ltr">
+            <div style="color:Black;"><pre>template&lt;class Elem&gt;
+class char_traits;
+
+class char_traits&lt;char&gt;;
+
+class char_traits&lt;wchar_t&gt;;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_ios;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class istreambuf_iterator;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class ostreambuf_iterator;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_streambuf;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_istream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_ostream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_iostream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_stringbuf;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_istringstream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_ostringstream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_stringstream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_filebuf;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_ifstream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_ofstream;
+
+template&lt;class Elem, class Tr = char_traits&lt;Elem&gt; &gt;
+class basic_fstream;
+</pre></div>
+            
+        </div>
+    </div>
+</div>
+ </div></div><div><h2 class="LW_CollapsibleArea_TitleDiv"><div><a class="LW_CollapsibleArea_TitleAhref" title="" role="heading"><span class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"></span><span class="LW_CollapsibleArea_Title">See Also</span></a><div id="Anchor_2" class="LW_CollapsibleArea_Anchor_Div"><a href="https://msdn.microsoft.com/en-us/library/1af12yty(vs.80).aspx#Anchor_2" class="LW_CollapsibleArea_Anchor_Img" title="Right-click to copy and share the link for this section"></a></div><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></h2><div class="sectionblock"><a name="seeAlsoToggle"></a><h4 class="subHeading">Reference</h4><span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/c9ceah3b(v=vs.80).aspx">Thread Safety in the Standard C++ Library</a></span><br><span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/22z6066f(v=vs.80).aspx">iostream Programming</a></span><br><span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/8e9dt98w(v=vs.80).aspx">iostreams Conventions</a></span><br><h4 class="subHeading">Other Resources</h4><span class="linkTerms"><a href="https://msdn.microsoft.com/en-us/library/a7tkse1h(v=vs.80).aspx">Standard C++ Library Header Files</a></span><br><br></div></div></div>  </div>
+</div>
+
+
+
+
+
+
+<div class="libraryMemberFilter">
+    <div class="filterContainer">
+        <span>Show:</span>
+        <label>
+            <input type="checkbox" class="libraryFilterInherited" checked="checked" value="Inherit">Inherited
+        </label>
+        <label>
+            <input type="checkbox" class="libraryFilterProtected" checked="checked" value="Protected">Protected
+        </label>
+    </div>
+</div>
+    
+<input type="hidden" id="libraryMemberFilterEmptyWarning" value="There are no members available with your current filter settings.">
+
+
+
+    </div>
+<div id="rightNavigationMenu" ms.cmpgrp="right nav" style="position: fixed; margin-left: 3px; top: 60px;">
+    <div id="mobileButtons">
+        
+    </div>
+    <div id="navMain">
+        <div id="closeNavigation">
+            <a class="tocCloseSmall" id="closeButton"></a>
+        </div>
+        <div id="navigationButtons" style="display: none;">
+            <a id="isd_print" href="https://msdn.microsoft.com/en-us/library/1af12yty(d=printer,v=vs.80).aspx" rel="nofollow"><ins class="print"></ins>Print </a>
+            <a id="isdShare" href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#" role="button" aria-expanded="false">
+                <ins class="share"></ins>Share
+            </a>
+            <div id="socials" style="display: none">
+                <a class="isdFacebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F1af12yty.aspx" aria-label="Share on Facebook">
+                    <ins class="facebook"></ins>
+                </a>
+                <a class="isdTwitter" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F1af12yty.aspx&amp;text=%3Ciosfwd%3E%20(Standard%20C%2B%2B%20Library)&amp;tw_p=tweetbutton&amp;url=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F1af12yty.aspx" aria-label="Share on Twitter">
+                    <ins class="twitter"></ins>
+                </a>
+                <a class="isdGooglePlus" href="https://plus.google.com/share?url=https%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F1af12yty.aspx" aria-label="Share on Google+">
+                    <ins class="googlePlus"></ins>
+                </a>
+            </div>
+        </div>
+        <div id="indoc_toc" style="" ms.cmpgrp="indoc toc">
+            <div id="indoc_title">IN THIS ARTICLE</div>
+            <ul id="indoc_toclist"><li data-index="0" class="active"><a href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#Typedefs">Typedefs</a></li><li data-index="1" class=""><a href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#Forward Declarations/Template Classes">Forward Declarations/Template Classes</a></li><li data-index="2"><a href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#See Also">See Also</a></li></ul>
+        </div>
+    </div>
+</div>
+<div id="rightNavigationMenuThumbnail" class="rightNavigationMenuThumbnail">
+</div>
+
+
+
+
+
+        </div>
+        <div class="clear"></div>
+
+        
+
+    <div id="lib-footer">
+        
+
+    
+    <link type="text/css" rel="stylesheet">
+    
+        
+    <div id="ux-footer" class="" style="" dir="ltr" ms.pgarea="footer">
+
+        <footer class="top" role="navigation" aria-label="footer">
+            <div data-fragmentname="LeftLinks" id="Fragment_LeftLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <h4 class="linkListTitle">Dev centers</h4>
+    <ul class="links">
+      <li>
+        <a href="https://developer.microsoft.com/en-us/windows" id="LeftLinks_2148_1" class="windowsBlue" xmlns="http://www.w3.org/1999/xhtml">Windows</a>
+      </li>
+      <li>
+        <a href="https://dev.office.com/" id="LeftLinks_2148_3" class="office" xmlns="http://www.w3.org/1999/xhtml">Office</a>
+      </li>
+      <li>
+        <a href="https://www.visualstudio.com/" id="LeftLinks_2148_4" class="visualStudio" xmlns="http://www.w3.org/1999/xhtml">Visual Studio</a>
+      </li>
+      <li>
+        <a href="https://docs.microsoft.com/en-us/azure/" target="_blank" id="LeftLinks_2148_12" xmlns="http://www.w3.org/1999/xhtml">Microsoft Azure</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/developer-centers-msdn" id="LeftLinks_2148_5" xmlns="http://www.w3.org/1999/xhtml">More...</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <div id="rightLinks">
+                <div data-fragmentname="CenterLinks1" id="Fragment_CenterLinks1" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <h4 class="linkListTitle">Learning resources</h4>
+    <ul class="links">
+      <li>
+        <a href="https://mva.microsoft.com/" id="CenterLinks1_2151_4" xmlns="http://www.w3.org/1999/xhtml">Microsoft Virtual Academy</a>
+      </li>
+      <li>
+        <a href="https://channel9.msdn.com/" id="CenterLinks1_2151_5" xmlns="http://www.w3.org/1999/xhtml">Channel 9</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/magazine/" id="CenterLinks1_2151_7" xmlns="http://www.w3.org/1999/xhtml">MSDN Magazine</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks2" id="Fragment_CenterLinks2" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <h4 class="linkListTitle">Community</h4>
+    <ul class="links">
+      <li>
+        <a href="https://social.msdn.microsoft.com/forums/en-us/home" id="CenterLinks2_2151_8" xmlns="http://www.w3.org/1999/xhtml">Forums</a>
+      </li>
+      <li>
+        <a href="https://blogs.msdn.microsoft.com/developer-tools/" id="CenterLinks2_2151_9" xmlns="http://www.w3.org/1999/xhtml">Blogs</a>
+      </li>
+      <li>
+        <a href="https://www.codeplex.com/" id="CenterLinks2_2151_10" xmlns="http://www.w3.org/1999/xhtml">Codeplex</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks3" id="Fragment_CenterLinks3" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <h4 class="linkListTitle">Support</h4>
+    <ul class="links">
+      <li>
+        <a href="https://msdn.microsoft.com/hh361695" id="CenterLinks3_2151_11" xmlns="http://www.w3.org/1999/xhtml">Self support</a>
+      </li>
+    </ul>
+  </div>
+</div>
+                <div data-fragmentname="CenterLinks4" id="Fragment_CenterLinks4" xmlns="http://www.w3.org/1999/xhtml" class="nth-child-4n">
+  
+  <div class="linkList">
+    <h4 class="linkListTitle">Programs</h4>
+    <ul class="links">
+      <li>
+        <a href="https://bizspark.microsoft.com/Startups/Index" id="CenterLinks4_2151_13" xmlns="http://www.w3.org/1999/xhtml">BizSpark (for startups)</a>
+      </li>
+      <li>
+        <a href="https://imagine.microsoft.com/en-us" id="CenterLinks4_2151_22" xmlns="http://www.w3.org/1999/xhtml">Microsoft Imagine (for students)</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            </div>
+        </footer>
+
+        <footer class="bottom" role="contentinfo">
+            <span class="localeContainer">
+                
+    <form class="selectLocale" id="selectLocaleForm" action="https://msdn.microsoft.com/en-us/selectlocale-dmc">
+        <input type="hidden" name="fromPage" value="https%3a%2f%2fmsdn.microsoft.com%2fen-us%2flibrary%2f1af12yty(v%3dvs.80).aspx">
+        <a href="https://msdn.microsoft.com/en-us/library/1af12yty(VS.80).aspx#" onclick="$(&#39;#selectLocaleForm&#39;).submit();return false;" title="Change your language">United States (English)</a>
+    </form>
+
+
+            </span>
+
+            <div data-fragmentname="BottomLinks" id="Fragment_BottomLinks" xmlns="http://www.w3.org/1999/xhtml">
+  
+  <div class="linkList">
+    <ul class="links horizontal">
+      <li>
+        <a href="https://msdn.microsoft.com/en-us/flashnewsletter" id="BottomLinks_2148_7" xmlns="http://www.w3.org/1999/xhtml">Newsletter</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/en-us/dn529288" id="BottomLinks_2148_8" xmlns="http://www.w3.org/1999/xhtml">Privacy &amp; cookies</a>
+      </li>
+      <li>
+        <a href="https://msdn.microsoft.com/en-us/cc300389" id="BottomLinks_2148_9" xmlns="http://www.w3.org/1999/xhtml">Terms of use</a>
+      </li>
+      <li>
+        <a href="https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/" id="BottomLinks_2148_10" xmlns="http://www.w3.org/1999/xhtml">Trademarks</a>
+      </li>
+    </ul>
+  </div>
+</div>
+            <span class="logoLegal">
+                <span class="logoSpan clip67x13" role="img" tabindex="0" aria-label="microsoft logo">
+                    <img alt="logo" class="logo" src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/HeaderFooterSprite.png">
+                </span>
+                <span class="copyright">© 2017 Microsoft</span>
+            </span>
+        </footer>
+    </div>
+    
+
+    </div>
+
+
+        <div class="footerPrintView">
+            <div class="footerCopyrightPrintView">© 2017 Microsoft</div>
+        </div>
+
+        
+        
+
+        
+        
+        
+
+    <input id="tocPaddingPerLevel" type="hidden" value="17">
+
+
+
+        <input id="MtpsDevice" type="hidden" value="Default">
+
+
+<!--[CDATA[ Third party scripts and code linked to or referenced from this website are licensed to you by the parties that own such code, not by Microsoft.  See ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx. ]]-->
+
+        
+        
+        
+            
+        
+
+<!--[CDATA[ WebTrends view model not available or IncludeLegacyWebTrendsScriptInGlobal feature flag is off]]-->
+
+
+
+
+<div id="globalRequestVerification">
+    <input name="__RequestVerificationToken" type="hidden" value="ceaBPwVwHX8I6i5AO8OUVaqE0gmRHQfEpaRNitY2K_H9xWxaoa08J4UoHHCwvWrT_0LGrd0U9Ol_oQ6BDrSBFIK60rE1">
+</div>
+
+
+    </div>
+
+    
+    
+
+    
+
+    
+<script type="text/javascript" class="mtps-injected">
+/*<![CDATA[*/
+(function(window,document){"use strict";function preload(scripts){for(var result=[],script,e,i=0;i<scripts.length;i++)script=scripts[i],script.hasOwnProperty("url")&&(e=document.createElement("script"),e.src=script.url,script.throwaway=e),result.push(script);return result}function inject(scripts,index){var script,elem;if(index>=scripts.length){delete mtps.injectScripts;return}script=scripts[index];elem=document.createElement("script");elem.className="mtps-injected";elem.async=!1;var isLoaded=!1,timeoutId=0,injectNextFnName="",injectNext=elem.onerror=function(){isLoaded||(isLoaded=!0,inject(scripts,index+1),window.clearTimeout(timeoutId),elem.onload=elem.onerror=elem.onreadystatechange=null,injectNextFnName&&delete mtps[injectNextFnName],elem.removeEventListener&&elem.removeEventListener("load",injectNext,!1))};elem.addEventListener?elem.addEventListener("load",injectNext,!1):elem.readyState==="uninitialized"?elem.onreadystatechange=function(){(this.readyState==="loaded"||this.readyState==="complete")&&injectNext()}:elem.onload=injectNext;script.hasOwnProperty("url")?(timeoutId=window.setTimeout(injectNext,12e4),elem.src=script.url):(injectNextFnName="_injectNextScript_"+index,mtps[injectNextFnName]=injectNext,timeoutId=window.setTimeout(injectNext,2e3),elem.text="try {\n"+script.txt+"\n} finally { MTPS."+injectNextFnName+" && MTPS."+injectNextFnName+"(); }");parent.appendChild(elem)}var mtps=window.MTPS||(window.MTPS={}),parent=document.getElementsByTagName("head")[0];mtps.injectScripts=function(scripts){inject(preload(scripts),0)}})(window,document);
+MTPS.injectScripts([
+	{ txt: "/**/\r\n(window.MTPS || (window.MTPS = {})).cdnDomains || (window.MTPS.cdnDomains = { \r\n\t\"image\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"js\": \"https://i2-msdn.sec.s-msft.com\", \r\n\t\"css\": \"https://i-msdn.sec.s-msft.com\", \r\n\t\"ttf\": \"https://i-msdn.sec.s-msft.com\"\r\n});\r\n/**/" },
+	{ txt: "//\n\n        window.appInsightsId = \u00275eb1b2eb-c47a-497a-a7ac-a1c230b2882f\u0027;\n        //" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:Utilities,1:Layout,2:Header,3:Breadcrumbs,4:LibraryRightNavigationMenu,4:PrintExportButton,2:Footer,0:Topic,3:ResponsiveSupport,3:ArchiveDisclaimer,0:AppInsightsPerf,3:ResponsiveToc,0:ABTestControl,4:WEDCS,3:CmpgrpForHeader,1:SearchBox;/Areas/Epx/Content/Scripts:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Centers/Themes/StandardDevCenter/Content:2,/Areas/Library/Content:3,/Areas/Library/Themes/Base/Content:4\u0026amp;hashKey=10B72325EB9D01766138658252056CDF\u0026amp;v=F8AC93D71982AF1CF5B083A54D0C8B83" },
+	{ url: "https://i1.services.social.microsoft.com/search/Widgets/SearchBox.jss?boxid=HeaderSearchTextBox\u0026btnid=HeaderSearchButton\u0026minimumTermLength=2\u0026pgArea=header\u0026brand=Msdn\u0026loc=en-us\u0026focusOnInit=false\u0026emptyWatermark=true\u0026searchButtonTooltip=Search MSDN" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Areas/Epx/Themes/Base/Content/JumpRedirect.js" },
+	{ txt: "MTPS = window.MTPS || {}; MTPS.LocalizedStrings = window.MTPS.LocalizedStrings || {}; MTPS.LocalizedStrings.ExpandButtonTooltip = \u0027Expand\u0027; MTPS.LocalizedStrings.CollapseButtonTooltip = \u0027Collapse\u0027; MTPS.LocalizedStrings.EnhancedExpandTooltip = \u0027Click to expand. Double-click to expand all.\u0027; MTPS.LocalizedStrings.EnhancedCollapseTooltip = \u0027Click to collapse. Double-click to collapse all.\u0027; MTPS.LocalizedStrings.ExpandAllButtonTooltip = \u0027Expand All\u0027; MTPS.LocalizedStrings.CollapseAllButtonTooltip = \u0027Collapse All\u0027;" },
+	{ url: "https://i2-msdn.sec.s-msft.com/Combined.js?resources=0:LibraryMemberFilter,1:Toc_Fixed,1:CodeSnippet,1:TopicNotInScope,1:VersionSelector,1:SurveyBroker;/Areas/Library/Content:0,/Areas/Epx/Content/Scripts:1\u0026amp;hashKey=D8D1FFAA6CA68460B7EFA5923975CA44\u0026amp;v=F8AC93D71982AF1CF5B083A54D0C8B83" },
+	{ txt: "$(document).ready(function() {\n        try {\n            var token = $(\"#globalRequestVerification input[name=\u0027__RequestVerificationToken\u0027]\").clone();\n            $(\"#siteFeedbackForm\").append(token);\n        } catch(err) {\n            \n        }\n    });" }
+]);
+
+/*]]>*/
+</script>
+
+<div id="overlayMask"></div><script src="./Forward STL declarations - _iosfwd_ (Standard C++ Library)_files/broker-config.js.download"></script></body></html>

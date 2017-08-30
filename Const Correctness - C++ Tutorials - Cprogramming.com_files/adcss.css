@@ -1,0 +1,81 @@
+table.main {
+  padding-bottom: 2.1em;
+}
+
+#default_demo #_default_ {
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: hsla(210, 2%, 75%, .9);
+  text-align: center;
+  font-size: 12px;
+  font-family: Verdana, "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+#default_demo .default-ad {
+  display: none;
+}
+
+#default_demo ._default_ {
+  display: block;
+  overflow: hidden;
+  padding: .5em 1em;
+  line-height: 1.5;
+
+  align-items: center;
+  justify-content: center;
+}
+
+#default_demo ._default_ > * {
+  vertical-align: middle;
+}
+
+#default_demo a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#default_demo a:hover {
+  color: #c30000;
+}
+
+#default_demo .default-image {
+  display: inline-block;
+  margin-right: 6px;
+  line-height: 0;
+}
+
+#default_demo .default-image img {
+  height: 24px;
+  border-radius: 3px;
+}
+
+#default_demo .default-title:after {
+  content: " - ";
+}
+
+#default_demo .default-title,
+#default_demo .default-description {
+  display: inline;
+}
+
+#default_demo .default-title {
+  position: relative;
+  font-weight: 600;
+}
+
+#default_demo .default-description:after {
+  position: relative;
+  top: -1px;
+  right: -8px;
+  padding: 1px 4px;
+  border: solid 1px #c30000;
+  border-radius: 3px;
+  color: #c30000;
+  content: "Ad";
+  text-transform: uppercase;
+  font-size: 9px;
+  font-family: Verdana, sans-serif;
+}

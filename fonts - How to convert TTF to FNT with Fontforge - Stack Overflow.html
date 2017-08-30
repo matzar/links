@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>fonts - How to convert TTF to FNT with Fontforge - Stack Overflow</title>
+    <link rel="shortcut icon" href="https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="https://stackoverflow.com/opensearch.xml">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+        <meta name="twitter:domain" content="stackoverflow.com">
+
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How to convert TTF to FNT with Fontforge">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I have a TTF font, that needs to be converted in FNT (and ideally in pcf too). I tried Fontforge, but when I loaded font and chose to generate font - nothing could be selected from the list on the ...">
+    <meta property="og:url" content="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge">
+    <link rel="canonical" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge">
+
+    
+    
+    <script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/quant.js.download"></script><script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/beacon.js.download"></script><script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/analytics.js.download"></script><script type="text/javascript" async="" src="https://static.adzerk.net/ados.js"></script><script src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/jquery.min.js.download"></script>
+    <script src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/stub.en.js.download"></script>
+    <link rel="stylesheet" type="text/css" href="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to convert TTF to FNT with Fontforge&#39;" href="https://stackoverflow.com/feeds/question/24529369">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:0,shownCommentCount:0,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:24529369});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '24529369');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text', true); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","networkMetaHostname":"meta.stackexchange.com","serverTime":1499614831,"routeName":"Questions/Show","site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableInsertDocLinkDialog":true,"childUrl":"https://meta.stackoverflow.com","enableSocialMediaInSharePopup":true,"protocol":"https"},"user":{"fkey":"e001bedad176abaffbac513fcd533cf6","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"canSeeNewHeaderDesign":true,"ab":{"inline_signup_hero":{"v":"a","g":1}}},"events":{"postType":{"question":1},"postEditionSection":{"title":1,"body":2,"tags":3}},"story":{"minCompleteBodyLength":75,"likedTagsMaxLength":300,"dislikedTagsMaxLength":300}}, {"site":{"allowImageUploads":true,"enableUserHovercards":true,"styleCode":true,"enableNewLinkInsertDialog":true,"enableImgurHttps":true,"forceHttpsImages":true},"comments":{},"userProfile":{"openGraphAPIKey":"58740831ad23540e00c58987"},"tags":{},"accounts":{"currentPasswordRequiredForChangingStackIdPassword":true},"flags":{"allowRetractingFlags":true},"snippets":{"snippetsEnabled":true,"renderDomain":"stacksnippets.net"},"markdown":{"asteriskIntraWordEmphasis":true},"monitoring":{"clientTimingsAbsoluteTimeout":30000,"clientTimingsDebounceTimeout":1000}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"1bbf11328378","js/moderator.en.js":"fa5aac63c4be","js/full-anon.en.js":"d2a94baa1f13","js/full.en.js":"5ff6c49c89b2","js/wmd.en.js":"362af91d9e7f","js/third-party/jquery.autocomplete.min.js":"d3b8fa7fdf74","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"ba2685451c38","js/help.en.js":"118cb359bcc6","js/tageditor.en.js":"235a2acc7d79","js/tageditornew.en.js":"6023827cbbbb","js/inline-tag-editing.en.js":"7581a98341e4","js/revisions.en.js":"d059a98114ef","js/review.en.js":"7ecabad976db","js/tagsuggestions.en.js":"91ec144ebee0","js/post-validation.en.js":"9debd3cf46cc","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"0bd6bf0bed8f","js/keyboard-shortcuts.en.js":"49e5f4738df4","js/external-editor.en.js":"3e5baf662544","js/adops.en.js":"9a6a7812a212","js/external-editor.en.js":"3e5baf662544","js/snippet-javascript.en.js":"6396a6cc51fa","js/snippet-javascript-codemirror.en.js":"e55dd5ac1bbc"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    <noscript id="noscript-css">&lt;style type="text/css"&gt;body,.so-header{margin-top:1.9em}&lt;/style&gt;</noscript>
+<script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/full-anon.en.js.download"></script><script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/snippet-javascript.en.js.download"></script><script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/post-validation.en.js.download"></script><script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/external-editor.en.js.download"></script></head>
+<body class="question-page new-topbar">
+            <script>(function () { var old = $.fn.contents; $.fn.contents = function () { try { return old.apply(this, arguments); } catch (e) { return $([]); } } })()</script>
+        <iframe id="adzerk-user-match" width="0" height="0" frameborder="0" scrolling="no" onload="window.AUMIframeDone=true" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/usermatch.html" style="display: none !important;" marginheight="0" marginwidth="0"></iframe>
+
+    <div id="notify-container"></div>
+    <div id="custom-header"></div>
+
+
+<header class="so-header js-so-header _fixed _scrolling">
+    <div class="-container">
+        <div class="-main">            
+            <a href="https://stackoverflow.com/" class="-logo js-gps-track " data-gps-track="top_nav.click({is_current:false, location:2, destination:8})">
+
+                <span class="-img">Stack Overflow</span>
+            </a>
+
+            <nav class="navigation" role="navigation" aria-label="site navigation">
+                <ol class="-list">
+                        <li class="-item _current">
+        <a id="nav-questions" href="https://stackoverflow.com/questions" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:true, location:2, destination:1})">Questions</a>
+    </li>
+
+    <li class="-item">
+        <a id="nav-jobs" href="https://stackoverflow.com/jobs?med=site-ui&amp;ref=jobs-tab" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:6})">Developer Jobs</a>
+    </li>
+                        <li class="-item">
+        <a id="nav-docs" href="https://stackoverflow.com/documentation" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:7})">Documentation <small class="beta-badge">beta</small></a>
+    </li>
+                        <li class="-item">
+        <a id="nav-tags" href="https://stackoverflow.com/tags" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:2})">Tags</a>
+    </li>
+
+                        <li class="-item">
+        <a id="nav-users" href="https://stackoverflow.com/users" class="-link js-gps-track" data-gps-track="top_nav.click({is_current:false, location:2, destination:3})">Users</a>
+    </li>
+
+                </ol>
+            </nav>
+
+                <form id="search" action="https://stackoverflow.com/search" method="get" class="searchbar" autocomplete="off" role="search">
+                    <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    <input name="q" type="text" placeholder="Search..." value="" tabindex="1" autocomplete="off" maxlength="240" class="f-input js-search-field">
+                    <button type="submit" class="btn js-search-submit">
+                        <svg role="icon" class="svg-icon iconSearch" width="18" height="18" viewBox="0 0 18 18"><path d="M12.864 11.321L18 16.5 16.5 18l-5.178-5.136v-.357a7 7 0 1 1 1.186-1.186h.356zM7 12A5 5 0 1 0 7 2a5 5 0 0 0 0 10z"></path></svg>
+                    </button>
+                </form>
+
+        </div>
+        
+
+
+    
+
+<div class="-actions">
+    <nav class="secondary-nav">
+        <div class="-dialog-container js-topbar-dialog-corral">
+
+
+    <div class="topbar-dialog siteSwitcher-dialog dno">
+        <div class="header">
+            <h3><a href="https://stackoverflow.com/">current community</a>
+            </h3>
+        </div>
+        <div class="modal-content current-site-container">
+            <ul class="current-site">
+                    <li>
+                            <div class="related-links">
+            <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:14 })">help</a>
+                    <a href="https://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+    <a href="https://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                    </li>
+                    <li class="related-site">
+                            <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                        
+    <a href="https://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="site.switch({ target_site:552, item_type:3 }),site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                    </li>
+            </ul>
+        </div>
+
+        <div class="header" id="your-communities-header">
+            <h3>
+your communities            </h3>
+
+        </div>
+        <div class="modal-content" id="your-communities-section">
+
+                <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f24529369%2fhow-to-convert-ttf-to-fnt-with-fontforge" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+                </div>
+        </div>
+
+        <div class="header">
+            <h3><a href="https://stackexchange.com/sites">more stack exchange communities</a>
+            </h3>
+            <a href="https://stackoverflow.blog/" class="fr">company blog</a>
+        </div>
+        <div class="modal-content">
+                <div class="child-content"></div>
+        </div>        
+    </div>
+                <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="https://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="https://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                        <li>
+                            <a href="https://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                                Meta
+                                <span class="item-summary">
+                                    Discuss the workings and policies of this site
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/company/about" class="js-gps-track" data-gps-track="help_popup.click({ item_type:6 })">
+                                About Us
+                                <span class="item-summary">
+                                    Learn more about Stack Overflow the company
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.stackoverflowbusiness.com/?ref=topbar_help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:7 })">
+                                Business
+                                <span class="item-summary">
+                                    Learn more about hiring developers or posting ads with us
+                                </span>
+                            </a>
+                        </li>
+            </ul>
+        </div>
+    </div>
+
+        </div>
+        <ol class="-list">
+
+
+    <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link js-help-button" title="Help Center and other resources">
+        <svg role="icon" class="svg-icon iconHelp" width="18" height="18" viewBox="0 0 18 18"><path d="M9 1a8 8 0 1 0 0 16.001A8 8 0 0 0 9 1zm.812 12.126c-.02.716-.55 1.157-1.238 1.137-.659-.02-1.177-.49-1.157-1.209.02-.715.566-1.17 1.225-1.15.691.021 1.194.507 1.17 1.222zm1.956-5.114c-.168.237-.546.542-1.02.912l-.527.361c-.257.197-.417.43-.502.695-.044.141-.076.507-.084.752-.004.048-.032.156-.181.156H7.883c-.165 0-.185-.096-.18-.144.023-.667.12-1.218.397-1.66.374-.594 1.426-1.221 1.426-1.221.161-.12.286-.25.382-.39.177-.24.321-.51.321-.8 0-.333-.08-.65-.293-.915-.249-.31-.518-.458-1.036-.458-.51 0-.808.257-1.021.594-.213.338-.177.735-.177 1.097H5.746c0-1.366.357-2.238 1.112-2.752.51-.35 1.162-.502 1.921-.502.996 0 1.788.184 2.487.715.647.49.988 1.181.988 2.113 0 .575-.2 1.057-.486 1.447z"></path></svg>
+    </a></li>
+                <li class="-item">
+        <a href="https://stackexchange.com/" class="-link js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 169 Stack Exchange sites">
+            <svg role="icon" class="svg-icon iconStackExchange" width="18" height="18" viewBox="0 0 18 18"><path d="M1 13a2 2 0 0 0 2 2h8v3l3-3h1a2 2 0 0 0 2-2v-2H1v2zM15 1H3a2 2 0 0 0-2 2v2h16V3a2 2 0 0 0-2-2zM1 6h16v4H1V6z"></path></svg>
+        </a>
+    </li>
+
+
+        </ol>
+    </nav>
+        <div class="-ctas">
+                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f24529369%2fhow-to-convert-ttf-to-fnt-with-fontforge" class="login-link btn-clear" rel="nofollow">Log In</a>
+                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;utm_source=stackoverflow.com&amp;utm_medium=dev-story&amp;utm_campaign=signup-redirect" class="login-link btn" rel="nofollow">Sign Up</a>
+
+        </div>
+</div>
+    </div>
+</header>
+
+    <script>
+        StackExchange.ready(function () { StackExchange.topbar.init(); });
+            StackExchange.scrollPadding.setPaddingTop(60, 10);     </script>
+
+    <div class="container">
+        
+
+
+        <div id="content" class="snippet-hidden">
+
+
+
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="https://cdn.sstatic.net/Sites/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+
+
+<div id="herobox" class="alternate">
+    <div class="test"></div>
+        <div id="close">
+            <a title="click to minimize"><span>x</span> Dismiss</a>
+        </div>
+    <div class="content">
+        <b>Join the Stack Overflow Community</b>
+        <div class="separator"></div>
+        <div class="blurb">
+            Stack Overflow is a community of 7.4 million programmers, just like you, helping each other.
+                <br>
+Join them; it only takes a minute:                <br>
+        </div>
+        <a href="https://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=%2fusers%2fstory%2fcurrent&amp;amp;utm_source=stackoverflow.com&amp;amp;utm_medium=dev-story&amp;amp;utm_campaign=signup-redirect" id="tell-me-more" class="button">Sign up</a>
+    </div>
+</div>
+<script>
+    StackExchange.ready(function () {
+
+        var location = 0;
+        if ($("body").hasClass("questions-page")) {
+            location = 1;
+        } else if ($("body").hasClass("question-page")) {
+            location = 1;
+        } else if ($("body").hasClass("faq-page")) {
+            location = 5;
+        } else if ($("body").hasClass("home-page")) {
+            location = 3;
+        }
+        
+        $('#tell-me-more').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+            });
+        });
+        
+        $('#herobox #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
+            });
+            
+            $.cookie("hero", "mini", { path: "/", expires: 365 });
+            $.ajax({
+                url: "/hero-mini",
+                success: function (data) {
+                    $("#herobox").fadeOut("fast", function () {
+                        $("#herobox").replaceWith(data);
+                        $("#herobox-mini").fadeIn("fast");
+                    });
+                }
+            });
+            return false;
+        });
+    });
+
+</script>			<div id="question-header">
+                <h1 itemprop="name"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge" class="question-hyperlink">How to convert TTF to FNT with Fontforge</a></h1>
+
+            
+<div class="aside-cta" role="navigation" aria-label="ask new question">
+    <a href="https://stackoverflow.com/questions/ask" class="btn-outlined">Ask Question</a>
+</div>
+		</div>
+			<div id="mainbar" role="main" aria-label="question and answers">
+
+			
+
+<div class="question" data-questionid="24529369" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1716214921",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1716214921"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="24529369">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#">favorite</a>
+        <div class="favoritecount"><b>1</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I have a TTF font, that needs to be converted in FNT (and ideally in pcf too). I tried Fontforge, but when I loaded font and chose to generate font - nothing could be selected from the list on the right, except "No bitmap fonts" though there was WIN FNT. Can anyone help me with this?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="https://stackoverflow.com/questions/tagged/fonts" class="post-tag js-gps-track" title="show questions tagged &#39;fonts&#39;" rel="tag">fonts</a> <a href="https://stackoverflow.com/questions/tagged/bitmap-fonts" class="post-tag js-gps-track" title="show questions tagged &#39;bitmap-fonts&#39;" rel="tag">bitmap-fonts</a> <a href="https://stackoverflow.com/questions/tagged/fontforge" class="post-tag js-gps-track" title="show questions tagged &#39;fontforge&#39;" rel="tag">fontforge</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/q/24529369" title="short permalink to this question" class="short-link" id="link-post-24529369">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/24529369/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2014-07-02 10:57:00Z" class="relativetime">Jul 2 '14 at 10:57</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/3177112/user3177112"><div class="gravatar-wrapper-32"><img src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/6d22033486b3bd1bd8f55a77f96b853a" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/3177112/user3177112">user3177112</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">65</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="8 bronze badges"><span class="badge3"></span><span class="badgecount">8</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                    
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-24529369" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-24529369" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active" data-shortcut="A">
+            active</a>
+        <a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest" data-shortcut="O">
+            oldest</a>
+        <a class="youarehere" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes" data-shortcut="V">
+            votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="24536374"></a>
+<div id="answer-24536374" class="answer accepted-answer" data-answerid="24536374" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="24536374">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">5</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>FNT is a bitmap format while TTF is an outline/vector format. To get FNT output, you'll first need to create a bitmap strike or strikes. Fontforge can do this if it has been built with Freetype included:</p>
+
+<ul>
+<li>Go to Element -&gt; Bitmap Strikes Available.</li>
+<li>Select the 'Win' button</li>
+<li>Under 'Point Sizes' enter the size (or sizes) you want.</li>
+<li>Tick 'Use FreeType' and 'Create Rasterized Strikes' Click OK.</li>
+</ul>
+
+<p>You should now have a bitmap strike to work with. Go to Generate Fonts; on the left side select 'No Outline Font', and on the right side select Windows FNT, pick the size you want, and generate.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/24536374" title="short permalink to this answer" class="short-link" id="link-post-24536374">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/24536374/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-07-02 16:26:30Z" class="relativetime">Jul 2 '14 at 16:26</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/1042788/djangodude"><div class="gravatar-wrapper-32"><img src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/2ebaa5ae46777ff96e08207bf5ad2af5" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/1042788/djangodude">djangodude</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">2,291</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="14 silver badges"><span class="badge2"></span><span class="badgecount">14</span></span><span title="28 bronze badges"><span class="badge3"></span><span class="badgecount">28</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-24536374" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-38015836" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thank man, you helped me a lot!</span>
+                    –&nbsp;<a href="https://stackoverflow.com/users/3177112/user3177112" title="65 reputation" class="comment-user owner">user3177112</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#comment38015836_24536374"><span title="2014-07-03 07:20:19Z" class="relativetime-clean">Jul 3 '14 at 7:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-24536374" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk124447420",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk124447420"></div>
+  
+<a name="42730063"></a>
+<div id="answer-42730063" class="answer" data-answerid="42730063" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="42730063">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>For a simple solution, I recommend trying <a href="https://github.com/libgdx/libgdx/wiki/Hiero" rel="nofollow noreferrer">Hiero</a>. It can convert any installed system font or font file into <code>.fnt</code>. <a href="https://libgdx.badlogicgames.com/tools.html" rel="nofollow noreferrer">You can download it here.</a></p>
+
+<p><a href="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/1UooT.png" rel="nofollow noreferrer"><img src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/1UooT.png" alt=""></a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="https://stackoverflow.com/a/42730063" title="short permalink to this answer" class="short-link" id="link-post-42730063">share</a><span class="lsep">|</span><a href="https://stackoverflow.com/posts/42730063/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="https://stackoverflow.com/posts/42730063/revisions" title="show all edits to this post">edited <span title="2017-04-22 14:01:12Z" class="relativetime">Apr 22 at 14:01</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2017-03-11 00:51:32Z" class="relativetime">Mar 11 at 0:51</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="https://stackoverflow.com/users/3357935/steven-vascellaro"><div class="gravatar-wrapper-32"><img src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/jaomO.png" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="https://stackoverflow.com/users/3357935/steven-vascellaro">Steven Vascellaro</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">779</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="24 bronze badges"><span class="badge3"></span><span class="badgecount">24</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-42730063" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-42730063" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="https://stackoverflow.com/questions/24529369/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="24529369">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.uk/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.settings.snippets.snippetsEnabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                StackExchange.prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;"> 
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="e001bedad176abaffbac513fcd533cf6">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="https://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=https%3a%2f%2fstackoverflow.com%2fquestions%2f24529369%2fhow-to-convert-ttf-to-fnt-with-fontforge%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'https%3a%2f%2fstackoverflow.com%2fquestions%2f24529369%2fhow-to-convert-ttf-to-fnt-with-fontforge%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="btn-clear discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="https://stackexchange.com/legal/privacy-policy" name="privacy" target="_blank">privacy policy</a> and <a href="https://stackexchange.com/legal/terms-of-service" name="tos" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="https://stackoverflow.com/questions/tagged/fonts" class="post-tag" title="show questions tagged &#39;fonts&#39;" rel="tag">fonts</a> <a href="https://stackoverflow.com/questions/tagged/bitmap-fonts" class="post-tag" title="show questions tagged &#39;bitmap-fonts&#39;" rel="tag">bitmap-fonts</a> <a href="https://stackoverflow.com/questions/tagged/fontforge" class="post-tag" title="show questions tagged &#39;fontforge&#39;" rel="tag">fontforge</a>  or <a href="https://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes" role="complementary" aria-label="sidebar">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2014-07-02 10:57:00Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+                                    <b>7,287 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge?lastactivity" class="lastactivity-link" title="2017-04-22 14:01:12Z">2 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk49270044",[5,17,2221,1129,43]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk49270044"></div>
+            <div id="hireme"></div>
+        <script>
+window.clc_request = 'AlGiRNXgxtQIAAAAANlJdgECAAAAAgAAAAAyAAAAfGZvbnRzfGJpdG1hcC1mb250c3xmb250Zm9yZ2V8eC1pbmR1c3RyeS1hY2FkZW1pY3wAVXgaRlTw1kedhA';;!function i(n){try{if("function"!=typeof[].indexOf)return;if(!window.addEventListener)return;if(!n.allowed)return;if(!RegExp(n.allowed).test(location.hostname))return;var t=window,e=t.document,c=n.wv;if(e.hidden&&c)return void e.addEventListener("visibilitychange",function t(){e.hidden||(i(n),e.removeEventListener("visibilitychange",t))});if(t.clc=t.clc||{},t.clc.init=t.clc.init||[],n.autoload&&t.clc.init.push(function(i){return i.load()}),t.clc.options){for(var o in t.clc.options)n[o]=t.clc.options[o];t.clc.options=n}else t.clc.options=n;var r=e.createElement("script");r.async=!0,r.src=n.lib,e.body.appendChild(r)}catch(i){}}.call(null, {"lib":"https://cdn.sstatic.net/clc/clc.min.js?v=d80e98d967bf","u":"https://clc.stackoverflow.com/markup.js","azw":true,"kt":2000,"tto":true,"d":{"sb":["hireme","clc-sb"],"tlb":["careers1","clc-tlb"],"mlb":["careers3","clc-mlb"]},"h":"clc.stackoverflow.com","autoload":true,"allowed":"^(((talent\\.)?stackoverflow)|(blog\\.codinghorror)|(serverfault|askubuntu)|([^\\.]+\\.stackexchange))\\.com$","wv":true});        </script>
+			
+
+            
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/1806583?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">2</div></a><a href="https://stackoverflow.com/questions/1806583/alternatives-to-fontforge?rq=1" class="question-hyperlink">Alternatives to FontForge</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/3750124?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">17</div></a><a href="https://stackoverflow.com/questions/3750124/how-to-convert-a-bitmap-font-fon-into-a-truetype-font-ttf?rq=1" class="question-hyperlink">How to convert a bitmap font (.FON) into a truetype font (.TTF)?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/6597617?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">2</div></a><a href="https://stackoverflow.com/questions/6597617/how-to-convert-a-ttf-file-to-fnt-and-how-to-use-it-in-cclabelbmfont?rq=1" class="question-hyperlink">How to convert a ttf file to fnt and how to use it in CCLabelBMFont?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/13428397?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/13428397/fontforge-gylph-name?rq=1" class="question-hyperlink">FontForge Gylph name</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/25200781?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">1</div></a><a href="https://stackoverflow.com/questions/25200781/how-do-i-add-a-new-arabic-vowel-sign-in-the-pua-area-of-a-font?rq=1" class="question-hyperlink">How do I add a new Arabic vowel-sign in the PUA area of a font?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/27977508?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/27977508/convert-dds-xml-to-ttf?rq=1" class="question-hyperlink">Convert dds + xml to ttf?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/31725115?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">4</div></a><a href="https://stackoverflow.com/questions/31725115/filling-in-missing-glyphs-in-fonts-with-fontforge?rq=1" class="question-hyperlink">Filling in missing glyphs in fonts with fontforge</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/32796220?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes answered-accepted default">0</div></a><a href="https://stackoverflow.com/questions/32796220/how-to-convert-otf-to-ttf-with-postscript-outlines-using-fontforge-scripting?rq=1" class="question-hyperlink">How to convert .otf to .ttf (with Postscript outlines) using Fontforge scripting?</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/35555816?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/35555816/delete-all-unused-characters-from-a-ttf-font-with-fontforge?rq=1" class="question-hyperlink">Delete all unused characters from a TTF-font with Fontforge</a></div><div class="spacer js-gps-track"><a href="https://stackoverflow.com/q/44204602?rq=1" title="Vote score (upvotes - downvotes)"><div class="answer-votes default">0</div></a><a href="https://stackoverflow.com/questions/44204602/how-do-i-extract-fonts-using-fontforge-in-a-pdf-where-multiple-font-objects-have?rq=1" class="question-hyperlink">How do I extract fonts using fontforge in a PDF where multiple font objects have the same basefont name?</a></div>
+                    </div>
+				</div>
+            
+
+<div id="hot-network-questions" class="module tex2jax_ignore">
+    <h4>
+        <a href="https://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2351951/one-way-inverse" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    One-Way Inverse
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="https://rpg.stackexchange.com/questions/102957/the-power-level-of-the-sword-of-sharpness-doesnt-justify-its-very-rare-rating" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The power level of the Sword of Sharpness doesn't justify its very rare rating - am I missing something?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="https://stats.stackexchange.com/questions/289467/what-is-a-manifold" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is a manifold?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/163189/why-are-credits-no-good-on-tatooine" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are credits "no good" on Tatooine?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/129523/it-was-just-a-bug" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    It was just a bug
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2352236/how-many-odd-three-digits-numbers-are-there-whose-all-three-digits-are-different" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How many odd three-digits numbers are there whose all three digits are different
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="https://math.stackexchange.com/questions/2351632/why-do-we-need-a-jordan-normal-form" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why do we need a Jordan normal form?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="https://superuser.com/questions/1228136/what-version-of-ms-dos-does-rufus-use-to-make-bootable-usbs" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What version of MS-DOS does Rufus use to make bootable USBs?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="https://mathematica.stackexchange.com/questions/151016/how-can-i-get-a-discrete-result-from-ndsolve" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I get a discrete result from NDSolve?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/397479/what-is-the-english-verb-phrase-expression-for-cheating-customers-with-an-inaccu" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the English verb/phrase/expression for cheating customers with an inaccurate scale?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/163131/why-didnt-luke-use-his-lightsaber-during-his-mission-on-the-first-death-star" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why didn't Luke use his lightsaber during his mission on the first Death Star?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="https://physics.stackexchange.com/questions/344681/why-is-it-necessary-to-invoke-classical-gravity-to-fix-normalization-constants" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    (Why) is it necessary to invoke Classical Gravity to fix normalization constants in General Relativity?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-sqa" title="Software Quality Assurance &amp; Testing Stack Exchange"></div><a href="https://sqa.stackexchange.com/questions/28343/how-to-report-a-bug-that-has-no-technical-solution" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:244 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to report a bug that has no technical solution?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="https://mathoverflow.net/questions/275011/open-problems-in-mathematical-physics" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Open problems in mathematical physics
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="https://travel.stackexchange.com/questions/97713/is-it-offensive-to-the-chef-host-to-finish-all-food-on-your-plate-in-italy" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it offensive to the chef/host to finish all food on your plate in Italy?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="https://english.stackexchange.com/questions/397148/what-would-be-some-pejorative-terms-for-the-words-boat-or-ship" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What Would Be Some Pejorative Terms for the Words "Boat" or "Ship"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="https://ux.stackexchange.com/questions/109714/is-it-acceptable-to-use-google-material-design-in-web-applications" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it acceptable to use Google Material Design in web applications?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="https://puzzling.stackexchange.com/questions/53234/random-cipher-from-a-friend" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Random cipher from a friend
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-writers" title="Writers Stack Exchange"></div><a href="https://writers.stackexchange.com/questions/29126/system-for-coming-up-with-a-good-title" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:166 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    System for Coming up With a Good Title
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="https://electronics.stackexchange.com/questions/316274/why-is-transistor-gain-measured-in-terms-of-current" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is transistor gain measured in terms of current?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-musicfans" title="Music Fans Stack Exchange"></div><a href="https://musicfans.stackexchange.com/questions/5463/why-doesnt-anyone-write-great-symphonies-any-more" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:601 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why doesn't anyone write great symphonies any more?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="https://tex.stackexchange.com/questions/379832/newline-command-is-not-working-inside-a-displayed-equation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    \newline command is not working inside a displayed equation
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="https://scifi.stackexchange.com/questions/163328/does-thor-have-to-pay-taxes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does Thor have to pay taxes?
+                </a>
+
+            </li>
+            <li class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="https://codegolf.stackexchange.com/questions/130290/the-snail-in-the-well" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The Snail in the Well
+                </a>
+
+            </li>
+    </ul>
+
+        <a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="show-more js-show-more js-gps-track" data-gps-track="posts_hot_network.click({ item_type:3, location:11 })">
+            more hot questions
+        </a>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="https://stackoverflow.com/feeds/question/24529369" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/24529369/ivc/e1b2');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/24529369/ivc/e1b2" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div>
+
+        <footer id="footer" class="s-footer js-footer _short" role="contentinfo">
+            <div class="-container">
+                <div class="g-row js-sp-between">
+                    <div class="-logo">
+                        <a href="https://stackoverflow.com/"><svg role="icon" class="svg-icon iconLogo" width="150" height="30" viewBox="0 0 150 30"><g><path d="M33.9 18.6l-1.7-.2c-1.3-.1-1.9-.6-1.9-1.6 0-1.1.8-1.8 2.4-1.8 1.1 0 2.1.3 2.8.8l1-1c-1-.8-2.3-1.1-3.8-1.1-2.3 0-3.9 1.2-3.9 3.1 0 1.8 1.1 2.7 3.2 2.9l1.8.2c1.2.1 1.8.6 1.8 1.6 0 1.3-1.1 1.9-2.8 1.9-1.3 0-2.5-.3-3.3-1.2l-1 1c1.2 1.1 2.6 1.5 4.4 1.5 2.6 0 4.3-1.2 4.3-3.2-.2-2-1.5-2.7-3.3-2.9zm13.3-4.8c-1.7 0-2.8.3-3.7 1.5l1 1c.6-.9 1.3-1.2 2.7-1.2 1.9 0 2.7.8 2.7 2.3v1h-3.2c-2.4 0-3.7 1.2-3.7 3.1 0 .8.3 1.6.8 2.2.7.7 1.5 1 3 1 1.4 0 2.2-.3 3.1-1.1v1h1.6v-7.2c-.1-2.4-1.5-3.6-4.3-3.6zm2.7 7c0 .9-.2 1.5-.5 1.8-.7.6-1.5.7-2.4.7-1.7 0-2.4-.6-2.4-1.8 0-1.2.8-1.9 2.4-1.9h3l-.1 1.2zm7.6-5.6c1 0 1.6.3 2.4 1.2l1-1c-1.1-1.2-2-1.6-3.5-1.6-2.7 0-4.7 1.8-4.7 5.5 0 3.6 2 5.5 4.7 5.5 1.5 0 2.4-.4 3.5-1.6l-1.1-1c-.8.9-1.4 1.2-2.4 1.2s-1.9-.4-2.5-1.2c-.5-.7-.7-1.5-.7-2.9 0-1.3.2-2.2.7-2.9.7-.8 1.6-1.2 2.6-1.2zm13.4-1.3H69l-4.8 4.7V9.1h-1.6v15.4h1.6v-3.9l1.9-1.9 3.6 5.8h1.9l-4.4-6.9 3.7-3.7zm7.3-.5c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.7-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7.1 1.2 0 2.2-.6 2.7zm10.8-8.2l-2.2 6.9-2.3-6.9h-2.9L87 24.6h2.2l4.1-11.1h-3zm7.6-.1c-2.9 0-4.8 2-4.8 5.7 0 4.5 2.5 5.7 5.1 5.7 2 0 3.1-.6 4.2-1.7l-1.7-1.6c-.7.7-1.3 1-2.5 1-1.6 0-2.4-1-2.4-2.5h6.9v-1.2c0-3.2-1.7-5.4-4.8-5.4zM95.8 18c0-.5.1-.8.3-1.2.3-.7.9-1.2 1.9-1.2.9 0 1.6.5 1.9 1.2.2.4.2.7.3 1.2h-4.4zm11-3.4v-1.1h-2.7v11.1h2.8v-6.7c0-1.4.9-2 1.8-2 .7 0 1 .2 1.5.7l2.1-2.1c-.8-.8-1.5-1-2.6-1-1.3-.1-2.3.4-2.9 1.1zm6.3-2.3v12.3h2.8v-8.8h2v-2.1h-2v-1.2c0-.6.3-1 1-1h1.1V9.2h-1.6c-2.3 0-3.3 1.6-3.3 3.1zm16.2 1.1c-1.6 0-2.7.6-3.4 1.4-1 1-1.3 2.3-1.3 4.3s.3 3.3 1.3 4.3c.7.7 1.8 1.4 3.4 1.4 1.6 0 2.8-.6 3.4-1.4 1-1 1.3-2.3 1.3-4.3s-.3-3.3-1.3-4.3c-.6-.8-1.8-1.4-3.4-1.4zm1.3 8.3c-.3.3-.7.5-1.3.5-.6 0-1-.2-1.3-.5-.6-.6-.6-1.6-.6-2.7 0-1.2.1-2.1.6-2.7.3-.3.7-.5 1.3-.5.6 0 1 .2 1.3.5.6.6.6 1.5.6 2.7 0 1.2 0 2.2-.6 2.7zm16.5-8.2l-1.8 6.9-2.3-6.9h-2l-2.3 6.9-1.8-6.9H134l3.4 11.1h2.3l2.3-7 2.3 7h2.3l3.4-11.1h-2.9zM122 21.2V9.1h-2.8v12.3c0 1.6 1 3.2 3.2 3.2h1.6v-2.3h-1c-.7 0-1-.4-1-1.1zm-80.7-5.6l1.4-1.4h-3v-3.5h-1.6v11.1c0 1.6.9 2.9 2.7 2.9h1.1v-1.3h-.8c-1 0-1.5-.6-1.5-1.6v-6.1h1.7v-.1z" fill="#222426"></path><path fill="#BCBBBB" d="M21 27v-8h3v11H0V19h3v8z"></path><path d="M5.402 19.101l13.561 1.96.164-2.38-13.256-2.547-.469 2.967zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm3.4-5.9l10.2 8.5 1.7-2-10.2-8.5-1.7 2zM17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zM5 25h14v-3H5v3z" fill="#F48024"></path></g></svg></a>
+                    </div>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://stackoverflow.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 15})">Stack Overflow</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://stackoverflow.com/questions" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 16})">Questions</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 17})">Jobs</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/jobs/directory/developer-jobs" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 11})">Developer Jobs Directory</a></li>
+                                                            <li class="-item"><a href="https://stackoverflow.com/documentation" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 18})">Documentation</a></li>
+                            <li class="-item"><a href="https://stackoverflow.com/help" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 3 })">Help</a></li>
+                            <li class="-item"><a onclick="StackExchange.switchMobile(&quot;on&quot;)" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 12 })">Mobile</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a href="https://www.stackoverflowbusiness.com/" class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 19 })">Stack Overflow<br> Business</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/talent" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 20 })">Talent</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/advertise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 21 })">Ads</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/enterprise" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 22 })">Enterprise</a></li>
+                            <li class="-item"><a href="https://www.stackoverflowbusiness.com/insights" class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 23 })">Insights</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="-nav js-category _visible" data-name="default">
+                        <h5 class="-title"><a class="js-gps-track" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">Company</a></h5>
+                        <ul class="-list">
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 1 })" href="https://stackoverflow.com/company/about">About</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 27 })" href="https://stackoverflow.com/company/press">Press</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 9 })" href="https://stackoverflow.com/company/work-here">Work Here</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 7 })" href="https://stackexchange.com/legal">Legal</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 8 })" href="https://stackexchange.com/legal/privacy-policy">Privacy Policy</a></li>
+                            <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link: 13 })" href="https://stackoverflow.com/company/contact">Contact Us</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="-network g-row">
+                        <a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-back-trigger js-back"><svg role="icon" class="svg-icon iconArrowLeftAlt" width="18" height="18" viewBox="0 0 18 18"><path d="M10.582 16l1.41-1.41L6.402 9l5.59-5.59L10.582 2l-7 7z"></path></svg></a>
+                        <div>
+                            <h5 class="-title"><a href="https://stackexchange.com/">Stack Exchange<br> Network</a></h5>
+                            <ul class="-list">
+                                <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Technology">Technology</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Life / Arts">Life / Arts</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Culture / Recreation">Culture / Recreation</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Science">Science</a></li>
+                                <li class="-item"><a href="https://stackoverflow.com/questions/24529369/how-to-convert-ttf-to-fnt-with-fontforge#" class="-link _expandable js-category-trigger js-gps-track" data-gps-track="footer.click({ location: 2, link: 24 })" data-target="Other">Other</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <nav class="-nav js-category" data-name="Technology">
+        <ul class="-list">
+                <li class="-item"><a href="https://stackoverflow.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                <li class="-item"><a href="https://serverfault.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="system and network administrators">Server Fault</a></li>
+                <li class="-item"><a href="https://superuser.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="computer enthusiasts and power users">Super User</a></li>
+                <li class="-item"><a href="https://webapps.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of web applications">Web Applications</a></li>
+                <li class="-item"><a href="https://askubuntu.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                <li class="-item"><a href="https://webmasters.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="pro webmasters">Webmasters</a></li>
+                <li class="-item"><a href="https://gamedev.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and independent game developers">Game Development</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://tex.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                <li class="-item"><a href="https://softwareengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professionals, academics, and students working within the systems development life cycle">Software Engineering</a></li>
+                <li class="-item"><a href="https://unix.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                <li class="-item"><a href="https://apple.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                <li class="-item"><a href="https://wordpress.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="WordPress developers and administrators">WordPress Development</a></li>
+                <li class="-item"><a href="https://gis.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                <li class="-item"><a href="https://electronics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://android.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                <li class="-item"><a href="https://security.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="information security professionals">Information Security</a></li>
+                <li class="-item"><a href="https://dba.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                <li class="-item"><a href="https://drupal.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Drupal developers and administrators">Drupal Answers</a></li>
+                <li class="-item"><a href="https://sharepoint.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="SharePoint enthusiasts">SharePoint</a></li>
+                <li class="-item"><a href="https://ux.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="user experience researchers and experts">User Experience</a></li>
+                <li class="-item"><a href="https://mathematica.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Wolfram Mathematica">Mathematica</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://salesforce.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                <li class="-item"><a href="https://expressionengine.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                <li class="-item"><a href="https://blender.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who use Blender to create 3D graphics, animations, or games">Blender</a></li>
+                <li class="-item"><a href="https://networkengineering.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="network engineers">Network Engineering</a></li>
+                <li class="-item"><a href="https://crypto.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="software developers, mathematicians and others interested in cryptography">Cryptography</a></li>
+                <li class="-item"><a href="https://codereview.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="peer programmer code reviews">Code Review</a></li>
+                <li class="-item"><a href="https://magento.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of the Magento e-Commerce platform">Magento</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Technology"><ul class="-list">
+                <li class="-item"><a href="https://softwarerecs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people seeking specific software recommendations">Software Recommendations</a></li>
+                <li class="-item"><a href="https://dsp.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="practitioners of the art and science of signal, image and video processing">Signal Processing</a></li>
+                <li class="-item"><a href="https://emacs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those using, extending or developing Emacs">Emacs</a></li>
+                <li class="-item"><a href="https://raspberrypi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users and developers of hardware and software for Raspberry Pi">Raspberry Pi</a></li>
+                <li class="-item"><a href="https://codegolf.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programming puzzle enthusiasts and code golfers">Programming Puzzles &amp; Code Golf</a></li>
+                <li class="-item"><a href="https://ethereum.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="users of Ethereum, the decentralized application platform and smart contract enabled blockchain">Ethereum</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#technology" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (28)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Life / Arts">
+        <ul class="-list">
+                <li class="-item"><a href="https://photo.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                <li class="-item"><a href="https://scifi.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                <li class="-item"><a href="https://graphicdesign.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                <li class="-item"><a href="https://movies.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                <li class="-item"><a href="https://music.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="musicians, students, and enthusiasts">Music: Practice &amp; Theory</a></li>
+                <li class="-item"><a href="https://worldbuilding.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="writers/artists using science, geography and culture to construct imaginary worlds and settings">Worldbuilding</a></li>
+                <li class="-item"><a href="https://cooking.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Life / Arts"><ul class="-list">
+                <li class="-item"><a href="https://diy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="contractors and serious DIYers">Home Improvement</a></li>
+                <li class="-item"><a href="https://money.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                <li class="-item"><a href="https://academia.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="academics and those enrolled in higher education">Academia</a></li>
+                <li class="-item"><a href="https://law.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="legal professionals, students, and others with experience or interest in law">Law</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#lifearts" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (16)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Culture / Recreation">
+        <ul class="-list">
+                <li class="-item"><a href="https://english.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                <li class="-item"><a href="https://skeptics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientific skepticism">Skeptics</a></li>
+                <li class="-item"><a href="https://judaism.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                <li class="-item"><a href="https://travel.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="road warriors and seasoned travelers">Travel</a></li>
+                <li class="-item"><a href="https://christianity.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                <li class="-item"><a href="https://ell.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="speakers of other languages learning English">English Language Learners</a></li>
+                <li class="-item"><a href="https://japanese.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, teachers, and linguists wanting to discuss the finer points of the Japanese language">Japanese Language</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Culture / Recreation"><ul class="-list">
+                <li class="-item"><a href="https://gaming.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                <li class="-item"><a href="https://bicycles.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                <li class="-item"><a href="https://rpg.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                <li class="-item"><a href="https://anime.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="anime and manga fans">Anime &amp; Manga</a></li>
+                <li class="-item"><a href="https://puzzling.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those who create, solve, and study puzzles">Puzzling</a></li>
+                <li class="-item"><a href="https://mechanics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="mechanics and DIY enthusiast owners of cars, trucks, and motorcycles">Motor Vehicle Maintenance &amp; Repair</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#culturerecreation" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (32)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Science">
+        <ul class="-list">
+                <li class="-item"><a href="https://mathoverflow.net/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="professional mathematicians">MathOverflow</a></li>
+                <li class="-item"><a href="https://math.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                <li class="-item"><a href="https://stats.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                <li class="-item"><a href="https://cstheory.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                <li class="-item"><a href="https://physics.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="active researchers, academics and students of physics">Physics</a></li>
+                <li class="-item"><a href="https://chemistry.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="scientists, academics, teachers and students">Chemistry</a></li>
+                <li class="-item"><a href="https://biology.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="biology researchers, academics, and students">Biology</a></li>
+                    </ul></nav><nav class="-nav js-category" data-name="Science"><ul class="-list">
+                <li class="-item"><a href="https://cs.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="students, researchers and practitioners of computer science">Computer Science</a></li>
+                <li class="-item"><a href="https://philosophy.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="those interested in the study of the fundamental nature of knowledge, reality, and existence">Philosophy</a></li>
+                            <li class="-item">
+                    <a href="https://stackexchange.com/sites#science" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 26 })">
+                        <strong>
+                            more (10)
+                        </strong>
+                    </a>
+                </li>
+        </ul>
+    </nav>
+    <nav class="-nav js-category" data-name="Other">
+        <ul class="-list">
+                <li class="-item"><a href="https://meta.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                <li class="-item"><a href="https://stackapps.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                <li class="-item"><a href="https://api.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="programmatic interaction with Stack Exchange sites">API</a></li>
+                <li class="-item"><a href="https://data.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="querying Stack Exchange data using SQL">Data</a></li>
+                <li class="-item"><a href="https://area51.stackexchange.com/" class="-link js-gps-track" data-gps-track="footer.click({ location: 1, link: 25 })" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                    </ul>
+    </nav>
+                    <div class="-copyright text-right">
+                        <div class="g-column jc-sp-between">
+                            <ul class="-list">
+                                <li class="-item"><a class="js-gps-track -link" data-gps-track="footer.click({ location: 2, link:4 })" href="https://stackoverflow.blog/?blb=1">Blog</a></li>
+                                <li class="-item"><a href="https://www.facebook.com/officialstackoverflow/" class="-link">Facebook</a></li>
+                                <li class="-item"><a href="https://twitter.com/stackoverflow" class="-link">Twitter</a></li>
+                                <li class="-item"><a href="https://linkedin.com/company/stack-overflow" class="-link">LinkedIn</a></li>
+                            </ul>
+
+                            <div>
+                                <p>
+                                    site design / logo © 2017 Stack Exchange Inc; user contributions licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>
+                                    with <a href="https://stackoverflow.blog/2009/06/25/attribution-required/" rel="license">attribution required</a>.
+                                    <span id="svnrev">rev 2017.7.8.1261</span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                            </div>
+        </footer>
+
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled
+            &lt;img src="https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;
+        &lt;/div&gt;
+    </noscript>
+<script>var z=document.createElement("script");z.type="text/javascript",z.async=!0,z.src="https://static.adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script>
+var ados = ados || {};
+ados.run = ados.run || [];
+
+
+ados.run.push(function () {
+    setTimeout(function () { $("#adzerk-user-match").remove(); }, window.AUMIframeDone ? 0 : 2000);
+    ados_setKeywords('fonts,bitmap-fonts,fontforge,x-industry-academic');; ados_load();
+});   
+
+</script>
+
+    <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-5620270-1');
+                ga('create', 'UA-5620270-59', {name: 'pageData', sampleRate: 5 });
+                ga('set', 'dimension2', '|fonts|bitmap-fonts|fontforge|');
+                ga('pageData.set', 'dimension2', '|fonts|bitmap-fonts|fontforge|');
+                ga('send', 'pageview');
+                ga('pageData.send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+                qc.async = true;
+                qc.src = (ssl ? 'https://secure' : 'http://edge') + '.quantserve.com/quant.js';
+                s.parentNode.insertBefore(qc, s);
+                _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+                            var sc=document.createElement('script');
+                sc.async=true;
+                sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+                s.parentNode.insertBefore(sc, s);
+                _comscore.push({ c1: "2", c2: "17440561" });
+        })();
+
+    </script>
+        
+    
+            <script type="text/javascript">
+                
+                (function(appendChild) {
+                    Node.prototype.appendChild = function() {
+                        var parent = this;
+                        var newNode = arguments[0];
+                        if (parent.nodeName === 'HEAD'
+                            && newNode
+                            && newNode.nodeName === 'SCRIPT'
+                            && newNode.src) {
+                            
+                            window.setTimeout(function() {
+                                var result = newNode.src.match(/^https:\/\/maps\.googleapis\.com\/maps\/api\/place\/js\/(\w+)Service\./i) || [];
+                                var service = result[1];
+                                if (service) {
+                                    if (service === 'Autocompletion') service =  2;
+                                    else if (service === 'Place') service = 1;
+                                    else service = 0;
+                                    StackExchange.using('gps', function() {
+                                        StackExchange.gps.track('google_maps_places_api.call', { service: service });
+                                    });
+                                }
+                            }, 0);
+                        }
+                        return appendChild.apply(this, arguments);
+                    };
+                })(Node.prototype.appendChild);
+            </script>
+    
+
+<script async="" src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/clc.min.js.download"></script><img src="./fonts - How to convert TTF to FNT with Fontforge - Stack Overflow_files/timeout.gif" style="display: none;"></body></html>

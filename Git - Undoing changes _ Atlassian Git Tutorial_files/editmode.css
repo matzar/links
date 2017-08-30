@@ -1,0 +1,139 @@
+body.edit #content {
+  padding-top: 0; }
+body.edit .hamburger {
+  padding: 0; }
+  body.edit .hamburger::before {
+    content: "(Dbl Click to edit Main Menu)";
+    display: block;
+    color: red;
+    position: relative;
+    margin-top: 50px; }
+body.edit .hamburger,
+body.edit .topbar,
+body.edit .search-button {
+  opacity: .7;
+  position: relative;
+  width: 25%;
+  float: left; }
+body.edit .topbar {
+  width: 50%; }
+body.edit .search-button {
+  float: right; }
+body.edit.git-home .hamburger,
+body.edit.git-home .topbar,
+body.edit.git-home .search-button {
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  float: none; }
+body.edit .page-wrap.tutorial-detail {
+  padding-left: 0; }
+  body.edit .page-wrap.tutorial-detail::before {
+    content: "Tutorial Sidenav only visible in preview mode";
+    display: block;
+    color: red; }
+body.edit .topbar.is-tutorial,
+body.edit .footer.is-tutorial {
+  padding-left: 0; }
+body.edit .primary-nav.active-edit {
+  position: relative;
+  transform: translate3d(0, 0%, 0);
+  -ms-transform: translate(0, 0%);
+  /* IE 9 */ }
+  body.edit .primary-nav.active-edit ._nav-list ._nav-item {
+    transform: translate3d(0, 0%, 0);
+    -ms-transform: translate(0, 0%);
+    /* IE 9 */
+    opacity: 1; }
+body.edit .tutorial-sidebar.is-active {
+  display: none; }
+body.edit.git-home .tutorial-sidebar {
+  left: 0;
+  height: 120px;
+  position: relative; }
+  body.edit.git-home .tutorial-sidebar::before {
+    content: "(Dbl Click to edit Tutorial Sidenav)";
+    display: block;
+    color: red;
+    position: relative; }
+  body.edit.git-home .tutorial-sidebar.active-edit {
+    height: 100%;
+    width: 100%; }
+    body.edit.git-home .tutorial-sidebar.active-edit ._wrap {
+      height: 100%;
+      width: 100%; }
+    body.edit.git-home .tutorial-sidebar.active-edit ._toc {
+      max-height: none; }
+  body.edit.git-home .tutorial-sidebar ._bumper {
+    display: none; }
+  body.edit.git-home .tutorial-sidebar ._wrap {
+    position: relative;
+    padding: 0;
+    height: 120px;
+    overflow: scroll; }
+  body.edit.git-home .tutorial-sidebar ._group-wrap {
+    max-height: none; }
+body.edit .g-row {
+  margin-left: auto;
+  margin-right: auto; }
+body.edit .reference-index ._header {
+  height: auto;
+  overflow: auto; }
+body.edit .reference-index ._head {
+  position: relative;
+  left: inherit;
+  bottom: inherit;
+  -ms-transform: none;
+      transform: none;
+  width: 100%;
+  height: auto; }
+body.edit .reference-index ._tabs-list {
+  position: relative;
+  top: inherit;
+  -ms-transform: none;
+      transform: none; }
+body.edit .ten-years-index .container .sources .source-links {
+  display: block;
+  overflow: auto; }
+body.edit .ten-years-index .timeline .item {
+  display: block;
+  top: 0 !important;
+  position: relative;
+  min-height: 100px;
+  left: inherit !important;
+  margin-left: inherit !important;
+  height: auto !important;
+  width: auto !important; }
+  body.edit .ten-years-index .timeline .item.tiny {
+    -ms-transform: scale(1);
+        transform: scale(1); }
+    body.edit .ten-years-index .timeline .item.tiny .date {
+      color: white; }
+  body.edit .ten-years-index .timeline .item .content {
+    position: relative !important;
+    width: 100% !important; }
+    body.edit .ten-years-index .timeline .item .content.left, body.edit .ten-years-index .timeline .item .content.right, body.edit .ten-years-index .timeline .item .content.top, body.edit .ten-years-index .timeline .item .content.bottom {
+      right: auto;
+      left: auto;
+      bottom: auto;
+      margin: 0;
+      top: 0; }
+    body.edit .ten-years-index .timeline .item .content .item-modal {
+      display: block; }
+  body.edit .ten-years-index .timeline .item .info {
+    font-size: 0; }
+  body.edit .ten-years-index .timeline .item .kinematic {
+    position: relative !important;
+    left: inherit !important;
+    right: inherit !important;
+    top: inherit !important;
+    bottom: inherit !important; }
+body.edit .search-page {
+  position: relative;
+  padding: 0; }
+body.edit .tutorial-detail .related-post {
+  position: relative;
+  right: inherit;
+  bottom: inherit;
+  width: auto;
+  text-align: right; }

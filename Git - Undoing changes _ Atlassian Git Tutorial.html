@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://www.atlassian.com/git/tutorials/undoing-changes -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><iframe height="0" width="0" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/activityi.html" style="display: none; visibility: hidden;"></iframe><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/2f4c1d42d2a84522ac151d8736f8fbef3576a517edc74dc28bd142489cf5ba04" type="text/javascript"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/aquant.js.download" async="" type="text/javascript"></script><script async="" id="demandbase_js_lib" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/BwkB5d1U.min.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/insight.min.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/linkid.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/prum.min.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/5489f88111e7f93eba000007.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/gtm.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/analytics.js.download"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/identity.js.download" async=""></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/221213238088884" async=""></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/bat.js.download"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://s.adroll.com/j/roundtrip.js"></script><script type="text/javascript" id="analytics-js" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/analytics.min.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/geo2.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/geo2.js.download"></script><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/ip.json"></script>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="git revert and git reset undo a committed snapshot. git checkout checks out files, commits and branches. git clean removes untracked files from directory.">
+<meta name="author" content="Atlassian">
+<link rel="canonical" href="https://www.atlassian.com/git/tutorials/undoing-changes">
+<title>Git - Undoing changes | Atlassian Git Tutorial</title>
+<link rel="stylesheet" href="./Git - Undoing changes _ Atlassian Git Tutorial_files/site.css">
+<link rel="stylesheet" href="./Git - Undoing changes _ Atlassian Git Tutorial_files/icons.css" class="additional-css">
+<link rel="stylesheet" href="./Git - Undoing changes _ Atlassian Git Tutorial_files/editmode.css" class="additional-css">
+<link href="https://plus.google.com/+atlassian" rel="publisher">
+<link rel="alternate" href="https://www.atlassian.com/git/tutorials/undoing-changes" hreflang="en">
+<link rel="alternate" href="https://es.atlassian.com/git/tutorials/undoing-changes" hreflang="es">
+<link rel="alternate" href="https://de.atlassian.com/git/tutorials/undoing-changes" hreflang="de">
+<link rel="alternate" href="https://fr.atlassian.com/git/tutorials/undoing-changes" hreflang="fr">
+<link rel="alternate" href="https://ja.atlassian.com/git/tutorials/undoing-changes" hreflang="ja">
+<link rel="alternate" href="https://br.atlassian.com/git/tutorials/undoing-changes" hreflang="pt-BR">
+<link rel="alternate" href="https://ru.atlassian.com/git/tutorials/undoing-changes" hreflang="ru">
+<link rel="alternate" href="https://ko.atlassian.com/git/tutorials/undoing-changes" hreflang="ko">
+<link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/favicon.png" sizes="32x32">
+<link rel="mask-icon" href="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/safari-pinned-tab.svg" color="#59afe1">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="https://wac-cdn.atlassian.com/assets/img/favicons/gitguide/mstile-144x144.png">
+<meta name="theme-color" content="#205081">
+<meta property="og:title" content="Git - Undoing changes | Atlassian Git Tutorial">
+<meta property="og:description" content="git revert and git reset undo a committed snapshot. git checkout checks out files, commits and branches. git clean removes untracked files from directory.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.atlassian.com/git/tutorials/undoing-changes">
+<meta property="og:site_name" content="Atlassian">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@Atlassian">
+<!--[if !IE]><!-->
+<script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/jquery.min.js.download"></script>
+<!--<![endif]-->
+<!--[if gt IE 8]>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<![endif]-->
+<!--[if lte IE 8]>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<![endif]-->
+<script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/1096093.js.download"></script><iframe src="./Git - Undoing changes _ Atlassian Git Tutorial_files/a1096093.html"></iframe>
+<iframe src="./Git - Undoing changes _ Atlassian Git Tutorial_files/1096093.html"></iframe><script type="text/javascript" async="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/tagjs"></script><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(1)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(2)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(3)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(4)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(5)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(6)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(7)" width="1" height="1" border="0"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/saved_resource(8)" width="1" height="1" border="0"><img src="https://secure.adnxs.com/seg?t=2&amp;add=2378162" width="1" height="1" border="0"></head>
+<body id="undoing-changes" class="wac git tutorials undoing-changes content-loaded scrolled hoverable">
+<div id="header">
+<div class="tutorial-sidebar is-active">
+<div class="_bumper"></div>
+<div class="_wrap">
+<ol>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="cms-link cms-link--text group-link">Learn Git</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud" class="cms-link cms-link--text tutorial-link">Learn Git with Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#create-the-repository" class="cms-link cms-link--text section-link">Create a Git repository</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#copy-and-add-files" class="cms-link cms-link--text section-link">Copy your Git repository and add files</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#pull-changes" class="cms-link cms-link--text section-link">Pull changes from your Git repository on Bitbucket Cloud</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud#git-branch-to-merge" class="cms-link cms-link--text section-link">Use a Git branch to merge a file</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud" class="cms-link cms-link--text tutorial-link">Learn about code review in Bitbucket Cloud</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#fork-repository" class="cms-link cms-link--text section-link">Fork a teammate's repository</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#copy-fork-make-changes" class="cms-link cms-link--text section-link">Copy your fork and make a change to the repository</a>
+<a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud#create-pull-request" class="cms-link cms-link--text section-link">Create a pull request</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control" class="cms-link cms-link--text group-link">Beginner</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control" class="cms-link cms-link--text tutorial-link">What is version control</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control" class="cms-link cms-link--text section-link">Benefits of version control</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/what-is-git" class="cms-link cms-link--text tutorial-link">What is Git</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#performance" class="cms-link cms-link--text section-link">Performance</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#security" class="cms-link cms-link--text section-link">Security</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#flexibility" class="cms-link cms-link--text section-link">Flexibility</a>
+<a href="https://www.atlassian.com/git/tutorials/what-is-git#version-control-with-git" class="cms-link cms-link--text section-link">Version control with Git</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/why-git" class="cms-link cms-link--text tutorial-link">Why Git for your Organization</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-developers" class="cms-link cms-link--text section-link">Git for developers</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-marketing" class="cms-link cms-link--text section-link">Git for marketing</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-product-management" class="cms-link cms-link--text section-link">Git for product management</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-designers" class="cms-link cms-link--text section-link">Git for designers</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-customer-support" class="cms-link cms-link--text section-link">Git for customer support</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-human-resources" class="cms-link cms-link--text section-link">Git for human resources</a>
+<a href="https://www.atlassian.com/git/tutorials/why-git#git-for-anyone-managing-budget" class="cms-link cms-link--text section-link">Git for anyone managing a budget</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/install-git" class="cms-link cms-link--text tutorial-link">Install Git</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/install-git#mac-os-x" class="cms-link cms-link--text section-link">Install Git on Mac OS X</a>
+<a href="https://www.atlassian.com/git/tutorials/install-git#windows" class="cms-link cms-link--text section-link">Install Git on Windows</a>
+<a href="https://www.atlassian.com/git/tutorials/install-git#linux" class="cms-link cms-link--text section-link">Install Git on Linux</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" class="cms-link cms-link--text group-link">Getting Started</a>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository" class="cms-link cms-link--text tutorial-link">Setting up a repository</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-init" class="cms-link cms-link--text section-link">git init</a>
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-clone" class="cms-link cms-link--text section-link">git clone</a>
+<a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository#git-config" class="cms-link cms-link--text section-link">git config</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/saving-changes" class="cms-link cms-link--text tutorial-link">Saving changes</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/saving-changes#git-add" class="cms-link cms-link--text section-link">git add</a>
+<a href="https://www.atlassian.com/git/tutorials/saving-changes#git-commit" class="cms-link cms-link--text section-link">git commit</a>
+<a href="https://www.atlassian.com/git/tutorials/git-stash" class="cms-link cms-link--text section-link">git stash</a>
+<a href="https://www.atlassian.com/git/tutorials/gitignore" class="cms-link cms-link--text section-link">.gitignore</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository" class="cms-link cms-link--text tutorial-link">Inspecting a repository</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository#git-status" class="cms-link cms-link--text section-link">git status</a>
+<a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository#git-log" class="cms-link cms-link--text section-link">git log</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes" class="cms-link cms-link--text tutorial-link active">Undoing changes</a>
+<div class="_toc is-active">
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-checkout" class="cms-link cms-link--text section-link">git checkout</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert" class="cms-link cms-link--text section-link">git revert</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-reset" class="cms-link cms-link--text section-link">git reset</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-clean" class="cms-link cms-link--text section-link">git clean</a>
+</div>
+</div>
+<div class="_group-wrap is-active">
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history" class="cms-link cms-link--text tutorial-link">Rewriting history</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-commit--amend" class="cms-link cms-link--text section-link">git commit --amend</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase" class="cms-link cms-link--text section-link">git rebase</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-rebase-i" class="cms-link cms-link--text section-link">git rebase -i</a>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history#git-reflog" class="cms-link cms-link--text section-link">git reflog</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/syncing" class="cms-link cms-link--text group-link">Collaborating</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/syncing" class="cms-link cms-link--text tutorial-link">Syncing</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/syncing#git-remote" class="cms-link cms-link--text section-link">git remote</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing#git-fetch" class="cms-link cms-link--text section-link">git fetch</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing#git-pull" class="cms-link cms-link--text section-link">git pull</a>
+<a href="https://www.atlassian.com/git/tutorials/syncing#git-push" class="cms-link cms-link--text section-link">git push</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request" class="cms-link cms-link--text tutorial-link">Making a Pull Request</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#how-it-works" class="cms-link cms-link--text section-link">How it works</a>
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#example" class="cms-link cms-link--text section-link">Example</a>
+<a href="https://www.atlassian.com/git/tutorials/making-a-pull-request#where-to-go" class="cms-link cms-link--text section-link">Where to go from here</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/using-branches" class="cms-link cms-link--text tutorial-link">Using branches</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/using-branches#git-branch" class="cms-link cms-link--text section-link">git branch</a>
+<a href="https://www.atlassian.com/git/tutorials/using-branches#git-checkout" class="cms-link cms-link--text section-link">git checkout</a>
+<a href="https://www.atlassian.com/git/tutorials/git-merge" class="cms-link cms-link--text section-link">git merge</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows" class="cms-link cms-link--text tutorial-link">Comparing workflows</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows#centralized-workflow" class="cms-link cms-link--text section-link">Centralized Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow" class="cms-link cms-link--text section-link">Feature Branch Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows#gitflow-workflow" class="cms-link cms-link--text section-link">Gitflow Workflow</a>
+<a href="https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow" class="cms-link cms-link--text section-link">Forking Workflow</a>
+</div>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration" class="cms-link cms-link--text group-link">Migrating to Git</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration" class="cms-link cms-link--text tutorial-link">SVN to Git - prepping for the migration</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#for-administrators" class="cms-link cms-link--text section-link">For administrators</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#basic-git-commands" class="cms-link cms-link--text section-link">Basic Git commands</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#git-migration-tools" class="cms-link cms-link--text section-link">Git Migration Tools</a>
+<a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration#for-developers" class="cms-link cms-link--text section-link">For developers</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-overview" class="cms-link cms-link--text tutorial-link">Migrate to Git from SVN</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-prepare" class="cms-link cms-link--text tutorial-link">Prepare</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-convert" class="cms-link cms-link--text tutorial-link">Convert</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-synchronize" class="cms-link cms-link--text tutorial-link">Synchronize</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-share" class="cms-link cms-link--text tutorial-link">Share</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/migrating-migrate" class="cms-link cms-link--text tutorial-link">Migrate</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/perforce-git" class="cms-link cms-link--text tutorial-link">Perforce to Git - why to make the move</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/perforce-git-migration" class="cms-link cms-link--text tutorial-link">Migrating from Perforce to Git</a>
+</div>
+</div>
+<div class="_group">
+<a href="https://www.atlassian.com/git/tutorials/advanced-overview" class="cms-link cms-link--text group-link">Advanced Tips</a>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/advanced-overview" class="cms-link cms-link--text tutorial-link">Advanced Git Tutorials</a>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" class="cms-link cms-link--text tutorial-link">Merging vs. Rebasing</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#conceptual-overview" class="cms-link cms-link--text section-link">Conceptual Overview</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing" class="cms-link cms-link--text section-link">The Golden Rule of Rebasing</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#workflow-walkthrough" class="cms-link cms-link--text section-link">Workflow Walkthrough</a>
+<a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting" class="cms-link cms-link--text tutorial-link">Reset, Checkout, and Revert</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#commit-level-operations" class="cms-link cms-link--text section-link">Commit-level Operation</a>
+<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#file-level-operations" class="cms-link cms-link--text section-link">File-level Operations</a>
+<a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-log" class="cms-link cms-link--text tutorial-link">Advanced Git log</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/git-log#formatting-log-output" class="cms-link cms-link--text section-link">Formatting Log Output</a>
+<a href="https://www.atlassian.com/git/tutorials/git-log#filtering-the-commit-history" class="cms-link cms-link--text section-link">Filtering the Commit History</a>
+<a href="https://www.atlassian.com/git/tutorials/git-log#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-hooks" class="cms-link cms-link--text tutorial-link">Git Hooks</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#conceptual-overview" class="cms-link cms-link--text section-link">Conceptual Overview</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#local-hooks" class="cms-link cms-link--text section-link">Local Hooks</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#server-side-hooks" class="cms-link cms-link--text section-link">Server-side Hooks</a>
+<a href="https://www.atlassian.com/git/tutorials/git-hooks#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog" class="cms-link cms-link--text tutorial-link">Refs and the Reflog</a>
+<div class="_toc">
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#hashes" class="cms-link cms-link--text section-link">Hashes</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#refs" class="cms-link cms-link--text section-link">Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#packed-refs" class="cms-link cms-link--text section-link">Packed Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#special-refs" class="cms-link cms-link--text section-link">Special Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#refspecs" class="cms-link cms-link--text section-link">Refspecs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#relative-refs" class="cms-link cms-link--text section-link">Relative Refs</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#the-reflog" class="cms-link cms-link--text section-link">The Reflog</a>
+<a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog#summary" class="cms-link cms-link--text section-link">Summary</a>
+</div>
+</div>
+<div class="_group-wrap">
+<a href="https://www.atlassian.com/git/tutorials/git-lfs" class="cms-link cms-link--text tutorial-link">Git LFS</a>
+</div>
+</div>
+</ol>
+</div>
+</div>
+<div class="hamburger">
+<div class="_layer -top"></div>
+<div class="_layer -mid"></div>
+<div class="_layer -bottom"></div>
+</div>
+<div class="primary-nav">
+<div class="_wrapper">
+<ul class="_nav-list">
+<div>
+<li>
+<a href="https://www.atlassian.com/git" class="cms-link cms-link--text _nav-item -home">Home</a>
+</li>
+</div>
+<div>
+<li class="tutorials-nav" id="tutorials-nav-mobile">
+<h4 class="_nav-item -tutorials">Tutorials</h4>
+<div class="_sublist">  <ol>        <li class="_group">      <h5>Learn Git</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud">Learn Git with Bitbucket Cloud</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/learn-about-code-review-in-bitbucket-cloud">Learn about code review in Bitbucket Cloud</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Beginner</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/what-is-version-control">What is version control</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/what-is-git">What is Git</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/why-git">Why Git for your Organization</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/install-git">Install Git</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Getting Started</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository">Setting up a repository</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/saving-changes">Saving changes</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository">Inspecting a repository</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/undoing-changes">Undoing changes</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/rewriting-history">Rewriting history</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Collaborating</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/syncing">Syncing</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/making-a-pull-request">Making a Pull Request</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/using-branches">Using branches</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing workflows</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Migrating to Git</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/svn-to-git-prepping-your-team-migration">SVN to Git - prepping for the migration</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-overview">Migrate to Git from SVN</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-prepare">Prepare</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-convert">Convert</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-synchronize">Synchronize</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-share">Share</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/migrating-migrate">Migrate</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/perforce-git">Perforce to Git - why to make the move</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/perforce-git-migration">Migrating from Perforce to Git</a>        </li>              </ol>    </li>        <li class="_group">      <h5>Advanced Tips</h5>      <ol class="_group-wrap">                <li>          <a href="https://www.atlassian.com/git/tutorials/advanced-overview">Advanced Git Tutorials</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing">Merging vs. Rebasing</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting">Reset, Checkout, and Revert</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-log">Advanced Git log</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-hooks">Git Hooks</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/refs-and-the-reflog">Refs and the Reflog</a>        </li>                <li>          <a href="https://www.atlassian.com/git/tutorials/git-lfs">Git LFS</a>        </li>              </ol>    </li>      </ol>  </div>
+</li>
+<li>
+<a href="https://www.atlassian.com/git/tutorials" class="cms-link cms-link--text _nav-item -tutorials">Tutorials</a>
+</li>
+</div>
+<div>
+<li>
+<a href="https://www.atlassian.com/git/articles" class="cms-link cms-link--text _nav-item -articles">Articles</a>
+</li>
+</div>
+<div>
+<li>
+<a href="https://www.atlassian.com/git/glossary" class="cms-link cms-link--text _nav-item -glossary">Glossary</a>
+</li>
+</div>
+</ul>
+</div>
+</div>
+<div class="topbar is-tutorial">
+<div class="_header -is-tutorial">
+<a href="https://www.atlassian.com/git/tutorials" class="active">Tutorials</a>
+</div>
+</div>
+<a href="https://www.atlassian.com/git/search" class="search-button search-open ">
+<span class="_link icon-search">Search</span>
+</a>
+<a href="https://www.atlassian.com/git" class="search-button search-close -in-page hidden">
+<span class="_link icon-search-close -close">Search</span>
+</a>
+</div>
+<div class="page-wrap is-active -gray-bg tutorial-detail">
+<div id="content" class="_content">
+<div class="tutorial-hero">
+<div class="g-column g-12-12 text-center">
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/hero.svg" alt="Undoing changes">
+<h1>Undoing Changes</h1>
+<div class="g-column g-12-12 t-12-12 m-12-12 breadcrumbs">
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-checkout" class="cms-link cms-link--text">git checkout</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-revert" class="cms-link cms-link--text">git revert</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-reset" class="cms-link cms-link--text">git reset</a>
+<a href="https://www.atlassian.com/git/tutorials/undoing-changes#git-clean" class="cms-link cms-link--text">git clean</a>
+</div></div></div>
+<div class="g-row">
+<div class="g-column g-12-12 g-centered">
+<p>This tutorial provides all of the necessary skills to work with previous revisions of a software project. First, it shows you how to explore old commits, then it explains the difference between reverting public commits in the project history vs. resetting unpublished changes on your local machine.</p>
+<h2 id="git-checkout">git checkout</h2>
+<p>The <code>git checkout</code> command serves three distinct functions: checking out files, checking out commits, and checking out branches. In this module, we’re only concerned with the first two configurations.</p>
+<p>Checking out a commit makes the entire working directory match that commit. This can be used to view an old state of your project without altering your current state in any way. Checking out a file lets you see an old version of that particular file, leaving the rest of your working directory untouched.</p>
+<h3>Usage</h3>
+<pre><code>git checkout master</code></pre>
+<p>Return to the master branch. Branches are covered in depth in the next module, but for now, you can just think of this as a way to get back to the “current” state of the project.</p>
+<pre><code>git checkout &lt;commit&gt; &lt;file&gt;</code></pre>
+<p>Check out a previous version of a file. This turns the <code>&lt;file&gt;</code> that resides in the working directory into an exact copy of the one from <code>&lt;commit&gt;</code> and adds it to the staging area.</p>
+<pre><code>git checkout &lt;commit&gt;</code></pre>
+<p>Update all files in the working directory to match the specified commit. You can use either a commit hash or a tag as the <code>&lt;commit&gt;</code> argument. This will put you in a detached HEAD state.</p>
+<h3>Discussion</h3>
+<p>The whole idea behind any version control system is to store “safe” copies of a project so that you never have to worry about irreparably breaking your code base. Once you’ve built up a project history, <code>git checkout</code> is an easy way to “load” any of these saved snapshots onto your development machine.</p>
+<p>Checking out an old commit is a read-only operation. It’s impossible to harm your repository while viewing an old revision. The “current” state of your project remains untouched in the <code>master</code> branch (see the <a href="https://www.atlassian.com/git/tutorials/using-branches">Branches Module</a> for details). During the normal course of development, the <code>HEAD</code> usually points to master or some other local branch, but when you check out a previous commit, <code>HEAD</code> no longer points to a branch—it points directly to a commit. This is called a “detached <code>HEAD</code>” state, and it can be visualized as the following:</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/01.svg" alt="Git Tutorial: Checking out a previous commit">
+<p>On the other hand, checking out an old file does affect the current state of your repository. You can re-commit the old version in a new snapshot as you would any other file. So, in effect, this usage of <code>git checkout</code> serves as a way to revert back to an old version of an individual file.</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/02.svg" alt="Git Training: Checking out a previous version of a file">
+<h3>Example</h3>
+<h4>Viewing an Old Revision</h4>
+<p>This example assumes that you’ve started developing a crazy experiment, but you’re not sure if you want to keep it or not. To help you decide, you want to take a look at the state of the project before you started your experiment. First, you’ll need to find the ID of the revision you want to see.</p>
+<pre><code>git log --oneline</code></pre>
+<p>Let’s say your project history looks something like the following:</p>
+<pre><code>b7119f2 Continue doing crazy things
+872fa7e Try something crazy
+a1e8fb5 Make some important changes to hello.py
+435b61d Create hello.py
+9773e52 Initial import</code></pre>
+<p>You can use <code>git checkout</code> to view the “Make some import changes to hello.py” commit as follows:</p>
+<pre><code>git checkout a1e8fb5</code></pre>
+<p>This makes your working directory match the exact state of the <code>a1e8fb5</code> commit. You can look at files, compile the project, run tests, and even edit files without worrying about losing the current state of the project. <em>Nothing</em> you do in here will be saved in your repository. To continue developing, you need to get back to the “current” state of your project:</p>
+<pre><code>git checkout master</code></pre>
+<p>This assumes that you're developing on the default master branch, which will be thoroughly discussed in the Branches Module.</p>
+<p>Once you’re back in the master branch, you can use either <code>git revert</code> or <code>git reset</code> to undo any undesired changes.</p>
+<h4>Checking Out a File</h4>
+<p>If you’re only interested in a single file, you can also use <code>git checkout</code> to fetch an old version of it. For example, if you only wanted to see the <code>hello.py</code> file from the old commit, you could use the following command:</p>
+<pre><code>git checkout a1e8fb5 hello.py</code></pre>
+<p>Remember, unlike checking out a commit, this <em>does</em> affect the current state of your project. The old file revision will show up as a “Change to be committed,” giving you the opportunity to revert back to the previous version of the file. If you decide you don’t want to keep the old version, you can check out the most recent version with the following:</p>
+<pre><code>git checkout HEAD hello.py</code></pre>
+<h2 id="git-revert">git revert</h2>
+<p>The <code>git revert</code> command undoes a committed snapshot. But, instead of removing the commit from the project history, it figures out how to undo the changes introduced by the commit and appends a <em>new</em> commit with the resulting content. This prevents Git from losing history, which is important for the integrity of your revision history and for reliable collaboration.</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/03.svg" alt="Git Tutorial: git revert">
+<h3>Usage</h3>
+<pre><code>git revert &lt;commit&gt;</code></pre>
+<p>Generate a new commit that undoes all of the changes introduced in <code>&lt;commit&gt;</code>, then apply it to the current branch.</p>
+<h3>Discussion</h3>
+<p>Reverting should be used when you want to remove an entire commit from your project history. This can be useful, for example, if you’re tracking down a bug and find that it was introduced by a single commit. Instead of manually going in, fixing it, and committing a new snapshot, you can use <code>git revert</code> to automatically do all of this for you.</p>
+<h4>Reverting vs. Resetting</h4>
+<p>It's important to understand that <code>git revert</code> undoes a single commit—it does not "revert" back to the previous state of a project by removing all subsequent commits. In Git, this is actually called a <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset"><code>reset</code></a>, not a <code>revert</code>.</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/04.svg" alt="Git Tutorial: Revert vs Reset">
+<p>Reverting has two important advantages over resetting. First, it doesn’t change the project history, which makes it a “safe” operation for commits that have already been published to a shared repository. For details about why altering shared history is dangerous, please see the <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset"><code>git reset</code></a> page.</p>
+<p>Second, <code>git revert</code> is able to target an individual commit at an arbitrary point in the history, whereas <code>git reset</code> can only work backwards from the current commit. For example, if you wanted to undo an old commit with <code>git reset</code>, you would have to remove all of the commits that occurred after the target commit, remove it, then re-commit all of the subsequent commits. Needless to say, this is not an elegant undo solution.</p>
+<h3>Example</h3>
+<p>The following example is a simple demonstration of <code>git revert</code>. It commits a snapshot, then immediately undoes it with a revert.</p>
+<pre><code># Edit some tracked files
+# Commit a snapshot
+git commit -m "Make some changes that will be undone"
+# Revert the commit we just created
+git revert HEAD</code></pre>
+<p>This can be visualized as the following:</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/05.svg" alt="Git Tutorial: git revert Example">
+<p>Note that the 4th commit is still in the project history after the revert. Instead of deleting it, <code>git revert</code> added a new commit to undo its changes. As a result, the 3rd and 5th commits represent the exact same code base, and the 4th commit is still in our history just in case we want to go back to it down the road.</p>
+<h2 id="git-reset">git reset</h2>
+<p>If <code>git revert</code> is a “safe” way to undo changes, you can think of <code>git reset</code> as the <em>dangerous</em> method. When you undo with <code>git reset</code>(and the commits are no longer referenced by any ref or the reflog), there is no way to retrieve the original copy—it is a <em>permanent</em> undo. Care must be taken when using this tool, as it’s one of the only Git commands that has the potential to lose your work.</p>
+<p>Like <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-checkout"><code>git checkout</code></a>, <code>git reset</code> is a versatile command with many configurations. It can be used to remove committed snapshots, although it’s more often used to undo changes in the staging area and the working directory. In either case, it should only be used to undo <em>local</em> changes—you should never reset snapshots that have been shared with other developers.</p>
+<h3>Usage</h3>
+<pre><code>git reset &lt;file&gt;</code></pre>
+<p>Remove the specified file from the staging area, but leave the working directory unchanged. This unstages a file without overwriting any changes.</p>
+<pre><code>git reset</code></pre>
+<p>Reset the staging area to match the most recent commit, but leave the working directory unchanged. This unstages <em>all</em> files without overwriting any changes, giving you the opportunity to re-build the staged snapshot from scratch.</p>
+<pre><code>git reset --hard</code></pre>
+<p>Reset the staging area and the working directory to match the most recent commit. In addition to unstaging changes, the <code>--hard</code> flag tells Git to overwrite all changes in the working directory, too. Put another way: this <em>obliterates</em> all uncommitted changes, so make sure you really want to throw away your local developments before using it.</p>
+<pre><code>git reset &lt;commit&gt;</code></pre>
+<p>Move the current branch tip backward to <code>&lt;commit&gt;</code>, reset the staging area to match, but leave the working directory alone. All changes made since <code>&lt;commit&gt;</code> will reside in the working directory, which lets you re-commit the project history using cleaner, more atomic snapshots.</p>
+<pre><code>git reset --hard &lt;commit&gt;</code></pre>
+<p>Move the current branch tip backward to <code>&lt;commit&gt;</code> and reset both the staging area and the working directory to match. This obliterates not only the uncommitted changes, but all commits after <code>&lt;commit&gt;</code>, as well.</p>
+<h3>Discussion</h3>
+<p>All of the above invocations are used to remove changes from a repository. Without the <code>--hard</code> flag, <code>git reset</code> is a way to clean up a repository by unstaging changes or uncommitting a series of snapshots and re-building them from scratch. The <code>--hard</code> flag comes in handy when an experiment has gone horribly wrong and you need a clean slate to work with.</p>
+<p>Whereas reverting is designed to safely undo a <em>public</em> commit, <code>git reset</code> is designed to undo <em>local</em> changes. Because of their distinct goals, the two commands are implemented differently: resetting completely removes a changeset, whereas <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert">reverting</a> maintains the original changeset and uses a new commit to apply the undo.</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/06.svg" alt="Git Tutorial: Revert vs Reset">
+<h4>Don’t Reset Public History</h4>
+<p>You should never use <code>git reset &lt;commit&gt;</code> when any snapshots after &lt;commit&gt; have been pushed to a public repository. After publishing a commit, you have to assume that other developers are reliant upon it.</p>
+<p>Removing a commit that other team members have continued developing poses serious problems for collaboration. When they try to sync up with your repository, it will look like a chunk of the project history abruptly disappeared. The sequence below demonstrates what happens when you try to reset a public commit. The <code>origin/master</code> branch is the central repository’s version of your local <code>master</code> branch.</p>
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/07.svg" alt="Git Tutorial: Resetting an Public Commit">
+<p>As soon as you add new commits after the reset, Git will think that your local history has diverged from <code>origin/master</code>, and the merge commit required to synchronize your repositories is likely to confuse and frustrate your team.</p>
+<p>The point is, make sure that you’re using <code>git reset &lt;commit&gt;</code> on a local experiment that went wrong—not on published changes. If you need to fix a public commit, the <code>git revert</code> command was designed specifically for this purpose.</p>
+<h3>Examples</h3>
+<h4>Unstaging a File</h4>
+<p>The <code>git reset</code> command is frequently encountered while preparing the staged snapshot. The next example assumes you have two files called <code>hello.py</code> and <code>main.py</code> that you’ve already added to the repository.</p>
+<pre><code># Edit both hello.py and main.py
+# Stage everything in the current directory
+git add .
+# Realize that the changes in hello.py and main.py
+# should be committed in different snapshots
+# Unstage main.py
+git reset main.py
+# Commit only hello.py
+git commit -m "Make some changes to hello.py"
+# Commit main.py in a separate snapshot
+git add main.py
+git commit -m "Edit main.py"</code></pre>
+<p>As you can see, <code>git reset</code> helps you keep your commits highly-focused by letting you unstage changes that aren’t related to the next commit.</p>
+<h4>Removing Local Commits</h4>
+<p>The next example shows a more advanced use case. It demonstrates what happens when you’ve been working on a new experiment for a while, but decide to completely throw it away after committing a few snapshots.</p>
+<pre><code># Create a new file called `foo.py` and add some code to it
+# Commit it to the project history
+git add foo.py
+git commit -m "Start developing a crazy feature"
+# Edit `foo.py` again and change some other tracked files, too
+# Commit another snapshot
+git commit -a -m "Continue my crazy feature"
+# Decide to scrap the feature and remove the associated commits
+git reset --hard HEAD~2</code></pre>
+<p>The <code>git reset HEAD~2</code> command moves the current branch backward by two commits, effectively removing the two snapshots we just created from the project history. Remember that this kind of reset should only be used on <em>unpublished</em> commits. Never perform the above operation if you’ve already pushed your commits to a shared repository.</p>
+<h2 id="git-clean">git clean</h2>
+<p>The <code>git clean</code> command removes untracked files from your working directory. This is really more of a convenience command, since it’s trivial to see which files are untracked with <code>git status</code> and remove them manually. Like an ordinary <code>rm</code> command, <code>git clean</code> is <em>not</em> undoable, so make sure you really want to delete the untracked files before you run it.</p>
+<p>The <code>git clean</code> command is often executed in conjunction with <code>git reset --hard</code>. Remember that resetting only affects tracked files, so a separate command is required for cleaning up untracked ones. Combined, these two commands let you return the working directory to the exact state of a particular commit.</p>
+<h3>Usage</h3>
+<pre><code>git clean -n</code></pre>
+<p>Perform a “dry run” of git clean. This will show you which files are going to be removed without actually doing it.</p>
+<pre><code>git clean -f</code></pre>
+<p>Remove untracked files from the current directory. The <code>-f</code> (force) flag is required unless the <code>clean.requireForce</code> configuration option is set to <code>false</code> (it's <code>true</code> by default). This will <em>not</em> remove untracked folders or files specified by <code>.gitignore.</code></p>
+<pre><code>git clean -f &lt;path&gt;</code></pre>
+<p>Remove untracked files, but limit the operation to the specified path.</p>
+<pre><code>git clean -df</code></pre>
+<p>Remove untracked files <em>and</em> untracked directories from the current directory.</p>
+<pre><code>git clean -xf</code></pre>
+<p>Remove untracked files from the current directory as well as any files that Git usually ignores.</p>
+<h3>Discussion</h3>
+<p>The <code>git reset --hard</code> and <code>git clean -f</code> commands are your best friends after you’ve made some embarrassing developments in your local repository and want to burn the evidence. Running both of them will make your working directory match the most recent commit, giving you a clean slate to work with.</p>
+<p>The <code>git clean</code> command can also be useful for cleaning up the working directory after a build. For example, it can easily remove the <code>.o</code> and <code>.exe</code> binaries generated by a C compiler. This is occasionally a necessary step before packaging a project for release. The <code>-x</code> option is particularly convenient for this purpose.</p>
+<p>Keep in mind that, along with <code>git reset</code>, <code>git clean</code> is one of the only Git commands that has the potential to permanently delete commits, so be careful with it. In fact, it’s so easy to lose important additions that the Git maintainers <em>require</em> the <code>-f</code> flag for even the most basic operations. This prevents you from accidentally deleting everything with a naive <code>git clean</code> call.</p>
+<h3>Example</h3>
+<p>The following example obliterates all changes in the working directory, including new files that have been added. It assumes you’ve already committed a few snapshots and are experimenting with some new developments.</p>
+<pre><code># Edit some existing files
+# Add some new files
+# Realize you have no idea what you're doing
+# Undo changes in tracked files
+git reset --hard
+# Remove untracked files
+git clean -df</code></pre>
+<p>After running this reset/clean sequence, the working directory and the staging area will look exactly like the most recent commit, and <code>git status</code> will report a clean working directory. You're now ready to begin again.</p>
+<p>Note that, unlike the second example in <a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset"><code>git reset</code></a>, the new files were _not _added to the repository. As a result, they could not be affected by <code>git reset --hard</code>, and <code>git clean</code> was required to delete them.</p>
+</div></div>
+<div class="_footer">
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history" class="cms-link cms-link--text"><div class="g-column g-6-12 g-centered">
+<div class="_hero">
+<img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/hero(1).svg" alt="Rewriting history">
+</div>
+<h5>Next up:</h5>
+<h4>Rewriting history</h4>
+<a href="https://www.atlassian.com/git/tutorials/rewriting-history" class="cms-link cms-link--text">Start next tutorial</a>
+</div></a></div>
+</div>
+</div>
+<div id="footer" class="footer is-tutorial ">
+<div class="g-row _atlassian-logo">
+<div class="g-column g-12-12">
+<h5>Powered By</h5>
+<a href="https://www.atlassian.com/" class="cms-link cms-link--image"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/atlassian_white_charlie_white.svg" alt="Atlassian"></a>
+</div></div>
+<div class="g-row">
+<div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Recommend</h6>
+<a href="https://twitter.com/home?status=Switching%20to%20%23Git?%20Use%20the%20Atlassian%20Git%20tutorials%20to%20jumpstart%20your%20training%20in%20Git%20commands%20and%20workflows.%20https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/icon-twitter.svg" alt="Twitter"></a>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/icon-facebook.svg" alt="Facebook"></a>
+<a href="https://plus.google.com/share?url=https://www.atlassian.com/git" class="cms-link cms-link--image social-code"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/icon-gplus.svg" alt="GooglePlus"></a>
+</div><div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Want future articles?</h6>
+<form class="newsletter">
+<input class="is-empty _input" type="email" placeholder="Enter Your Email For Git News">
+<button type="submit" class="_status icon-email-submit">Submit</button>
+</form>
+</div><div class="g-column g-4-12 t-12-12 m-12-12 t-gutterless">
+<h6>Site hosted by</h6>
+<a href="https://bitbucket.org/" class="cms-link cms-link--image"><img src="./Git - Undoing changes _ Atlassian Git Tutorial_files/logo-bitbucket-footer.svg" alt="Bitbucket" class="_bitbucket-logo"></a>
+</div></div>
+<div class="g-row">
+<div class="g-column g-12-12 t-12-12 m-12-12">
+<p class="license"><a class="icon-global-cclicense" href="http://creativecommons.org/licenses/by/2.5/au/" rel="nofollow">creativecommons.org</a>Except where otherwise noted, all content is licensed under a <a href="http://creativecommons.org/licenses/by/2.5/au/" rel="nofollow">Creative Commons Attribution 2.5 Australia License</a>.</p>
+</div></div>
+</div>
+<script type="text/javascript">
+var HTTP_PREFIX = "";
+</script>
+<script type="text/javascript" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/app.js.download"></script>
+<script type="text/javascript">
+(function(){
+var imkt = window.imkt || (window.imkt = {});
+imkt.isEditMode = false;
+imkt.isProduction = true;
+imkt.constants = imkt.constants || {};
+imkt.constants.rootPath = "/";
+imkt.constants.assetPath = "https://wac-cdn.atlassian.com" + "/assets/";
+imkt.constants.libPath = imkt.constants.assetPath + "bower_components/";
+imkt.constants.cdnVersionQuery = "?cdnVersion=ej";
+imkt.constants.isDevUser = false;
+imkt.constants.mobileBreakpoint = 640;
+})();
+</script>
+<script type="text/x-component">
+{
+"type":"imkt.pages.WACPage",
+"params": {
+}
+}
+</script>
+<script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/atl-analytics.min.js.download"></script>
+<script>ace.analytics.Initializer.initWithPageAnalytics('kiv6wyh2nw');</script>
+
+<!-- LastRendered: May 2, 2017 10:55:01 PM -->
+<div style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.3542766930517973"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.8150724338052435" width="0" height="0" alt="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/0"><img style="width:0px; height:0px; display:none; visibility:hidden;" id="batBeacon0.6294227949788851" width="0" height="0" alt="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/0(1)"></div><script type="text/javascript" id="">(function(a,b,c,d,e){a=b.createElement(c);b=b.getElementsByTagName(c)[0];a.async=1;a.id=e;a.src=d;b.parentNode.insertBefore(a,b)})(window,document,"script","https://scripts.demandbase.com/BwkB5d1U.min.js","demandbase_js_lib");</script>
+
+<script type="text/javascript" id="">var google_conversion_id=975152762,google_custom_params=window.google_tag_params,google_remarketing_only=!0;</script>
+<script type="text/javascript" id="" src="https://www.googleadservices.com/pagead/conversion.js"></script>
+<script type="text/javascript" id="" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/oct.js.download"></script><script type="text/javascript" id="">var ezt=ezt||[];(function(){var a=document.createElement("script");a.src=("https:"==document.location.protocol?"https://secure":"http://pixel")+".quantserve.com/aquant.js?a\x3dp-FusEMnpXn6KFm";a.async=!0;a.type="text/javascript";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();ezt.push({qacct:"p-FusEMnpXn6KFm",orderid:"",revenue:""});</script>
+<noscript>
+  &lt;img src="//pixel.quantserve.com/pixel/p-FusEMnpXn6KFm.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast"&gt;
+</noscript><script type="text/javascript" id="">(function(a){var g="https://api.autopilothq.com/anywhere/",h="2f4c1d42d2a84522ac151d8736f8fbef3576a517edc74dc28bd142489cf5ba04",m=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments)}},e=encodeURIComponent,k="SCRIPT",c=document,l=c.getElementsByTagName(k)[0],b="t\x3d"+e(c.title||"")+"\x26u\x3d"+e(c.location.href||"")+"\x26r\x3d"+e(c.referrer||""),n="text/javascript",f;window.Autopilot||(window.Autopilot=m);a.app&&(b="devmode\x3dtrue\x26"+b);f=function(a,b){var d=c.createElement(k);
+d.src=a;d.type=n;d.async=b;l.parentNode.insertBefore(d,l)};a.noaa||f(g+"aa/"+h+"?"+b,!1);a=function(){f(g+h+"?"+b,!0)};window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})({});</script><iframe src="./Git - Undoing changes _ Atlassian Git Tutorial_files/ect.html" id="db_ect" height="0" width="0" style="display: none;"></iframe><img style="display:none" alt="Demandbase pixel" id="db_pixel_ad" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/pixel"><img style="display:none" alt="Demandbase pixel" id="db_pixel_rt" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/pixel(1)"><script type="text/javascript" id="">(function(c,b){var a,d;"function"!=typeof c.ClickTaleCreateDOMElement&&(c.ClickTaleCreateDOMElement=function(a){return b.createElementNS?b.createElementNS("http://www.w3.org/1999/xhtml",a):b.createElement(a)});c.WRInitTime=(new Date).getTime();a=ClickTaleCreateDOMElement("script");a.type="text/javascript";d="https:"==b.location.protocol?"https://cdnssl.clicktale.net/":"http://cdn.clicktale.net/";d+="www33/ptc/ef81b94c-8498-4f12-b358-eb76a000a247.js";a.src=d;b.getElementsByTagName("body")[0].appendChild(a)})(window,
+document);</script><script type="text/javascript" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/ef81b94c-8498-4f12-b358-eb76a000a247.js.download"></script>
+<script type="text/javascript" id="">twttr.conversion.trackPid("nulad",{tw_sale_amount:0,tw_order_quantity:0});twttr.conversion.trackPid("numx2",{tw_sale_amount:0,tw_order_quantity:0});twttr.conversion.trackPid("nuoaw",{tw_sale_amount:0,tw_order_quantity:0});twttr.conversion.trackPid("nujcz",{tw_sale_amount:0,tw_order_quantity:0});</script>
+<noscript>
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nulad&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nulad&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=numx2&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=numx2&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nuoaw&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nuoaw&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=nujcz&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+&lt;img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=nujcz&amp;amp;p_id=Twitter&amp;amp;tw_sale_amount=0&amp;amp;tw_order_quantity=0"&gt;
+</noscript>
+<script src="https://dc.ads.linkedin.com/collect/?time=1493820840219&amp;pid=44935&amp;url=https%3A%2F%2Fwww.atlassian.com%2Fgit%2Ftutorials%2Fundoing-changes&amp;pageUrl=https%3A%2F%2Fwww.atlassian.com%2Fgit%2Ftutorials%2Fundoing-changes&amp;ref=https%3A%2F%2Fwww.google.co.uk%2F&amp;fmt=js&amp;s=1" type="text/javascript"></script><script type="text/javascript">// Copyright 2006-2017 ClickTale Ltd., US Patent Pending
+// PID: 45
+// WR destination: www33
+// WR version: latest
+// Recording ratio: 0.6
+// Generated on: 4/2/2017 9:48:15 AM (UTC 4/2/2017 2:48:15 PM)
+(function (){
+	var dependencyCallback;
+        var scriptSyncTokens = ["wr"];
+        var ct2Callback, isRecorderReady;
+    var dependencies = scriptSyncTokens.slice(0);
+    var clickTaleOnReadyList = window.ClickTaleOnReadyList || (window.ClickTaleOnReadyList = []);
+    var indexOf = (function(){if(Array.prototype.indexOf){return function(array,value){return array.indexOf(value)}}return function(array,value){var length=array.length;for(var i=0;i<length;i++){if(array[i]===value){return i}}return -1}})();
+    function isValidToken(token) {
+        if (indexOf(scriptSyncTokens, token) > -1) {
+            var index = indexOf(dependencies, token);
+
+            if (index > -1) {
+                dependencies.splice(index, 1);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    clickTaleOnReadyList.push(function () {
+        if (ct2Callback) {
+            ct2Callback();
+        }
+
+        isRecorderReady = true;
+    });
+
+    window.ClickTaleGlobal = window.ClickTaleGlobal || {};
+    ClickTaleGlobal.scripts = ClickTaleGlobal.scripts || {};
+    ClickTaleGlobal.scripts.dependencies = {
+        setDependencies: function (deps) {
+            scriptSyncTokens = deps;
+        },
+        onDependencyResolved: function (callback) {
+            dependencyCallback = callback;
+        },
+        notifyScriptLoaded: function (token) {
+            if (isValidToken(token)) {
+                if (dependencies.length === 0 && typeof dependencyCallback === "function") {
+                    dependencyCallback();
+                }
+            }
+        }
+    };
+
+    ClickTaleGlobal.scripts.integration = {
+        onReady: function (callback) {
+            if (isRecorderReady) {
+                callback();
+            }
+            else {
+                ct2Callback = callback;
+            }
+        }
+    };
+})();
+
+
+
+
+function ClickTaleCDNHTTPSRewrite(u)
+{
+	try
+	{
+		var scripts = document.getElementsByTagName('script');
+		if(scripts.length)
+		{
+			var script = scripts[ scripts.length - 1 ], s='https://clicktalecdn.sslcs.cdngc.net/';
+			if(script.src && script.src.substr(0,s.length)==s )
+				return u.replace('https://cdnssl.clicktale.net/',s);
+		}
+	}
+	catch(e)
+	{
+	}
+	return u;
+} 
+
+window.ClickTaleIsXHTMLCompliant = true;
+if (typeof (ClickTaleCreateDOMElement) != "function")
+{
+	ClickTaleCreateDOMElement = function(tagName)
+	{
+		if (document.createElementNS)
+		{
+			return document.createElementNS('http://www.w3.org/1999/xhtml', tagName);
+		}
+		return document.createElement(tagName);
+	}
+}
+
+if (typeof (ClickTaleAppendInHead) != "function")
+{
+	ClickTaleAppendInHead = function(element)
+	{
+		var parent = document.getElementsByTagName('head').item(0) || document.documentElement;
+		parent.appendChild(element);
+	}
+}
+
+if (typeof (ClickTaleXHTMLCompliantScriptTagCreate) != "function")
+{
+	ClickTaleXHTMLCompliantScriptTagCreate = function(code)
+	{
+		var script = ClickTaleCreateDOMElement('script');
+		script.setAttribute("type", "text/javascript");
+		script.text = code;
+		return script;
+	}
+}	
+
+var pccScriptElement = ClickTaleCreateDOMElement('script');
+pccScriptElement.type = "text/javascript";
+pccScriptElement.src = (document.location.protocol=='https:'?
+ClickTaleCDNHTTPSRewrite('https://cdnssl.clicktale.net/www33/pcc/ef81b94c-8498-4f12-b358-eb76a000a247.js?DeploymentConfigName=Release_20170108&Version=2'):
+'http://cdn.clicktale.net/www33/pcc/ef81b94c-8498-4f12-b358-eb76a000a247.js?DeploymentConfigName=Release_20170108&Version=2');
+ClickTaleGlobal.init.isAllowed && document.body.appendChild(pccScriptElement);
+	
+if (typeof window.ClickTaleScriptSource == 'undefined') {
+	window.ClickTaleScriptSource=(document.location.protocol=='https:'
+		?ClickTaleCDNHTTPSRewrite('https://cdnssl.clicktale.net/www/')
+		:'http://cdn.clicktale.net/www/');
+}
+
+
+// Start of user-defined pre WR code (PreLoad)
+//PTC Code Version 8
+
+window.ClickTaleSettings = window.ClickTaleSettings || {};
+window.ClickTaleSettings.PTC = window.ClickTaleSettings.PTC || {};
+//set the following property only when there are No Load errors in recordings
+//window.ClickTaleIncludedOnWindowLoad = true;
+window.ClickTaleIncludedOnDOMReady = true;
+window.ClickTaleSettings.PTC.EnableChangeMonitor = false;
+window.ClickTaleSettings.PTC.UseTransport = true;
+window.ClickTaleUIDCookieName = 'WRUIDAWS';
+
+function deleteIrrelevantUIDCookies(relevant) {
+    var cookieArray = document.cookie.replace(/\s+/g, '').split(";");
+    var hostArray = location.host.split('.');
+    var topDom = (hostArray.length <= 2 ? location.host : hostArray.slice(1).join('.'));
+    for (var i = 0; i < cookieArray.length; i++) {
+        var currentCookie = cookieArray[i];
+        var cookieKey = currentCookie.substring(0, currentCookie.indexOf('='));
+        if (cookieKey.indexOf('WRUID') > -1 && relevant.indexOf(cookieKey) == -1) {
+            document.cookie = cookieKey + "='';domain=." + topDom + ";path=/;expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+            document.cookie = cookieKey + "='';path=/;expires=Thu, 01-Jan-1970 00:00:01 GMT;";
+        }
+    }
+}
+deleteIrrelevantUIDCookies([window.ClickTaleUIDCookieName]);
+
+window.ClickTaleSettings.CheckAgentSupport = function (f, v) {
+    if (v.t == v.IE && v.v <= 8) {
+        window.ClickTaleSettings.PTC.okToRunPCC = false;
+        return false;
+    }
+    else {
+        if (!(v.t == v.IE && v.v <= 10)) {
+            window.ClickTaleSettings.PTC.EnableChangeMonitor = true;
+            window.ClickTaleSettings.PTC.ConfigChangeMonitor();
+        }
+        var fv = f(v);
+        window.ClickTaleSettings.PTC.okToRunPCC = fv;
+        return fv;
+    }
+};
+window.ClickTaleSettings.Persistence = {
+    EnableStorage: true,
+    EnableStreams: true,
+    EnableDispatch: true,
+};
+
+window.ClickTaleSettings.Protocol = {
+    Method: "ImpactRecorder"
+};
+
+window.ClickTaleSettings.Proxy = {
+    WR: "ing-district.clicktale.net/ctn_v2/",
+    ImageFlag: "ing-district.clicktale.net/ctn_v2/"
+};
+
+window.ClickTaleSettings.PTC.RulesObj = [{
+    selector: "input[type=\"text\"], input[type=\"tel\"], input[type=\"email\"]",
+    changeMon: {
+        Attributes: ['value'],
+        Text: false
+    },
+    rewriteApi: {
+        Attributes: ['value'],
+        Text: false
+    }
+}, {
+    selector: ".ctHidden",
+    changeMon: {
+        Attributes: ['value'],
+        Text: true
+    },
+    rewriteApi: {
+        Attributes: ['value'],
+        Text: true
+    }
+}];
+
+window.ClickTaleSettings.PTC.RulesObjRemoveEls = [
+];
+
+;(function () {
+    if (typeof window.ClickTalePIISelector === 'string' && window.ClickTalePIISelector != '') {
+        try {
+            var domNodes = document.querySelectorAll(window.ClickTalePIISelector);
+            if (domNodes) {
+                window.ClickTaleSettings.PTC.RulesObj.push({
+                    selector: window.ClickTalePIISelector,
+                    changeMon: {
+                        Attributes: ['value'],
+                        Text: true
+                    },
+                    rewriteApi: {
+                        Attributes: ['value'],
+                        Text: true
+                    }
+                });
+            }
+        }
+        catch (err) {
+        }
+    }
+})();
+
+window.ClickTaleSettings.PTC.cloneNodeIE9 = function (node) {
+    var clone = node.nodeType === 3 ? document.createTextNode(node.nodeValue) : node.cloneNode(false);
+    var child = node.firstChild;
+    while (child) {
+        var nodeName = child.nodeName.toLowerCase();
+        if (nodeName == 'script') {
+            var script = document.createElement('script');
+            clone.appendChild(script);
+        }
+        else if (window.ClickTaleSettings.PTC.cloneNodeIE9.badEls[nodeName]) {
+            var newN = document.createElement(nodeName);
+            var attributes = child.attributes;
+            var attrLength = attributes.length;
+            for (var i = 0; i < attrLength; i++) {
+                var attr = attributes[i];
+                if (!/['"{}]/.test(attr.nodeName)) {
+                    newN.setAttribute('ctdep-' + attr.nodeName, attr.nodeValue);
+                }
+            }
+            if (child.ClickTale && child.ClickTale.CustomID) {
+                newN.setAttribute('data-ClickTaleCustomId', child.ClickTale.CustomID);
+            }
+            clone.appendChild(newN);
+        }
+        else {
+            clone.appendChild(window.ClickTaleSettings.PTC.cloneNodeIE9(child));
+        }
+        child = child.nextSibling;
+    }
+    if (node.ClickTale && node.ClickTale.CustomID) {
+        clone.setAttribute('data-ClickTaleCustomId', node.ClickTale.CustomID);
+    }
+    return clone;
+}
+
+window.ClickTaleSettings.PTC.cloneNodeIE9.badEls = {
+    'iframe': true,
+    'img': true,
+    'source' : true
+};
+
+window.ClickTaleSettings.PTC.ConfigChangeMonitor = function() {
+
+    if (window.ClickTaleSettings.PTC.EnableChangeMonitor) {
+        window.ClickTaleSettings.XHRWrapper = {
+            Enable: false
+        };
+
+        var script = document.createElement("SCRIPT");
+        script.src = (document.location.protocol === "https:" ? "https://cdnssl." : "http://cdn.") + "clicktale.net/www/ChangeMonitor-latest.js";
+        document.body.appendChild(script);
+
+        window.ClickTaleSettings.ChangeMonitor = {
+            Enable: true,
+            AddressingMode: "id",
+            OnReadyHandler: function(changeMonitor) {
+                changeMonitor.observe();
+
+                var CMRemrule = window.ClickTaleSettings.PTC.RulesObjRemoveEls;
+                if (CMRemrule) {
+                    for (var i = 0; i < CMRemrule.length; i++) {
+                        var rule = CMRemrule[i];
+                        var CMlocation = rule['location'];
+                        if ((!CMlocation || (CMlocation && document.location[CMlocation['prop']].toLowerCase().search(CMlocation.search) != -1))) {
+                            if (rule.changeMon) {
+                                changeMonitor.exclude(rule.changeMon);
+                            }
+                            if (rule.changeMonLive) {
+                                changeMonitor.exclude({
+                                    selector: rule.changeMonLive,
+                                    multiple: true
+                                });
+                            }
+                        }
+                    }
+                }
+            },
+            OnBeforeReadyHandler: function(settings) {
+                settings.Enable = window.ClickTaleGetUID ? !!ClickTaleGetUID() : false;
+                return settings;
+            },
+            Filters: {
+                MaxBufferSize: 300000,
+                MaxElementCount: 3000
+            },
+            PII: {
+                Text: [],
+                Attributes: []
+            }
+        }
+        var RulesObj = window.ClickTaleSettings.PTC.RulesObj;
+        if (RulesObj) {
+            window.ClickTaleSettings.ChangeMonitor.PII.Text = window.ClickTaleSettings.ChangeMonitor.PII.Text || [];
+            window.ClickTaleSettings.ChangeMonitor.PII.Attributes = window.ClickTaleSettings.ChangeMonitor.PII.Attributes || [];
+            for (var i = 0; i < RulesObj.length; i++) {
+                var CMrule = RulesObj[i]['changeMon'];
+                var CMlocation = RulesObj[i]['location'];
+                if (!CMrule || (CMlocation && document.location[CMlocation['prop']].toLowerCase().search(CMlocation.search) === -1)) {
+                    continue;
+                }
+                var selector = RulesObj[i]['selector'];
+                var attributesArr = CMrule.Attributes;
+                if (attributesArr instanceof Array) {
+                    window.ClickTaleSettings.ChangeMonitor.PII.Attributes.push({
+                        selector: selector,
+                        transform: (function(attributesArr) {
+                            return function(el) {
+                                var attrs = el.attributes;
+                                var attrsToReturn = {}
+                                for (var i = 0; i < attrs.length; i++) {
+                                    var name = attrs[i].nodeName;
+                                    attrsToReturn[name] = attrs[i].nodeValue;
+                                }
+                                for (var u = 0; u < attributesArr.length; u++) {
+                                    var attr = attributesArr[u];
+                                    var attrib = el.getAttribute(attr);
+                                    if (typeof attrib === 'string') {
+                                        attrsToReturn[attr] = attrib.replace(/\w/g, '-');
+                                    }
+                                }
+
+                                return attrsToReturn;
+                            }
+                        })(attributesArr)
+                    });
+                }
+                if (CMrule.Text) {
+                    window.ClickTaleSettings.ChangeMonitor.PII.Text.push({
+                        selector: selector,
+                        transform: function(el) {
+                            return el.textContent.replace(/\w/g, '-');
+                        }
+                    });
+                }
+            }
+        }
+    }
+};
+
+window.ClickTaleSettings.Compression = {
+    Method: function() {
+        return "deflate";
+    }
+};
+
+window.ClickTaleSettings.Transport = {
+    Legacy: false,
+    MaxConcurrentRequests: 5
+};
+
+window.ClickTaleSettings.RewriteRules = {
+    OnBeforeRewrite: function(rewriteApi) {
+        var bodyClone = ClickTaleSettings.PTC.cloneNodeIE9(document.documentElement);
+
+        if (window.ClickTaleSettings.PTC.RulesObj) {
+            rewriteApi.add(function(buffer) {
+
+                var RulesObj = window.ClickTaleSettings.PTC.RulesObj;
+                for (var i = 0; i < RulesObj.length; i++) {
+                    var rewriteApirule = RulesObj[i]['rewriteApi'];
+                    var rewriteApilocation = RulesObj[i]['location'];
+                    if (!rewriteApirule || (rewriteApilocation && document.location[rewriteApilocation['prop']].toLowerCase().search(rewriteApilocation.search) === -1)) {
+                        continue;
+                    }
+                    var selector = RulesObj[i]['selector'];
+                    var elements = bodyClone.querySelectorAll(selector);
+
+                    Array.prototype.forEach.call(elements, function(el, ind) {
+                        var attributesArr = rewriteApirule.Attributes;
+                        if (attributesArr instanceof Array) {
+
+                            for (var u = 0; u < attributesArr.length; u++) {
+                                var attr = attributesArr[u];
+                                var attrib = el.getAttribute(attr);
+                                if (typeof attrib === 'string') {
+                                    el.setAttribute(attr, attrib.replace(/\w/g, '-'));
+                                }
+                            }
+
+                        }
+                        if (rewriteApirule.Text) {
+                            var children = el.childNodes;
+                            Array.prototype.forEach.call(children, function(child) {
+                                if (child && child.nodeType === 3) {
+                                    child.textContent = child.textContent.replace(/\w/g, '-');
+                                }
+                            });
+                        }
+                    });
+                }
+
+                var RulesObjRemoveEls = window.ClickTaleSettings.PTC.RulesObjRemoveEls;
+                if (RulesObjRemoveEls) {
+                    for (var i = 0; i < RulesObjRemoveEls.length; i++) {
+                        if (RulesObjRemoveEls[i].rewriteApi) {
+                            var elementsToRemove = bodyClone.querySelectorAll(RulesObjRemoveEls[i].rewriteApi);
+                            Array.prototype.forEach.call(elementsToRemove, function(el, ind) {
+                                if (el.parentNode) {
+                                    el.parentNode.removeChild(el);
+                                }
+                            });
+                        }
+                        if (RulesObjRemoveEls[i].rewriteApiReplace) {
+                            var elementsToReplace = bodyClone.querySelectorAll(RulesObjRemoveEls[i].rewriteApiReplace);
+                            Array.prototype.forEach.call(elementsToReplace, function(el, ind) {
+                                if (el.parentNode) {
+                                    var comment = document.createComment(el.outerHTML);
+                                    el.parentNode.replaceChild(comment, el);
+                                }
+                            });
+                        }
+                    }
+                }
+
+                return bodyClone.innerHTML.replace(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi, '<script><\/script>').replace(/(<div id="?ClickTaleDiv"?[^>]+>)\s*<script[^>]+><\/script>\s*(<\/div>)/i, '$1$2');
+            });
+        }
+        rewriteApi.add({
+            pattern: /ctdep-/gi,
+            replace: ''
+        });
+        rewriteApi.add({
+            pattern: /(<head[^>]*>)/i,
+            replace: '$1<script type="text\/javascript" class="cm-ignore" src="http:\/\/dummytest.clicktale-samples.com\/GlobalResources\/jquery.js"><\/script>'
+        });
+    }
+};
+
+// End of user-defined pre WR code
+
+
+window.ClickTalePrevOnReady = typeof window.ClickTaleOnReady == 'function' ? window.ClickTaleOnReady : void 0;
+
+window.ClickTaleOnReady = function() {
+	var PID=45, 
+		Ratio=0.6, 
+		PartitionPrefix="www33",
+		SubsId=233232;
+	
+	if (window.navigator && window.navigator.loadPurpose === "preview") {
+       return;
+	};
+		
+	
+	// Start of user-defined header code (PreInitialize)
+	if (typeof ClickTaleSetAllSensitive === "function") {
+    ClickTaleSetAllSensitive();
+};
+
+window.ClickTaleSettings.PTC.InitFuncs = window.ClickTaleSettings.PTC.InitFuncs || [];
+window.ClickTaleSettings.PTC.InitFuncs.push(function() {
+    var pcc = document.querySelector('script[src*="clicktale"][src*="pcc"]');
+    if (pcc) {
+        var versionmatch = pcc.src.match(/DeploymentConfigName=(.+)/i);
+        if (versionmatch && typeof ClickTaleExec === 'function') {
+            ClickTaleExec("console.info('" + versionmatch[0] + "');");
+            ClickTaleEvent("Config: " + versionmatch[1].replace(/\&.+/, ''));
+        }
+    }
+});
+
+function doUpload() {
+    if (typeof ClickTaleUploadPageNow === 'function' && ClickTaleIsRecording()) {
+        ClickTaleUploadPageNow();
+               
+    };
+};
+
+function isReadyToRecord() {
+    if (typeof ClickTaleUploadPageNow === 'function' && ClickTaleIsRecording()) {
+        return true;
+    }
+    return false;
+};
+
+function doOnlyWhen(toDoHandler, toCheckHandler, interval, times, failHandler) {
+    if ((!toDoHandler) || (!toCheckHandler)) return;
+    if (typeof interval == "undefined") interval = 1000;
+    if (typeof times == "undefined") times = 20;
+    if (--times < 0) {
+        if (typeof failHandler === 'function') {
+            failHandler();
+        }
+        return;
+    }
+    if (toCheckHandler()) {
+        toDoHandler();
+        return;
+    }
+    setTimeout(function() {
+        doOnlyWhen(toDoHandler, toCheckHandler, interval, times, failHandler);
+    }, interval);
+};
+
+if (typeof ClickTaleDelayUploadPage === 'function' && window.ClickTaleSettings.PTC.UseTransport) {
+    ClickTaleDelayUploadPage();
+
+    doOnlyWhen(doUpload, isReadyToRecord, 300, 20, doUpload);
+
+    var initFuncs = window.ClickTaleSettings.PTC.InitFuncs;
+    for (var i = 0, initLen = initFuncs.length; i < initLen; i++) {
+        if (typeof initFuncs[i] === 'function') {
+            initFuncs[i]();
+        }
+    }
+}
+
+	// End of user-defined header code (PreInitialize)
+    
+	
+	window.ClickTaleIncludedOnDOMReady=true;
+	
+	ClickTaleGlobal.init.isAllowed && ClickTale(PID, Ratio, PartitionPrefix, SubsId);
+	
+	if((typeof ClickTalePrevOnReady == 'function') && (ClickTaleOnReady.toString() != ClickTalePrevOnReady.toString()))
+	{
+    	ClickTalePrevOnReady();
+	}
+	
+	
+	// Start of user-defined footer code
+	
+	// End of user-defined footer code
+	
+}; 
+(function() {
+	var div = ClickTaleCreateDOMElement("div");
+	div.id = "ClickTaleDiv";
+	div.style.display = "none";
+	document.body.appendChild(div);
+
+	
+	
+	var wrScript = ClickTaleCreateDOMElement("script"),
+		wrSrc = (document.location.protocol=='https:' ? 'https://cdnssl.clicktale.net/www/' : 'http://cdn.clicktale.net/www/') + 'tc/WR-latest.js';
+	wrScript.src = (window.ClickTaleCDNHTTPSRewrite ? ClickTaleCDNHTTPSRewrite(wrSrc) : wrSrc);
+	wrScript.type = 'text/javascript';
+		wrScript.async = true;
+		ClickTaleGlobal.init.isAllowed && document.body.appendChild(wrScript);
+})();
+
+
+
+
+
+!function(){function t(){window.addEventListener&&addEventListener("message",e,!1)}function e(t){var e,o=new RegExp("(clicktale.com|qa-core.app.clicktale.com)($|:)"),c=new RegExp("qa-core.app.clicktale.com"),i=!1,a=t.origin;try{e=JSON.parse(t.data)}catch(l){return}o.test(t.origin)!==!1&&(window.ct_ve_parent_window=t.source,c.test(t.origin)===!0&&(i=!0),"CTload_ve"===e["function"]&&"function"==typeof ClickTaleGetPID&&null!==ClickTaleGetPID()&&n(a,i))}function o(t){return document.createElementNS?document.createElementNS("http://www.w3.org/1999/xhtml",t):document.createElement(t)}function n(t,e){var n=o("script");n.setAttribute("type","text/javascript"),n.setAttribute("id","ctVisualEditorClientModule");var c;c=e?document.location.protocol+"//qa-core.app.clicktale.com/VisualEditor/Client/dist/veClientModule.js":document.location.protocol+"//"+t.match(/subs\d*/)[0]+".app.clicktale.com/VisualEditor/Client/dist/veClientModule.js",n.src=c,document.getElementById("ctVisualEditorClientModule")||document.body.appendChild(n)}try{var c=window.chrome,i=window.navigator&&window.navigator.vendor;null!==c&&void 0!==c&&"Google Inc."===i&&t()}catch(a){}}();</script><script type="text/javascript" src="./Git - Undoing changes _ Atlassian Git Tutorial_files/ef81b94c-8498-4f12-b358-eb76a000a247.js(1).download"></script><div id="ClickTaleDiv" style="display: none;"></div><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/WR-latest.js.download" type="text/javascript" async=""></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/ChangeMonitor-latest.js.download"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/adsct" type="text/javascript"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/adsct(1)" type="text/javascript"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/adsct(2)" type="text/javascript"></script><script src="./Git - Undoing changes _ Atlassian Git Tutorial_files/adsct(3)" type="text/javascript"></script></body></html>

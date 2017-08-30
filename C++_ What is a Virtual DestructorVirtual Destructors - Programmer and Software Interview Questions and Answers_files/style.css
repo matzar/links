@@ -1,0 +1,124 @@
+/*  
+Theme Name: Programmer Interview - 2015 
+Description: Custom Theme By Varoon & Nayapixel.com
+Version: 1.0
+Author: Varoon
+*/
+
+
+body {background:#fff url(images/top-bg.gif) center top repeat-x; margin:0 auto; padding:0; font-family: Verdana, Geneva, sans-serif; font-size:12px;}
+a:link, a:visited{text-decoration:none; color:#000000; outline:none;}
+a:hover{color:#5f5f5f;}
+h1, h2, h3, h4, h5{font-family:Arial, Helvetica, sans-serif;}
+h1 {font-size:20px;}
+h2{font-size:18px;}
+h3{font-size:16px;}
+
+
+/**** Header ****/
+#header {background:url(images/header.jpg) center top no-repeat; margin:0 auto; padding-top:18px; text-align:center; height:89px; width:100%;}
+#header .wrapper{margin:0 auto; width:1000px; text-align:left; padding:0;}
+#header .site-logo {margin:0 auto; padding-top:10px; height:65px; width:419px; float:left;}
+
+.nav{width:750px; background:#000; display:block; float:left; position:relative;}
+.nav ul{list-style:none;}
+.nav li{float:left; position:relative;}
+.nav a{display:block; text-decoration:none; color:#fff; padding:0 15px 10px 0; font-size:13px; font-weight:bold;}
+.nav ul ul{display:none; position:absolute; top:100%; left:0; float:left; z-index:99999; background:#212121;}
+.nav ul ul ul{top:30%; left:100%; background:#343434;}
+.nav ul ul a{height:auto; line-height:1em; padding:10px; width:130px;}
+.nav li:hover > a,.nav ul ul:hover > a{color:#ccc;}
+.nav ul li:hover > ul{display:block;}
+
+
+/**** Content ****/
+#middle-container{width:1000px; clear:both; padding-bottom:50px; margin:0 auto;}
+#content{float:left; width:540px; padding:0; margin-left:30px; color: #444444; font: 12px/18px Verdana,Arial,Helvetica,sans-serif;}
+#content .post .entry a{color:#3400f0;}
+#content .post .entry a:hover{text-decoration:underline;}
+#content .post .entry h1{font-size:20px; line-height:25px; color:#000;}
+
+.pager{float:left; width:100%; padding:10px 0; border-bottom:#82bd00 4px solid; margin:35px 0 15px;}
+.pager a{border:#82bd00 1px solid; padding:5px 10px; color:#000;}
+.pager a:hover {color:#fff; text-decoration:none; background:#36373c; border:#36373c 1px solid;}
+.pager .prev a{float:left;}
+.pager .next a{float:right}
+
+.postmetadata{float:left; width:100%; text-transform:uppercase; font-size:16px; font-family:Arial, Helvetica, sans-serif; }
+.postmetadata a.post-edit-link {float:left; text-align:center; width:100%; background:#36373c;color:#fff; padding:10px 0;}
+.postmetadata a.post-edit-link:hover{background:#82bd00;}
+
+.clear{clear:both;}
+
+
+/**** Comments ****/
+.gravatar{float: right;}
+.comments-template{margin: 10px 0 0; padding: 30px 0 0;}
+.comments-template ol{margin: 0; padding: 0 0 15px;	list-style: none;}
+.comments-template ol li{margin: 10px 0 0; 	line-height: 18px; padding: 0 0 10px; border-bottom: 1px solid #ccc;}
+.comments-template textarea{width: 500px;}
+
+.wp-caption {background-color: #f3f3f3; border: 1px solid #ddd; -khtml-border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; margin: 10px; padding-top: 4px; text-align: center;}
+.wp-caption img {border: 0 none; margin: 0; padding: 0;}
+.wp-caption p.wp-caption-text {font-size: 11px; line-height: 17px; margin: 0; padding: 0 4px 5px;}
+
+
+/***** Sidebar ******/
+#sidebar {background:#82bd00; width:250px; float:left; font:11px Verdana, Arial, Helvetica, sans-serif; color:#444444; list-style-type:none;}
+#sidebar ul {float:left; margin:0; padding:0; list-style:none;}
+#sidebar li.widget{float:left; margin-left:0; padding-left:0; list-style:none;}
+#sidebar h2.widgettitle{display:none;}
+#sidebar .widget_pages{float:left; padding-bottom:10px;}
+#sidebar .widget_pages ul {list-style-image: none; margin: 0 auto; padding: 0; display: inline-block; float: left;}
+#sidebar .widget_pages ul li {float: left; display: inline; margin: 0; padding: 0; clear:left;}
+#sidebar .widget_pages li a {background:url(images/bullet1.gif) top left no-repeat; color: #000000; display: block; font-weight:bold; margin: 0px; padding: 10px 0px 11px 22px; clear:left; width:228px; text-decoration:none;}
+#sidebar .widget_pages li a:hover {background:#171717 top left no-repeat; background-image: url(images/spriteme.png); background-position: -10px -116px; color: #ffffff;}
+#sidebar .widget_pages ul ul {list-style-type: none; list-style-image: none; margin: 0 auto; padding: 0; display: inline-block; float: left;}
+#sidebar .widget_pages ul ul li {float: left; display: inline; margin: 0; padding: 0; clear:left;}
+#sidebar .widget_pages li ul a {background:#171717 url(images/bullet2.gif) top left no-repeat; color: #D1D1D1; display: block; margin: 0px; padding: 5px 0px 6px 22px; border-bottom:#454545 1px solid; width:228px; font-weight:normal;}
+#sidebar .widget_pages li ul a:hover {background:#D1D1D1 url(images/bullet2-roll.gif) top left no-repeat; color: #000000; margin: 0px; border-bottom:#454545 1px solid; text-decoration: none; clear:left; width:228px;}
+#sidebar .widget_pages li ul .current_page_item a {background:#D1D1D1 url(images/bullet2-roll.gif) top left no-repeat; color: #000000; margin: 0px; border-bottom:#454545 1px solid; text-decoration: none; clear:left; width:228px;}
+
+#sidebar-right {width:160px; float:right; padding:15px 0px; min-height:600px;}
+
+
+/******* AD Banner *******/
+.top-ad{float:right; width:730px; margin:15px 0 30px;}
+.rightbar-ad{width:160px; height:625px; float:right; margin-top:100px;}
+.middle-ad{width:100%; margin:15px 0; float:left;}
+.adsbygoogle{display:block;}
+
+
+/**** Footer ****/
+#footer{background:#e5e5e5 url(images/footer-bg.gif) center top repeat-x; width:100%; margin-top:25px; clear:both; padding-top:25px; font-size:13px; line-height:20px;}
+#footer .bookmark{padding:6px; width:1000px; margin:0 auto;}
+#footer .bookmark input{padding:6px; border:0; background:#f7f7f7l; color:#6d6d6d;}
+#footer .bookmark span{float:left; padding-right:15px;}
+#footer .copyright {background:#000; width: 100%; padding-top:20px; height:40px; margin: 0 auto; text-align:center; font: 12px Verdana, Arial, Helvetica, sans-serif; color:#ccc;}
+#footer .copyright .links{width:1000px; margin:0 auto; text-align:left;}
+#footer .copyright a{color:#ccc; text-decoration:none;}
+#footer .copyright a:hover {color:#ccc; text-decoration:underline;}
+#footer .copyright .links .right{float:right;}
+
+
+/***** Other ******/
+.code {font-size:13px; font-family:courier new; background-color:#fff; outline:1px solid #d4d4d4; border:6px solid #EAEAEA; padding:15px; line-height:18px; overflow-y : hidden; position : relative; overflow: auto;}
+#subscribe {background:#7EBC00 left 16px no-repeat; background-image: url(images/spriteme.png); background-position: -10px -218px; margin-left:5px; padding-top:70px; width:241px; min-height:140px; float:left; overflow:hidden;}
+#subscribe .subscribebt {background: no-repeat; background-image: url(images/subscribe-bt.png); padding:0; width:106px; height:27px; cursor: pointer; border: none; margin:15px 0 0 100px; text-indent:-999px;}
+#subscribe .email_box {background:#D9D9D9; font-size:12px; color:#000000; width:150px; height:20px; float: right; padding:3px; margin:0px; border:none;}
+#subscribe .country_box {background:#D9D9D9; width:156px; height:24px; float: right; padding:2px; margin:0px; border:none;}
+
+#facebook {background: #7EBC00 left top no-repeat; background-image: url(images/spriteme.png); background-position: -10px -601px; margin:0 auto; padding-top:55px; height:85px; width:241px; float:left;}
+#sidebar-jobboard {float: left; padding:0; margin-left:5px;}
+
+.page-template-search-template #sidebar-right{display:none!important;}
+.page-template-search-template #content{width:715px!important;}
+.page-template-search-template #content iframe{width:100%!important;}
+
+.g-recaptcha {width:100%;}
+
+/*** Newsletter Popup ***/
+.lbp-inline-href-1 .wpcf7-email,
+.lbp-inline-href-1 .wpcf7-select{border:#ddd 1px solid; padding:5px; width:200px; float:right;}
+
+

@@ -1,0 +1,75 @@
+.icon-global-nav-home-title {
+  background-image: url(/assets/img/gitguide/nav-home-title.svg); }
+
+.icon-global-nav-home {
+  background-image: url(/assets/img/gitguide/nav-home.svg); }
+
+.icon-global-nav-tutorials {
+  background-image: url(/assets/img/gitguide/nav-tutorials.svg); }
+
+.icon-global-nav-articles {
+  background-image: url(/assets/img/gitguide/nav-articles.svg); }
+
+.icon-global-nav-glossary,
+.icon-global-nav-reference {
+  background-image: url(/assets/img/gitguide/nav-glossary.svg); }
+
+.icon-logo-atlassian-footer {
+  background-image: url(/assets/img/gitguide/logo-atlassian-footer.svg); }
+
+.icon-logo-bitbucket-footer {
+  background-image: url(/assets/img/gitguide/logo-bitbucket-footer.svg); }
+
+.imkt-social-button.twitter a,
+.icon-footer-twitter {
+  background-image: url(/assets/img/gitguide/icon-twitter.svg); }
+
+.icon-twitter-dark {
+  background-image: url(/assets/img/gitguide/icon-twitter-dark.svg); }
+
+.imkt-social-button.facebook a,
+.icon-footer-facebook {
+  background-image: url(/assets/img/gitguide/icon-facebook.svg); }
+
+.imkt-social-button.google-plus a,
+.icon-footer-gplus {
+  background-image: url(/assets/img/gitguide/icon-gplus.svg); }
+
+.icon-global-cclicense {
+  background-image: url(/assets/img/gitguide/icon-cclicense.svg); }
+
+.icon-tutorial-learn-git {
+  background-image: url(/assets/img/gitguide/icon-learn-git.svg); }
+
+.icon-tutorial-getting-started {
+  background-image: url(/assets/img/gitguide/icon-getting-started.svg); }
+
+.icon-tutorial-collaborating {
+  background-image: url(/assets/img/gitguide/icon-collaborating.svg); }
+
+.icon-tutorial-migrating {
+  background-image: url(/assets/img/gitguide/icon-migrating.svg); }
+
+.icon-tutorial-advanced {
+  background-image: url(/assets/img/gitguide/icon-advanced.svg); }
+
+.icon-reference-arrow {
+  background-image: url(/assets/img/gitguide/icon-arrow.svg); }
+
+.icon-home-arrow-more {
+  background-image: url(/assets/img/gitguide/icon-arrow-more.svg); }
+
+.icon-search {
+  background-image: url(/assets/img/gitguide/icon-search.svg); }
+
+.icon-search-close {
+  background-image: url(/assets/img/gitguide/icon-search-close.svg); }
+
+.icon-email-submit {
+  background-image: url(/assets/img/gitguide/icon-email-submit.svg); }
+
+.icon-email-success {
+  background-image: url(/assets/img/gitguide/icon-email-success.svg); }
+
+.icon-email-error {
+  background-image: url(/assets/img/gitguide/icon-email-error.svg); }

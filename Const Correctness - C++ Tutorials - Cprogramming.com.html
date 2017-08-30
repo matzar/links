@@ -1,0 +1,838 @@
+
+<!-- saved from url=(0059)http://www.cprogramming.com/tutorial/const_correctness.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds2.feedburner.com/Cprogrammingcom/">
+<link rel="stylesheet" href="./Const Correctness - C++ Tutorials - Cprogramming.com_files/style.css" type="text/css">
+<!--[if IE]>
+    <link rel="stylesheet" href="http://static.cprogramming.com/main_images/style-ie.css?np4" type="text/css">
+<![endif]-->
+
+
+<meta name="keywords" content="Programming, C++, tutorials, basic C++ tutorials,Programming, C++, tutorial, C/C++, basic C++ tutorials,Programming, C++, tutorial, tutorail, programing basic C++ tutorials, programmer, learn programming, C++ made easy, xor, exclusive-or, encryption, xor encryption, OpenGL">
+<meta name="Description" content="Understandable C++ tutorials (covers most of basic C, except i/o).  Includes basics, pointers, arrays, classes and structs, recursion, linked lists, encryption, OpenGL graphics, and more.">
+
+<title>Const Correctness - C++ Tutorials - Cprogramming.com</title>
+
+<!-- ADDED DFP -->
+<script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/cb=gapi.loaded_1" async=""></script><script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/cb=gapi.loaded_0" async=""></script><script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/all.js.download" id="fbjssdk"></script><script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/plusone.js.download" id="gplus1js" gapi_processed="true"></script><script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/widgets.js.download" id="tweetjs"></script><script async="" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/ajs.js.download" id="ld-ajs"></script><script type="text/javascript" async="" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/ga.js.download"></script><script type="text/javascript" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/google_service.js.download">
+</script>
+<script type="text/javascript">
+GS_googleAddAdSenseService("ca-pub-2560316224908115");
+GS_googleEnableAllServices();
+</script>
+<script type="text/javascript">
+GA_googleAddSlot("ca-pub-2560316224908115", "RunOfSite_LargeRectangle_ATF_336x280");
+GA_googleAddSlot("ca-pub-2560316224908115", "RunOfSite_ATF_leaderboard_728x90");
+
+GA_googleAddSlot("ca-pub-2560316224908115", "RunOfSite_ATF_skyscraper_160x600");
+
+</script>
+<script type="text/javascript">
+GA_googleFetchAds();
+</script>
+<!-- END ADDED DFP -->
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7820175-1']);
+  _gaq.push(['_setDomainName', '.cprogramming.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<script type="text/javascript" charset="utf-8" async="" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/button.b731e6c82269f70f6fc53634e044a4c6.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body>
+<div>
+
+<a href="http://www.cprogramming.com/"><img class="logo noprint" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/title.png" width="324" height="83" border="0"></a> 
+
+<table class="line noprint"><tbody><tr><td></td></tr></tbody></table>
+<div class="noprint" align="right" style="padding-top:25px;padding-right:25px;">
+<!-- SiteSearch Google -->
+<form action="http://www.google.com/cse" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-2560316224908115:wqvdce-aw4a">
+    <input type="hidden" name="ie" value="ISO-8859-1">
+    <input type="text" name="q" size="31" placeholder="Custom Search" style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;">
+    <input type="submit" name="sa" value="Search">
+  </div>
+<input name="siteurl" type="hidden" value="www.cprogramming.com/tutorial/const_correctness.html"><input name="ref" type="hidden" value="www.google.co.uk/"><input name="ss" type="hidden" value=""></form>
+<script type="text/javascript" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/brand"></script>
+<!-- SiteSearch Google -->
+</div>
+<div>
+  <table class="main">
+    <tbody><tr>
+
+  	<td class="noprint" colspan="5" bgcolor="#EBEBEB">
+  		<img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/spacer-vert.png" height="6" width="0">
+  	   <center>
+    	<div class="leaderboard">
+
+<!-- ADDED DFP -->
+<!-- ca-pub-2560316224908115/Homepage_ATF_leaderboard_728x90 -->
+<script type="text/javascript">
+GA_googleFillSlot("RunOfSite_ATF_leaderboard_728x90");
+</script>
+<!-- END ADDED DFP -->
+
+</div>
+		</center>
+		<img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/spacer-vert.png" height="4" width="1">
+  	</td>
+        
+  </tr>
+
+  <tr>
+
+     <td class="noprint" width="130" valign="top" bgcolor="#EBEBEB"> 
+     <div class="menu" valign="top" style="font-size:14px;width:200px">
+     <p class="navcategory" align="left">
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14">    Starting out
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+             <a href="http://www.cprogramming.com/c++book/?inl=sb">Get the Ebook</a><br>
+             <a href="http://www.cprogramming.com/begin.html">Get Started with C or C++</a><br>
+             <a href="http://www.cprogramming.com/compilers.html">Getting a Compiler</a><br>
+             <a href="http://www.cprogramming.com/books.html">Book Recommendations</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14"> Tutorials
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+            <a href="http://www.cprogramming.com/tutorial/c-tutorial.html">C Tutorial</a><br>
+            <a href="http://www.cprogramming.com/tutorial/c++-tutorial.html">C++ Tutorial</a><br>
+            <a href="http://www.cprogramming.com/java-programming.html">Java Tutorial</a><br>
+            <a href="http://www.cprogramming.com/game-programming.html">Game Programming</a><br>
+            <a href="http://www.cprogramming.com/graphics-programming.html">Graphics Programming</a><br>
+            <a href="http://www.cprogramming.com/algorithms-and-data-structures.html">Algorithms &amp; Data Structures</a><br>
+            <a href="http://www.cprogramming.com/debuggers.html">Debugging</a><br>
+            <a href="http://www.cprogramming.com/tutorial.html">All Tutorials</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14"> Practice
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+            <a href="http://www.cprogramming.com/challenge.html">Practice Problems</a><br>
+            <a href="http://www.cprogramming.com/quiz/">Quizzes</a><br>
+     </p>
+     <p class="navcategory" align="left">
+          <br>
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14"> Resources
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+            <a href="http://www.cprogramming.com/cgi-bin/source/source.cgi">Source Code</a><br>
+            <a href="http://www.cprogramming.com/snippets/">Source Code Snippets</a><br>
+            <a href="http://www.cprogramming.com/tips/">C and C++ Tips</a><br>
+            <a href="http://www.cprogramming.com/jobs/">Finding a Job</a>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14"> References
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+            <a href="http://www.cprogramming.com/function.html">Function Reference</a><br>
+            <a href="http://www.cprogramming.com/reference/">Syntax Reference</a><br>
+            <a href="http://faq.cprogramming.com/cgi-bin/smartfaq.cgi">Programming FAQ</a><br>
+     </p>
+
+     <p class="navcategory" align="left">
+          <br>
+          <img class="bullet" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/bullet.gif" width="11" height="14"> Getting Help
+     </p>
+
+     <p class="navlist" align="left" style="font-size:14px;">
+             <a href="http://www.cprogramming.com/board.html">Message Board</a><br>
+             <a href="http://www.cprogramming.com/email.html">Email</a><br>
+             <a href="http://www.cprogramming.com/about.html">About Us</a>
+     </p>
+     </div>
+
+<center>
+      <br><br>
+     <script type="text/javascript"><!--
+     google_ad_client = "pub-2560316224908115";
+     google_ad_width = 120;
+     google_ad_height = 90;
+     google_ad_format = "120x90_0ads_al";
+     google_ad_channel ="0800879710";
+     google_color_border = "EBEBEB";
+     google_color_bg = "EBEBEB";
+     google_color_link = "C30000";
+     google_color_url = "C30000";
+     google_color_text = "000000";
+     //--></script>
+     <script type="text/javascript" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/show_ads.js.download">
+       </script>
+</center>
+
+
+
+    </td>
+	<td class="content" valign="top">
+
+    			<div class="content2">
+
+<h1>Const Correctness</h1>
+
+<div style="margin-right: 1em; float:left; padding: .4em; border-right: 1px solid #bbb"><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/alex-50-50.jpg" border="0" style="padding: 0.25em;"><br><a href="https://plus.google.com/113987539774523532573?rel=author"> By Alex Allain</a></div>
+
+The const keyword allows you to specify whether or not a variable is
+modifiable.  You can use const to prevent modifications to variables and const
+pointers and const references prevent changing the data pointed to (or
+referenced).  
+
+<br><br>
+But why do you care?
+<br><br><center>
+<div class="noprint">
+<!-- RunOfSite_LargeRectangle_ATF_336x280 -->
+<script type="text/javascript">
+GA_googleFillSlot('RunOfSite_LargeRectangle_ATF_336x280');
+</script>
+</div>
+
+
+</center>
+<br><br><br><br>
+Const gives you the ability to document your program more clearly and actually
+enforce that documentation.  By enforcing your documentation, the const keyword
+provides guarantees to your users that allow you to make performance
+optimizations without the threat of damaging their data.  For instance, const
+references allow you to specify that the data referred to won't be changed;
+this means that you can use const references as a simple and immediate way of
+improving performance for any function that currently takes objects by value
+without having to worry that your function might modify the data.  Even if it
+does, the compiler will prevent the code from compiling and alert you to the
+problem.  On the other hand, if you didn't use const references, you'd have 
+no easy way to ensure that your data wasn't modified.
+
+
+<h2>Documentation and Safety</h2>
+
+The primary purpose of constness is to provide documentation and prevent
+programming mistakes.  Const allows you to make it clear to yourself and others
+that something should not be changed.  Moreover, it has the added benefit that
+anything that you declare const will in fact remain const short of the use of
+forceful methods (which we'll talk about later).
+
+It's particularly useful to declare reference parameters to functions as const
+references:
+
+<pre class="example">bool verifyObjectCorrectness (const myObj&amp; obj);
+</pre>
+
+Here, a myObj object is passed by reference into verifyObjectCorrectness.  For
+safety's sake, const is used to ensure that verifyObjectCorrectness cannot change
+the object--after all, it's just supposed to make sure that the object is in a
+valid state.  This can prevent silly programming mistakes that might otherwise
+result in damaging the object (for instance, by setting a field of
+the class for testing purposes, which might result in the field's never being
+reset).  Moreover, by declaring the argument const, users of the function can
+be sure that their object will not be changed and not need to worry about the
+possible side effects of making the function call.  
+
+<h3>Syntax Note</h3>
+When declaring a const variable, it is possible to put const either before or after the type: that is, both
+
+<pre class="example">int const x = 5;
+</pre>
+
+and
+<pre class="example">const int x = 4;
+</pre>
+
+result in x's being a constant integer.  Note that in both cases, the value of
+the variable is specified in the declaration; there's no way to set it later!
+
+<h2>Const Pointers</h2>
+
+We've already seen const references demonstrated, and they're pretty natural:
+when you declare a const reference, you're only making the data referred to
+const.  References, by their very nature, cannot change what they refer to.
+Pointers, on the other hand, have two ways that you can use them: you can
+change the data pointed to, or change the pointer itself.  Consequently, there are two ways of declaring a const pointer: one that prevents you from changing what is pointed to, and one that prevents you from changing the data pointed to.
+
+<br><br>
+The syntax for declaring a pointer to constant data is natural enough:
+<pre class="example">const int *p_int;
+</pre>
+
+You can think of this as reading that *p_int is a "const int".  So the pointer may be changeable, but you definitely can't touch what p_int points to.  The key here is that the const appears before the *.
+
+<br><br> 
+On the other hand, if you just want the address stored in the pointer itself to
+be const, then you have to put const after the *:
+
+<pre class="example">int x;
+int * const p_int = &amp;x;
+</pre>
+
+Personally, I find this syntax kind of ugly; but there's not any other
+obviously better way to do it.  The way to think about it is that "* const
+p_int" is a regular integer, and that the value stored in p_int itself cannot change--so you just
+can't change the address pointed to.  Notice, by the way, that this pointer had
+to be initialized when it was declared: since the pointer itself is const, we
+can't change what it points to later on!  Them's the rules. 
+
+<br><br> 
+Generally, the first type of pointer, where the data is immutable, is what I'll refer to as a "const pointer" (in part because it's the kind that comes up more often, so we should have a natural way of describing it).
+
+<h2>Const Functions</h2>
+
+The effects of declaring a variable to be const propagate throughout the
+program.  Once you have a const object, it cannot be assigned to a non-const
+reference or use functions that are known to be capable of changing the state
+of the object.  This is necessary to enforce the const-ness of the object, but
+it means you need a way to state that a function should not make changes to an
+object.  In non-object-oriented code, this is as easy as using const references
+as demonstrated above.
+
+<br><br>
+In C++, however, there's the issue of classes with methods.  If you have a
+const object, you don't want to call methods that can change the object, so you
+need a way of letting the compiler know which methods can be safely called.
+These methods are called "const functions", and are the only functions that can
+be called on a const object.  Note, by the way, that only member methods make
+sense as const methods.  Remember that in C++, every method of an object
+receives an implicit this pointer to the object; const methods effectively
+receive a const this pointer.
+
+<br><br>
+The way to declare that a function is safe for const objects is simply to mark
+it as const; the syntax for const functions is a little bit peculiar because there's only one place where you can really put the const: at the end of the function:
+
+<pre class="example">&lt;return-value&gt; &lt;class&gt;::&lt;member-function&gt;(&lt;args&gt;) const
+{
+        // ...
+}
+</pre>
+
+For instance,
+
+<pre class="example">int Loan::calcInterest() const
+{
+        return loan_value * interest_rate; 
+}
+</pre>
+<br><br>
+Note that just because a function is declared const that doesn't prohibit non-const functions from using it; the rule is this:
+
+<ul>
+<li>Const functions can always be called
+</li>
+<li>Non-const functions can only be called by non-const objects
+</li>
+</ul>
+
+That makes sense: if you have a const function, all that means is that it
+guarantees it won't change the object.  So just because it is const doesn't
+mean that non-const objects can't use it.
+
+<br><br>
+
+As a matter of fact, const functions have a slightly stronger restriction than
+merely that they cannot modify the data.  They must make it so that they cannot
+be used in a way that would allow you to use them to modify const data.  This
+means that when const functions return references or pointers to members of the
+class, they must also be const.
+
+        <h3>Const Overloading</h3>
+
+In large part because const functions cannot return non-const references to an
+objects' data, there are many times where it might seem appropriate to have
+both const and non-const versions of a function.  For instance, if you are
+returning a reference to some member data (usually not a good thing to do, but
+there are exceptions), then you may want to have a non-const version of the
+function that returns a non-const reference:
+
+<pre class="example">int&amp; myClass::getData()
+{
+        return data;
+}
+</pre>
+
+On the other hand, you don't want to prevent someone using a const version of your object,
+
+<pre class="example">myClass constDataHolder;
+</pre>
+
+from getting the data.  You just want to prevent that person from changing it
+by returning a const reference.  But you probably don't want the name of the
+function to change just because you change whether the object is const or
+not--among other things, this would mean an awful lot of code might have to
+change just because you change how you declare a variable--going from a
+non-const to a const version of a variable would be a real headache.
+
+<br><br> 
+Fortunately, C++ allows you to overload based on the const-ness of a
+method.  So you can have both const and non-const methods, and the correct
+version will be chosen.  If you wish to return a non-const reference in some cases, you merely need to declare a second, const version of the method that returns a const method:
+
+<pre class="example">// called for const objects only since a non-const version also exists
+const int&amp; myData::getData() const
+{
+        return data;
+}
+</pre>
+
+
+<h2>Const iterators</h2>
+
+As we've already seen, in order to enforce const-ness, C++ requires that const
+functions return only const pointers and references.  Since iterators can also
+be used to modify the underlying collection, when an <a href="http://www.cprogramming.com/tutorial.html#stltutorial">STL</a> collection
+is declared const, then any iterators used over the collection must be const
+iterators.  They're just like normal iterators, except that they cannot be used
+to modify the underlying data.  (Since <a href="http://www.cprogramming.com/tutorial/stl/iterators.html">iterators</a> are
+a generalization of the idea of pointers, this makes sense.)
+
+<br><br> 
+Const iterators in the STL are simple enough: just append "const_" to the type of iterator you desire.  For instance, we could iterator over a vector as follows:
+
+<pre class="example">std::vector&lt;int&gt; vec;
+vec.push_back( 3 );
+vec.push_back( 4 );
+vec.push_back( 8 );
+
+for ( std::vector&lt;int&gt;::const_iterator itr = vec.begin(), end = vec.end(); 
+      itr != end;
+      ++itr )
+{
+        // just print out the values...
+        std::cout&lt;&lt; *itr &lt;&lt;std::endl;
+}
+</pre>
+
+Note that I used a const iterator to iterate over a non-const collection.  Why do that?  For the same reason that we normally use const: it prevents the possibility of silly programming mistakes ("oops, I meant to compare the two values, not assign them!") and it documents that we never intend to use the iterator to change the collection.
+
+<h2>Const cast</h2>
+
+Sometimes, you have a const variable and you really want to pass it into a
+function that you are certain won't modify it.  But that function doesn't
+declare its argument as const.  (This might happen, for instance, if a C
+library function like strlen were declared without using const.)  Fortunately,
+if you know that you are safe in passing a const variable into a function that
+doesn't explicitly indicate that it will not change the data, then you can use
+a const_cast in order to temporarily strip away the const-ness of the object.
+
+<br><br>
+Const casts look like regular <a href="http://www.cprogramming.com/tutorial/lesson11.html">typecasts in C++</a>,
+except that they can only be used for casting away constness (or volatile-ness)
+but not converting between types or casting down a class hierarchy.
+
+<pre class="example">// a bad version of strlen that doesn't declare its argument const
+int bad_strlen (char *x)
+{
+        strlen( x );
+}
+
+// note that the extra const is actually implicit in this declaration since
+// string literals are constant
+const char *x = "abc";
+
+// cast away const-ness for our strlen function 
+bad_strlen( const_cast&lt;char *&gt;(x) );
+</pre>
+
+Note that you can also use const_cast to go the other way--to add
+const-ness--if you really wanted to.
+
+
+<h2>Efficiency Gains?  A note about Conceptual vs. Bitwise Constness</h2>
+
+One common justification for const correctness is based on the misconception
+that constness can be used as the basis for optimizations.  Unfortunately, this
+is generally not the case--even if a variable is declared const, it will not
+necessarily remain unchanged.  First, it's possible to cast away constness
+using a const_cast.  It might seem like a silly thing to do when you declare a parameter to a function as const, but it's possible.  The second issue is that in classes, even const classes can be changed because of the mutable keyword.
+
+<h3>Mutable Data in Const Classes</h3>
+
+First, why would you ever want to have the ability to change data in a class
+that's declared const?  This gets at the heart of what constness means, and
+there are two ways of thinking about it.  One idea is that of "bitwise
+constness", which basically means that a const class should have exactly the
+same representation in memory at all times.  Unfortunately (or fortunately),
+this is not the paradigm used by the C++ standard; instead, C++ uses
+"conceptual constness".  Conceptual constness refers to the idea that the
+output of the const class should always be the same.  This means that the
+underlying data might change as long as the fundamental behavior remains the
+same.  (In essence, the "concept" is constant, but the representation may
+vary.)
+
+<h4>Why have conceptual constness?</h4>
+
+Why would you ever prefer conceptual constness to bitwise constness?  One
+reason is efficiency: for instance, if your class has a function that relies on
+a value that takes a long time to calculate, it might be more efficient to
+calculate the value once and then store it for later requests.  This won't
+change the behavior of the function--it will always return the same value.  It
+will, however, change the representation of the class because it must have some place to cache the value.
+
+<h4>C++ Support for Conceptual Constness</h4>
+
+C++ provides for conceptual constness by using the mutable keyword: when
+declaring a class, you may specify that some of the fields are mutable:
+
+<pre class="example">mutable int my_cached_result;
+</pre>
+
+this will allow const functions to change the field regardless of whether or
+not the object itself was declared as const. 
+
+<h3>Other Ways of Achieving The Same Gains</h3>
+
+If you were planning on using const to increase efficiency, think about what
+this would really mean--it would be akin to using the original data without
+making a copy of it.  But if you wanted to do that, the simplest approach would
+just be to use references or pointers (preferably const references or
+pointers).  This gives you a real efficiency gain without relying on compiler
+optimizations that probably aren't there.
+
+<h3>Dangers of Too-much Constness</h3>
+
+Beware of exploiting const too much; for instance, just because you can return
+a const reference doesn't mean that you should return a const reference.  The
+most important example is that if you have local data in a function, you
+really ought not return a reference to it at all (unless it is <a href="http://www.cprogramming.com/tutorial/statickeyword.html">static</a>) since it will be a reference to memory that is no longer valid.
+
+<br><br>
+Another time when returning a const reference may not a good idea is when you
+are returning a reference to member data of an object.  Although returning a
+const reference prevents anyone from changing the data by using it, it means
+that you have to have persistent data to back the reference--it has to actually
+be a field of the object and not temporary data created in the function.   Once
+you make the reference part of the interface to the class, then, you fix the
+implementation details.  This can be frustrating if you later wish to change
+your class's private data so the result of the function is computed when the
+function is invoked rather than actually be stored in the class at all times.
+
+<h2>Summary</h2> 
+
+Don't look at const as a means of gaining efficiency so much as a way to
+document your code and ensure that some things cannot change.  Remember that
+const-ness propagates throughout your program, so you must use const functions,
+const references, and const iterators to ensure that it would never be possible
+to modify data that was declared const.
+
+<!-- removed chitika -->
+ 
+<br><br><i>
+Parts of this article were based on material from <a href="http://www.amazon.com/exec/obidos/redirect?path=ASIN/020163371X&amp;link_code=as2&amp;camp=1789&amp;tag=lynnallain&amp;creative=9325">More
+Effective C++: 35 New Ways to Improve Your Programs and Designs</a><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/ir" width="1" height="1" border="0" alt="" style="border:none !important;
+margin:0px !important;"> by Scott Meyers and <a href="http://www.amazon.com/exec/obidos/redirect?path=ASIN/0201760428&amp;link_code=as2&amp;camp=1789&amp;tag=lynnallain&amp;creative=9325">Exceptional
+C++ Style : 40 New Engineering Puzzles, Programming Problems, and
+Solutions</a><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/ir(1)" width="1" height="1" border="0" alt="" style="border:none !important;
+margin:0px !important;"> by Herb Sutter.</i>
+            
+
+
+<div id="footer" class="noprint">
+
+<div id="social" style="margin-top:5px;height:23px;">
+<table>
+<tbody><tr>
+<td> 
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/0F7S7QWJ0Ac.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/0F7S7QWJ0Ac(1).html" style="border: none;"></iframe></div></div></div>
+<div id="fb-recommend" class="fb-like fb_iframe_widget" data-send="false" data-width="120" data-height="21" data-layout="button_count" data-action="recommend" data-href="http://www.cprogramming.com/tutorial/const_correctness.html" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=recommend&amp;app_id=&amp;container_width=0&amp;height=21&amp;href=http%3A%2F%2Fwww.cprogramming.com%2Ftutorial%2Fconst_correctness.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;width=120"><span style="vertical-align: bottom; width: 111px; height: 20px;"><iframe name="f2c1f8ff2a6d99c" width="120px" height="21px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/like.html" style="border: none; visibility: visible; width: 111px; height: 20px;" class=""></iframe></span></div>
+</td>
+<td>
+<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html" style="position: static; visibility: visible; width: 60px; height: 20px;"></iframe>
+</td>
+<td>
+<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1497288633377" name="I0_1497288633377" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+</td>
+</tr>
+</tbody></table>
+</div>
+
+<div style="font-size:14px;padding:10px;margin-top:5px;margin-bottom:5px;">
+<div style="width:400px; margin-top:10px; float:left; margin-bottom: 15px;">
+    <div id="old-ad" style="display: block;">
+    <a href="http://www.cprogramming.com/c++book/?inl=ft-nhp"><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/small_3d.jpg" border="0" align="left"></a><a href="http://www.cprogramming.com/c++book/?inl=ft-nhp">Want to become a C++ programmer? The Cprogramming.com ebook, Jumping into C++, will walk you through it, step-by-step. Get Jumping into C++ today!</a>
+    </div>
+    <div id="new-ad" style="display:none" onmousedown="window.location.href=&#39;http://www.cprogramming.com/c++book/?inl=ft-na&#39;">
+    <object width="336" height="280"><param name="bottom-ad" value="http://www.cprogramming.com/c++book/336x280.swf"><param name="wmode" value="transparent"><embed wmode="transparent" allowfullscreen="true" allowscriptaccess="always" src="http://www.cprogramming.com/c++book/336x280.swf" width="336" height="280"></object>
+    </div>
+</div>
+<div style="clear: both"></div>
+
+
+<script>
+function abTest(element_name_sets) {
+    var element_to_show;
+    var element_count = element_name_sets.length;
+    var i;
+    for ( i = 0; i < element_count; i++ )
+    {
+        if ( Math.random() <= 1 / ( element_count - i ) ) {
+                break;
+        }
+    }
+    var element_name_set = element_name_sets[ i ];
+    for ( i = 0; i < element_name_set.length; i++ )
+    {
+        element_to_show = document.getElementById( element_name_set[ i ] );
+        element_to_show.style.display = "block";
+    }
+}
+abTest( [["old-ad", "old-ad-text"]] );
+</script>
+
+<b>Popular pages</b>
+<ul>
+ <li><a href="http://www.cprogramming.com/begin.html">Exactly how to get started with C++ (or C) today</a> 
+</li><li><a href="http://www.cprogramming.com/tutorial/c-tutorial.html">C Tutorial</a>
+</li><li><a href="http://www.cprogramming.com/tutorial/c++-tutorial.html">C++ Tutorial</a>
+</li><li><a href="http://www.cprogramming.com/how_to_learn_to_program.html">5 ways you can learn to program faster</a> 
+</li><li><a href="http://www.cprogramming.com/beginner_programming_mistakes.html">The 5 Most Common Problems New Programmers Face</a>
+</li><li><a href="http://www.cprogramming.com/code_blocks/">How to set up a compiler</a>
+</li><li><a href="http://www.cprogramming.com/tutorial/common.html">8 Common programming Mistakes</a> 
+</li><li><a href="http://www.cprogramming.com/c++11/what-is-c++0x.html">What is C++11?</a>
+</li><li><a href="http://www.cprogramming.com/tutorial/game_programming/same_game_part1.html">How to make a game in 48 hours</a>
+</li></ul>
+
+<b>Recent additions</b> <a href="http://feeds2.feedburner.com/Cprogrammingcom" rel="alternate" type="application/rss+xml"><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/feed-icon16x16.png" alt="subscribe to a feed" style="border:0" width="16" height="16"></a>
+<ul>
+<li><a href="http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html">How to create a shared library on Linux with GCC</a> - December 30, 2011</li>
+<li> <a href="http://www.cprogramming.com/c++11/c++11-nullptr-strongly-typed-enum-class.html">Enum classes and nullptr in C++11</a> - November 27, 2011</li>
+<li><a href="http://www.cprogramming.com/tutorial/computersciencetheory/hash-table.html">Learn about The Hash Table</a> - November 20, 2011</li>
+<li><a href="http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html">Rvalue References and Move Semantics in C++11</a> - November 13, 2011</li>
+<li><a href="http://www.cprogramming.com/java/c-and-c++-for-java-programmers.html">C and C++ for Java Programmers</a> - November 5, 2011</li>
+<li><a href="http://www.cprogramming.com/tutorial/c++-iostreams.html">A Gentle Introduction to C++ IO Streams</a> - October 10, 2011</li>
+</ul>
+</div>
+<div id="ld-6395-8166" style="max-width: 1000px;"><iframe src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/8338751818573927.html" width="100%" scrolling="no" frameborder="0" seamless="" style="max-width: 1000px; min-width: 225px; box-sizing: border-box !important; display: none;"></iframe></div><script>(function(w,d,s,i){w.ldAdInit=w.ldAdInit||[];w.ldAdInit.push({slot:8338751818573927,size:[0, 0],id:"ld-6395-8166"});if(!d.getElementById(i)){var j=d.createElement(s),p=d.getElementsByTagName(s)[0];j.async=true;j.src="//cdn2.lockerdome.com/_js/ajs.js";j.id=i;p.parentNode.insertBefore(j,p);}})(window,document,"script","ld-ajs");</script>
+
+<style type="text/css">
+@import url(http://www.google.com/cse/api/branding.css);
+</style>
+<div class="cse-branding-bottom" style="background-color:#FFFFFF;color:#000000;width:50%; margin:auto">
+  <div class="cse-branding-form">
+    <form action="http://www.google.com/cse" id="cse-search-box">
+      <div>
+        <input type="hidden" name="cx" value="partner-pub-2560316224908115:0581759109">
+        <input type="hidden" name="ie" value="UTF-8">
+        <input type="text" name="q" size="55">
+        <input type="submit" name="sa" value="Search">
+      </div>
+    </form>
+  </div>
+  <div class="cse-branding-logo">
+    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/poweredby_FFFFFF.gif" alt="Google">
+  </div>
+  <div class="cse-branding-text">
+    Custom Search
+  </div>
+</div>
+
+
+<center>
+<div style="margin-top:20px; margin-bottom: 20px">
+<script type="text/javascript">
+<!--
+google_ad_client = "pub-2560316224908115";
+/* link_ads_bottom */
+google_ad_slot = "2258412831";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script> 
+<script type="text/javascript" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/show_ads.js.download"> </script> 
+</div>
+ 
+<script type="text/javascript" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/618210012.js.download"></script><style type="text/css">#af-form-618210012 .af-body .af-textWrap{width:98%;display:block;float:none;}#af-form-618210012 .af-body a{color:#AA0101;text-decoration:underline;font-style:normal;font-weight:normal;}#af-form-618210012 .af-body input.text, #af-form-618210012 .af-body textarea{background-color:#FFFFFF;border-color:#000000;border-width:1px;border-style:solid;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:12px;font-family:Verdana, sans-serif;}#af-form-618210012 .af-body input.text:focus, #af-form-618210012 .af-body textarea:focus{background-color:#FFFFFF;border-color:#AA0101;border-width:1px;border-style:solid;}#af-form-618210012 .af-body label.previewLabel{display:block;float:none;text-align:left;width:auto;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:12px;font-family:Verdana, sans-serif;}#af-form-618210012 .af-body{padding-bottom:15px;padding-top:0px;background-repeat:no-repeat;background-position:inherit;background-image:none;color:#000000;font-size:12px;font-family:Verdana, sans-serif;}#af-form-618210012 .af-footer{padding-bottom:0px;padding-top:0px;padding-right:15px;padding-left:15px;background-color:#transparent;border-width:1px;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;color:#000000;font-size:12px;font-family:Verdana, sans-serif;}#af-form-618210012 .af-header{padding-bottom:95px;padding-top:20px;padding-right:115px;padding-left:10px;background-color:transparent;background-repeat:no-repeat;background-position:top right;background-image:url("https://forms.aweber.com/images/forms/sign-up-below/big-red/header.png");border-width:1px;border-bottom-style:none;border-left-style:none;border-right-style:none;border-top-style:none;color:#AA0101;font-size:16px;font-family:Verdana, sans-serif;}#af-form-618210012 .af-quirksMode .bodyText{padding-top:2px;padding-bottom:2px;}#af-form-618210012 .af-quirksMode{padding-right:15px;padding-left:15px;}#af-form-618210012 .af-standards .af-element{padding-right:15px;padding-left:15px;}#af-form-618210012 .bodyText p{margin:1em 0;}#af-form-618210012 .buttonContainer input.submit{background-color:#0479C2;background-image:url("https://forms.aweber.com/images/forms/sign-up-below/big-red/button.png");color:#FFFFFF;text-decoration:none;font-style:normal;font-weight:normal;font-size:14px;font-family:Verdana, sans-serif;}#af-form-618210012 .buttonContainer input.submit{width:auto;}#af-form-618210012 .buttonContainer{text-align:center;}#af-form-618210012 body,#af-form-618210012 dl,#af-form-618210012 dt,#af-form-618210012 dd,#af-form-618210012 h1,#af-form-618210012 h2,#af-form-618210012 h3,#af-form-618210012 h4,#af-form-618210012 h5,#af-form-618210012 h6,#af-form-618210012 pre,#af-form-618210012 code,#af-form-618210012 fieldset,#af-form-618210012 legend,#af-form-618210012 blockquote,#af-form-618210012 th,#af-form-618210012 td{float:none;color:inherit;position:static;margin:0;padding:0;}#af-form-618210012 button,#af-form-618210012 input,#af-form-618210012 submit,#af-form-618210012 textarea,#af-form-618210012 select,#af-form-618210012 label,#af-form-618210012 optgroup,#af-form-618210012 option{float:none;position:static;margin:0;}#af-form-618210012 div{margin:0;}#af-form-618210012 fieldset{border:0;}#af-form-618210012 form,#af-form-618210012 textarea,.af-form-wrapper,.af-form-close-button,#af-form-618210012 img{float:none;color:inherit;position:static;background-color:none;border:none;margin:0;padding:0;}#af-form-618210012 input,#af-form-618210012 button,#af-form-618210012 textarea,#af-form-618210012 select{font-size:100%;}#af-form-618210012 p{color:inherit;}#af-form-618210012 select,#af-form-618210012 label,#af-form-618210012 optgroup,#af-form-618210012 option{padding:0;}#af-form-618210012 table{border-collapse:collapse;border-spacing:0;}#af-form-618210012 ul,#af-form-618210012 ol{list-style-image:none;list-style-position:outside;list-style-type:disc;padding-left:40px;}#af-form-618210012,#af-form-618210012 .quirksMode{width:100%;max-width:429px;}#af-form-618210012.af-quirksMode{overflow-x:hidden;}#af-form-618210012{background-color:transparent;border-color:#CFCFCF;border-width:1px;border-style:none;}#af-form-618210012{display:block;}#af-form-618210012{overflow:hidden;}.af-body .af-textWrap{text-align:left;}.af-body input.image{border:none!important;}.af-body input.submit,.af-body input.image,.af-form .af-element input.button{float:none!important;}.af-body input.text{width:100%;float:none;padding:2px!important;}.af-body.af-standards input.submit{padding:4px 12px;}.af-clear{clear:both;}.af-element label{text-align:left;display:block;float:left;}.af-element{padding-bottom:5px;padding-top:5px;}.af-form-wrapper{text-indent:0;}.af-form{text-align:left;margin:auto;}.af-header,.af-footer{margin-bottom:0;margin-top:0;padding:10px;}.af-quirksMode .af-element{padding-left:0!important;padding-right:0!important;}.lbl-right .af-element label{text-align:right;}body {}</style><form method="post" class="af-form-wrapper" accept-charset="UTF-8" action="https://www.aweber.com/scripts/addlead.pl"><div style="display: none;"><input type="hidden" name="meta_web_form_id" value="618210012"><input type="hidden" name="meta_split_id" value=""><input type="hidden" name="listname" value="cprogramming"><input type="hidden" name="redirect" value="http://www.cprogramming.com/ml_thankyou.html" id="redirect_0ca55268383156f000c33a36a5013bff"><input type="hidden" name="meta_adtracking" value="inline"><input type="hidden" name="meta_message" value="1"><input type="hidden" name="meta_required" value="email"><input type="hidden" name="meta_tooltip" value=""></div><div id="af-form-618210012" class="af-form"><div id="af-header-618210012" class="af-header"><div class="bodyText"><center><div><div>Join our mailing list to keep up with the latest news and updates about Cprogramming.com!</div>&nbsp;</div></center></div></div><div id="af-body-618210012" class="af-body af-standards"><div class="af-element"><label class="previewLabel" for="awf_field-28821296">Name</label><div class="af-textWrap"><input id="awf_field-28821296" type="text" name="name" class="text" value="" onfocus=" if (this.value == &#39;&#39;) { this.value = &#39;&#39;; }" onblur="if (this.value == &#39;&#39;) { this.value=&#39;&#39;;} " tabindex="500"></div><div class="af-clear"></div></div><div class="af-element"><label class="previewLabel" for="awf_field-28821297">Email</label><div class="af-textWrap"><input class="text" id="awf_field-28821297" type="text" name="email" value="" tabindex="501" onfocus=" if (this.value == &#39;&#39;) { this.value = &#39;&#39;; }" onblur="if (this.value == &#39;&#39;) { this.value=&#39;&#39;;} "></div><div class="af-clear"></div></div><div class="af-element"><div class="bodyText"><center></center></div><div class="af-clear"></div></div><div class="af-element buttonContainer"><input name="submit" id="af-submit-image-618210012" type="image" class="image" style="background: none; max-width: 100%;" alt="Submit Form" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/button.png" tabindex="502"><div class="af-clear"></div></div><div class="af-element" style="text-align: center"><img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/saved_resource" alt="Subscriber Counter"></div></div><div id="af-footer-618210012" class="af-footer"><div class="bodyText"><p>&nbsp;</p></div></div></div></form><script type="text/javascript">// Special handling for facebook iOS since it cannot open new windows(function() {    if (navigator.userAgent.indexOf('FBIOS') !== -1 || navigator.userAgent.indexOf('Twitter for iPhone') !== -1) {        document.getElementById('af-form-618210012').parentElement.removeAttribute('target');    }})();</script><script type="text/javascript">    <!--    (function() {        var IE = /*@cc_on!@*/false;        if (!IE) { return; }        if (document.compatMode && document.compatMode == 'BackCompat') {            if (document.getElementById("af-form-618210012")) {                document.getElementById("af-form-618210012").className = 'af-form af-quirksMode';            }            if (document.getElementById("af-body-618210012")) {                document.getElementById("af-body-618210012").className = "af-body inline af-quirksMode";            }            if (document.getElementById("af-header-618210012")) {                document.getElementById("af-header-618210012").className = "af-header af-quirksMode";            }            if (document.getElementById("af-footer-618210012")) {                document.getElementById("af-footer-618210012").className = "af-footer af-quirksMode";            }        }    })();    --></script>
+
+<div class="footer-links" style="padding:10px">
+<a href="http://www.cprogramming.com/advertising.html">Advertising</a> | <a href="http://www.cprogramming.com/privacy.html">Privacy policy</a> |
+<a href="http://www.cprogramming.com/use.html">Copyright © 1997-2011 Cprogramming.com. All rights reserved.</a> | <a href="mailto:webmaster@cprogramming.com">webmaster@cprogramming.com</a>
+</div>
+</center></div>
+</div>
+</td>
+    	
+
+
+<td class="content noprint" valign="top" rowspan="1" bgcolor="#EBEBEB">
+<div class="content2"><br><div class="verticalad">
+
+
+
+
+<script type="text/javascript">
+GA_googleFillSlot("RunOfSite_ATF_skyscraper_160x600");
+</script>
+
+
+
+
+
+
+</div><br>
+
+<style type="text/css">
+.sidebar-box { width: 150px; margin-bottom:5px; }
+</style>
+    <div id="side-images">
+        <div style="padding:5px;margin-top:5px">
+            <div style="margin-bottom: 5px">
+                <b>Popular pages</b>
+            </div>
+            <div>
+                
+                <!--http://www.flickr.com/photos/baslow/5620208/sizes/o/in/photostream/ -->
+                <div class="sidebar-box">
+                    <a href="http://www.cprogramming.com/tutorial/c-tutorial.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/5620208_bff9c514e6_s.jpg" border="0" height="75" width="75" alt="C tutorial">
+                    <br>
+                    C Tutorial
+                    </a>
+                </div>
+                
+
+                
+                <!--http://www.flickr.com/photos/29233640@N07/2855530649/sizes/sq/in/photostream/-->
+                <div class="sidebar-box">
+                    <a href="http://www.cprogramming.com/begin.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/2855530649_905f7862fd_s.jpg" border="0" height="75" width="75" alt="Get started">
+                    <br>
+                    Exactly how to get started with C++ (or C) today</a>
+                </div>
+                
+
+                
+                <!--http://www.flickr.com/photos/mikecogh/6505012533/sizes/sq/in/photostream/-->
+                <div class="sidebar-box">
+                    <a href="http://www.cprogramming.com/how_to_learn_to_program.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/6505012533_55c83fdfa0_s.jpg" border="0" height="75" width="75" alt="Learn to program">
+                    <br>
+                    5 ways you can learn to program faster</a>
+                </div>
+                
+
+                
+                <div class="sidebar-box">
+                    <a href="http://www.cprogramming.com/tutorial/c++-tutorial.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/c++-img.png" border="0" height="75" width="75" alt="C++ tutorial">
+                    <br>
+                    C++ Tutorial</a>
+                </div>
+                
+
+                
+                <!--http://www.flickr.com/photos/giopuo/3441263816/sizes/sq/in/photostream/-->
+                <div class="sidebar-box">
+                    <a href="http://www.cprogramming.com/beginner_programming_mistakes.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/3441263816_95f132a884_s.jpg" border="0" height="75" width="75" alt="Problems new programmers face">
+                    <br>
+                    The 5 Most Common Problems New Programmers Face</a>
+                </div>
+                
+
+                
+                <div class="sidebar-box">
+                   <a href="http://www.cprogramming.com/tutorial/game_programming/same_game_part1.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/same_game_small.png" border="0" height="42" width="42" alt="Learn to make a game">
+                    <br>
+                   How to make a game in 48 hours</a>
+                </div>
+                
+
+                
+                <div class="sidebar-box">
+                   <a href="http://www.cprogramming.com/tutorial/common.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/2291127824_087a497bea_s.jpg" border="0" height="75" width="75" alt="Common problems">
+                    <br>
+                   8 Common Programming Mistakes</a>
+                </div>
+                
+
+                
+                <div class="sidebar-box">
+                   <a href="http://www.cprogramming.com/c++11/what-is-c++0x.html">
+                    <img src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/c++11.png" border="0" height="75" width="75" alt="C++11">
+                    <br>
+                   What is C++11?</a>
+                </div>
+                
+            </div>
+        </div>
+        <div style="display:block">
+            <a href="http://www.cprogramming.com/image_credits.html">Image credits</a>
+        </div>
+    </div>
+</div>
+</td>  	
+
+</tr>
+</tbody></table>
+</div>
+
+
+<script>
+(function(w, d, s) {
+  var cur_url = window.location;
+  var loc = cur_url;
+  if ( /htm(l?)/.test( cur_url.pathname ) ) {
+    loc = cur_url.protocol + "//" + cur_url.host + cur_url.pathname.replace( /\+/g, "%2b" );
+  }
+  d.getElementById( "fb-recommend" ).setAttribute( "data-href", loc );
+  function go(){
+    var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.src = url; js.id = id;
+          fjs.parentNode.insertBefore(js, fjs);
+        };
+    load('//connect.facebook.net/en_US/all.js#xfbml=1&channelUrl=http%3A%2F%2Fwww.cprogramming.com%2Ffb%2Fchannel.html', 'fbjssdk');
+    load('https://apis.google.com/js/plusone.js', 'gplus1js');
+    load('//platform.twitter.com/widgets.js', 'tweetjs');
+  }
+  if (w.addEventListener) { w.addEventListener("load", go, false); }
+  else if (w.attachEvent) { w.attachEvent("onload",go); }
+}(window, document, 'script'));
+</script>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="./Const Correctness - C++ Tutorials - Cprogramming.com_files/adcss.css" media="screen">
+
+<script src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/monetization.js.download" type="text/javascript"></script>
+<div id="default_demo"></div>
+<script>
+(function(){
+  // format, zoneKey, segment:value, options
+  _bsa.init('default', 'CVADL27M', 'placement:demo', {
+    target: '#default_demo',
+    align: 'horizontal',
+    disable_css: 'true'
+  });
+})();
+</script>
+
+</div><iframe name="oauth2relay691880058" id="oauth2relay691880058" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" src="./Const Correctness - C++ Tutorials - Cprogramming.com_files/saved_resource.html"></iframe></body></html>

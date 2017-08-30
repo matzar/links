@@ -1,0 +1,16 @@
+(function(){
+  window['optimizely'] = window['optimizely'] || [];
+  window['optimizely'].push(['activateGeoDelayedExperiments', {
+    'location':{
+      'city': "DUNDEE",
+      'continent': "EU",
+      'country': "GB",
+      'region': "SC"
+    },
+    'ip':"193.60.167.74"
+  }]);
+})
+//
+()
+
+;
